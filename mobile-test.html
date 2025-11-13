@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Mobile Test - Haitham Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .test-info {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .screen-size {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+    <script>
+        function updateScreenSize() {
+            document.getElementById('screen-width').textContent = window.innerWidth;
+            document.getElementById('screen-height').textContent = window.innerHeight;
+        }
+        window.addEventListener('load', updateScreenSize);
+        window.addEventListener('resize', updateScreenSize);
+    </script>
+</head>
+<body>
+    <div class="test-info">
+        <h3>📱 Mobile Test Page</h3>
+        <p class="screen-size">
+            Screen: <span id="screen-width">-</span> x <span id="screen-height">-</span> px
+        </p>
+    </div>
+    
+    <div class="wrapper">
+        <header>
+            <a class="image avatar">
+                <img src="img/me.png" alt="avatar" />
+            </a>
+            <h1 style="margin: 5pt">Haitham Hattan</h1>
+            <email>info [at] haithamhattan.sa</email>
+            <br /><br />
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </header>
+        
+        <section>
+            <h3>Test Content</h3>
+            <p>This is a test page to verify mobile responsiveness.</p>
+            
+            <h3>Experience</h3>
+            <div style="padding-right: 10px; padding-left: 20px">
+                <strong>Full Stack Developer</strong> • MDS CS • Jul 2025 - Present<br />
+                Testing long text to see how it wraps on mobile devices and small screens.
+            </div>
+        </section>
+    </div>
+</body>
+</html>

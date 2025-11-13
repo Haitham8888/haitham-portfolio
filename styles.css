@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&family=Ubuntu+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap");
 
 /* Global Styles */
 :root {
@@ -12,6 +14,22 @@
   --global-footer-text-color: #e8e8e8;
   --global-footer-link-color: #ffffff;
   --global-distill-app-color: #828282;
+}
+
+/* Language-specific fonts */
+[lang="ar"] body,
+[lang="ar"] {
+  font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+}
+
+[lang="zh"] body,
+[lang="zh"] {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+[lang="en"] body,
+[lang="en"] {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
@@ -41,6 +59,16 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h3,
@@ -87,10 +115,17 @@ h1 {
 a {
   color: #39c;
   text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 153, 204, 0.3);
+  touch-action: manipulation;
 }
 
 a:hover {
   color: #069;
+}
+
+a:active {
+  color: #069;
+  opacity: 0.8;
 }
 
 a small {
@@ -133,12 +168,14 @@ pre {
 }
 
 pre {
-  max-width: 500px;
+  max-width: 100%;
   padding: 8px 15px;
   background: #f8f8f8;
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   overflow-x: auto;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 table {
@@ -314,16 +351,22 @@ footer {
   font-size: 1.15rem;
   line-height: 2.5rem;
   margin-right: 1rem;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: rgba(0, 153, 204, 0.3);
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .social-icons a:last-child {
   margin-right: 0;
 }
 
-.social-icons a:hover {
-  background-color: white;
-  color: black;
-  transform: scale(1.2);
+.social-icons a:hover,
+.social-icons a:active {
+  background-color: #f0f0f0;
+  color: #069 !important;
+  transform: scale(1.1);
 }
 
 email {
@@ -466,33 +509,36 @@ education {
     width: auto;
   }
   header {
-    padding-right: 320px;
+    padding-right: 0;
+    text-align: center;
+    padding-top: 2em;
   }
   section {
     border: 1px solid #e5e5e5;
     border-width: 1px 0;
-    padding: 20px 0;
+    padding: 20px 15px;
     margin: 0 0 20px;
   }
   header a small {
     display: inline;
   }
   header ul {
-    position: absolute;
-    right: 50px;
-    top: 52px;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 20px auto;
   }
   .image.avatar img {
     border-radius: 25%;
-    width: 180px;
-    padding: 20px;
+    width: 150px;
+    padding: 15px;
   }
 }
 
 @media print, screen and (max-width: 720px) {
   body {
     word-wrap: break-word;
-    padding: 15px;
+    padding: 10px;
   }
   .pub-row {
     display: flex;
@@ -500,10 +546,70 @@ education {
   }
   header {
     padding: 0;
+    padding-top: 1em;
+  }
+  section {
+    padding: 15px 10px;
   }
   pre,
   code {
     word-wrap: normal;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 140%;
+  }
+  h3 {
+    font-size: 120%;
+  }
+  p, li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .image.avatar img {
+    width: 120px;
+    padding: 10px;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .social-icons a {
+    height: 2rem;
+    width: 2rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    margin-right: 0.5rem;
+  }
+  email {
+    font-size: 14px;
+  }
+  .wrapper {
+    max-width: 100%;
+  }
+}
+
+/* أجهزة لوحية أفقية */
+@media print, screen and (min-width: 481px) and (max-width: 720px) {
+  body {
+    padding: 20px;
+  }
+  section {
+    padding: 20px 15px;
+  }
+  .image.avatar img {
+    width: 140px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  p, li {
+    font-size: 17px;
   }
 }
 
@@ -513,7 +619,14 @@ education {
     align-items: center;
   }
   body {
-    padding: 15px;
+    padding: 8px;
+  }
+  header {
+    padding: 0;
+    padding-top: 0.5em;
+  }
+  section {
+    padding: 10px 5px;
   }
   header ul {
     width: 99%;
@@ -524,8 +637,91 @@ education {
   }
   .image.avatar img {
     border-radius: 25%;
-    width: 180px;
-    padding: 20px;
+    width: 100px;
+    padding: 8px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+  }
+  p, li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .social-icons a {
+    height: 2.2rem;
+    width: 2.2rem;
+    font-size: 1rem;
+    line-height: 2.2rem;
+    margin-right: 0.5rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  email {
+    font-size: 13px;
+    word-break: break-word;
+  }
+  education {
+    font-size: 105%;
+  }
+  .wrapper {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  strong {
+    word-break: break-word;
+  }
+  .publications ol.bibliography li {
+    min-height: auto;
+    margin-bottom: 1rem;
+  }
+  .publications ol.bibliography li .title {
+    font-size: 16px;
+  }
+  .publications ol.bibliography li .author {
+    font-size: 14px;
+  }
+  .publications ol.bibliography li .adoption {
+    font-size: 14px;
+  }
+  
+  /* تحسينات إضافية للجوالات */
+  div[style*="padding-left: 20px"] {
+    padding-left: 10px !important;
+    padding-right: 5px !important;
+  }
+  
+  br {
+    line-height: 1.2;
+  }
+  
+  /* تحسين القراءة */
+  body {
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* منع التكبير غير المرغوب */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* تحسين الأزرار والروابط للمس */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* تحسين النصوص الطويلة */
+  p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
 
@@ -536,3 +732,54 @@ education {
     color: #444;
   }
 }
+
+/* RTL Support for Arabic */
+[lang="ar"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[lang="ar"] header {
+  float: right;
+}
+
+[lang="ar"] section {
+  float: left;
+}
+
+[lang="ar"] footer {
+  float: right;
+}
+
+[lang="ar"] .social-icons {
+  direction: ltr;
+}
+
+[lang="ar"] [style*="padding-left: 20px"] {
+  padding-left: 0 !important;
+  padding-right: 20px !important;
+}
+
+[lang="ar"] [style*="padding-right: 10px"] {
+  padding-right: 0 !important;
+  padding-left: 10px !important;
+}
+
+/* Chinese font optimization */
+[lang="zh"] body {
+  letter-spacing: 0.02em;
+}
+
+[lang="zh"] h1, [lang="zh"] h2, [lang="zh"] h3 {
+  letter-spacing: 0.05em;
+}
+
+/* Responsive RTL fixes */
+@media print, screen and (max-width: 960px) {
+  [lang="ar"] header,
+  [lang="ar"] section,
+  [lang="ar"] footer {
+    float: none;
+  }
+}
+
