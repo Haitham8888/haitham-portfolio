@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,24 +8,25 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>هيثم هتان - مهندس برمجيات</title>
-    
+
     <meta name="description" content="هيثم هتان مهندس تقنيات ومتخصص في الذكاء الاصطناعي وإدارة المشاريع التقنية" />
     <meta name="keywords" content="هيثم هتان | تطوير ويب | ذكاء اصطناعي | إدارة مشاريع | أمن سيبراني" />
-    
+
     <link rel="canonical" href="https://haithamhattan.sa" />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css"
+        integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
-    
+
     <!-- Apply language direction immediately -->
     <script>
-        (function() {
+        (function () {
             const savedLang = localStorage.getItem('preferredLanguage') || 'ar';
             document.documentElement.setAttribute('lang', savedLang);
             document.documentElement.setAttribute('dir', savedLang === 'ar' ? 'rtl' : 'ltr');
         })();
     </script>
-    
+
     <link rel="stylesheet" href="styles.css">
     <style>
         .language-switcher {
@@ -33,7 +35,7 @@
             right: 20px;
             z-index: 1000;
         }
-        
+
         .lang-toggle-btn {
             background: white;
             border: 2px solid #39c;
@@ -44,21 +46,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
         }
-        
+
         .lang-toggle-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
-        
+
         .lang-toggle-btn svg {
             width: 24px;
             height: 24px;
             fill: #39c;
         }
-        
+
         .lang-dropdown {
             position: absolute;
             top: 60px;
@@ -67,27 +69,28 @@
             border: 2px solid #39c;
             border-radius: 15px;
             padding: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             display: none;
             min-width: 60px;
         }
-        
+
         .lang-dropdown.show {
             display: block;
             animation: slideDown 0.3s ease;
         }
-        
+
         @keyframes slideDown {
             from {
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .lang-option {
             display: flex;
             align-items: center;
@@ -97,63 +100,69 @@
             border-radius: 10px;
             transition: all 0.2s ease;
         }
-        
+
         .lang-option:hover {
             background: #f0f0f0;
             transform: scale(1.15);
         }
-        
+
         .lang-option.active {
             background: #39c;
         }
-        
+
         .lang-option .flag {
             font-size: 28px;
         }
-        
+
         [lang="ar"] {
             direction: rtl;
             text-align: right;
         }
-        
+
         [lang="en"] {
             direction: ltr;
             text-align: left;
         }
-        
+
         [lang="zh"] {
             direction: ltr;
             text-align: left;
         }
-        
+
         @media (max-width: 480px) {
             .language-switcher {
                 top: 10px;
                 right: 10px;
             }
+
             .lang-toggle-btn {
                 width: 45px;
                 height: 45px;
             }
+
             .lang-dropdown {
                 top: 55px;
                 min-width: 55px;
             }
+
             .lang-option {
                 padding: 6px;
             }
+
             .lang-option .flag {
                 font-size: 24px;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Language Switcher -->
     <div class="language-switcher">
         <button class="lang-toggle-btn" onclick="toggleLanguageDropdown()" title="Change Language">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+                <path
+                    d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
             </svg>
         </button>
         <div class="lang-dropdown" id="langDropdown">
@@ -168,14 +177,15 @@
             </div>
         </div>
     </div>
-    
+
     <div class="wrapper">
         <header>
             <a class="image avatar">
-                <img src="img/me.png" alt="avatar" />
+                <img src="img/haitham.jpg" alt="avatar" />
             </a>
 
-            <h1 style="margin: 5pt"><span class="translate" data-ar="هيثم هتان" data-en="Haitham Hattan" data-zh="海瑟姆·哈坦">هيثم هتان</span></h1>
+            <h1 style="margin: 5pt"><span class="translate" data-ar="هيثم هتان" data-en="Haitham Hattan"
+                    data-zh="海瑟姆·哈坦">هيثم هتان</span></h1>
 
             <email>info@haithamhattan.sa</email>
 
@@ -190,12 +200,8 @@
                     <i class="fa-brands fa-github" style="font-size: 1.5rem"></i>
                 </a>
 
-                <a style="margin: 0 5px 0 0" href="https://x.com/HattanHaitham">
+                <a style="margin: 0 0 0 0" href="https://x.com/HattanHaitham">
                     <i class="fa-brands fa-x-twitter" style="font-size: 1.5rem"></i>
-                </a>
-
-                <a style="margin: 0 0 0 0" href="https://mvp.microsoft.com/en-US/studentambassadors/profile/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">
-                    <i class="fa-brands fa-microsoft" style="font-size: 1.5rem"></i>
                 </a>
             </div>
             <br />
@@ -204,9 +210,21 @@
             <h3 id="about-me">نبذة عني</h3>
 
             <p>
-                أنا <strong>مهندس تقنيات</strong> و<strong>متخصص في الذكاء الاصطناعي والتعلم الآلي</strong> و<strong>مدير مشاريع تقنية</strong> بخلفية قوية في قيادة مبادرات التحول الرقمي وتطوير حلول تقنية مبتكرة.<br /><br />
-                أنا <strong>المؤسس والرئيس التنفيذي</strong> لـ <a href="https://maysour.sa/">ميسور</a>، شركة تقنية مالية متخصصة في رقمنة سجلات الديون للمتاجر الصغيرة وتطبيق حلول دفع آمنة. كما أنني <strong><a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">سفير طلبة مايكروسوفت</a></strong>، حيث أساعد الطلاب على تطوير مهاراتهم التقنية والمهنية من خلال بناء المجتمعات ومبادرات الابتكار.<br /><br />
-                يشمل عملي <strong>تطوير انظمة وبرامج وتطبيقات</strong> و<strong>الذكاء الاصطناعي والتعلم الآلي</strong> و<strong>تطوير التطبيقات الآمنة</strong> و<strong>إدارة المشاريع</strong>. لدي خبرة في بناء تطبيقات الويب الديناميكية، وتطوير حلول مدفوعة بالذكاء الاصطناعي، وتنسيق الفرق متعددة الوظائف، وقيادة الابتكار مع الحفاظ على معايير تقنية عالية.<br /><br />
+                أنا <strong>مهندس تقنيات</strong> و<strong>متخصص في الذكاء الاصطناعي والتعلم الآلي</strong>
+                و<strong>مدير مشاريع تقنية</strong> بخلفية قوية في قيادة مبادرات التحول الرقمي وتطوير حلول تقنية
+                مبتكرة.<br /><br />
+                حالياً، أعمل كـ<strong>مهندس تقنيات</strong> في <strong>MDS لأنظمة الحاسوب (MDS CS)</strong>، حيث أقوم
+                بتطوير وصيانة تطبيقات ويب ديناميكية بتصميم متجاوب، وتصميم ودمج واجهات برمجية لتحسين كفاءة تبادل
+                البيانات.<br /><br />
+                أنا <strong>المؤسس والرئيس التنفيذي</strong> لـ <a href="https://maysour.sa/">ميسور</a>، شركة تقنية
+                مالية متخصصة في رقمنة سجلات الديون للمتاجر الصغيرة وتطبيق حلول دفع آمنة. كما أنني <strong><a
+                        href="https://mvp.microsoft.com/studentambassadors/certificate/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">سفير
+                        طلبة مايكروسوفت</a></strong>، حيث أساعد الطلاب على تطوير مهاراتهم التقنية والمهنية من خلال بناء
+                المجتمعات ومبادرات الابتكار.<br /><br />
+                يشمل عملي <strong>تطوير انظمة وبرامج وتطبيقات</strong> و<strong>الذكاء الاصطناعي والتعلم الآلي</strong>
+                و<strong>تطوير التطبيقات الآمنة</strong> و<strong>إدارة المشاريع</strong>. لدي خبرة في بناء تطبيقات
+                الويب الديناميكية، وتطوير حلول مدفوعة بالذكاء الاصطناعي، وتنسيق الفرق متعددة الوظائف، وقيادة الابتكار مع
+                الحفاظ على معايير تقنية عالية.<br /><br />
                 المزيد عن عملي وخلفيتي على ملفي في <a href="https://www.linkedin.com/in/haithamhattan/">LinkedIn</a>.
             </p>
 
@@ -220,7 +238,8 @@
                                 <div class="title">مهندس تقنيات</div>
                                 <div class="author">MDS لأنظمة الحاسوب (MDS CS) · يوليو 2025 - حتى الآن</div>
                                 <div class="adoption">
-                                    تطوير وصيانة تطبيقات ويب ديناميكية بتصميم متجاوب. تصميم ودمج APIs، تحسين كفاءة تبادل البيانات بنسبة 30%.
+                                    تطوير وصيانة تطبيقات ويب ديناميكية بتصميم متجاوب. تصميم ودمج APIs، تحسين كفاءة تبادل
+                                    البيانات بنسبة 30%.
                                 </div>
                             </div>
                         </div>
@@ -234,7 +253,8 @@
                                 <div class="title">المؤسس والرئيس التنفيذي</div>
                                 <div class="author">Maysour · 2022 - حتى الآن</div>
                                 <div class="adoption">
-                                    قيادة شركة تقنية مالية متخصصة في رقمنة سجلات الديون للمتاجر الصغيرة وتطبيق حلول دفع آمنة.
+                                    قيادة شركة تقنية مالية متخصصة في رقمنة سجلات الديون للمتاجر الصغيرة وتطبيق حلول دفع
+                                    آمنة.
                                 </div>
                             </div>
                         </div>
@@ -248,7 +268,8 @@
                                 <div class="title">سفير طلبة مايكروسوفت</div>
                                 <div class="author">Microsoft · 2024 - حتى الآن</div>
                                 <div class="adoption">
-                                    قائد عالمي في الحرم الجامعي يساعد الطلاب على تطوير مهاراتهم التقنية والمهنية من خلال بناء المجتمعات ومبادرات الابتكار.
+                                    قائد عالمي في الحرم الجامعي يساعد الطلاب على تطوير مهاراتهم التقنية والمهنية من خلال
+                                    بناء المجتمعات ومبادرات الابتكار.
                                 </div>
                             </div>
                         </div>
@@ -262,7 +283,8 @@
                                 <div class="title">الأمن السيبراني وتحليل البيانات</div>
                                 <div class="author">STC · 2023 - 2024</div>
                                 <div class="adoption">
-                                    قيادة مبادرات الأمن السيبراني ومشاريع تحليل البيانات، تنفيذ تدابير أمنية متقدمة وحلول تصور البيانات.
+                                    قيادة مبادرات الأمن السيبراني ومشاريع تحليل البيانات، تنفيذ تدابير أمنية متقدمة
+                                    وحلول تصور البيانات.
                                 </div>
                             </div>
                         </div>
@@ -276,7 +298,8 @@
                                 <div class="title">مهندس أمن شبكات</div>
                                 <div class="author">eHealth SA · يونيو 2023 - سبتمبر 2023</div>
                                 <div class="adoption">
-                                    تصميم وتنفيذ ومراقبة أنظمة شبكات آمنة. العمل مع Firewalls، IDS/IPS، F5 BigIP، Linux، وKali.
+                                    تصميم وتنفيذ ومراقبة أنظمة شبكات آمنة. العمل مع Firewalls، IDS/IPS، F5 BigIP، Linux،
+                                    وKali.
                                 </div>
                             </div>
                         </div>
@@ -288,11 +311,19 @@
             <h3 id="projects">المشاريع</h3>
 
             <div style="padding-right: 10px; padding-left: 20px">
-                <div class="project"><span class="title">ميسور (تطبيق YUSR): حل رقمي لإدارة الديون للشركات الصغيرة مع تكامل آمن للدفع.</span></div>
+                <div class="project"><span class="title"><a href="https://haitham8888.github.io/Mysour/"
+                            target="_blank"></a>ميسور (تطبيق YUSR)</a>: حل رقمي لإدارة الديون للشركات الصغيرة مع تكامل
+                        آمن للدفع.</span></div>
                 <div style="line-height: 50%"><br /></div>
-                <div class="project"><span class="title">تطبيق MNBET: مشروع مدفوع بالذكاء الاصطناعي يحدد أمراض وآفات نباتات البن من خلال تحليل الصور.</span></div>
+                <div class="project"><span class="title">تطبيق MNBET: مشروع مدفوع بالذكاء الاصطناعي يحدد أمراض وآفات
+                        نباتات البن من خلال تحليل الصور.</span></div>
                 <div style="line-height: 50%"><br /></div>
-                <div class="project"><span class="title">بوت SANKA: بوت آلي لتبسيط العمليات التجارية.</span></div>
+                <div class="project"><span class="title"><a href="https://github.com/Haitham8888/SANKA_Ai"
+                            target="_blank">بوت SANKA</a>: بوت آلي لتبسيط العمليات التجارية.</span></div>
+                <div style="line-height: 50%"><br /></div>
+                <div class="project"><span class="title"><a href="https://github.com/Haitham8888/Waselani"
+                            target="_blank">تطبيق وصلني</a>: تطبيق توصيل يخدم منطقة جازان والمناطق الريفية المجاورة
+                        بخدمات سريعة وموثوقة.</span></div>
             </div>
             <div style="line-height: 100%"><br /></div>
 
@@ -320,7 +351,8 @@
                                 <div class="title">المركز الثالث – هاكاثون جداثون</div>
                                 <div class="author">Jada30 | جادة30 · ديسمبر 2024</div>
                                 <div class="adoption">
-                                    الفوز بـ MNHAL، نظام مراقبة خلايا النحل الذكي المدعوم بإنترنت الأشياء لتتبع صحة الخلية في الوقت الفعلي.
+                                    الفوز بـ MNHAL، نظام مراقبة خلايا النحل الذكي المدعوم بإنترنت الأشياء لتتبع صحة
+                                    الخلية في الوقت الفعلي.
                                 </div>
                             </div>
                         </div>
@@ -349,7 +381,8 @@
                                 <div class="author">Monsha'at | منشآت · أكتوبر 2024</div>
                                 <div class="adoption">
                                     <em><strong>جائزة أفضل حل<br /></strong></em>
-                                    حل ذكي يدعم رواد الأعمال ويعزز العمليات التجارية من خلال الذكاء الاصطناعي والأدوات الرقمية.
+                                    حل ذكي يدعم رواد الأعمال ويعزز العمليات التجارية من خلال الذكاء الاصطناعي والأدوات
+                                    الرقمية.
                                 </div>
                             </div>
                         </div>
@@ -374,11 +407,18 @@
             <h3 id="certifications">الشهادات</h3>
 
             <div style="padding-right: 10px; padding-left: 20px">
-                • <a href="https://learn.microsoft.com/en-us/users/HaithamHattan-5375/credentials/799E0B1F6676A10F" target="_blank">تكوين عمليات أمان SIEM</a> - Microsoft<br />
-                • <a href="https://www.credly.com/badges/e26f7210-4e32-4549-9886-658816460689" target="_blank">أساسيات الأمن السيبراني</a> - IBM<br />
-                • <a href="https://www.credly.com/badges/22563974-9acb-4c84-b803-2c4745507739" target="_blank">شهادة Google الاحترافية في الأمن السيبراني</a> - Google<br />
-                • <a href="https://www.hackerrank.com/certificates/e3c0f879525c" target="_blank">شهادة مهندس برمجيات</a> - HackerRank<br />
-                • <a href="https://www.credly.com/badges/165d7b00-5d38-4b30-ae98-6af3a1899754" target="_blank">مسار محلل الأمن السيبراني المبتدئ</a> - Cisco
+                • <a href="https://learn.samai.futurex.sa/mod/customcert/verify_certificate.php?code=tXi9LAxxVr&qrcode=1"
+                    target="_blank">أساسيات الذكاء الاصطناعي (AI)</a> - SDAIA | سدايا<br />
+                • <a href="https://learn.microsoft.com/en-us/users/HaithamHattan-5375/credentials/799E0B1F6676A10F"
+                    target="_blank">تكوين عمليات أمان SIEM</a> - Microsoft<br />
+                • <a href="https://www.credly.com/badges/e26f7210-4e32-4549-9886-658816460689" target="_blank">أساسيات
+                    الأمن السيبراني</a> - IBM<br />
+                • <a href="https://www.credly.com/badges/22563974-9acb-4c84-b803-2c4745507739" target="_blank">شهادة
+                    Google الاحترافية في الأمن السيبراني</a> - Google<br />
+                • <a href="https://www.hackerrank.com/certificates/e3c0f879525c" target="_blank">شهادة مهندس برمجيات</a>
+                - HackerRank<br />
+                • <a href="https://www.credly.com/badges/165d7b00-5d38-4b30-ae98-6af3a1899754" target="_blank">مسار محلل
+                    الأمن السيبراني المبتدئ</a> - Cisco
             </div>
             <div style="line-height: 100%"><br /></div>
 
@@ -393,9 +433,11 @@
             <h3 id="skills">المهارات</h3>
 
             <div style="padding-right: 10px; padding-left: 20px">
-                <strong>الأعمال والقيادة:</strong> إدارة الشركات الناشئة، ملكية الأعمال، قيادة الفرق، إدارة المشاريع<br />
+                <strong>الأعمال والقيادة:</strong> إدارة الشركات الناشئة، ملكية الأعمال، قيادة الفرق، إدارة
+                المشاريع<br />
                 <strong>تقنية:</strong> Python، Java، C++، Flutter، Azure DevOps، الحوسبة السحابية<br />
-                <strong>الأمن:</strong> أمن الشبكات، Firewalls، Linux، Kali Linux، LAN-WAN، F5 BigIP، اختبار الاختراق<br />
+                <strong>الأمن:</strong> أمن الشبكات، Firewalls، Linux، Kali Linux، LAN-WAN، F5 BigIP، اختبار
+                الاختراق<br />
                 <strong>المهارات الشخصية:</strong> حل المشكلات، العمل الجماعي، القيادة، التواصل
             </div>
 
@@ -403,7 +445,7 @@
         </section>
         <footer></footer>
     </div>
-    
+
     <script>
         // Language translations
         const translations = {
@@ -415,71 +457,73 @@
                 'certifications': 'الشهادات',
                 'education': 'التعليم',
                 'skills': 'المهارات',
-                
-                'about-text': 'أنا <strong>مهندس تقنيات</strong> و<strong>متخصص في الذكاء الاصطناعي والتعلم الآلي</strong> و<strong>مدير مشاريع تقنية</strong> مع خلفية قوية في قيادة مبادرات التحول الرقمي وتطوير حلول تقنية مبتكرة في مختلف المجالات.<br /><br />أنا <strong>المؤسس والرئيس التنفيذي</strong> لشركة <a href="https://maysour.sa/">ميسور</a>، شركة ناشئة في مجال التكنولوجيا المالية تركز على رقمنة سجلات الديون للمتاجر الصغيرة وتنفيذ حلول الدفع الآمنة. أنا أيضاً <strong><a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">سفير طلبة مايكروسوفت</a></strong>، حيث أساعد الطلاب على تطوير مهاراتهم التقنية والمهنية من خلال بناء المجتمعات ومبادرات الابتكار.<br /><br />يشمل عملي <strong>تطوير انظمة وبرامج وتطبيقات</strong> و<strong>التعلم الآلي والذكاء الاصطناعي</strong> و<strong>تطوير التطبيقات الآمنة</strong> و<strong>إدارة المشاريع</strong>. لدي خبرة في بناء تطبيقات ويب ديناميكية، وتطوير حلول مدفوعة بالذكاء الاصطناعي، وتنسيق الفرق متعددة الوظائف، ودفع الابتكار مع الحفاظ على معايير تقنية عالية.<br /><br />المزيد عن عملي وخلفيتي على <a href="https://www.linkedin.com/in/haithamhattan/">LinkedIn</a>.',
-                
+
+                'about-text': 'أنا <strong>مهندس تقنيات</strong> و<strong>متخصص في الذكاء الاصطناعي والتعلم الآلي</strong> و<strong>مدير مشاريع تقنية</strong> بخلفية قوية في قيادة مبادرات التحول الرقمي وتطوير حلول تقنية مبتكرة.<br /><br />حالياً، أعمل كـ<strong>مهندس تقنيات</strong> في <strong>MDS لأنظمة الحاسوب (MDS CS)</strong>، حيث أقوم بتطوير وصيانة تطبيقات ويب ديناميكية بتصميم متجاوب، وتصميم ودمج واجهات برمجية لتحسين كفاءة تبادل البيانات.<br /><br />أنا <strong>المؤسس والرئيس التنفيذي</strong> لـ<a href="https://maysour.sa/">ميسور</a>، شركة تقنية مالية متخصصة في رقمنة سجلات الديون للمتاجر الصغيرة وتطبيق حلول دفع آمنة. كما أنني <strong><a href="https://mvp.microsoft.com/studentambassadors/certificate/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">سفير طلبة مايكروسوفت</a></strong>، حيث أساعد الطلاب على تطوير مهاراتهم التقنية والمهنية من خلال بناء المجتمعات ومبادرات الابتكار.<br /><br />يشمل عملي <strong>تطوير أنظمة وبرامج وتطبيقات</strong> و<strong>الذكاء الاصطناعي والتعلم الآلي</strong> و<strong>تطوير التطبيقات الآمنة</strong> و<strong>إدارة المشاريع</strong>. لدي خبرة في بناء تطبيقات الويب الديناميكية، وتطوير حلول مدفوعة بالذكاء الاصطناعي، وتنسيق الفرق متعددة الوظائف، وقيادة الابتكار مع الحفاظ على معايير تقنية عالية.<br /><br />المزيد عن عملي وخلفيتي على ملفي في <a href="https://www.linkedin.com/in/haithamhattan/">LinkedIn</a>.',
+
                 'fsd-title': 'مهندس تقنيات',
                 'fsd-company': 'MDS for Computer Systems (MDS CS)',
                 'fsd-date': 'يوليو 2025 - حتى الآن',
                 'fsd-desc': 'تطوير وصيانة تطبيقات ويب ديناميكية بتصميم متجاوب. تصميم ودمج واجهات برمجية، مع تحسين كفاءة تبادل البيانات بنسبة 30%.',
-                
+
                 'ceo-title': 'المؤسس والرئيس التنفيذي',
                 'ceo-company': 'Maysour',
                 'ceo-date': '2022 - حتى الآن',
                 'ceo-desc': 'قيادة شركة ناشئة في مجال التكنولوجيا المالية تركز على رقمنة سجلات الديون للمتاجر الصغيرة وتنفيذ حلول الدفع الآمنة.',
-                
+
                 'msa-title': 'سفير طلبة مايكروسوفت',
                 'msa-company': 'Microsoft',
                 'msa-date': '2024 - حتى الآن',
                 'msa-desc': 'قائد عالمي في الحرم الجامعي يساعد الطلاب على تطوير المهارات التقنية والمهنية من خلال بناء المجتمعات ومبادرات الابتكار.',
-                
+
                 'stc-title': 'الأمن السيبراني وتحليل البيانات',
                 'stc-company': 'STC',
                 'stc-date': '2023 - 2024',
                 'stc-desc': 'قيادة مبادرات الأمن السيبراني ومشاريع تحليل البيانات، وتنفيذ تدابير أمنية متقدمة وحلول تصور البيانات.',
-                
+
                 'ehealth-title': 'مهندس أمن الشبكات',
                 'ehealth-company': 'eHealth SA',
                 'ehealth-date': 'يونيو 2023 - سبتمبر 2023',
                 'ehealth-desc': 'تصميم وتنفيذ ومراقبة أنظمة الشبكات الآمنة. العمل مع جدران الحماية وأنظمة IDS/IPS وF5 BigIP وLinux وKali.',
-                
+
                 // Projects
-                'project-yusr': '<a href="#" style="font-weight: 500">ميسور (تطبيق YUSR)</a>: حل إدارة الديون الرقمية للشركات الصغيرة مع تكامل الدفع الآمن.',
-                'project-mnbet': '<a href="#" style="font-weight: 500">تطبيق MNBET</a>: مشروع مدعوم بالذكاء الاصطناعي يحدد أمراض وآفات نباتات القهوة من خلال تحليل الصور.',
-                'project-sanka': '<a href="#" style="font-weight: 500">بوت SANKA</a>: بوت آلي لتبسيط العمليات التجارية.',
-                
+                'project-yusr': '<a href="https://haitham8888.github.io/Mysour/" target="_blank" style="font-weight: 500">ميسور (تطبيق YUSR)</a>: حل إدارة الديون الرقمية للشركات الصغيرة مع تكامل الدفع الآمن.',
+                'project-mnbet': '<a href="https://github.com/Haitham8888/MNBET" target="_blank" style="font-weight: 500">تطبيق MNBET</a>: مشروع مدعوم بالذكاء الاصطناعي يحدد أمراض وآفات نباتات القهوة من خلال تحليل الصور.',
+                'project-sanka': '<a href="https://github.com/Haitham8888/SANKA_Ai" target="_blank" style="font-weight: 500">بوت SANKA</a>: بوت آلي لتبسيط العمليات التجارية.',
+                'project-waselani': '<a href="https://github.com/Haitham8888/Waselani" target="_blank" style="font-weight: 500">تطبيق وصلني</a>: تطبيق توصيل يخدم منطقة جازان والمناطق الريفية المجاورة بخدمات سريعة وموثوقة.',
+
                 // Awards
                 'award1-title': 'المركز الثالث – هاكاثون المحاسبة',
                 'award1-org': 'جامعة الملك سعود · ديسمبر 2024',
                 'award1-desc': 'تقديم حل مالي ذكي يهدف إلى تعزيز دقة المحاسبة وأتمتة العمليات ودعم التحول الرقمي.',
-                
+
                 'award2-title': 'المركز الثالث – هاكاثون جدةثون',
                 'award2-org': 'جادة30 | Jada30 · ديسمبر 2024',
                 'award2-desc': 'الفوز مع MNHAL، نظام مراقبة خلايا النحل الذكي المدعوم بإنترنت الأشياء لتتبع صحة الخلية في الوقت الفعلي.',
-                
+
                 'award3-title': 'المركز الثاني – هاكاثون بنك البلاد 2024',
                 'award3-org': 'بنك البلاد | Bank Albilad · أكتوبر 2024',
                 'award3-desc': 'تطوير حل تقني مالي مبتكر يعزز الثقافة المالية وإدارة الديون الذكية.',
-                
+
                 'award4-title': 'المركز الأول – هاكاثون منشآت 2024',
                 'award4-org': 'منشآت | Monsha\'at · أكتوبر 2024',
                 'award4-desc': '<em><strong>جائزة أفضل حل<br /></strong></em>حل ذكي يدعم رواد الأعمال ويعزز العمليات التجارية من خلال الذكاء الاصطناعي والأدوات الرقمية.',
-                
+
                 'award5-title': 'المركز الأول – فكرةثون جدةثون 2023',
                 'award5-org': 'جادة30 | Jada30 · ديسمبر 2023',
                 'award5-desc': 'نظام كشف أمراض نبات القهوة المدعوم بالذكاء الاصطناعي باستخدام تقنية التعرف على الصور.',
-                
+
                 // Certifications
+                'cert0': '• <a href="https://learn.samai.futurex.sa/mod/customcert/verify_certificate.php?code=tXi9LAxxVr&qrcode=1" target="_blank">أساسيات الذكاء الاصطناعي (AI)</a> - SDAIA | سدايا',
                 'cert1': '• <a href="https://learn.microsoft.com/en-us/users/HaithamHattan-5375/credentials/799E0B1F6676A10F" target="_blank">تكوين عمليات أمان SIEM</a> - Microsoft',
                 'cert2': '• <a href="https://www.credly.com/badges/e26f7210-4e32-4549-9886-658816460689" target="_blank">أساسيات الأمن السيبراني</a> - IBM',
                 'cert3': '• <a href="https://www.credly.com/badges/22563974-9acb-4c84-b803-2c4745507739" target="_blank">شهادة احترافية في الأمن السيبراني من Google</a> - Google',
                 'cert4': '• <a href="https://www.hackerrank.com/certificates/e3c0f879525c" target="_blank">شهادة مهندس برمجيات</a> - HackerRank',
                 'cert5': '• <a href="https://www.credly.com/badges/165d7b00-5d38-4b30-ae98-6af3a1899754" target="_blank">المسار المهني لمحلل أمن سيبراني مبتدئ</a> - Cisco',
-                
+
                 // Education
                 'edu-degree': '<education>بكالوريوس علوم في تقنية المعلومات</education>',
                 'edu-uni': 'جامعة جازان · 2021 – 2025',
-                
+
                 // Skills
                 'business-leadership': '<strong>الأعمال والقيادة:</strong> إدارة الشركات الناشئة، ملكية الأعمال، قيادة الفريق، إدارة المشاريع',
                 'technical-skills': '<strong>المهارات التقنية:</strong> Python، Java، C++، Flutter، Azure DevOps، الحوسبة السحابية',
@@ -494,71 +538,73 @@
                 'certifications': 'Certifications',
                 'education': 'Education',
                 'skills': 'Skills',
-                
-                'about-text': 'I\'m a <strong>Tech Engineer</strong>, <strong>ML & AI Specialist</strong>, and <strong>IT Project Manager</strong> with a strong background in leading digital transformation initiatives and developing innovative technology solutions across various domains.<br /><br />I\'m the <strong>Founder & CEO</strong> of <a href="https://maysour.sa/">Maysour</a>, a fintech startup focused on digitizing debt records for small stores and implementing secure payment solutions. I\'m also a <strong><a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">Microsoft Student Ambassador</a></strong>, helping students develop technical and career skills through community building and innovation initiatives.<br /><br />My work spans <strong>full-stack development</strong>, <strong>machine learning & AI</strong>, <strong>secure application development</strong>, and <strong>project management</strong>. I have experience building dynamic web applications, developing AI-driven solutions, coordinating cross-functional teams, and driving innovation while maintaining high technical standards.<br /><br />More about my work and background on my <a href="https://www.linkedin.com/in/haithamhattan/">LinkedIn</a> profile.',
-                
+
+                'about-text': 'I\'m a <strong>Tech Engineer</strong>, <strong>ML & AI Specialist</strong>, and <strong>IT Project Manager</strong> with a strong background in leading digital transformation initiatives and developing innovative technology solutions across various domains.<br /><br />Currently, I work as a <strong>Tech Engineer</strong> at <strong>MDS for Computer Systems (MDS CS)</strong>, where I develop and maintain dynamic web applications with responsive design, and design and integrate APIs to improve data exchange efficiency.<br /><br />I\'m the <strong>Founder & CEO</strong> of <a href="https://maysour.sa/">Maysour</a>, a fintech startup focused on digitizing debt records for small stores and implementing secure payment solutions. I\'m also a <strong><a href="https://mvp.microsoft.com/studentambassadors/certificate/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">Microsoft Student Ambassador</a></strong>, helping students develop technical and career skills through community building and innovation initiatives.<br /><br />My work spans <strong>full-stack development</strong>, <strong>machine learning & AI</strong>, <strong>secure application development</strong>, and <strong>project management</strong>. I have experience building dynamic web applications, developing AI-driven solutions, coordinating cross-functional teams, and driving innovation while maintaining high technical standards.<br /><br />More about my work and background on my <a href="https://www.linkedin.com/in/haithamhattan/">LinkedIn</a> profile.',
+
                 'fsd-title': 'Tech Engineer',
                 'fsd-company': 'MDS for Computer Systems (MDS CS)',
                 'fsd-date': 'Jul 2025 - Present',
                 'fsd-desc': 'Developing and maintaining dynamic web applications with responsive design. Designing and integrating APIs, improving data exchange efficiency by 30%.',
-                
+
                 'ceo-title': 'Founder & CEO',
                 'ceo-company': 'Maysour',
                 'ceo-date': '2022 - Present',
                 'ceo-desc': 'Leading a fintech startup focused on digitizing debt records for small stores and implementing secure payment solutions.',
-                
+
                 'msa-title': 'Microsoft Student Ambassador',
                 'msa-company': 'Microsoft',
                 'msa-date': '2024 - Present',
                 'msa-desc': 'Global campus leader helping students develop technical and career skills through community building and innovation initiatives.',
-                
+
                 'stc-title': 'Cybersecurity & Data Analysis',
                 'stc-company': 'STC',
                 'stc-date': '2023 - 2024',
                 'stc-desc': 'Led cybersecurity initiatives and data analysis projects, implementing advanced security measures and data visualization solutions.',
-                
+
                 'ehealth-title': 'Network Security Engineer',
                 'ehealth-company': 'eHealth SA',
                 'ehealth-date': 'Jun 2023 - Sep 2023',
                 'ehealth-desc': 'Designed, implemented, and monitored secure network systems. Worked with firewalls, IDS/IPS, F5 BigIP, Linux, and Kali.',
-                
+
                 // Projects
-                'project-yusr': '<a href="#" style="font-weight: 500">Maysour (YUSR APP)</a>: Digital debt management solution for small businesses with secure payment integration.',
-                'project-mnbet': '<a href="#" style="font-weight: 500">MNBET APP</a>: AI-driven project that identifies coffee plant diseases and pests through image analysis.',
-                'project-sanka': '<a href="#" style="font-weight: 500">SANKA BOT</a>: Automated bot for streamlining business processes.',
-                
+                'project-yusr': '<a href="https://haitham8888.github.io/Mysour/" target="_blank" style="font-weight: 500">Maysour (YUSR APP)</a>: Digital debt management solution for small businesses with secure payment integration.',
+                'project-mnbet': '<a href="https://github.com/Haitham8888/MNBET" target="_blank" style="font-weight: 500">MNBET APP</a>: AI-driven project that identifies coffee plant diseases and pests through image analysis.',
+                'project-sanka': '<a href="https://github.com/Haitham8888/SANKA_Ai" target="_blank" style="font-weight: 500">SANKA BOT</a>: Automated bot for streamlining business processes.',
+                'project-waselani': '<a href="https://github.com/Haitham8888/Waselani" target="_blank" style="font-weight: 500">Wasalni APP</a>: A delivery app serving Jazan region and nearby rural areas with fast and reliable services.',
+
                 // Awards
                 'award1-title': '3rd Place – Accounting Hackathon',
                 'award1-org': 'King Saud University · Dec 2024',
                 'award1-desc': 'Presented a smart financial solution aimed at enhancing accounting accuracy, automating processes, and supporting digital transformation.',
-                
+
                 'award2-title': '3rd Place – Jaddathon Hackathon',
                 'award2-org': 'Jada30 · Dec 2024',
                 'award2-desc': 'Won with MNHAL, a smart beehive monitoring system powered by IoT for real-time hive health tracking.',
-                
+
                 'award3-title': '2nd Place – Bank Albilad Hackathon 2024',
                 'award3-org': 'Bank Albilad · Oct 2024',
                 'award3-desc': 'Developed an innovative fintech solution promoting financial literacy and smart debt management.',
-                
+
                 'award4-title': '1st Place – Monsha\'at Hackathon 2024',
                 'award4-org': 'Monsha\'at · Oct 2024',
                 'award4-desc': '<em><strong>Best Solution Award<br /></strong></em>Smart solution supporting entrepreneurs and enhancing business operations through AI and digital tools.',
-                
+
                 'award5-title': '1st Place – Jaddathon Fikrathon 2023',
                 'award5-org': 'Jada30 · Dec 2023',
                 'award5-desc': 'AI-driven coffee plant disease detection system using image recognition technology.',
-                
+
                 // Certifications
+                'cert0': '• <a href="https://learn.samai.futurex.sa/mod/customcert/verify_certificate.php?code=tXi9LAxxVr&qrcode=1" target="_blank">Fundamentals of Artificial Intelligence (AI)</a> - SDAIA',
                 'cert1': '• <a href="https://learn.microsoft.com/en-us/users/HaithamHattan-5375/credentials/799E0B1F6676A10F" target="_blank">Configure SIEM Security Operations</a> - Microsoft',
                 'cert2': '• <a href="https://www.credly.com/badges/e26f7210-4e32-4549-9886-658816460689" target="_blank">Cybersecurity Fundamentals</a> - IBM',
                 'cert3': '• <a href="https://www.credly.com/badges/22563974-9acb-4c84-b803-2c4745507739" target="_blank">Google Cybersecurity Professional Certificate</a> - Google',
                 'cert4': '• <a href="https://www.hackerrank.com/certificates/e3c0f879525c" target="_blank">Software Engineer Certificate</a> - HackerRank',
                 'cert5': '• <a href="https://www.credly.com/badges/165d7b00-5d38-4b30-ae98-6af3a1899754" target="_blank">Junior Cybersecurity Analyst Career Path</a> - Cisco',
-                
+
                 // Education
                 'edu-degree': '<education>Bachelor of Science in Information Technology</education>',
                 'edu-uni': 'Jazan University (JU) · 2021 – 2025',
-                
+
                 // Skills
                 'business-leadership': '<strong>Business & Leadership:</strong> Startup Management, Business Ownership, Team Leadership, Project Management',
                 'technical-skills': '<strong>Technical:</strong> Python, Java, C++, Flutter, Azure DevOps, Cloud Computing',
@@ -573,71 +619,73 @@
                 'certifications': '认证证书',
                 'education': '教育背景',
                 'skills': '技能',
-                
-                'about-text': '我是一名<strong>技术工程师</strong>、<strong>机器学习与人工智能专家</strong>和<strong>IT项目经理</strong>，在领导数字化转型计划和开发各领域创新技术解决方案方面拥有丰富背景。<br /><br />我是<a href="https://maysour.sa/">Maysour</a>的<strong>创始人兼首席执行官</strong>，这是一家金融科技初创公司，专注于小商店债务记录数字化和安全支付解决方案的实施。我也是<strong><a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">微软学生大使</a></strong>，通过社区建设和创新计划帮助学生发展技术和职业技能。<br /><br />我的工作涵盖<strong>全栈开发</strong>、<strong>机器学习与人工智能</strong>、<strong>安全应用开发</strong>和<strong>项目管理</strong>。我有构建动态Web应用程序、开发AI驱动解决方案、协调跨职能团队以及在保持高技术标准的同时推动创新的经验。<br /><br />更多关于我的工作和背景，请访问我的<a href="https://www.linkedin.com/in/haithamhattan/">LinkedIn</a>个人资料。',
-                
+
+                'about-text': '我是一名<strong>技术工程师</strong>、<strong>机器学习与人工智能专家</strong>和<strong>IT项目经理</strong>，在领导数字化转型计划和开发各领域创新技术解决方案方面拥有丰富背景。<br /><br />目前，我在<strong>MDS计算机系统公司 (MDS CS)</strong>担任<strong>技术工程师</strong>，负责开发和维护具有响应式设计的动态Web应用程序，并设计和集成API以提高数据交换效率。<br /><br />我是<a href="https://maysour.sa/">Maysour</a>的<strong>创始人兼首席执行官</strong>，这是一家金融科技初创公司，专注于小商店债务记录数字化和安全支付解决方案的实施。我也是<strong><a href="https://mvp.microsoft.com/studentambassadors/certificate/53e1d4eb-5973-4c2e-b3a5-41f99816a9b0">微软学生大使</a></strong>，通过社区建设和创新计划帮助学生发展技术和职业技能。<br /><br />我的工作涵盖<strong>全栈开发</strong>、<strong>机器学习与人工智能</strong>、<strong>安全应用开发</strong>和<strong>项目管理</strong>。我有构建动态Web应用程序、开发AI驱动解决方案、协调跨职能团队以及在保持高技术标准的同时推动创新的经验。<br /><br />更多关于我的工作和背景，请访问我的<a href="https://www.linkedin.com/in/haithamhattan/">LinkedIn</a>个人资料。',
+
                 'fsd-title': '技术工程师',
                 'fsd-company': 'MDS for Computer Systems (MDS CS)',
                 'fsd-date': '2025年7月 - 至今',
                 'fsd-desc': '开发和维护具有响应式设计的动态Web应用程序。设计和集成API，将数据交换效率提高30%。',
-                
+
                 'ceo-title': '创始人兼首席执行官',
                 'ceo-company': 'Maysour',
                 'ceo-date': '2022年 - 至今',
                 'ceo-desc': '领导一家专注于小商店债务记录数字化和安全支付解决方案实施的金融科技初创公司。',
-                
+
                 'msa-title': '微软学生大使',
                 'msa-company': 'Microsoft',
                 'msa-date': '2024年 - 至今',
                 'msa-desc': '全球校园领袖，通过社区建设和创新计划帮助学生发展技术和职业技能。',
-                
+
                 'stc-title': '网络安全与数据分析',
                 'stc-company': 'STC',
                 'stc-date': '2023年 - 2024年',
                 'stc-desc': '领导网络安全计划和数据分析项目，实施先进的安全措施和数据可视化解决方案。',
-                
+
                 'ehealth-title': '网络安全工程师',
                 'ehealth-company': 'eHealth SA',
                 'ehealth-date': '2023年6月 - 2023年9月',
                 'ehealth-desc': '设计、实施和监控安全网络系统。使用防火墙、IDS/IPS、F5 BigIP、Linux和Kali。',
-                
+
                 // Projects
-                'project-yusr': '<a href="#" style="font-weight: 500">Maysour（YUSR应用）</a>：为小企业提供数字化债务管理解决方案，集成安全支付。',
-                'project-mnbet': '<a href="#" style="font-weight: 500">MNBET应用</a>：通过图像分析识别咖啡植物病虫害的AI驱动项目。',
-                'project-sanka': '<a href="#" style="font-weight: 500">SANKA机器人</a>：用于简化业务流程的自动化机器人。',
-                
+                'project-yusr': '<a href="https://haitham8888.github.io/Mysour/" target="_blank" style="font-weight: 500">Maysour（YUSR应用）</a>：为小企业提供数字化债务管理解决方案，集成安全支付。',
+                'project-mnbet': '<a href="https://github.com/Haitham8888/MNBET" target="_blank" style="font-weight: 500">MNBET应用</a>：通过图像分析识别咖啡植物病虫害的AI驱动项目。',
+                'project-sanka': '<a href="https://github.com/Haitham8888/SANKA_Ai" target="_blank" style="font-weight: 500">SANKA机器人</a>：用于简化业务流程的自动化机器人。',
+                'project-waselani': '<a href="https://github.com/Haitham8888/Waselani" target="_blank" style="font-weight: 500">Wasalni应用</a>：为吉赞地区及周边乡村提供快速可靠的送货服务。',
+
                 // Awards
                 'award1-title': '第三名 – 会计黑客马拉松',
                 'award1-org': 'King Saud University · 2024年12月',
                 'award1-desc': '提出了一个智能财务解决方案，旨在提高会计准确性、实现流程自动化并支持数字化转型。',
-                
+
                 'award2-title': '第三名 – 吉达黑客马拉松',
                 'award2-org': 'Jada30 · 2024年12月',
                 'award2-desc': '凭借MNHAL获胜，这是一个由物联网驱动的智能蜂箱监测系统，用于实时追踪蜂箱健康状况。',
-                
+
                 'award3-title': '第二名 – 银行黑客马拉松2024',
                 'award3-org': 'Bank Albilad · 2024年10月',
                 'award3-desc': '开发了一个创新的金融科技解决方案，促进金融知识普及和智能债务管理。',
-                
+
                 'award4-title': '第一名 – Monsha\'at黑客马拉松2024',
                 'award4-org': 'Monsha\'at · 2024年10月',
                 'award4-desc': '<em><strong>最佳解决方案奖<br /></strong></em>通过人工智能和数字工具支持企业家并增强业务运营的智能解决方案。',
-                
+
                 'award5-title': '第一名 – 吉达创意黑客马拉松2023',
                 'award5-org': 'Jada30 · 2023年12月',
                 'award5-desc': '使用图像识别技术的AI驱动咖啡植物病害检测系统。',
-                
+
                 // Certifications
+                'cert0': '• <a href="https://learn.samai.futurex.sa/mod/customcert/verify_certificate.php?code=tXi9LAxxVr&qrcode=1" target="_blank">人工智能 (AI) 基础</a> - SDAIA',
                 'cert1': '• <a href="https://learn.microsoft.com/en-us/users/HaithamHattan-5375/credentials/799E0B1F6676A10F" target="_blank">配置SIEM安全操作</a> - Microsoft',
                 'cert2': '• <a href="https://www.credly.com/badges/e26f7210-4e32-4549-9886-658816460689" target="_blank">网络安全基础</a> - IBM',
                 'cert3': '• <a href="https://www.credly.com/badges/22563974-9acb-4c84-b803-2c4745507739" target="_blank">谷歌网络安全专业证书</a> - Google',
                 'cert4': '• <a href="https://www.hackerrank.com/certificates/e3c0f879525c" target="_blank">软件工程师证书</a> - HackerRank',
                 'cert5': '• <a href="https://www.credly.com/badges/165d7b00-5d38-4b30-ae98-6af3a1899754" target="_blank">初级网络安全分析师职业路径</a> - Cisco',
-                
+
                 // Education
                 'edu-degree': '<education>信息技术理学学士</education>',
                 'edu-uni': 'Jazan University · 2021 – 2025',
-                
+
                 // Skills
                 'business-leadership': '<strong>商业与领导力：</strong>初创公司管理、企业所有权、团队领导、项目管理',
                 'technical-skills': '<strong>技术：</strong>Python、Java、C++、Flutter、Azure DevOps、云计算',
@@ -645,31 +693,31 @@
                 'soft-skills': '<strong>软技能：</strong>问题解决、团队合作、领导力、沟通'
             }
         };
-        
+
         // Toggle language dropdown
         function toggleLanguageDropdown() {
             const dropdown = document.getElementById('langDropdown');
             dropdown.classList.toggle('show');
         }
-        
+
         // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const switcher = document.querySelector('.language-switcher');
             const dropdown = document.getElementById('langDropdown');
             if (switcher && !switcher.contains(event.target)) {
                 dropdown.classList.remove('show');
             }
         });
-        
+
         // Switch language function
         function switchLanguage(lang) {
             const html = document.documentElement;
             const currentLang = lang;
-            
+
             // Update html lang and dir attributes
             html.setAttribute('lang', lang);
             html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-            
+
             // Update active option in dropdown
             document.querySelectorAll('.lang-option').forEach(option => {
                 option.classList.remove('active');
@@ -677,10 +725,10 @@
                     option.classList.add('active');
                 }
             });
-            
+
             // Close dropdown
             document.getElementById('langDropdown').classList.remove('show');
-            
+
             // Update page title
             const titles = {
                 ar: 'هيثم هتان - مهندس تقنيات',
@@ -688,7 +736,7 @@
                 zh: '海瑟姆·哈坦 - 技术工程师与IT项目经理'
             };
             document.title = titles[lang];
-            
+
             // Update name
             const nameTranslations = {
                 ar: 'هيثم هتان',
@@ -696,10 +744,10 @@
                 zh: '海瑟姆·哈坦'
             };
             document.querySelector('h1 .translate').textContent = nameTranslations[lang];
-            
+
             // Update sections
             const trans = translations[lang];
-            
+
             // Update headings
             document.querySelector('#about-me').textContent = trans['about-me'];
             document.querySelector('#experience').textContent = trans['experience'];
@@ -708,52 +756,53 @@
             document.querySelector('#certifications').textContent = trans['certifications'];
             document.querySelector('#education').textContent = trans['education'];
             document.querySelector('#skills').textContent = trans['skills'];
-            
+
             // Update about text
             document.querySelector('#about-me').nextElementSibling.innerHTML = trans['about-text'];
-            
+
             // Update experience descriptions
             const experienceItems = document.querySelectorAll('.exp-item');
-            
+
             console.log('Language:', lang);
             console.log('Experience items found:', experienceItems.length);
-            
+
             if (experienceItems.length >= 5) {
                 // FSD
                 experienceItems[0].querySelector('.title').innerHTML = trans['fsd-title'];
                 experienceItems[0].querySelector('.author').innerHTML = `${trans['fsd-company']} · ${trans['fsd-date']}`;
                 experienceItems[0].querySelector('.adoption').innerHTML = trans['fsd-desc'];
-                
+
                 // CEO
                 experienceItems[1].querySelector('.title').innerHTML = trans['ceo-title'];
                 experienceItems[1].querySelector('.author').innerHTML = `${trans['ceo-company']} · ${trans['ceo-date']}`;
                 experienceItems[1].querySelector('.adoption').innerHTML = trans['ceo-desc'];
-                
+
                 // MSA
                 experienceItems[2].querySelector('.title').innerHTML = trans['msa-title'];
                 experienceItems[2].querySelector('.author').innerHTML = `${trans['msa-company']} · ${trans['msa-date']}`;
                 experienceItems[2].querySelector('.adoption').innerHTML = trans['msa-desc'];
-                
+
                 // STC
                 experienceItems[3].querySelector('.title').innerHTML = trans['stc-title'];
                 experienceItems[3].querySelector('.author').innerHTML = `${trans['stc-company']} · ${trans['stc-date']}`;
                 experienceItems[3].querySelector('.adoption').innerHTML = trans['stc-desc'];
-                
+
                 // eHealth
                 experienceItems[4].querySelector('.title').innerHTML = trans['ehealth-title'];
                 experienceItems[4].querySelector('.author').innerHTML = `${trans['ehealth-company']} · ${trans['ehealth-date']}`;
                 experienceItems[4].querySelector('.adoption').innerHTML = trans['ehealth-desc'];
             }
-            
+
             // Update Projects section
             const projectsSection = document.querySelector('#projects').parentElement;
             const projectDivs = projectsSection.querySelectorAll('.project');
-            if (projectDivs.length >= 3) {
+            if (projectDivs.length >= 4) {
                 projectDivs[0].querySelector('.title').innerHTML = trans['project-yusr'];
                 projectDivs[1].querySelector('.title').innerHTML = trans['project-mnbet'];
                 projectDivs[2].querySelector('.title').innerHTML = trans['project-sanka'];
+                projectDivs[3].querySelector('.title').innerHTML = trans['project-waselani'];
             }
-            
+
             // Update Awards/Honors section
             const honorsSection = document.querySelector('#honors').parentElement;
             const awards = honorsSection.querySelectorAll('.publication');
@@ -762,28 +811,28 @@
                 awards[0].querySelector('.title').innerHTML = trans['award1-title'];
                 awards[0].querySelector('.author').innerHTML = trans['award1-org'];
                 awards[0].querySelector('.adoption').innerHTML = trans['award1-desc'];
-                
+
                 // Award 2
                 awards[1].querySelector('.title').innerHTML = trans['award2-title'];
                 awards[1].querySelector('.author').innerHTML = trans['award2-org'];
                 awards[1].querySelector('.adoption').innerHTML = trans['award2-desc'];
-                
+
                 // Award 3
                 awards[2].querySelector('.title').innerHTML = trans['award3-title'];
                 awards[2].querySelector('.author').innerHTML = trans['award3-org'];
                 awards[2].querySelector('.adoption').innerHTML = trans['award3-desc'];
-                
+
                 // Award 4
                 awards[3].querySelector('.title').innerHTML = trans['award4-title'];
                 awards[3].querySelector('.author').innerHTML = trans['award4-org'];
                 awards[3].querySelector('.adoption').innerHTML = trans['award4-desc'];
-                
+
                 // Award 5
                 awards[4].querySelector('.title').innerHTML = trans['award5-title'];
                 awards[4].querySelector('.author').innerHTML = trans['award5-org'];
                 awards[4].querySelector('.adoption').innerHTML = trans['award5-desc'];
             }
-            
+
             // Update Certifications section
             const certsSection = document.querySelector('#certifications').nextElementSibling;
             certsSection.innerHTML = `
@@ -793,21 +842,21 @@
                 ${trans['cert4']}<br />
                 ${trans['cert5']}
             `;
-            
+
             // Update Education section
             const eduSection = document.querySelector('#education').nextElementSibling;
             eduSection.innerHTML = `<strong>${trans['edu-degree']}</strong><br />${trans['edu-uni']}`;
-            
+
             // Update skills section
             const skillsSection = document.querySelector('#skills').nextElementSibling;
             skillsSection.innerHTML = `${trans['business-leadership']}<br />${trans['technical-skills']}<br />${trans['security-skills']}<br />${trans['soft-skills']}`;
-            
+
             // Save preference
             localStorage.setItem('preferredLanguage', lang);
         }
-        
+
         // Load preferred language on page load
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             const savedLang = localStorage.getItem('preferredLanguage') || 'ar';
             // Apply Arabic by default or saved language
             switchLanguage(savedLang);
@@ -815,4 +864,5 @@
     </script>
     <script src="script.js"></script>
 </body>
+
 </html>
