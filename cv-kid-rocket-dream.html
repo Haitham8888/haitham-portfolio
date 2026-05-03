@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>هيثم الصغير - سيرة ذاتية</title>
+  <meta name="description" content="سيرة ذاتية كلاسيكية بطابع طفولي لهيثم الصغير - نسخة خاصة" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Patrick+Hand&display=swap" />
+  <style>
+    :root {
+      --paper: #f7f2e8;
+      --ink: #2c2a26;
+      --accent: #b07a2a;
+      --stamp: #c84b31;
+      --soft: #e7dcc9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #faf5ea 0%, #f1e6d4 100%);
+      color: var(--ink);
+      font-family: "Amiri", serif;
+      padding: 32px 16px 56px;
+    }
+
+    .sheet {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+      padding: 28px 28px 32px;
+      position: relative;
+    }
+
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed var(--soft);
+      pointer-events: none;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-bottom: 1px solid var(--soft);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+
+    .title {
+      font-size: 32px;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #6d5b3f;
+    }
+
+    .stamp {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      transform: rotate(-6deg);
+      border: 2px solid var(--stamp);
+      color: var(--stamp);
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      background: rgba(200, 75, 49, 0.06);
+    }
+
+    .section {
+      margin-top: 18px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      border-right: 4px solid var(--accent);
+      padding-right: 8px;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: #fff7ea;
+      border: 1px solid var(--soft);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 16px;
+    }
+
+    .hand {
+      font-family: "Patrick Hand", cursive;
+      font-size: 20px;
+      color: #7a5b2c;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--soft);
+      font-size: 16px;
+      color: #6d5b3f;
+    }
+
+    .note {
+      background: #fff3d6;
+      border: 1px dashed #d9b77b;
+      padding: 12px 14px;
+      margin-top: 12px;
+      font-size: 17px;
+    }
+
+    @media (max-width: 640px) {
+      .sheet {
+        padding: 22px 18px 26px;
+      }
+      .title {
+        font-size: 26px;
+      }
+      .subtitle {
+        font-size: 16px;
+      }
+      .section h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="stamp">سري للغاية</div>
+    <header>
+      <div class="title">هيثم الصغير</div>
+      <div class="subtitle">سيرة ذاتية كلاسيكية بنكهة طفولية</div>
+      <div class="hand">الهدف الكبير: أصير رائد فضاء وأخترع روبوت يحل الواجب</div>
+    </header>
+
+    <section class="section">
+      <h2>بيانات سريعة</h2>
+      <div class="list">
+        <div>الاسم: هيثم</div>
+        <div>اللقب: مُكتشف الكنبات (أفضل مكان للمذاكرة والنوم)</div>
+        <div>الموقع: بين الحوش والسطح</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>المهارات الخارقة</h2>
+      <div class="chips">
+        <div class="chip">تركيب ألعاب الليغو بدون دليل</div>
+        <div class="chip">حفظ أسماء اللاعبين من أول نظرة</div>
+        <div class="chip">رسم خريطة كنز دقيقة</div>
+        <div class="chip">تحويل أي كرتون إلى سفينة فضاء</div>
+        <div class="chip">سرعة في جمع الكفرات قبل الغروب</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>خبرات الطفولة</h2>
+      <div class="list">
+        <div>قائد فريق الحارة لكرة القدم (مع شارة مصنوعة يدويًا)</div>
+        <div>مشرف على مشروع علوم: بركان صودا وخل</div>
+        <div>مهندس صيانة للدراجات وقت العطل الصيفية</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>إنجازات تُحكى</h2>
+      <div class="list">
+        <div>إنقاذ كرة من فوق السطح بدون خسائر تذكر</div>
+        <div>ترتيب أفضل مجموعة كراتين لإقامة قلعة سرية</div>
+        <div>فوز بجائزة "أسرع من يخلص الساندوتش" في العائلة</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>المشاريع الخاصة</h2>
+      <div class="list">
+        <div>دفتر اختراعات: 12 فكرة لا تزال سرية</div>
+        <div>مجسم صاروخ من علب العصير (نسخة تجريبية)</div>
+        <div>نظام إنذار مبكر: كوب على الباب</div>
+      </div>
+    </section>
+
+    <div class="note">
+      ملاحظة من الإدارة: هذه النسخة خاصة جدًا ومخصصة لذكريات الطفولة.
+    </div>
+
+    <div class="footer">
+      توقيع صغير: <span class="hand">هيثم (نسخة 2005 تقريبًا)</span>
+    </div>
+  </div>
+</body>
+</html>
