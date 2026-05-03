@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>هيثم الصغير - سيرة ذاتية</title>
   <meta name="description" content="سيرة ذاتية طفولية بسيطة لهيثم الصغير بطابع الزمن القديم" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Caveat:wght@500;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" />
   <style>
     :root {
-      --paper: #fffdf6;
-      --line: rgba(122, 98, 60, 0.18);
-      --ink: #2e2a22;
-      --accent: #a8752c;
-      --soft: #e9dfcf;
+      --ink: #000000;
+      --border: #000000;
     }
 
     * {
@@ -22,95 +19,71 @@
     }
 
     body {
-      background: repeating-linear-gradient(
-        to bottom,
-        #f9f3e6 0px,
-        #f9f3e6 26px,
-        var(--line) 27px,
-        #f9f3e6 28px
-      );
+      background: #ffffff;
       color: var(--ink);
       font-family: "Amiri", serif;
-      padding: 28px 14px 48px;
+      font-weight: 700;
+      padding: 24px 12px 40px;
     }
 
     .sheet {
-      max-width: 780px;
+      max-width: 760px;
       margin: 0 auto;
-      background: var(--paper);
-      border: 2px solid #5b4a34;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-      padding: 22px 22px 28px;
-      position: relative;
-    }
-
-    .sheet::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border: 1px dashed var(--soft);
-      pointer-events: none;
+      background: #ffffff;
+      border: 2px solid var(--border);
+      padding: 18px 18px 24px;
     }
 
     header {
       display: grid;
       gap: 8px;
-      border-bottom: 1px solid var(--soft);
-      padding-bottom: 12px;
-      margin-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .title {
-      font-family: "Caveat", cursive;
-      font-size: 34px;
-      color: var(--accent);
+      font-size: 32px;
     }
 
     .subtitle {
       font-size: 18px;
-      color: #6b563b;
     }
 
     .photo {
-      width: 160px;
-      background: #fff;
-      padding: 8px 8px 16px;
-      border: 1px solid #d8cbb2;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-      transform: rotate(-2deg);
+      width: 150px;
+      background: #ffffff;
+      padding: 6px;
+      border: 2px solid var(--border);
     }
 
     .photo img {
       width: 100%;
       display: block;
-      border: 1px solid #e4d7c0;
+      border: 1px solid var(--border);
     }
 
     .photo-caption {
-      font-family: "Caveat", cursive;
       text-align: center;
       margin-top: 6px;
       font-size: 16px;
-      color: #7b5c2b;
     }
 
     .top-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .section {
-      margin-top: 14px;
+      margin-top: 12px;
     }
 
     .section h2 {
-      font-family: "Caveat", cursive;
-      font-size: 22px;
-      color: var(--accent);
+      font-size: 20px;
       margin-bottom: 6px;
-      border-right: 3px solid var(--accent);
+      border-right: 3px solid var(--border);
       padding-right: 8px;
     }
 
@@ -123,29 +96,27 @@
 
     .note {
       margin-top: 12px;
-      padding: 10px 12px;
-      background: #fff1cf;
-      border: 1px dashed #d5b37b;
-      font-size: 17px;
+      padding: 8px 10px;
+      border: 2px solid var(--border);
+      font-size: 16px;
     }
 
     .footer {
-      margin-top: 18px;
+      margin-top: 16px;
       padding-top: 10px;
-      border-top: 1px dashed var(--soft);
+      border-top: 2px solid var(--border);
       font-size: 16px;
-      color: #6b563b;
     }
 
     @media (max-width: 640px) {
       .sheet {
-        padding: 18px 16px 24px;
+        padding: 16px 14px 20px;
       }
       .title {
-        font-size: 28px;
+        font-size: 26px;
       }
       .photo {
-        width: 130px;
+        width: 120px;
       }
     }
   </style>
@@ -172,6 +143,7 @@
         <div>الاسم: هيثم</div>
         <div>الهواية المفضلة: تفكيك الألعاب وتركيبها بطريقتي</div>
         <div>المكان المفضل: الحوش وقت العصر</div>
+        <div>احب اروح ابها واحب اقعد بالوادي حق بيش</div>
       </div>
     </section>
 
@@ -205,7 +177,7 @@
 
     <div class="note">ملاحظة: هذه الصفحة خاصة جدًا ومخصصة لذكريات الطفولة.</div>
 
-    <div class="footer">توقيع صغير: <span class="title" style="font-size: 22px;">هيثم (نسخة قديمة)</span></div>
+    <div class="footer">توقيع صغير: هيثم (نسخة قديمة)</div>
   </div>
 </body>
 </html>
