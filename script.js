@@ -469,7 +469,6 @@
     }
 
     fillYear();
-    localStorage.setItem('preferredLanguage', lang);
 
     document.querySelectorAll('#lang-menu button').forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
@@ -478,6 +477,7 @@
 
   function setLang(lang) {
     applyLang(lang);
+    localStorage.setItem('langPref', lang);
     var url = new URL(window.location.href);
     url.searchParams.set('lang', lang);
     try {
@@ -489,13 +489,14 @@
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
   }
 
+  /* ---------- apply language immediately (no flash) ---------- */
+  var initialLang = document.documentElement.getAttribute('lang') || 'en';
+  if (!I18N[initialLang]) initialLang = 'en';
+  captureBaseline();
+  applyLang(initialLang);
+
   /* ---------- boot ---------- */
   document.addEventListener('DOMContentLoaded', function () {
-    captureBaseline();
-
-    var initialLang = document.documentElement.getAttribute('lang') || 'ar';
-    if (!I18N[initialLang]) initialLang = 'ar';
-    applyLang(initialLang);
 
     /* language switcher */
     var langToggle = document.getElementById('lang-toggle');
@@ -513,7 +514,8 @@
         }
       });
       langMenu.querySelectorAll('[data-lang]').forEach(function (b) {
-        b.addEventListener('click', function () {
+        b.addEventListener('click', function (e) {
+          e.stopPropagation();
           setLang(b.getAttribute('data-lang'));
         });
       });
