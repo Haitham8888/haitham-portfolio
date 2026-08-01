@@ -23,6 +23,7 @@
   var I_DOWNLOAD = '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>';
   var I_CLOCK = '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>';
   var I_PLAY = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  var I_QUOTE = '<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>';
   var I_PIN = '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>';
   var I_WHATSAPP = '<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>';
   var I_LINKEDIN = '<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>';
@@ -47,15 +48,16 @@
       'nav-proj': 'Projects',
       'nav-testimonials': 'Testimonials',
       'nav-partners': 'Partners',
-      'nav-youtube': 'YouTube',
+      'nav-training': 'Training',
+      'nav-testimonials': 'Testimonials',
       'nav-gallery': 'Gallery',
       'nav-contact': 'Contact',
       'mnav-about': 'About',
       'mnav-exp': 'Experience',
       'mnav-proj': 'Projects',
-      'mnav-testimonials': 'Testimonials',
       'mnav-partners': 'Partners',
-      'mnav-youtube': 'YouTube',
+      'mnav-training': 'Training',
+      'mnav-testimonials': 'Testimonials',
       'mnav-gallery': 'Gallery',
       'mnav-contact': 'Contact',
       'hero-role': 'AI Engineer & Full-Stack Software Engineer',
@@ -136,12 +138,12 @@
       'testimonials-sub': 'Real words from attendees of my courses and bootcamps on Twitter.',
       'testimonials-list': {
         html:
-          '<div class="testi-card"><p>I successfully completed the Build Apps with GitHub Copilot course — a rich experience where I explored the power of AI in programming and learned Flutter app development, web design and AI-driven data analysis. Thank you to Mr. Haitham Hattan and the Masafa team.</p><div class="testi-meta"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Course · Masafa</span></div></div>' +
-          '<div class="testi-card"><p>Proud to have completed the Build Apps with GitHub Copilot bootcamp under the Microsoft Learn Student Ambassador program — a special experience where I learned to build apps using AI.</p><div class="testi-meta"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · MLSA</span></div></div>' +
-          '<div class="testi-card"><p>We finished the bootcamp and it was one of the best for me personally. I learned new things and lots of dense information, and I was amazed by how powerful GitHub Copilot is.</p><div class="testi-meta"><span class="testi-name">Majed</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></div></div>' +
-          '<div class="testi-card"><p>The AI bootcamp from the HRSDAI club has ended. I learned so much and built my first face-recognition bot. The field really pulled me in and I hope to go deeper in the future.</p><div class="testi-meta"><span class="testi-name">Shahad</span><span class="testi-role">Attendee — AI Bootcamp · HRSD</span></div></div>' +
-          '<div class="testi-card"><p>Day two of the Build Apps with GitHub Copilot bootcamp! I learned how to use GitHub Copilot in Flutter app development — the result: faster code, easier programming, and limitless creativity.</p><div class="testi-meta"><span class="testi-name">Ruba Doghan</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></div></div>' +
-          '<div class="testi-card"><p>Highlights from yesterday\'s course. My first in-person course and it was very enjoyable and beautiful. Thank you to the HRSDJU club for the amazing course — best of luck in the future.</p><div class="testi-meta"><span class="testi-name">ArreChan</span><span class="testi-role">Attendee — Web Programming Course · HRSD</span></div></div>'
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>I successfully completed the Build Apps with GitHub Copilot course — a rich experience where I explored the power of AI in programming and learned Flutter app development, web design and AI-driven data analysis. Thank you to Mr. Haitham Hattan and the Masafa team.</p></div><div class="testi-meta"><span class="testi-avatar">H</span><span class="testi-who"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Course · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>Proud to have completed the Build Apps with GitHub Copilot bootcamp under the Microsoft Learn Student Ambassador program — a special experience where I learned to build apps using AI.</p></div><div class="testi-meta"><span class="testi-avatar">T</span><span class="testi-who"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · MLSA</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>We finished the bootcamp and it was one of the best for me personally. I learned new things and lots of dense information, and I was amazed by how powerful GitHub Copilot is.</p></div><div class="testi-meta"><span class="testi-avatar">M</span><span class="testi-who"><span class="testi-name">Majed</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>The AI bootcamp from the HRSDAI club has ended. I learned so much and built my first face-recognition bot. The field really pulled me in and I hope to go deeper in the future.</p></div><div class="testi-meta"><span class="testi-avatar">S</span><span class="testi-who"><span class="testi-name">Shahad</span><span class="testi-role">Attendee — AI Bootcamp · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>Day two of the Build Apps with GitHub Copilot bootcamp! I learned how to use GitHub Copilot in Flutter app development — the result: faster code, easier programming, and limitless creativity.</p></div><div class="testi-meta"><span class="testi-avatar">R</span><span class="testi-who"><span class="testi-name">Ruba Doghan</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>Highlights from yesterday\'s course. My first in-person course and it was very enjoyable and beautiful. Thank you to the HRSDJU club for the amazing course — best of luck in the future.</p></div><div class="testi-meta"><span class="testi-avatar">A</span><span class="testi-who"><span class="testi-name">ArreChan</span><span class="testi-role">Attendee — Web Programming Course · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>'
       },
       'partners-h': 'Partners & Clients',
       'partners-sub': 'Organizations I worked with on real projects — roles, products, and digital services.',
@@ -186,59 +188,8 @@
       'skill-dev-h': 'DevOps & Security',
       'skill-soft-h': 'Soft Skills',
       'skill-lang-h': 'Languages',
-      'youtube-h': 'Tutorials & YouTube',
-      'youtube-sub': 'My best tutorials and live streams on my channel — simplifying complex topics for anyone who wants to learn.',
-      'youtube-list': {
-        html:
-          '<a class="yt-item" href="https://youtu.be/VCBuEUGvC3c" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">Telegram Bot Integrated with the ChatGPT API</span><span class="yt-meta">AI · Tutorial</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/AfUzCvr1Wt4" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">Class Diagram &amp; Object Diagram — UML</span><span class="yt-meta">Software Engineering · Tutorial</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/UV9Ow0GuSio" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">AI Bootcamp — Day 1</span><span class="yt-meta">Live Stream · 6-Day Camp</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/l3V5hcPdFTw" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">AI Bootcamp — Day 2</span><span class="yt-meta">Live Stream · 6-Day Camp</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/AHlqUf1HWVE" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">AI Bootcamp — Day 3</span><span class="yt-meta">Live Stream · 6-Day Camp</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/iXhTWKtM0FI" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">AI Bootcamp — Day 4</span><span class="yt-meta">Live Stream · 6-Day Camp</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/33y9wZNfAX0" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">AI Bootcamp — Day 5</span><span class="yt-meta">Live Stream · 6-Day Camp</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/LhLmvwOVOzc" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">AI Bootcamp — Day 6</span><span class="yt-meta">Live Stream · 6-Day Camp</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/C3exiDkEQNw" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">Python Basics</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/rGFlrdYslLs" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">Analyze Data with Python</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/mQb1EIy4Cgw" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">Web Programming Basics</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/VbpdtyRBFXk" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">Website Programming with GitHub Codespace — Summary</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
-          svgOutline(I_EXT) + '</a>'
-      },
+      'videos-h': 'Tutorials & YouTube',
+      'videos-sub': 'Recorded lectures and tutorials from my courses and bootcamp live streams.',
       'youtube-channel': 'Subscribe to my channel on YouTube — Hai3',
       'train-h': 'Training Courses I Delivered',
       'train-sub': 'In-person and remote courses in AI and programming — from the AI Tools &amp; Techniques course to GitHub Copilot bootcamps.',
@@ -301,7 +252,7 @@
       'nav-proj': '项目',
       'nav-testimonials': '评价',
       'nav-partners': '合作',
-      'nav-youtube': '视频',
+      'nav-training': '培训',
       'nav-gallery': '相册',
       'nav-contact': '联系',
       'mnav-about': '关于',
@@ -309,7 +260,7 @@
       'mnav-proj': '项目',
       'mnav-testimonials': '评价',
       'mnav-partners': '合作',
-      'mnav-youtube': '视频',
+      'mnav-training': '培训',
       'mnav-gallery': '相册',
       'mnav-contact': '联系',
       'hero-role': '人工智能工程师与全栈软件工程师',
@@ -390,12 +341,12 @@
       'testimonials-sub': '来自我课程与训练营学员在推特上的真实评价。',
       'testimonials-list': {
         html:
-          '<div class="testi-card"><p>我顺利完成了“使用 GitHub Copilot 构建应用”课程——一次收获丰富的体验：我探索了人工智能在编程中的力量，学会了 Flutter 应用开发、网页设计以及 AI 数据分析。感谢 Haitham Hattan 老师和 Masafa 团队。</p><div class="testi-meta"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用课程 · Masafa</span></div></div>' +
-          '<div class="testi-card"><p>很荣幸在 Microsoft Learn 学生大使计划下完成了“使用 GitHub Copilot 构建应用”训练营——这段特别的经历让我学会了如何利用人工智能开发应用。</p><div class="testi-meta"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · MLSA</span></div></div>' +
-          '<div class="testi-card"><p>我们完成了训练营，对我个人来说这是最好的训练营之一。我学到了新东西和大量密集的信息，也被 GitHub Copilot 的强大性能所震撼。</p><div class="testi-meta"><span class="testi-name">Majed</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></div></div>' +
-          '<div class="testi-card"><p>HRSDAI 社团的人工智能训练营结束了。我学到了很多东西，并构建了我的第一个面部识别机器人。这个领域真的吸引了我，希望未来能深入研究。</p><div class="testi-meta"><span class="testi-name">Shahad</span><span class="testi-role">学员 — 人工智能训练营 · HRSD</span></div></div>' +
-          '<div class="testi-card"><p>“使用 GitHub Copilot 构建应用”训练营的第二天！我学会了如何在 Flutter 应用开发中使用 GitHub Copilot——结果：代码更快、编程更轻松、创意无限。</p><div class="testi-meta"><span class="testi-name">Ruba Doghan</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></div></div>' +
-          '<div class="testi-card"><p>昨天课程的精彩片段。我第一次参加线下课程，非常愉快而美好。感谢 HRSDJU 社团带来这门精彩的课程——祝未来一切顺利。</p><div class="testi-meta"><span class="testi-name">ArreChan</span><span class="testi-role">学员 — 网页编程课程 · HRSD</span></div></div>'
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>我顺利完成了“使用 GitHub Copilot 构建应用”课程——一次收获丰富的体验：我探索了人工智能在编程中的力量，学会了 Flutter 应用开发、网页设计以及 AI 数据分析。感谢 Haitham Hattan 老师和 Masafa 团队。</p></div><div class="testi-meta"><span class="testi-avatar">H</span><span class="testi-who"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用课程 · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>很荣幸在 Microsoft Learn 学生大使计划下完成了“使用 GitHub Copilot 构建应用”训练营——这段特别的经历让我学会了如何利用人工智能开发应用。</p></div><div class="testi-meta"><span class="testi-avatar">T</span><span class="testi-who"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · MLSA</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>我们完成了训练营，对我个人来说这是最好的训练营之一。我学到了新东西和大量密集的信息，也被 GitHub Copilot 的强大性能所震撼。</p></div><div class="testi-meta"><span class="testi-avatar">M</span><span class="testi-who"><span class="testi-name">Majed</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>HRSDAI 社团的人工智能训练营结束了。我学到了很多东西，并构建了我的第一个面部识别机器人。这个领域真的吸引了我，希望未来能深入研究。</p></div><div class="testi-meta"><span class="testi-avatar">S</span><span class="testi-who"><span class="testi-name">Shahad</span><span class="testi-role">学员 — 人工智能训练营 · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>“使用 GitHub Copilot 构建应用”训练营的第二天！我学会了如何在 Flutter 应用开发中使用 GitHub Copilot——结果：代码更快、编程更轻松、创意无限。</p></div><div class="testi-meta"><span class="testi-avatar">R</span><span class="testi-who"><span class="testi-name">Ruba Doghan</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
+          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>昨天课程的精彩片段。我第一次参加线下课程，非常愉快而美好。感谢 HRSDJU 社团带来这门精彩的课程——祝未来一切顺利。</p></div><div class="testi-meta"><span class="testi-avatar">A</span><span class="testi-who"><span class="testi-name">ArreChan</span><span class="testi-role">学员 — 网页编程课程 · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>'
       },
       'partners-h': '合作伙伴与客户',
       'partners-sub': '我在真实项目中合作过的机构——岗位、产品与数字服务。',
@@ -440,59 +391,8 @@
       'skill-dev-h': 'DevOps 与安全',
       'skill-soft-h': '软技能',
       'skill-lang-h': '语言',
-      'youtube-h': '教程与视频',
-      'youtube-sub': '我在频道上最好的教程和直播——把复杂的概念讲给想学习的人听。',
-      'youtube-list': {
-        html:
-          '<a class="yt-item" href="https://youtu.be/VCBuEUGvC3c" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">集成 ChatGPT API 的 Telegram 机器人</span><span class="yt-meta">人工智能 · 教程</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/AfUzCvr1Wt4" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">类图与对象图 — UML</span><span class="yt-meta">软件工程 · 教程</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/UV9Ow0GuSio" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">人工智能训练营 — 第 1 天</span><span class="yt-meta">直播 · 6 天训练营</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/l3V5hcPdFTw" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">人工智能训练营 — 第 2 天</span><span class="yt-meta">直播 · 6 天训练营</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/AHlqUf1HWVE" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">人工智能训练营 — 第 3 天</span><span class="yt-meta">直播 · 6 天训练营</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/iXhTWKtM0FI" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">人工智能训练营 — 第 4 天</span><span class="yt-meta">直播 · 6 天训练营</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/33y9wZNfAX0" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">人工智能训练营 — 第 5 天</span><span class="yt-meta">直播 · 6 天训练营</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/LhLmvwOVOzc" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">人工智能训练营 — 第 6 天</span><span class="yt-meta">直播 · 6 天训练营</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/C3exiDkEQNw" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">Python 基础</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/rGFlrdYslLs" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">使用 Python 分析数据</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/mQb1EIy4Cgw" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">网页编程基础</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
-          svgOutline(I_EXT) + '</a>' +
-          '<a class="yt-item" href="https://youtu.be/VbpdtyRBFXk" target="_blank" rel="noopener">' +
-          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
-          '<span class="yt-body"><span class="yt-title">使用 GitHub Codespace 进行网站编程 — 总结</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
-          svgOutline(I_EXT) + '</a>'
-      },
+      'videos-h': '教程与视频',
+      'videos-sub': '我课程中的录播讲座和教程，以及训练营的直播。',
       'youtube-channel': '订阅我的 YouTube 频道 — Hai3',
       'train-h': '我教授的培训课程',
       'train-sub': '人工智能与编程方面的线下及远程课程——从“人工智能工具与技术”课程到 GitHub Copilot 训练营。',
@@ -708,7 +608,7 @@
     }
 
     /* active nav link */
-    var sections = ['about', 'experience', 'projects', 'testimonials', 'partners', 'youtube', 'training', 'gallery', 'awards', 'certifications', 'skills', 'education', 'volunteering', 'contact'].map(function (id) {
+    var sections = ['about', 'experience', 'projects', 'partners', 'awards', 'certifications', 'skills', 'training', 'testimonials', 'gallery', 'education', 'volunteering', 'contact'].map(function (id) {
       return document.getElementById(id);
     }).filter(Boolean);
 
