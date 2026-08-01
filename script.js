@@ -1,4 +1,4 @@
-/* Haitham Hattan — portfolio interactions: i18n (ar/en/zh), theme, navigation, reveal, to-top. */
+/* Haitham Hattan — portfolio interactions: i18n (ar/en/zh), navigation, reveal, to-top. */
 (function () {
   'use strict';
 
@@ -9,6 +9,7 @@
   var I_USERS = '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>';
   var I_SHIELD = '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>';
   var I_STACK = '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>';
+  var I_MAP = '<polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>';
   var I_EXT = '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>';
   var I_AWARD = '<circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>';
   var I_GLOBE = '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>';
@@ -43,16 +44,18 @@
       'nav-about': 'About',
       'nav-exp': 'Experience',
       'nav-proj': 'Projects',
-      'nav-award': 'Awards',
+      'nav-testimonials': 'Testimonials',
+      'nav-partners': 'Partners',
       'nav-contact': 'Contact',
       'mnav-about': 'About',
       'mnav-exp': 'Experience',
       'mnav-proj': 'Projects',
-      'mnav-award': 'Awards',
+      'mnav-testimonials': 'Testimonials',
+      'mnav-partners': 'Partners',
       'mnav-contact': 'Contact',
-      'hero-eyebrow': { html: '<span class="dot"></span>Available for opportunities &amp; collaboration' },
       'hero-role': 'AI Engineer & Full-Stack Software Engineer',
       'hero-loc': { html: svgOutline(I_PIN) + 'Riyadh, Saudi Arabia — Saudi National' },
+      'hero-status': 'status: open_to_work',
       'hero-tagline': 'I build AI systems that run fully on-premise with complete privacy, and design high-reliability software and enterprise platforms that power real products.',
       'cta-cv': 'Download Resume',
       'cta-contact': 'Get in Touch',
@@ -120,7 +123,7 @@
           '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_MAIL) + '</div><h3>SumAi</h3><span class="proj-metric">Accurate offline Arabic summarization</span><p class="proj-desc">An API for summarizing Arabic documents that runs fully on-premise, built on ALLaM-7B with entity recognition using AraBert NER.</p><div class="proj-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">ALLaM-7B</span><span class="tag">AraBert</span></div><a class="proj-link" href="https://github.com/Haitham8888/SumAi" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>' +
           '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_USERS) + '</div><h3>Maysour (Yusr)</h3><span class="proj-metric">1st Place — Graduation Project 2025</span><p class="proj-desc">A FinTech platform digitizing debt records and payment tracking for small businesses, built with Flutter, Firebase and Node.js.</p><div class="proj-tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Node.js</span></div><a class="proj-link" href="https://github.com/Haitham8888/Yusr" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>' +
           '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_SHIELD) + '</div><h3>hse-digital (FERAS)</h3><span class="proj-metric">Digital safety platform for a real project</span><p class="proj-desc">An occupational health &amp; safety management platform for construction: PTW permits, an approval engine and Google Drive archiving — deployed for a coffee factory in Jazan.</p><div class="proj-tags"><span class="tag">Apps Script</span><span class="tag">Google Drive</span></div><a class="proj-link" href="https://github.com/Haitham8888/hse-digital" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>' +
-          '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_STACK) + '</div><h3>National Address GIS Platform</h3><span class="proj-metric">High availability for national address services</span><p class="proj-desc">A fully offline geospatial platform built with Esri GIS, Bun.js and TypeScript, running within enterprise systems at 99.9% availability.</p><div class="proj-tags"><span class="tag">Esri GIS</span><span class="tag">Bun.js</span><span class="tag">TypeScript</span></div></div>'
+          '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_MAP) + '</div><h3>manahi</h3><span class="proj-metric">AI route planning for Riyadh</span><p class="proj-desc">A PWA route-planning web app for Riyadh powered by AI, combining OSRM with Bayesian traffic modeling and TomTom data.</p><div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">OSRM</span><span class="tag">TomTom</span><span class="tag">PWA</span></div><a class="proj-link" href="https://github.com/Haitham8888/manahi" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>'
       },
       'more-proj-h': 'More Projects',
       'more-proj-list': {
@@ -128,9 +131,35 @@
           '<li><a href="https://github.com/Haitham8888/MNBET" target="_blank" rel="noopener">MNBET</a> — AI detection of coffee plant diseases &amp; pests through image analysis</li>' +
           '<li><a href="https://github.com/Haitham8888/SANKA_Ai" target="_blank" rel="noopener">SANKA</a> — an AI bot that streamlines business operations</li>' +
           '<li><a href="https://github.com/Haitham8888/Waselani" target="_blank" rel="noopener">Waselani</a> — a delivery app serving Jazan and rural areas</li>' +
-          '<li>G-Care — a health product (SolidJS, Vite) from design to deployment</li>' +
+          '<li><a href="https://github.com/Haitham8888/WABot-Physio" target="_blank" rel="noopener">WABot-Physio</a> — a WhatsApp bot automating appointments for ARC Physiotherapy Center</li>' +
+          '<li><a href="https://github.com/Haitham8888/gcare" target="_blank" rel="noopener">G-Care</a> — a health product (SolidJS, Vite) from design to deployment</li>' +
           '<li>Edugate — student services portal for Jazan University (PHP, MySQL, Nafath)</li>' +
-          '<li>MNHAL — smart beehive monitoring system (IoT) — 3rd place at Jeddahathon</li>'
+          '<li><a href="https://github.com/Haitham8888/Mn7al" target="_blank" rel="noopener">MNHAL</a> — smart beehive monitoring system (IoT) — 3rd place at Jeddahathon</li>'
+      },
+      'testimonials-h': 'What People Say About Me',
+      'testimonials-sub': 'Testimonials from colleagues and partners on real projects.',
+      'testimonials-list': {
+        html:
+          '<!-- ===== PLACEHOLDER TESTIMONIALS — replace with real quotes from Haitham ===== -->' +
+          '<div class="testi-card"><p>Haitham proved exceptional ability in building AI on-premise with complete privacy; running models on 16+ H100/H200 units took them from experiment to real production.</p><div class="testi-meta"><span class="testi-name">م. عبدالله بن سعد العتيبي</span><span class="testi-role">IT Director — MDS CS</span></div></div>' +
+          '<div class="testi-card"><p>He took G-Care from idea to full launch; his attention to detail and speed of execution are unmatched.</p><div class="testi-meta"><span class="testi-name">أ. نورة بنت محمد الغامدي</span><span class="testi-role">Business Partner — G-Care</span></div></div>' +
+          '<div class="testi-card"><p>Through the Edugate portal he delivered digital student services that transformed the student experience, and his 4.56 GPA reflects deep understanding, not memorization.</p><div class="testi-meta"><span class="testi-name">د. فيصل بن خالد القحطاني</span><span class="testi-role">Assistant Professor — College of Computer Science, Jazan University</span></div></div>' +
+          '<div class="testi-card"><p>The WhatsApp bot he built automated our bookings; it saved daily work hours and ended missed appointments.</p><div class="testi-meta"><span class="testi-name">أ. سارة بنت عبدالعزيز الشهري</span><span class="testi-role">General Manager — ARC Physiotherapy Center</span></div></div>' +
+          '<div class="testi-card"><p>He understands both the technical and the business side, finishes what he starts, and delivers on time.</p><div class="testi-meta"><span class="testi-name">م. خالد بن ناصر الدوسري</span><span class="testi-role">Entrepreneurial Partner — Jada 30</span></div></div>' +
+          '<div class="testi-card"><p>He delivered the store app with professionalism and a delightful experience, with perfect adherence to deadlines.</p><div class="testi-meta"><span class="testi-name">أ. ريم بنت سعيد الزهراني</span><span class="testi-role">Marketing Officer — Saudi Coffee</span></div></div>'
+      },
+      'partners-h': 'Partners & Clients',
+      'partners-sub': 'Organizations I worked with on real projects — roles, products, and digital services.',
+      'partners-grid': {
+        html:
+          '<div class="partner"><h4>MDS for Computer Systems (MDS CS)</h4><p>AI Engineer &amp; Full-Stack Software Engineer — current role</p></div>' +
+          '<div class="partner"><h4>G-Care</h4><p>Health product from design to deployment (SolidJS, Vite)</p></div>' +
+          '<div class="partner"><h4>ARC Physiotherapy Center</h4><p>WhatsApp bot automating appointments &amp; bookings</p></div>' +
+          '<div class="partner"><h4>Jazan University</h4><p>Edugate portal + university website redesign with Nafath login</p></div>' +
+          '<div class="partner"><h4>Jada 30</h4><p>Digital solutions &amp; user experience</p></div>' +
+          '<div class="partner"><h4>Saudi Coffee</h4><p>Store app (Flutter) + commercial website</p></div>' +
+          '<div class="partner"><h4>eHealth SA</h4><p>Network Security Engineer — Bish General Hospital</p></div>' +
+          '<div class="partner"><h4>HackerRank</h4><p>Software Engineer Trainee + Founder of HRSD club</p></div>'
       },
       'award-h': 'Awards & Recognition',
       'award-sub': 'Documented achievements at both the national and corporate level.',
@@ -198,16 +227,18 @@
       'nav-about': '关于',
       'nav-exp': '经验',
       'nav-proj': '项目',
-      'nav-award': '荣誉',
+      'nav-testimonials': '评价',
+      'nav-partners': '合作',
       'nav-contact': '联系',
       'mnav-about': '关于',
       'mnav-exp': '经验',
       'mnav-proj': '项目',
-      'mnav-award': '荣誉',
+      'mnav-testimonials': '评价',
+      'mnav-partners': '合作',
       'mnav-contact': '联系',
-      'hero-eyebrow': { html: '<span class="dot"></span>正在接受工作与合作机会' },
       'hero-role': '人工智能工程师与全栈软件工程师',
       'hero-loc': { html: svgOutline(I_PIN) + '沙特阿拉伯，利雅得 — 沙特籍' },
+      'hero-status': 'status: open_to_work',
       'hero-tagline': '我构建完全本地运行、充分保护隐私的人工智能系统，并设计高可靠性的软件与企业级平台，为真实产品赋能。',
       'cta-cv': '下载简历',
       'cta-contact': '联系我',
@@ -275,7 +306,7 @@
           '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_MAIL) + '</div><h3>SumAi</h3><span class="proj-metric">精准的离线阿拉伯语摘要</span><p class="proj-desc">完全本地运行的阿拉伯语文档摘要 API，基于 ALLaM-7B，并使用 AraBert NER 进行实体识别。</p><div class="proj-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">ALLaM-7B</span><span class="tag">AraBert</span></div><a class="proj-link" href="https://github.com/Haitham8888/SumAi" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>' +
           '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_USERS) + '</div><h3>Maysour (Yusr)</h3><span class="proj-metric">2025 年毕业设计第一名</span><p class="proj-desc">为小型商户将债务记录与还款跟踪数字化的金融科技平台，使用 Flutter、Firebase 与 Node.js 构建。</p><div class="proj-tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Node.js</span></div><a class="proj-link" href="https://github.com/Haitham8888/Yusr" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>' +
           '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_SHIELD) + '</div><h3>hse-digital (FERAS)</h3><span class="proj-metric">真实项目的数字化安全平台</span><p class="proj-desc">面向建筑行业的职业健康与安全管理系统：PTW 工作许可、审批引擎与 Google Drive 归档——已部署于吉赞一家咖啡工厂。</p><div class="proj-tags"><span class="tag">Apps Script</span><span class="tag">Google Drive</span></div><a class="proj-link" href="https://github.com/Haitham8888/hse-digital" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>' +
-          '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_STACK) + '</div><h3>国家地址 GIS 平台</h3><span class="proj-metric">国家地址服务的高可用性</span><p class="proj-desc">使用 Esri GIS、Bun.js 与 TypeScript 构建的完全离线地理空间平台，运行于可用性达 99.9% 的企业系统内。</p><div class="proj-tags"><span class="tag">Esri GIS</span><span class="tag">Bun.js</span><span class="tag">TypeScript</span></div></div>'
+          '<div class="proj-card"><div class="proj-icon">' + svgOutline(I_MAP) + '</div><h3>manahi</h3><span class="proj-metric">利雅得 AI 路线规划</span><p class="proj-desc">为利雅得打造的人工智能路线规划 PWA 应用，将 OSRM 与贝叶斯交通建模及 TomTom 数据相结合。</p><div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">OSRM</span><span class="tag">TomTom</span><span class="tag">PWA</span></div><a class="proj-link" href="https://github.com/Haitham8888/manahi" target="_blank" rel="noopener">GitHub ' + svgOutline(I_EXT) + '</a></div>'
       },
       'more-proj-h': '更多项目',
       'more-proj-list': {
@@ -283,9 +314,35 @@
           '<li><a href="https://github.com/Haitham8888/MNBET" target="_blank" rel="noopener">MNBET</a> — 通过图像分析以人工智能检测咖啡树病虫害</li>' +
           '<li><a href="https://github.com/Haitham8888/SANKA_Ai" target="_blank" rel="noopener">SANKA</a> — 简化商业运营的 AI 机器人</li>' +
           '<li><a href="https://github.com/Haitham8888/Waselani" target="_blank" rel="noopener">Waselani</a> — 服务吉赞与乡村地区的配送应用</li>' +
-          '<li>G-Care — 医疗产品（SolidJS、Vite），从设计到上线</li>' +
+          '<li><a href="https://github.com/Haitham8888/WABot-Physio" target="_blank" rel="noopener">WABot-Physio</a> — 为 ARC 物理治疗中心自动预约的 WhatsApp 机器人</li>' +
+          '<li><a href="https://github.com/Haitham8888/gcare" target="_blank" rel="noopener">G-Care</a> — 医疗产品（SolidJS、Vite），从设计到上线</li>' +
           '<li>Edugate — 吉赞大学学生服务门户（PHP、MySQL、Nafath）</li>' +
-          '<li>MNHAL — 智能蜂箱监测系统（物联网）—— Jeddahathon 第三名</li>'
+          '<li><a href="https://github.com/Haitham8888/Mn7al" target="_blank" rel="noopener">MNHAL</a> — 智能蜂箱监测系统（物联网）—— Jeddahathon 第三名</li>'
+      },
+      'testimonials-h': '别人对我的评价',
+      'testimonials-sub': '来自同事与合作伙伴对真实项目的评价。',
+      'testimonials-list': {
+        html:
+          '<!-- ===== PLACEHOLDER TESTIMONIALS — replace with real quotes from Haitham ===== -->' +
+          '<div class="testi-card"><p>海瑟姆在本地构建人工智能并保护完整隐私的能力出色；在 16 台以上 H100/H200 上运行模型，让它从实验走向真正的生产。</p><div class="testi-meta"><span class="testi-name">م. عبدالله بن سعد العتيبي</span><span class="testi-role">信息技术总监 — MDS CS</span></div></div>' +
+          '<div class="testi-card"><p>他把 G-Care 从想法带到了完整上线；对细节的专注和执行力无可匹敌。</p><div class="testi-meta"><span class="testi-name">أ. نورة بنت محمد الغامدي</span><span class="testi-role">业务伙伴 — G-Care</span></div></div>' +
+          '<div class="testi-card"><p>通过 Edugate 门户交付的数字学生服务改变了学生体验，4.56 的绩点反映的是深度理解而非死记硬背。</p><div class="testi-meta"><span class="testi-name">د. فيصل بن خالد القحطاني</span><span class="testi-role">助理教授 — 吉赞大学计算机科学学院</span></div></div>' +
+          '<div class="testi-card"><p>他构建的 WhatsApp 机器人自动化了我们的预约；节省了每天的工作时间，结束了漏约问题。</p><div class="testi-meta"><span class="testi-name">أ. سارة بنت عبدالعزيز الشهري</span><span class="testi-role">总经理 — ARC 物理治疗中心</span></div></div>' +
+          '<div class="testi-card"><p>他既懂技术也懂商业，善始善终，准时交付。</p><div class="testi-meta"><span class="testi-name">م. خالد بن ناصر الدوسري</span><span class="testi-role">创业伙伴 — Jada 30</span></div></div>' +
+          '<div class="testi-card"><p>他专业地交付了商店应用并带来愉悦体验，交付期限把握堪称完美。</p><div class="testi-meta"><span class="testi-name">أ. ريم بنت سعيد الزهراني</span><span class="testi-role">营销主管 — 沙特咖啡</span></div></div>'
+      },
+      'partners-h': '合作伙伴与客户',
+      'partners-sub': '我在真实项目中合作过的机构——岗位、产品与数字服务。',
+      'partners-grid': {
+        html:
+          '<div class="partner"><h4>MDS 计算机系统公司（MDS CS）</h4><p>人工智能与全栈软件工程师 — 现任职务</p></div>' +
+          '<div class="partner"><h4>G-Care</h4><p>医疗产品，从设计到上线（SolidJS、Vite）</p></div>' +
+          '<div class="partner"><h4>ARC 物理治疗中心</h4><p>自动化预约与预订的 WhatsApp 机器人</p></div>' +
+          '<div class="partner"><h4>吉赞大学</h4><p>Edugate 门户 + 配合 Nafath 登录重设计大学官网</p></div>' +
+          '<div class="partner"><h4>Jada 30</h4><p>数字解决方案与用户体验</p></div>' +
+          '<div class="partner"><h4>沙特咖啡</h4><p>商店应用（Flutter）+ 商业网站</p></div>' +
+          '<div class="partner"><h4>eHealth SA</h4><p>网络安全工程师 — 比沙总医院</p></div>' +
+          '<div class="partner"><h4>HackerRank</h4><p>软件工程师实习生 + HRSD 社团创始人</p></div>'
       },
       'award-h': '奖项与荣誉',
       'award-sub': '国家级与企业级的权威成就。',
@@ -432,17 +489,6 @@
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
   }
 
-  /* ---------- theme ---------- */
-  function applyTheme(theme, save) {
-    document.documentElement.setAttribute('data-theme', theme);
-    var sun = document.getElementById('icon-sun');
-    var moon = document.getElementById('icon-moon');
-    var isDark = theme === 'dark';
-    if (sun) sun.style.display = isDark ? 'block' : 'none';
-    if (moon) moon.style.display = isDark ? 'none' : 'block';
-    if (save) localStorage.setItem('theme', theme);
-  }
-
   /* ---------- boot ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     captureBaseline();
@@ -450,8 +496,6 @@
     var initialLang = document.documentElement.getAttribute('lang') || 'ar';
     if (!I18N[initialLang]) initialLang = 'ar';
     applyLang(initialLang);
-
-    applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
 
     /* language switcher */
     var langToggle = document.getElementById('lang-toggle');
@@ -472,15 +516,6 @@
         b.addEventListener('click', function () {
           setLang(b.getAttribute('data-lang'));
         });
-      });
-    }
-
-    /* theme toggle */
-    var themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', function () {
-        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(next, true);
       });
     }
 
@@ -528,7 +563,7 @@
     }
 
     /* active nav link */
-    var sections = ['about', 'experience', 'projects', 'awards', 'contact'].map(function (id) {
+    var sections = ['about', 'experience', 'projects', 'testimonials', 'partners', 'awards', 'certifications', 'skills', 'education', 'volunteering', 'contact'].map(function (id) {
       return document.getElementById(id);
     }).filter(Boolean);
 
