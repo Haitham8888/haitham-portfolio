@@ -132,12 +132,12 @@
       'testimonials-list': {
         html:
           '<!-- ===== PLACEHOLDER TESTIMONIALS — replace with real quotes from Haitham ===== -->' +
-          '<div class="testi-card"><p>Haitham proved exceptional ability in building AI on-premise with complete privacy; running models on 16+ H100/H200 units took them from experiment to real production.</p><div class="testi-meta"><span class="testi-name">م. عبدالله بن سعد العتيبي</span><span class="testi-role">IT Director — MDS CS</span></div></div>' +
-          '<div class="testi-card"><p>He took G-Care from idea to full launch; his attention to detail and speed of execution are unmatched.</p><div class="testi-meta"><span class="testi-name">أ. نورة بنت محمد الغامدي</span><span class="testi-role">Business Partner — G-Care</span></div></div>' +
-          '<div class="testi-card"><p>Through the Edugate portal he delivered digital student services that transformed the student experience, and his 4.56 GPA reflects deep understanding, not memorization.</p><div class="testi-meta"><span class="testi-name">د. فيصل بن خالد القحطاني</span><span class="testi-role">Assistant Professor — College of Computer Science, Jazan University</span></div></div>' +
-          '<div class="testi-card"><p>The WhatsApp bot he built automated our bookings; it saved daily work hours and ended missed appointments.</p><div class="testi-meta"><span class="testi-name">أ. سارة بنت عبدالعزيز الشهري</span><span class="testi-role">General Manager — ARC Physiotherapy Center</span></div></div>' +
-          '<div class="testi-card"><p>He understands both the technical and the business side, finishes what he starts, and delivers on time.</p><div class="testi-meta"><span class="testi-name">م. خالد بن ناصر الدوسري</span><span class="testi-role">Entrepreneurial Partner — Jada 30</span></div></div>' +
-          '<div class="testi-card"><p>He delivered the store app with professionalism and a delightful experience, with perfect adherence to deadlines.</p><div class="testi-meta"><span class="testi-name">أ. ريم بنت سعيد الزهراني</span><span class="testi-role">Marketing Officer — Saudi Coffee</span></div></div>'
+          '<div class="testi-card"><p>Haitham proved exceptional ability in building AI on-premise with complete privacy; running models on 16+ H100/H200 units took them from experiment to real production.</p><div class="testi-meta"><span class="testi-name">Eng. Abdullah bin Saad Al-Otaibi</span><span class="testi-role">IT Director — MDS CS</span></div></div>' +
+          '<div class="testi-card"><p>He took G-Care from idea to full launch; his attention to detail and speed of execution are unmatched.</p><div class="testi-meta"><span class="testi-name">Ms. Noura bint Mohammed Al-Ghamdi</span><span class="testi-role">Business Partner — G-Care</span></div></div>' +
+          '<div class="testi-card"><p>Through the Edugate portal he delivered digital student services that transformed the student experience, and his 4.56 GPA reflects deep understanding, not memorization.</p><div class="testi-meta"><span class="testi-name">Dr. Faisal bin Khalid Al-Qahtani</span><span class="testi-role">Assistant Professor — College of Computer Science, Jazan University</span></div></div>' +
+          '<div class="testi-card"><p>The WhatsApp bot he built automated our bookings; it saved daily work hours and ended missed appointments.</p><div class="testi-meta"><span class="testi-name">Ms. Sara bint Abdulaziz Al-Shehri</span><span class="testi-role">General Manager — ARC Physiotherapy Center</span></div></div>' +
+          '<div class="testi-card"><p>He understands both the technical and the business side, finishes what he starts, and delivers on time.</p><div class="testi-meta"><span class="testi-name">Eng. Khaled bin Nasser Al-Dosari</span><span class="testi-role">Entrepreneurial Partner — Jada 30</span></div></div>' +
+          '<div class="testi-card"><p>He delivered the store app with professionalism and a delightful experience, with perfect adherence to deadlines.</p><div class="testi-meta"><span class="testi-name">Ms. Reem bint Said Al-Zahrani</span><span class="testi-role">Marketing Officer — Saudi Coffee</span></div></div>'
       },
       'partners-h': 'Partners & Clients',
       'partners-sub': 'Organizations I worked with on real projects — roles, products, and digital services.',
@@ -306,12 +306,12 @@
       'testimonials-list': {
         html:
           '<!-- ===== PLACEHOLDER TESTIMONIALS — replace with real quotes from Haitham ===== -->' +
-          '<div class="testi-card"><p>海瑟姆在本地构建人工智能并保护完整隐私的能力出色；在 16 台以上 H100/H200 上运行模型，让它从实验走向真正的生产。</p><div class="testi-meta"><span class="testi-name">م. عبدالله بن سعد العتيبي</span><span class="testi-role">信息技术总监 — MDS CS</span></div></div>' +
-          '<div class="testi-card"><p>他把 G-Care 从想法带到了完整上线；对细节的专注和执行力无可匹敌。</p><div class="testi-meta"><span class="testi-name">أ. نورة بنت محمد الغامدي</span><span class="testi-role">业务伙伴 — G-Care</span></div></div>' +
-          '<div class="testi-card"><p>通过 Edugate 门户交付的数字学生服务改变了学生体验，4.56 的绩点反映的是深度理解而非死记硬背。</p><div class="testi-meta"><span class="testi-name">د. فيصل بن خالد القحطاني</span><span class="testi-role">助理教授 — 吉赞大学计算机科学学院</span></div></div>' +
-          '<div class="testi-card"><p>他构建的 WhatsApp 机器人自动化了我们的预约；节省了每天的工作时间，结束了漏约问题。</p><div class="testi-meta"><span class="testi-name">أ. سارة بنت عبدالعزيز الشهري</span><span class="testi-role">总经理 — ARC 物理治疗中心</span></div></div>' +
-          '<div class="testi-card"><p>他既懂技术也懂商业，善始善终，准时交付。</p><div class="testi-meta"><span class="testi-name">م. خالد بن ناصر الدوسري</span><span class="testi-role">创业伙伴 — Jada 30</span></div></div>' +
-          '<div class="testi-card"><p>他专业地交付了商店应用并带来愉悦体验，交付期限把握堪称完美。</p><div class="testi-meta"><span class="testi-name">أ. ريم بنت سعيد الزهراني</span><span class="testi-role">营销主管 — 沙特咖啡</span></div></div>'
+          '<div class="testi-card"><p>海瑟姆在本地构建人工智能并保护完整隐私的能力出色；在 16 台以上 H100/H200 上运行模型，让它从实验走向真正的生产。</p><div class="testi-meta"><span class="testi-name">Eng. Abdullah bin Saad Al-Otaibi</span><span class="testi-role">信息技术总监 — MDS CS</span></div></div>' +
+          '<div class="testi-card"><p>他把 G-Care 从想法带到了完整上线；对细节的专注和执行力无可匹敌。</p><div class="testi-meta"><span class="testi-name">Ms. Noura bint Mohammed Al-Ghamdi</span><span class="testi-role">业务伙伴 — G-Care</span></div></div>' +
+          '<div class="testi-card"><p>通过 Edugate 门户交付的数字学生服务改变了学生体验，4.56 的绩点反映的是深度理解而非死记硬背。</p><div class="testi-meta"><span class="testi-name">Dr. Faisal bin Khalid Al-Qahtani</span><span class="testi-role">助理教授 — 吉赞大学计算机科学学院</span></div></div>' +
+          '<div class="testi-card"><p>他构建的 WhatsApp 机器人自动化了我们的预约；节省了每天的工作时间，结束了漏约问题。</p><div class="testi-meta"><span class="testi-name">Ms. Sara bint Abdulaziz Al-Shehri</span><span class="testi-role">总经理 — ARC 物理治疗中心</span></div></div>' +
+          '<div class="testi-card"><p>他既懂技术也懂商业，善始善终，准时交付。</p><div class="testi-meta"><span class="testi-name">Eng. Khaled bin Nasser Al-Dosari</span><span class="testi-role">创业伙伴 — Jada 30</span></div></div>' +
+          '<div class="testi-card"><p>他专业地交付了商店应用并带来愉悦体验，交付期限把握堪称完美。</p><div class="testi-meta"><span class="testi-name">Ms. Reem bint Said Al-Zahrani</span><span class="testi-role">营销主管 — 沙特咖啡</span></div></div>'
       },
       'partners-h': '合作伙伴与客户',
       'partners-sub': '我在真实项目中合作过的机构——岗位、产品与数字服务。',
