@@ -29,6 +29,7 @@
   var I_LINKEDIN = '<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>';
   var I_GITHUB = '<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>';
   var I_X = '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>';
+  var I_QMARK = '<svg class="testi-qmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">' + I_QUOTE + '</svg>';
 
   function svgOutline(inner) {
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + inner + '</svg>';
@@ -135,15 +136,15 @@
           '<li><a href="https://github.com/Haitham8888/Mn7al" target="_blank" rel="noopener">MNHAL</a> — smart beehive monitoring system (IoT) — 3rd place at Jeddahathon</li>'
       },
       'testimonials-h': 'What People Say About My Courses',
-      'testimonials-sub': 'Real words from attendees of my courses and bootcamps on Twitter.',
-      'testimonials-list': {
+      'testimonials-sub': 'Real words from attendees of my courses and bootcamps.',
+                  'testimonials-list': {
         html:
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>I successfully completed the Build Apps with GitHub Copilot course — a rich experience where I explored the power of AI in programming and learned Flutter app development, web design and AI-driven data analysis. Thank you to Mr. Haitham Hattan and the Masafa team.</p></div><div class="testi-meta"><span class="testi-avatar">H</span><span class="testi-who"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Course · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>Proud to have completed the Build Apps with GitHub Copilot bootcamp under the Microsoft Learn Student Ambassador program — a special experience where I learned to build apps using AI.</p></div><div class="testi-meta"><span class="testi-avatar">T</span><span class="testi-who"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · MLSA</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>We finished the bootcamp and it was one of the best for me personally. I learned new things and lots of dense information, and I was amazed by how powerful GitHub Copilot is.</p></div><div class="testi-meta"><span class="testi-avatar">M</span><span class="testi-who"><span class="testi-name">Majed</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>The AI bootcamp from the HRSDAI club has ended. I learned so much and built my first face-recognition bot. The field really pulled me in and I hope to go deeper in the future.</p></div><div class="testi-meta"><span class="testi-avatar">S</span><span class="testi-who"><span class="testi-name">Shahad</span><span class="testi-role">Attendee — AI Bootcamp · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>Day two of the Build Apps with GitHub Copilot bootcamp! I learned how to use GitHub Copilot in Flutter app development — the result: faster code, easier programming, and limitless creativity.</p></div><div class="testi-meta"><span class="testi-avatar">R</span><span class="testi-who"><span class="testi-name">Ruba Doghan</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>Highlights from yesterday\'s course. My first in-person course and it was very enjoyable and beautiful. Thank you to the HRSDJU club for the amazing course — best of luck in the future.</p></div><div class="testi-meta"><span class="testi-avatar">A</span><span class="testi-who"><span class="testi-name">ArreChan</span><span class="testi-role">Attendee — Web Programming Course · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>'
+          '<div class="testi-card">' + I_QMARK + '<p>I successfully completed the Build Apps with GitHub Copilot course — a rich experience where I explored the power of AI in programming and learned Flutter app development, web design and AI-driven data analysis.</p><div class="testi-meta"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Course · Masafa</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>Proud to have completed the Build Apps with GitHub Copilot bootcamp under the Microsoft Learn Student Ambassador program — a special experience where I learned to build apps using AI.</p><div class="testi-meta"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · MLSA</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>We finished the bootcamp and it was one of the best for me personally. I learned new things and lots of dense information, and I was amazed by how powerful GitHub Copilot is.</p><div class="testi-meta"><span class="testi-name">Majed</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>The AI bootcamp from the HRSDAI club has ended. I learned so much and built my first face-recognition bot. The field really pulled me in and I hope to go deeper in the future.</p><div class="testi-meta"><span class="testi-name">Shahad</span><span class="testi-role">Attendee — AI Bootcamp · HRSD</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>Day two of the Build Apps with GitHub Copilot bootcamp! I learned how to use GitHub Copilot in Flutter app development — the result: faster code, easier programming, and limitless creativity.</p><div class="testi-meta"><span class="testi-name">Ruba Doghan</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>Highlights from yesterday\'s course. My first in-person course and it was very enjoyable and beautiful. Thank you to the HRSDJU club for the amazing course — best of luck in the future.</p><div class="testi-meta"><span class="testi-name">ArreChan</span><span class="testi-role">Attendee — Web Programming Course · HRSD</span></div></div>'
       },
       'partners-h': 'Partners & Clients',
       'partners-sub': 'Organizations I worked with on real projects — roles, products, and digital services.',
@@ -338,15 +339,15 @@
           '<li><a href="https://github.com/Haitham8888/Mn7al" target="_blank" rel="noopener">MNHAL</a> — 智能蜂箱监测系统（物联网）—— Jeddahathon 第三名</li>'
       },
       'testimonials-h': '别人对我的课程的评价',
-      'testimonials-sub': '来自我课程与训练营学员在推特上的真实评价。',
-      'testimonials-list': {
+      'testimonials-sub': '来自我课程与训练营学员的真实评价。',
+            'testimonials-list': {
         html:
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>我顺利完成了“使用 GitHub Copilot 构建应用”课程——一次收获丰富的体验：我探索了人工智能在编程中的力量，学会了 Flutter 应用开发、网页设计以及 AI 数据分析。感谢 Haitham Hattan 老师和 Masafa 团队。</p></div><div class="testi-meta"><span class="testi-avatar">H</span><span class="testi-who"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用课程 · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>很荣幸在 Microsoft Learn 学生大使计划下完成了“使用 GitHub Copilot 构建应用”训练营——这段特别的经历让我学会了如何利用人工智能开发应用。</p></div><div class="testi-meta"><span class="testi-avatar">T</span><span class="testi-who"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · MLSA</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>我们完成了训练营，对我个人来说这是最好的训练营之一。我学到了新东西和大量密集的信息，也被 GitHub Copilot 的强大性能所震撼。</p></div><div class="testi-meta"><span class="testi-avatar">M</span><span class="testi-who"><span class="testi-name">Majed</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>HRSDAI 社团的人工智能训练营结束了。我学到了很多东西，并构建了我的第一个面部识别机器人。这个领域真的吸引了我，希望未来能深入研究。</p></div><div class="testi-meta"><span class="testi-avatar">S</span><span class="testi-who"><span class="testi-name">Shahad</span><span class="testi-role">学员 — 人工智能训练营 · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>“使用 GitHub Copilot 构建应用”训练营的第二天！我学会了如何在 Flutter 应用开发中使用 GitHub Copilot——结果：代码更快、编程更轻松、创意无限。</p></div><div class="testi-meta"><span class="testi-avatar">R</span><span class="testi-who"><span class="testi-name">Ruba Doghan</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>' +
-          '<div class="testi-card"><div class="testi-quote">' + svgFilled(I_QUOTE) + '<p>昨天课程的精彩片段。我第一次参加线下课程，非常愉快而美好。感谢 HRSDJU 社团带来这门精彩的课程——祝未来一切顺利。</p></div><div class="testi-meta"><span class="testi-avatar">A</span><span class="testi-who"><span class="testi-name">ArreChan</span><span class="testi-role">学员 — 网页编程课程 · HRSD</span></span><span class="testi-x">' + svgFilled(I_X) + '</span></div></div>'
+          '<div class="testi-card">' + I_QMARK + '<p>我顺利完成了“使用 GitHub Copilot 构建应用”课程——一次收获丰富的体验：我探索了人工智能在编程中的力量，学会了 Flutter 应用开发、网页设计以及 AI 数据分析。</p><div class="testi-meta"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用课程 · Masafa</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>很荣幸在 Microsoft Learn 学生大使计划下完成了“使用 GitHub Copilot 构建应用”训练营——这段特别的经历让我学会了如何利用人工智能开发应用。</p><div class="testi-meta"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · MLSA</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>我们完成了训练营，对我个人来说这是最好的训练营之一。我学到了新东西和大量密集的信息，也被 GitHub Copilot 的强大性能所震撼。</p><div class="testi-meta"><span class="testi-name">Majed</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>HRSDAI 社团的人工智能训练营结束了。我学到了很多东西，并构建了我的第一个面部识别机器人。这个领域真的吸引了我，希望未来能深入研究。</p><div class="testi-meta"><span class="testi-name">Shahad</span><span class="testi-role">学员 — 人工智能训练营 · HRSD</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>“使用 GitHub Copilot 构建应用”训练营的第二天！我学会了如何在 Flutter 应用开发中使用 GitHub Copilot——结果：代码更快、编程更轻松、创意无限。</p><div class="testi-meta"><span class="testi-name">Ruba Doghan</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></div></div>' +
+          '<div class="testi-card">' + I_QMARK + '<p>昨天课程的精彩片段。我第一次参加线下课程，非常愉快而美好。感谢 HRSDJU 社团带来这门精彩的课程——祝未来一切顺利。</p><div class="testi-meta"><span class="testi-name">ArreChan</span><span class="testi-role">学员 — 网页编程课程 · HRSD</span></div></div>'
       },
       'partners-h': '合作伙伴与客户',
       'partners-sub': '我在真实项目中合作过的机构——岗位、产品与数字服务。',
@@ -447,6 +448,54 @@
     }
   };
 
+  var GALLERY_CAPS = {
+    ar: {
+      'journey-01': '',
+      'journey-02': '',
+      'journey-03': '',
+      'journey-04': '',
+      'journey-05': '',
+      'journey-06': 'تكريمي من معالي رئيس الهيئة الملكية للجبيل وينبع م. خالد السالم - إتقان اللغة الصينية المستوى الأول',
+      'journey-07': '',
+      'journey-08': '',
+      'journey-09': '',
+      'journey-10': ''
+    },
+    en: {
+      'journey-01': '',
+      'journey-02': '',
+      'journey-03': '',
+      'journey-04': '',
+      'journey-05': '',
+      'journey-06': 'Honored by Eng. Khalid Al-Salem, President of the Royal Commission for Jubail &amp; Yanbu — Chinese Language Excellence, Level 1',
+      'journey-07': '',
+      'journey-08': '',
+      'journey-09': '',
+      'journey-10': ''
+    },
+    zh: {
+      'journey-01': '',
+      'journey-02': '',
+      'journey-03': '',
+      'journey-04': '',
+      'journey-05': '',
+      'journey-06': '荣获朱拜勒与延布皇家委员会主席哈立德·萨利姆工程师表彰 — 汉语水平一级优秀',
+      'journey-07': '',
+      'journey-08': '',
+      'journey-09': '',
+      'journey-10': ''
+    }
+  };
+
+  function fillGalleryCaps(lang) {
+    var caps = GALLERY_CAPS[lang] || {};
+    document.querySelectorAll('.gallery-caption').forEach(function (el) {
+      var key = el.getAttribute('data-key');
+      el.textContent = caps[key] || '';
+      el.classList.toggle('has', !!(caps[key] || ''));
+    });
+  }
+
   /* ---------- i18n engine ---------- */
   var baseline = {};
   var YEAR = String(new Date().getFullYear());
@@ -462,6 +511,19 @@
   function fillYear() {
     var y = document.getElementById('year');
     if (y) y.textContent = YEAR;
+  }
+
+  function ensureMarquee() {
+    var track = document.getElementById('testimonials-list');
+    if (!track || track.dataset.marqueeBuilt) return;
+    var cards = Array.prototype.slice.call(track.children);
+    if (!cards.length) return;
+    cards.forEach(function (c) {
+      var cl = c.cloneNode(true);
+      cl.classList.add('clone');
+      track.appendChild(cl);
+    });
+    track.dataset.marqueeBuilt = '1';
   }
 
   function applyLang(lang) {
@@ -512,6 +574,10 @@
     }
 
     fillYear();
+    fillGalleryCaps(lang);
+    var trackEl = document.getElementById('testimonials-list');
+    if (trackEl) delete trackEl.dataset.marqueeBuilt;
+    ensureMarquee();
 
     document.querySelectorAll('#lang-menu button').forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
