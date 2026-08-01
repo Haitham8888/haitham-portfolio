@@ -467,7 +467,7 @@
       'journey-03': 'Absar Tech Hackathon — where challenge turns into creation.',
       'journey-04': '',
       'journey-05': 'Bank Albilad Hackathon — innovating with my team.',
-      'journey-06': 'Honored by Eng. Khalid Al-Salem, President of the Royal Commission for Jubail &amp; Yanbu — Chinese Language Excellence, Level 1',
+      'journey-06': 'Honored by Eng. Khalid Al-Salem, President of the Royal Commission for Jubail & Yanbu — Chinese Language Excellence, Level 1',
       'journey-07': 'Honored at the 2025 Ramadan gathering for representing Jazan University — presented by University President Dr. Mohammed Abu Rasin.',
       'journey-08': 'The first live run of the "Yusr" app — the moment an idea becomes reality.',
       'journey-09': 'Our team’s win at the Mubtakaroon Fintech Hackathon — Bank AlJazira.',
