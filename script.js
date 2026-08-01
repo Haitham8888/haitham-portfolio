@@ -450,40 +450,40 @@
 
   var GALLERY_CAPS = {
     ar: {
-      'journey-01': '',
-      'journey-02': '',
-      'journey-03': '',
+      'journey-01': 'حفل التخرج — صورة جماعية تُتوَّج سنوات الجد والاجتهاد مع زملائي.',
+      'journey-02': 'تكريم فريقي في مشروع التخرج — المركز الأول.',
+      'journey-03': 'هاكاثون إبصار التقني — حيث يتحوّل التحدي إلى إبداع.',
       'journey-04': '',
-      'journey-05': '',
-      'journey-06': 'تكريمي من معالي رئيس الهيئة الملكية للجبيل وينبع م. خالد السالم - إتقان اللغة الصينية المستوى الأول',
-      'journey-07': '',
-      'journey-08': '',
-      'journey-09': '',
-      'journey-10': ''
+      'journey-05': 'هاكاثون بنك البلاد — مع فريقي في أجواء الابتكار التقني.',
+      'journey-06': 'تكريمي من معالي رئيس الهيئة الملكية للجبيل وينبع م. خالد السالم — إتقان اللغة الصينية المستوى الأول',
+      'journey-07': 'تكريمي بالإفطار الرمضاني 2025 لتمثيلي جامعة جازان — برعاية رئيس الجامعة د. محمد أبو راسين.',
+      'journey-08': 'أول تشغيل لتطبيق «يُسر» — لحظة تحوّل الفكرة إلى واقع.',
+      'journey-09': 'فوز فريقنا في هاكاثون «مبتكرون» للتقنية المالية — بنك الجزيرة.',
+      'journey-10': 'المركز الأول — هاكاثون جازان FLOW.'
     },
     en: {
-      'journey-01': '',
-      'journey-02': '',
-      'journey-03': '',
+      'journey-01': 'Graduation ceremony — a group photo that crowns years of dedication with my peers.',
+      'journey-02': 'Honored with my team — 1st place in the graduation project.',
+      'journey-03': 'Absar Tech Hackathon — where challenge turns into creation.',
       'journey-04': '',
-      'journey-05': '',
+      'journey-05': 'Bank Albilad Hackathon — innovating with my team.',
       'journey-06': 'Honored by Eng. Khalid Al-Salem, President of the Royal Commission for Jubail &amp; Yanbu — Chinese Language Excellence, Level 1',
-      'journey-07': '',
-      'journey-08': '',
-      'journey-09': '',
-      'journey-10': ''
+      'journey-07': 'Honored at the 2025 Ramadan gathering for representing Jazan University — presented by University President Dr. Mohammed Abu Rasin.',
+      'journey-08': 'The first live run of the "Yusr" app — the moment an idea becomes reality.',
+      'journey-09': 'Our team’s win at the Mubtakaroon Fintech Hackathon — Bank AlJazira.',
+      'journey-10': 'First place — Jazan FLOW Hackathon.'
     },
     zh: {
-      'journey-01': '',
-      'journey-02': '',
-      'journey-03': '',
+      'journey-01': '毕业典礼 — 与同窗合影，为多年的努力画上圆满句点。',
+      'journey-02': '毕业设计团队荣获第一名。',
+      'journey-03': 'Absar 技术黑客松 — 挑战成就创新。',
       'journey-04': '',
-      'journey-05': '',
+      'journey-05': 'Albilad 银行黑客松 — 与团队共创。',
       'journey-06': '荣获朱拜勒与延布皇家委员会主席哈立德·萨利姆工程师表彰 — 汉语水平一级优秀',
-      'journey-07': '',
-      'journey-08': '',
-      'journey-09': '',
-      'journey-10': ''
+      'journey-07': '2025 年斋月活动获表彰 — 因代表吉赞大学，由校长穆罕默德·阿布·拉辛博士颁奖。',
+      'journey-08': '《Yusr》应用首次运行 — 想法成真的瞬间。',
+      'journey-09': '团队荣获 Mubtakaroon 金融科技黑客松奖项 — AlJazira 银行。',
+      'journey-10': '第一名 — Jazan FLOW 黑客松。'
     }
   };
 
