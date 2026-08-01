@@ -1261,6 +1261,111 @@ button {
   margin-inline-start: 4px;
 }
 
+/* ---------- training ---------- */
+.train-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.train-photo {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  aspect-ratio: 3 / 2;
+}
+
+.train-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s var(--ease);
+}
+
+.train-photo:hover img {
+  transform: scale(1.05);
+}
+
+.train-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.train-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 20px;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.train-card:hover {
+  border-color: var(--accent-line);
+  box-shadow: 0 10px 28px rgba(32, 35, 31, 0.05);
+}
+
+.train-ic {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: var(--radius);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.train-ic svg {
+  width: 18px;
+  height: 18px;
+}
+
+.train-card h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.train-card p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.train-link {
+  margin-inline-start: auto;
+  flex: 0 0 auto;
+  color: var(--muted);
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.train-card:hover .train-link {
+  color: var(--accent);
+}
+
+[dir="ltr"] .train-card:hover .train-link {
+  transform: translateX(3px);
+}
+
+[dir="rtl"] .train-card:hover .train-link {
+  transform: translateX(-3px);
+}
+
+.train-link svg {
+  width: 17px;
+  height: 17px;
+}
+
 /* ---------- education ---------- */
 .edu-card {
   position: relative;
@@ -1518,6 +1623,10 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .train-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .partner-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1597,6 +1706,14 @@ button {
   }
 
   .vol-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .train-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .train-gallery {
     grid-template-columns: 1fr;
   }
 

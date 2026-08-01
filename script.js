@@ -130,17 +130,16 @@
           '<li>Edugate — student services portal for Jazan University (PHP, MySQL, Nafath)</li>' +
           '<li><a href="https://github.com/Haitham8888/Mn7al" target="_blank" rel="noopener">MNHAL</a> — smart beehive monitoring system (IoT) — 3rd place at Jeddahathon</li>'
       },
-      'testimonials-h': 'What People Say About Me',
-      'testimonials-sub': 'Testimonials from colleagues and partners on real projects.',
+      'testimonials-h': 'What People Say About My Courses',
+      'testimonials-sub': 'Real words from attendees of my courses and bootcamps on Twitter.',
       'testimonials-list': {
         html:
-          '<!-- ===== PLACEHOLDER TESTIMONIALS — replace with real quotes from Haitham ===== -->' +
-          '<div class="testi-card"><p>Haitham proved exceptional ability in building AI on-premise with complete privacy; running models on 16+ H100/H200 units took them from experiment to real production.</p><div class="testi-meta"><span class="testi-name">Eng. Abdullah bin Saad Al-Otaibi</span><span class="testi-role">IT Director — MDS CS</span></div></div>' +
-          '<div class="testi-card"><p>He took G-Care from idea to full launch; his attention to detail and speed of execution are unmatched.</p><div class="testi-meta"><span class="testi-name">Ms. Noura bint Mohammed Al-Ghamdi</span><span class="testi-role">Business Partner — G-Care</span></div></div>' +
-          '<div class="testi-card"><p>Through the Edugate portal he delivered digital student services that transformed the student experience, and his 4.56 GPA reflects deep understanding, not memorization.</p><div class="testi-meta"><span class="testi-name">Dr. Faisal bin Khalid Al-Qahtani</span><span class="testi-role">Assistant Professor — College of Computer Science, Jazan University</span></div></div>' +
-          '<div class="testi-card"><p>The WhatsApp bot he built automated our bookings; it saved daily work hours and ended missed appointments.</p><div class="testi-meta"><span class="testi-name">Ms. Sara bint Abdulaziz Al-Shehri</span><span class="testi-role">General Manager — ARC Physiotherapy Center</span></div></div>' +
-          '<div class="testi-card"><p>He understands both the technical and the business side, finishes what he starts, and delivers on time.</p><div class="testi-meta"><span class="testi-name">Eng. Khaled bin Nasser Al-Dosari</span><span class="testi-role">Entrepreneurial Partner — Jada 30</span></div></div>' +
-          '<div class="testi-card"><p>He delivered the store app with professionalism and a delightful experience, with perfect adherence to deadlines.</p><div class="testi-meta"><span class="testi-name">Ms. Reem bint Said Al-Zahrani</span><span class="testi-role">Marketing Officer — Saudi Coffee</span></div></div>'
+          '<div class="testi-card"><p>I successfully completed the Build Apps with GitHub Copilot course — a rich experience where I explored the power of AI in programming and learned Flutter app development, web design and AI-driven data analysis. Thank you to Mr. Haitham Hattan and the Masafa team.</p><div class="testi-meta"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Course · Masafa</span></div></div>' +
+          '<div class="testi-card"><p>Proud to have completed the Build Apps with GitHub Copilot bootcamp under the Microsoft Learn Student Ambassador program — a special experience where I learned to build apps using AI.</p><div class="testi-meta"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · MLSA</span></div></div>' +
+          '<div class="testi-card"><p>We finished the bootcamp and it was one of the best for me personally. I learned new things and lots of dense information, and I was amazed by how powerful GitHub Copilot is.</p><div class="testi-meta"><span class="testi-name">Majed</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></div></div>' +
+          '<div class="testi-card"><p>The AI bootcamp from the HRSDAI club has ended. I learned so much and built my first face-recognition bot. The field really pulled me in and I hope to go deeper in the future.</p><div class="testi-meta"><span class="testi-name">Shahad</span><span class="testi-role">Attendee — AI Bootcamp · HRSD</span></div></div>' +
+          '<div class="testi-card"><p>Day two of the Build Apps with GitHub Copilot bootcamp! I learned how to use GitHub Copilot in Flutter app development — the result: faster code, easier programming, and limitless creativity.</p><div class="testi-meta"><span class="testi-name">Ruba Doghan</span><span class="testi-role">Attendee — Build Apps with GitHub Copilot Bootcamp · Masafa</span></div></div>' +
+          '<div class="testi-card"><p>Highlights from yesterday\'s course. My first in-person course and it was very enjoyable and beautiful. Thank you to the HRSDJU club for the amazing course — best of luck in the future.</p><div class="testi-meta"><span class="testi-name">ArreChan</span><span class="testi-role">Attendee — Web Programming Course · HRSD</span></div></div>'
       },
       'partners-h': 'Partners & Clients',
       'partners-sub': 'Organizations I worked with on real projects — roles, products, and digital services.',
@@ -220,9 +219,46 @@
           '<a class="yt-item" href="https://youtu.be/LhLmvwOVOzc" target="_blank" rel="noopener">' +
           '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
           '<span class="yt-body"><span class="yt-title">AI Bootcamp — Day 6</span><span class="yt-meta">Live Stream · 6-Day Camp</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/C3exiDkEQNw" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">Python Basics</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/rGFlrdYslLs" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">Analyze Data with Python</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/mQb1EIy4Cgw" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">Web Programming Basics</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/VbpdtyRBFXk" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">Website Programming with GitHub Codespace — Summary</span><span class="yt-meta">AI Tools &amp; Techniques Course · Tutorial</span></span>' +
           svgOutline(I_EXT) + '</a>'
       },
       'youtube-channel': 'Subscribe to my channel on YouTube — Hai3',
+      'train-h': 'Training Courses I Delivered',
+      'train-sub': 'In-person and remote courses in AI and programming — from the AI Tools &amp; Techniques course to GitHub Copilot bootcamps.',
+      'train-list': {
+        html:
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_BOLT) + '</span>' +
+          '<div><h4>AI Tools &amp; Techniques Course</h4><p>An in-person course on Python basics, data analysis and web programming — with full recorded lectures.</p></div>' +
+          '<a class="train-link" href="https://www.youtube.com/playlist?list=PLSZLBXZCGThUE6U-nPO1byqTUFSz-DG1e" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>' +
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_SHIELD) + '</span>' +
+          '<div><h4>Penetration Testing with Metasploit</h4><p>A hands-on cybersecurity course with Fada Tech — penetration testing with real scenarios.</p></div>' +
+          '<a class="train-link" href="https://x.com/Fada_Tech0/status/1816596162171843005" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>' +
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_CODE) + '</span>' +
+          '<div><h4>Build Apps with GitHub Copilot Bootcamp</h4><p>An intensive remote camp for AI-assisted app development — with Masafa and MLSA.</p></div>' +
+          '<a class="train-link" href="https://x.com/SpaceSA0/status/1895892009426305088" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>' +
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_CLOUD) + '</span>' +
+          '<div><h4>Web Programming with GitHub Codespace</h4><p>An in-person web development course with the HRSD club and Microsoft Student Ambassadors — web basics via Codespace.</p></div>' +
+          '<a class="train-link" href="https://x.com/SpaceSA0/status/1766780024772768025" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>'
+      },
       'edu-h': 'Education',
       'edu-degree': 'B.Sc. Information Technology — Machine Learning Track',
       'edu-uni': 'Jazan University · 2021 — 2025',
@@ -344,17 +380,16 @@
           '<li>Edugate — 吉赞大学学生服务门户（PHP、MySQL、Nafath）</li>' +
           '<li><a href="https://github.com/Haitham8888/Mn7al" target="_blank" rel="noopener">MNHAL</a> — 智能蜂箱监测系统（物联网）—— Jeddahathon 第三名</li>'
       },
-      'testimonials-h': '别人对我的评价',
-      'testimonials-sub': '来自同事与合作伙伴对真实项目的评价。',
+      'testimonials-h': '别人对我的课程的评价',
+      'testimonials-sub': '来自我课程与训练营学员在推特上的真实评价。',
       'testimonials-list': {
         html:
-          '<!-- ===== PLACEHOLDER TESTIMONIALS — replace with real quotes from Haitham ===== -->' +
-          '<div class="testi-card"><p>海瑟姆在本地构建人工智能并保护完整隐私的能力出色；在 16 台以上 H100/H200 上运行模型，让它从实验走向真正的生产。</p><div class="testi-meta"><span class="testi-name">Eng. Abdullah bin Saad Al-Otaibi</span><span class="testi-role">信息技术总监 — MDS CS</span></div></div>' +
-          '<div class="testi-card"><p>他把 G-Care 从想法带到了完整上线；对细节的专注和执行力无可匹敌。</p><div class="testi-meta"><span class="testi-name">Ms. Noura bint Mohammed Al-Ghamdi</span><span class="testi-role">业务伙伴 — G-Care</span></div></div>' +
-          '<div class="testi-card"><p>通过 Edugate 门户交付的数字学生服务改变了学生体验，4.56 的绩点反映的是深度理解而非死记硬背。</p><div class="testi-meta"><span class="testi-name">Dr. Faisal bin Khalid Al-Qahtani</span><span class="testi-role">助理教授 — 吉赞大学计算机科学学院</span></div></div>' +
-          '<div class="testi-card"><p>他构建的 WhatsApp 机器人自动化了我们的预约；节省了每天的工作时间，结束了漏约问题。</p><div class="testi-meta"><span class="testi-name">Ms. Sara bint Abdulaziz Al-Shehri</span><span class="testi-role">总经理 — ARC 物理治疗中心</span></div></div>' +
-          '<div class="testi-card"><p>他既懂技术也懂商业，善始善终，准时交付。</p><div class="testi-meta"><span class="testi-name">Eng. Khaled bin Nasser Al-Dosari</span><span class="testi-role">创业伙伴 — Jada 30</span></div></div>' +
-          '<div class="testi-card"><p>他专业地交付了商店应用并带来愉悦体验，交付期限把握堪称完美。</p><div class="testi-meta"><span class="testi-name">Ms. Reem bint Said Al-Zahrani</span><span class="testi-role">营销主管 — 沙特咖啡</span></div></div>'
+          '<div class="testi-card"><p>我顺利完成了“使用 GitHub Copilot 构建应用”课程——一次收获丰富的体验：我探索了人工智能在编程中的力量，学会了 Flutter 应用开发、网页设计以及 AI 数据分析。感谢 Haitham Hattan 老师和 Masafa 团队。</p><div class="testi-meta"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用课程 · Masafa</span></div></div>' +
+          '<div class="testi-card"><p>很荣幸在 Microsoft Learn 学生大使计划下完成了“使用 GitHub Copilot 构建应用”训练营——这段特别的经历让我学会了如何利用人工智能开发应用。</p><div class="testi-meta"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · MLSA</span></div></div>' +
+          '<div class="testi-card"><p>我们完成了训练营，对我个人来说这是最好的训练营之一。我学到了新东西和大量密集的信息，也被 GitHub Copilot 的强大性能所震撼。</p><div class="testi-meta"><span class="testi-name">Majed</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></div></div>' +
+          '<div class="testi-card"><p>HRSDAI 社团的人工智能训练营结束了。我学到了很多东西，并构建了我的第一个面部识别机器人。这个领域真的吸引了我，希望未来能深入研究。</p><div class="testi-meta"><span class="testi-name">Shahad</span><span class="testi-role">学员 — 人工智能训练营 · HRSD</span></div></div>' +
+          '<div class="testi-card"><p>“使用 GitHub Copilot 构建应用”训练营的第二天！我学会了如何在 Flutter 应用开发中使用 GitHub Copilot——结果：代码更快、编程更轻松、创意无限。</p><div class="testi-meta"><span class="testi-name">Ruba Doghan</span><span class="testi-role">学员 — 使用 GitHub Copilot 构建应用训练营 · Masafa</span></div></div>' +
+          '<div class="testi-card"><p>昨天课程的精彩片段。我第一次参加线下课程，非常愉快而美好。感谢 HRSDJU 社团带来这门精彩的课程——祝未来一切顺利。</p><div class="testi-meta"><span class="testi-name">ArreChan</span><span class="testi-role">学员 — 网页编程课程 · HRSD</span></div></div>'
       },
       'partners-h': '合作伙伴与客户',
       'partners-sub': '我在真实项目中合作过的机构——岗位、产品与数字服务。',
@@ -434,9 +469,46 @@
           '<a class="yt-item" href="https://youtu.be/LhLmvwOVOzc" target="_blank" rel="noopener">' +
           '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
           '<span class="yt-body"><span class="yt-title">人工智能训练营 — 第 6 天</span><span class="yt-meta">直播 · 6 天训练营</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/C3exiDkEQNw" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">Python 基础</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/rGFlrdYslLs" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">使用 Python 分析数据</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/mQb1EIy4Cgw" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">网页编程基础</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
+          svgOutline(I_EXT) + '</a>' +
+          '<a class="yt-item" href="https://youtu.be/VbpdtyRBFXk" target="_blank" rel="noopener">' +
+          '<span class="yt-ic">' + svgFilled(I_PLAY) + '</span>' +
+          '<span class="yt-body"><span class="yt-title">使用 GitHub Codespace 进行网站编程 — 总结</span><span class="yt-meta">人工智能工具与技术课程 · 教程</span></span>' +
           svgOutline(I_EXT) + '</a>'
       },
       'youtube-channel': '订阅我的 YouTube 频道 — Hai3',
+      'train-h': '我教授的培训课程',
+      'train-sub': '人工智能与编程方面的线下及远程课程——从“人工智能工具与技术”课程到 GitHub Copilot 训练营。',
+      'train-list': {
+        html:
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_BOLT) + '</span>' +
+          '<div><h4>人工智能工具与技术课程</h4><p>线下课程，涵盖 Python 基础、数据分析与网页编程——附完整录制讲座。</p></div>' +
+          '<a class="train-link" href="https://www.youtube.com/playlist?list=PLSZLBXZCGThUE6U-nPO1byqTUFSz-DG1e" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>' +
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_SHIELD) + '</span>' +
+          '<div><h4>使用 Metasploit 进行渗透测试</h4><p>与 Fada Tech 合作的动手网络安全课程——结合实际场景进行渗透测试。</p></div>' +
+          '<a class="train-link" href="https://x.com/Fada_Tech0/status/1816596162171843005" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>' +
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_CODE) + '</span>' +
+          '<div><h4>Build Apps with GitHub Copilot 训练营</h4><p>面向 AI 辅助应用开发的密集远程训练营——与 Masafa 和 MLSA 合作。</p></div>' +
+          '<a class="train-link" href="https://x.com/SpaceSA0/status/1895892009426305088" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>' +
+          '<div class="train-card">' +
+          '<span class="train-ic">' + svgOutline(I_CLOUD) + '</span>' +
+          '<div><h4>使用 GitHub Codespace 进行网页编程</h4><p>与 HRSD 社团和微软学生大使合作的线下网页开发课程——通过 Codespace 学习网页基础。</p></div>' +
+          '<a class="train-link" href="https://x.com/SpaceSA0/status/1766780024772768025" target="_blank" rel="noopener">' + svgOutline(I_EXT) + '</a></div>'
+      },
       'edu-h': '教育',
       'edu-degree': '信息技术学士——机器学习方向',
       'edu-uni': '吉赞大学 · 2021 — 2025',
@@ -628,7 +700,7 @@
     }
 
     /* active nav link */
-    var sections = ['about', 'experience', 'projects', 'testimonials', 'partners', 'youtube', 'awards', 'certifications', 'skills', 'education', 'volunteering', 'contact'].map(function (id) {
+    var sections = ['about', 'experience', 'projects', 'testimonials', 'partners', 'youtube', 'training', 'awards', 'certifications', 'skills', 'education', 'volunteering', 'contact'].map(function (id) {
       return document.getElementById(id);
     }).filter(Boolean);
 
