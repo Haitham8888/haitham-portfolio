@@ -165,6 +165,7 @@
         html:
           '<li><span class="place gold">Employee</span><div><h4>Employee of the Year — MDS CS</h4><p>Q4 2025 &amp; Q1 2026 (consecutive)</p></div></li>' +
           '<li><span class="place gold">1st</span><div><h4>1st Place — Graduation Project</h4><p>Jazan University 2025</p></div></li>' +
+          '<li><span class="place gold">1st</span><div><h4>1st Place — Jazan Al-Ful Hackathon</h4><p>Named after the famous Al-Ful (Arabian jasmine) flower of Jazan</p></div></li>' +
           '<li><span class="place gold">1st</span><div><h4>1st Place — Biban 24 (Riyadh)</h4><p>Best project among Saudi universities</p></div></li>' +
           '<li><span class="place gold">1st</span><div><h4>1st Place — Monsha\'at Hackathon 2024 &amp; Fikrathon Jeddahathon 2023</h4><p>AI solutions supporting entrepreneurs and business operations</p></div></li>' +
           '<li><span class="place silver">2nd</span><div><h4>2nd Place — Bank Albilad Hackathon 2024</h4><p>FinTech solution boosting financial literacy and smart debt management</p></div></li>' +
@@ -368,6 +369,7 @@
         html:
           '<li><span class="place gold">员工</span><div><h4>年度最佳员工 — MDS CS</h4><p>2025 年第四季度与 2026 年第一季度（连续）</p></div></li>' +
           '<li><span class="place gold">第一</span><div><h4>毕业设计第一名</h4><p>吉赞大学 2025</p></div></li>' +
+          '<li><span class="place gold">第一</span><div><h4>吉赞 Al-Ful 黑客松第一名</h4><p>以吉赞著名的阿拉比茉莉花（Al-Ful）命名</p></div></li>' +
           '<li><span class="place gold">第一</span><div><h4>Biban 24（利雅得）第一名</h4><p>沙特高校最佳项目</p></div></li>' +
           '<li><span class="place gold">第一</span><div><h4>2024 年 Monsha\'at 黑客松与 2023 年 Fikrathon Jeddahathon 第一名</h4><p>支持创业者与商业运营的人工智能解决方案</p></div></li>' +
           '<li><span class="place silver">第二</span><div><h4>2024 年 Bank Albilad 黑客松第二名</h4><p>提升金融素养与智能债务管理的金融科技解决方案</p></div></li>' +
@@ -459,7 +461,7 @@
       'journey-07': 'تكريمي بالإفطار الرمضاني 2025 لتمثيلي جامعة جازان — برعاية رئيس الجامعة د. محمد أبو راسين.',
       'journey-08': 'أول تشغيل لتطبيق «يُسر» — لحظة تحوّل الفكرة إلى واقع.',
       'journey-09': 'فوز فريقنا في هاكاثون «مبتكرون» للتقنية المالية — بنك الجزيرة.',
-      'journey-10': 'المركز الأول — هاكاثون جازان FLOW.'
+      'journey-10': 'المركز الأول — هاكاثون جازان الفل.'
     },
     en: {
       'journey-01': 'Graduation ceremony — a group photo that crowns years of dedication with my peers.',
@@ -471,7 +473,7 @@
       'journey-07': 'Honored at the 2025 Ramadan gathering for representing Jazan University — presented by University President Dr. Mohammed Abu Rasin.',
       'journey-08': 'The first live run of the "Yusr" app — the moment an idea becomes reality.',
       'journey-09': 'Our team’s win at the Mubtakaroon Fintech Hackathon — Bank AlJazira.',
-      'journey-10': 'First place — Jazan FLOW Hackathon.'
+      'journey-10': 'First place — Jazan Al-Ful Hackathon.'
     },
     zh: {
       'journey-01': '毕业典礼 — 与同窗合影，为多年的努力画上圆满句点。',
@@ -483,7 +485,7 @@
       'journey-07': '2025 年斋月活动获表彰 — 因代表吉赞大学，由校长穆罕默德·阿布·拉辛博士颁奖。',
       'journey-08': '《Yusr》应用首次运行 — 想法成真的瞬间。',
       'journey-09': '团队荣获 Mubtakaroon 金融科技黑客松奖项 — AlJazira 银行。',
-      'journey-10': '第一名 — Jazan FLOW 黑客松。'
+      'journey-10': '第一名 — Jazan Al-Ful 黑客松。'
     }
   };
 
