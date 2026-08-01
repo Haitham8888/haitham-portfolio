@@ -625,9 +625,6 @@ button {
 
 /* ---------- about ---------- */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1.7fr 1fr;
-  gap: 48px;
   margin-top: 34px;
 }
 
@@ -635,68 +632,7 @@ button {
   color: var(--ink-2);
   font-size: 16px;
   margin-bottom: 16px;
-}
-
-.about-facts {
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  background: var(--panel);
-  padding: 24px;
-  align-self: start;
-}
-
-.about-facts h4 {
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-.fact-list {
-  display: grid;
-  gap: 16px;
-}
-
-.fact-list li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.fact-ic {
-  flex: 0 0 auto;
-  display: inline-grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  color: var(--accent);
-  background: var(--panel-tint);
-}
-
-.fact-ic svg {
-  width: 16px;
-  height: 16px;
-}
-
-.fact-list li > div {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.fact-list li span {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--ink);
-}
-
-.fact-list li small {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5;
+  max-width: 720px;
 }
 
 /* ---------- experience (timeline) ---------- */
@@ -1528,11 +1464,6 @@ button {
   .mobile-nav a.active {
     color: var(--accent-deep);
     font-weight: 700;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
   }
 
   .section {
