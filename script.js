@@ -54,7 +54,7 @@
       'mnav-partners': 'Partners',
       'mnav-contact': 'Contact',
       'hero-role': 'AI Engineer & Full-Stack Software Engineer',
-      'hero-loc': { html: svgOutline(I_PIN) + 'Riyadh, Saudi Arabia — Saudi National' },
+      'hero-loc': { html: svgOutline(I_PIN) + 'Riyadh, Saudi Arabia' },
       'hero-status': 'status: open_to_work',
       'hero-tagline': 'I build AI systems that run fully on-premise with complete privacy, and design high-reliability software and enterprise platforms that power real products.',
       'cta-cv': 'Download Resume',
@@ -71,15 +71,6 @@
           '<p>An <strong>AI Engineer</strong> and <strong>full-stack software engineer</strong> specialized in building <strong>RAG pipelines</strong> and training &amp; serving <strong>large language models on-premise</strong> on fully offline infrastructure with complete privacy — aligned with Saudi Vision 2030.</p>' +
           '<p>Currently an AI Engineer at <strong>MDS for Computer Systems (MDS CS)</strong>, where I oversee model training on <strong>16+ NVIDIA H100/H200 GPUs</strong> and build vector search and LLM automation tooling. Previously, I delivered enterprise systems with <strong>99.9%</strong> availability and improved data exchange efficiency by <strong>30%</strong>.</p>' +
           '<p>Self-taught since 2014, I have built <strong>10+ Android apps</strong> and <strong>20+ web platforms</strong> for real clients, taught AI to students through <strong>860+ volunteer hours</strong>, and run a tech channel with over <strong>156K views</strong>.</p>'
-      },
-      'about-facts-h': 'Quick Facts',
-      'about-facts-list': {
-        html:
-          '<li><span class="fact-ic">' + svgOutline(I_USERS) + '</span><div><span>Employee of the Year</span><small>MDS CS — Q4 2025 &amp; Q1 2026</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_AWARD) + '</span><div><span>GPA</span><small>4.56 / 5 — Jazan University</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_GLOBE) + '</span><div><span>Languages</span><small>Arabic (Native) — English (Fluent)</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_BRIEF) + '</span><div><span>Location</span><small>Riyadh, Saudi Arabia — Saudi National</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_STORE) + '</span><div><span>Founder</span><small>Maysour Company — FinTech</small></div></li>'
       },
       'exp-h': 'Professional Experience',
       'exp-sub': 'Hands-on experience in AI engineering, enterprise systems, and software development with measurable results.',
@@ -237,7 +228,7 @@
       'mnav-partners': '合作',
       'mnav-contact': '联系',
       'hero-role': '人工智能工程师与全栈软件工程师',
-      'hero-loc': { html: svgOutline(I_PIN) + '沙特阿拉伯，利雅得 — 沙特籍' },
+      'hero-loc': { html: svgOutline(I_PIN) + '沙特阿拉伯，利雅得' },
       'hero-status': 'status: open_to_work',
       'hero-tagline': '我构建完全本地运行、充分保护隐私的人工智能系统，并设计高可靠性的软件与企业级平台，为真实产品赋能。',
       'cta-cv': '下载简历',
@@ -254,15 +245,6 @@
           '<p>我是一名<strong>人工智能工程师</strong>和<strong>全栈软件工程师</strong>，专注于构建<strong>RAG 流水线</strong>，并<strong>在本地</strong>训练与部署<strong>大型语言模型</strong>——基础设施完全离线、隐私无忧，与沙特 2030 愿景一致。</p>' +
           '<p>目前在<strong>MDS 计算机系统公司（MDS CS）</strong>担任人工智能工程师，负责在<strong>16 台以上 NVIDIA H100/H200</strong> 上训练模型，并构建向量检索与 LLM 自动化工具。此前交付了可用性达 <strong>99.9%</strong> 的企业系统，并将数据交换效率提升了 <strong>30%</strong>。</p>' +
           '<p>自 2014 年开始自学，为真实客户构建了 <strong>10 余款 Android 应用</strong>和 <strong>20 多个网站平台</strong>，通过 <strong>860 多小时</strong>的志愿服务教授学生人工智能，并运营一个观看量超过 <strong>15.6 万</strong>的技术频道。</p>'
-      },
-      'about-facts-h': '快速事实',
-      'about-facts-list': {
-        html:
-          '<li><span class="fact-ic">' + svgOutline(I_USERS) + '</span><div><span>年度最佳员工</span><small>MDS CS — 2025 年第四季度与 2026 年第一季度</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_AWARD) + '</span><div><span>平均绩点</span><small>4.56 / 5 — 吉赞大学</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_GLOBE) + '</span><div><span>语言</span><small>阿拉伯语（母语）— 英语（流利）</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_BRIEF) + '</span><div><span>所在地</span><small>沙特阿拉伯，利雅得 — 沙特籍</small></div></li>' +
-          '<li><span class="fact-ic">' + svgOutline(I_STORE) + '</span><div><span>创始人</span><small>Maysour 公司 — 金融科技</small></div></li>'
       },
       'exp-h': '职业经历',
       'exp-sub': '在人工智能工程、企业系统与软件开发方面拥有实战经验，成果可量化。',
