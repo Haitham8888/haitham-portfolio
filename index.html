@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8" />
@@ -69,14 +69,14 @@
     </script>
 
     <link rel="stylesheet" href="fonts/fonts.css" />
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
 
     <!-- Apply language immediately (no flash) -->
     <script>
         (function () {
             try {
                 var params = new URLSearchParams(window.location.search);
-                var lang = params.get('lang') || localStorage.getItem('preferredLanguage') || 'ar';
+                var lang = params.get('lang') || localStorage.getItem('langPref') || 'en';
                 document.documentElement.setAttribute('lang', lang);
                 document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             } catch (e) {}
@@ -103,14 +103,16 @@
             </ul>
 
             <div class="nav-right">
-                <button class="icon-btn" id="lang-toggle" aria-label="Language" aria-haspopup="true" aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <div class="lang-wrap">
+                    <button class="icon-btn" id="lang-toggle" aria-label="Language" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </button>
                     <div class="lang-menu" id="lang-menu">
                         <button data-lang="ar" title="العربية" aria-label="العربية">AR</button>
                         <button data-lang="en" title="English" aria-label="English">EN</button>
                         <button data-lang="zh" title="中文" aria-label="中文">中</button>
                     </div>
-                </button>
+                </div>
 
                 <button class="icon-btn nav-burger" id="nav-burger" aria-label="Menu">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -606,7 +608,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
     </button>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>
