@@ -48,6 +48,7 @@
       'nav-testimonials': 'Testimonials',
       'nav-partners': 'Partners',
       'nav-youtube': 'YouTube',
+      'nav-gallery': 'Gallery',
       'nav-contact': 'Contact',
       'mnav-about': 'About',
       'mnav-exp': 'Experience',
@@ -55,6 +56,7 @@
       'mnav-testimonials': 'Testimonials',
       'mnav-partners': 'Partners',
       'mnav-youtube': 'YouTube',
+      'mnav-gallery': 'Gallery',
       'mnav-contact': 'Contact',
       'hero-role': 'AI Engineer & Full-Stack Software Engineer',
       'hero-loc': { html: svgOutline(I_PIN) + 'Riyadh, Saudi Arabia' },
@@ -240,6 +242,8 @@
       'youtube-channel': 'Subscribe to my channel on YouTube — Hai3',
       'train-h': 'Training Courses I Delivered',
       'train-sub': 'In-person and remote courses in AI and programming — from the AI Tools &amp; Techniques course to GitHub Copilot bootcamps.',
+      'gallery-h': 'My Journey in Photos',
+      'gallery-sub': 'Documented moments from my university, professional journey and tech competitions.',
       'train-list': {
         html:
           '<div class="train-card">' +
@@ -298,6 +302,7 @@
       'nav-testimonials': '评价',
       'nav-partners': '合作',
       'nav-youtube': '视频',
+      'nav-gallery': '相册',
       'nav-contact': '联系',
       'mnav-about': '关于',
       'mnav-exp': '经验',
@@ -305,6 +310,7 @@
       'mnav-testimonials': '评价',
       'mnav-partners': '合作',
       'mnav-youtube': '视频',
+      'mnav-gallery': '相册',
       'mnav-contact': '联系',
       'hero-role': '人工智能工程师与全栈软件工程师',
       'hero-loc': { html: svgOutline(I_PIN) + '沙特阿拉伯，利雅得' },
@@ -490,6 +496,8 @@
       'youtube-channel': '订阅我的 YouTube 频道 — Hai3',
       'train-h': '我教授的培训课程',
       'train-sub': '人工智能与编程方面的线下及远程课程——从“人工智能工具与技术”课程到 GitHub Copilot 训练营。',
+      'gallery-h': '我的历程掠影',
+      'gallery-sub': '大学、职业发展和技术竞赛中记录下来的时刻。',
       'train-list': {
         html:
           '<div class="train-card">' +
@@ -700,7 +708,7 @@
     }
 
     /* active nav link */
-    var sections = ['about', 'experience', 'projects', 'testimonials', 'partners', 'youtube', 'training', 'awards', 'certifications', 'skills', 'education', 'volunteering', 'contact'].map(function (id) {
+    var sections = ['about', 'experience', 'projects', 'testimonials', 'partners', 'youtube', 'training', 'gallery', 'awards', 'certifications', 'skills', 'education', 'volunteering', 'contact'].map(function (id) {
       return document.getElementById(id);
     }).filter(Boolean);
 
