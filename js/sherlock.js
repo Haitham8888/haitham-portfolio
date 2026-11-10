@@ -1,7 +1,8 @@
 /* Sherlock — the same character as Al-Haitham's desktop pet (deerstalker, black coat, blue collar,
    the smug thinking pose), redrawn live as coloured ASCII. He lives on the whole page, not in one box.
 
-   Every animation of the pet is used — idle, walk right / left, wave, jump, the dramatic sit-down,
+   His glasses (Al-Haitham's own: thin gold wire, octagonal lenses) are drawn into every frame of the
+   sprite, so they are part of him and move with every pose. Every animation of the pet is used — idle, walk right / left, wave, jump, the dramatic sit-down,
    wait, think, review — and consecutive frames are cross-faded on the glyph grid, so limbs and coat
    move smoothly instead of snapping. On top: squash and stretch, tilt, springs, footprints, pipe smoke.
 
@@ -40,15 +41,13 @@
   var bubble = layer.querySelector('.sh-bubble'), btext = bubble.querySelector('.sh-t'), hit = layer.querySelector('.sh-hit');
 
   // sprite sheet: 8 x 9 frames of 96 x 104
-  var sheet = new Image(); sheet.src = 'img/sherlock.webp';
+  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=69';
   var FW = 96, FHH = 104;
   var AN = {
     idle: { r: 0, n: 6, fps: 5 }, runR: { r: 1, n: 8, fps: 9 }, runL: { r: 2, n: 8, fps: 9 }, wave: { r: 3, n: 4, fps: 7 },
     jump: { r: 4, n: 5, fps: 9 }, fail: { r: 5, n: 8, fps: 6.5 }, wait: { r: 6, n: 6, fps: 5 }, think: { r: 7, n: 6, fps: 5 }, review: { r: 8, n: 6, fps: 5 }
   };
-  var IDLE_FACING = 1, FOOT = 0.978;
-  // eye positions per frame [leftX, rightX, y, faceW] (0..1 of the frame) - his glasses sit here
-  var EYEPOS = [[[0.4429,0.6203,0.3221,0.2917],[0.4376,0.6156,0.3269,0.2865],[0.4426,0.6209,0.3221,0.2865],[0.4409,0.6183,0.3221,0.2812],[0.4416,0.6203,0.3221,0.2865],[0.4408,0.6174,0.3269,0.2917]],[[0.4798,0.6678,0.351,0.3021],[0.4651,0.6428,0.3462,0.2865],[0.4662,0.6426,0.3462,0.2917],[0.465,0.6398,0.3413,0.2917],[0.4752,0.6498,0.3413,0.2917],[0.4789,0.6504,0.3413,0.2865],[0.4884,0.6665,0.3462,0.2917],[0.4807,0.6536,0.3462,0.2865]],[[0.3121,0.5001,0.351,0.3021],[0.348,0.5254,0.3462,0.2865],[0.3466,0.527,0.3462,0.2917],[0.3442,0.523,0.3413,0.2917],[0.3079,0.4869,0.3413,0.2917],[0.324,0.4986,0.3413,0.2917],[0.3321,0.5117,0.3462,0.2917],[0.3506,0.5276,0.3462,0.2917]],[[0.3633,0.5761,0.3269,0.4635],[0.3633,0.5761,0.3269,0.4635],[0.3633,0.5761,0.3269,0.4635],[0.3633,0.5761,0.3269,0.4635]],[[0.4726,0.6627,0.3702,0.3281],[0.4726,0.6627,0.3702,0.3281],[0.4646,0.6657,0.375,0.3385],[0.4772,0.6718,0.375,0.3281],[0.4772,0.6718,0.375,0.3281]],[[0.4429,0.6203,0.3221,0.2917],[0.4429,0.6203,0.3221,0.2917],[0.4329,0.6103,0.3571,0.2917],null,null,null,[0.4429,0.6203,0.3221,0.2917],[0.4429,0.6203,0.3221,0.2917]],[[0.4392,0.6161,0.3269,0.2812],[0.4464,0.624,0.3173,0.2708],[0.429,0.5858,0.3029,0.2656],[0.4394,0.605,0.3125,0.2708],[0.4497,0.6242,0.3221,0.276],[0.4497,0.6242,0.3221,0.276]],[[0.4429,0.6203,0.3221,0.2917],[0.4429,0.6203,0.3221,0.2917],[0.4429,0.6203,0.3221,0.2917],[0.4429,0.6203,0.3221,0.2917],[0.4429,0.6203,0.3221,0.2917],[0.4429,0.6203,0.3221,0.2917]],[[0.4522,0.6258,0.3462,0.2812],[0.4522,0.6258,0.3462,0.2812],[0.447,0.6258,0.3413,0.2812],[0.4241,0.6039,0.3654,0.2969],[0.4513,0.6204,0.3798,0.2917],[0.4513,0.6204,0.3798,0.2917]]];
+  var IDLE_FACING = 1, FOOT = 0.978, GOLD_D = '#f4d27a', GOLD_L = '#8a6420';
   var ROWS = 66, COLS = Math.round(ROWS * FW / FHH);
   var off = document.createElement('canvas'); off.width = COLS; off.height = ROWS;
   var o = off.getContext('2d', { willReadFrequently: true });
@@ -267,7 +266,7 @@
     var c = colCache[key]; if (c) return c;
     var L = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
     if (dk) { var k = L < 0.2 ? 0.56 : L < 0.4 ? 0.4 : 0.14; r += (255 - r) * k; g += (255 - g) * k; b += (255 - b) * k; }
-    else { r *= 0.72; g *= 0.72; b *= 0.72; }
+    else { r *= 0.6; g *= 0.6; b *= 0.6; }
     return (colCache[key] = 'rgb(' + Math.round(r) + ',' + Math.round(g) + ',' + Math.round(b) + ')');
   }
 
@@ -314,6 +313,8 @@
     var f = isFail ? Math.min(S.af, an.n - 1.001) : ((S.af % an.n) + an.n) % an.n;
     var i0 = Math.floor(f), i1 = isFail ? Math.min(i0 + 1, an.n - 1) : (i0 + 1) % an.n, ft = f - i0;
     if (posed) { i0 = Math.round(f) % an.n; i1 = i0; ft = 0; }
+    // blend only around the middle of each frame: smooth motion, no doubled glasses or limbs
+    ft = clamp((ft - 0.38) / 0.24, 0, 1); ft = ft * ft * (3 - 2 * ft);
     var run = S.anim === 'runR' || S.anim === 'runL', turn = Math.max(0.14, Math.abs(S.sx));
     var mx = run ? turn : (S.sx < 0 ? -turn : turn) * IDLE_FACING;
     var calm = S.anim === 'idle' || S.anim === 'review' || S.anim === 'think' || S.anim === 'wait';
@@ -338,11 +339,14 @@
       var dens = dk ? 0.3 + 0.7 * Lm : 0.34 + 0.66 * (1 - Lm);
       var gi = Math.round(dens * (RAMP.length - 1)) - (((x * 7 + y * 13) % 3) === 0 ? 1 : 0);
       ctx.globalAlpha = Math.min(1, (al / 255) * 1.15);
+      // his gold glasses keep their own bright metal colour and a solid glyph
+      if (r > 150 && g > 110 && b < g * 0.72 && r - b > 80) { ctx.fillStyle = dk ? GOLD_D : GOLD_L; ctx.globalAlpha = 1; ctx.fillText(((x + y) & 1) ? '#' : '@', ox + x * cp, oy + y * cp); continue; }
       ctx.fillStyle = colour(r, g, b, dk);
-      ctx.fillText(RAMP[clamp(gi, 2, RAMP.length - 1)], ox + x * cp, oy + y * cp);
+      var gch = RAMP[clamp(gi, 2, RAMP.length - 1)];
+      ctx.fillText(gch, ox + x * cp, oy + y * cp);
+      if (!dk) { ctx.strokeStyle = ctx.fillStyle; ctx.lineWidth = cp * 0.28; ctx.strokeText(gch, ox + x * cp, oy + y * cp); }
     }
     ctx.globalAlpha = 1;
-    drawGlasses(an, i0, i1, ft, mx * sqx, sqy, ox, oy, cp, dk, now);
     var facing = S.dir;
     SK.pipe = typed.full && S.mode === 'idle' ? { x: S.x + facing * 26 * u, y: fy - FH * 0.98 } : null;
 
@@ -389,50 +393,6 @@
     hit.style.display = '';
     hit.style.transform = 'translate(' + (S.x - hw / 2).toFixed(0) + 'px,' + (fy - hh).toFixed(0) + 'px)';
     hit.style.width = hw + 'px'; hit.style.height = hh.toFixed(0) + 'px';
-  }
-  // his own glasses: thin gold wire, octagonal lenses, a bridge and one temple. Drawn crisp over the ASCII.
-  function octo(cx, cy, rx, ry) {
-    ctx.beginPath();
-    for (var k = 0; k < 8; k++) { var a = Math.PI / 8 + k * Math.PI / 4, x = cx + Math.cos(a) * rx, y = cy + Math.sin(a) * ry; if (k) ctx.lineTo(x, y); else ctx.moveTo(x, y); }
-    ctx.closePath();
-  }
-  function drawGlasses(an, i0, i1, ft, kx, ky, ox, oy, cp, dk, now) {
-    var row = EYEPOS[an.r]; if (!row) return;
-    var a = row[i0], b = row[i1] || a; if (!a || !b) return;
-    var e = [0, 1, 2, 3].map(function (k) { return lerp(a[k], b[k], ft); });
-    var c = Math.cos(S.tilt), sn = Math.sin(S.tilt);
-    function P(fx, fyN) {
-      var lx = (fx - 0.5) * COLS * kx, ly = (fyN - FOOT) * ROWS * ky;
-      return { x: ox + (COLS / 2 + lx * c - ly * sn) * cp, y: oy + (ROWS * FOOT + lx * sn + ly * c) * cp };
-    }
-    var L = P(e[0], e[2]), R = P(e[1], e[2]);
-    var dist = Math.hypot(R.x - L.x, R.y - L.y), rx = Math.max(dist * 0.43, 3 * u), ry = rx * 0.84;
-    var ang = Math.atan2(R.y - L.y, R.x - L.x); if (Math.abs(ang) > Math.PI / 2) ang += Math.PI;
-    var gold = dk ? '#e2c27a' : '#8a6420', lw = Math.max(1.1, cp * 0.5);
-    ctx.save();
-    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-    [L, R].forEach(function (q, idx) {
-      ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(ang);
-      octo(0, 0, rx, ry);
-      ctx.fillStyle = dk ? 'rgba(170,215,255,0.10)' : 'rgba(120,170,220,0.12)'; ctx.fill();
-      ctx.save(); ctx.clip();
-      // a glint that sweeps across now and then
-      var gt = ((now / 1000 + idx * 0.12) % 4.2) / 0.7;
-      if (gt < 1) { ctx.strokeStyle = 'rgba(255,255,255,' + (0.55 * Math.sin(Math.PI * gt)).toFixed(2) + ')'; ctx.lineWidth = rx * 0.35; ctx.beginPath(); var gx = -rx * 1.6 + gt * rx * 3.2; ctx.moveTo(gx - ry, ry); ctx.lineTo(gx + ry, -ry); ctx.stroke(); }
-      // thinking: a green scan line runs down the lenses
-      if (typed.full || S.engaged) { var sy2 = -ry + ((now / 900) % 1) * ry * 2; ctx.fillStyle = dk ? 'rgba(74,222,128,0.55)' : 'rgba(21,128,61,0.5)'; ctx.fillRect(-rx, sy2, rx * 2, Math.max(1, lw * 0.8)); }
-      ctx.restore();
-      octo(0, 0, rx, ry); ctx.strokeStyle = gold; ctx.lineWidth = lw; ctx.stroke();
-      ctx.restore();
-    });
-    // bridge, slightly arched
-    var ux = Math.cos(ang), uy = Math.sin(ang), mxp = (L.x + R.x) / 2, myp = (L.y + R.y) / 2;
-    ctx.strokeStyle = gold; ctx.lineWidth = lw;
-    ctx.beginPath(); ctx.moveTo(L.x + ux * rx * 0.92, L.y + uy * rx * 0.92 - ry * 0.25); ctx.quadraticCurveTo(mxp + uy * ry * 0.35, myp - ux * ry * 0.35 - ry * 0.35, R.x - ux * rx * 0.92, R.y - uy * rx * 0.92 - ry * 0.25); ctx.stroke();
-    // one temple, toward the back of his head
-    var back = (S.anim === 'runR' || S.anim === 'runL') ? -S.dir : (kx < 0 ? 1 : -1), T = back < 0 ? L : R, sgn = back < 0 ? -1 : 1;
-    ctx.beginPath(); ctx.moveTo(T.x + sgn * ux * rx, T.y + sgn * uy * rx - ry * 0.3); ctx.lineTo(T.x + sgn * ux * rx * 2.3, T.y + sgn * uy * rx * 2.3 - ry * 0.15); ctx.stroke();
-    ctx.restore();
   }
   function hideUI() { hit.style.display = 'none'; }
 
