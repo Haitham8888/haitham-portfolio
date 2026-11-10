@@ -14,7 +14,7 @@
   function eyes(fig) {
     var E = window.EYES, canvas = fig.querySelector('canvas'), ctx = canvas.getContext('2d');
     // only the eyes and brows: crop away the nose and cheeks below, and the empty background at the sides
-    var CX0 = 40, CX1 = 122, CY0 = 4, CY1 = 21, SC = CX1 - CX0, SR = CY1 - CY0;
+    var CX0 = 40, CX1 = 122, CY0 = 3, CY1 = 21, SC = CX1 - CX0, SR = CY1 - CY0;
     var src = new Float32Array(SC * SR);
     for (var yy0 = 0; yy0 < SR; yy0++) for (var xx0 = 0; xx0 < SC; xx0++) src[yy0 * SC + xx0] = ALPHA.indexOf(E.d[(yy0 + CY0) * E.c + xx0 + CX0]) / 63;
     // stretch contrast inside the crop so brows, eyes and the glasses frames read clearly
@@ -84,11 +84,14 @@
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++, k++) {
           var L = lum[y * cols + x];
-          var v = dk ? Math.pow(L, 1.5) : Math.pow(1 - L, 0.8);
+          var v = dk ? Math.pow(L, 1.5) : Math.pow(Math.max(0, Math.min(1, (0.72 - L) / 0.72)), 1.1);
           var nx = (x / cols - 0.5) / 0.075, ny = y / rows;
           if (nx > -1 && nx < 1 && ny > 0.62) v *= 1 - (1 - nx * nx) * Math.min(1, (ny - 0.62) / 0.3) * 0.55;
-          if (v < 0.035) continue;
-          var a = dk ? 0.05 + 0.95 * Math.pow(v, 1.15) : 0.1 + 0.9 * v, col = base, mixB = 0;
+          if (v < 0.035 && !(dk && L > 0.08 && L < 0.4)) continue;
+          var a = dk ? 0.05 + 0.95 * Math.pow(v, 1.15) : 0.05 + 0.95 * v, col = base, mixB = 0;
+          // brows and lashes: their own dim grey texture on black (pupils stay dark so the eyes keep depth)
+          var hair = dk && L > 0.08 && L < 0.4;
+          if (hair) { var th = (0.4 - L) / 0.32; a = Math.max(a, 0.1 + 0.16 * Math.min(1, th)); col = [150, 156, 166]; }
           var db = Math.abs(x - beamX);
           if (db < BW) mixB = (1 - db / BW) * 0.85;
           if (glow > 0.01) {
@@ -97,7 +100,7 @@
           }
           var reveal = (x / cols) * 1.0 + (y / rows) * 0.12;
           if (!reduce && t < reveal) { if (t < reveal - 0.25) continue; a *= Math.max(0, 1 - (reveal - t) / 0.25); }
-          if (mixB > 0) { a = Math.min(1, a + mixB * 0.35); col = [Math.round(base[0] + (beamC[0] - base[0]) * mixB), Math.round(base[1] + (beamC[1] - base[1]) * mixB), Math.round(base[2] + (beamC[2] - base[2]) * mixB)]; }
+          if (mixB > 0) { a = Math.min(1, a + mixB * 0.35); col = [Math.round(col[0] + (beamC[0] - col[0]) * mixB), Math.round(col[1] + (beamC[1] - col[1]) * mixB), Math.round(col[2] + (beamC[2] - col[2]) * mixB)]; }
           ctx.globalAlpha = a;
           ctx.fillStyle = 'rgb(' + col[0] + ',' + col[1] + ',' + col[2] + ')';
           ctx.fillText(WORDS[k % wl], x * cw, y * ch);
