@@ -30,13 +30,14 @@
       var k2 = Math.max(0, Math.min(1, (xx2 - mid0 + 8) / 16)), lo2 = LA[0] * (1 - k2) + LB[0] * k2, hi2 = LA[1] * (1 - k2) + LB[1] * k2, i2 = yy2 * SC + xx2;
       src[i2] = Math.max(0, Math.min(1, (src[i2] - lo2) / (hi2 - lo2 || 1)));
     }
+    var gxA, gyA, edA, hsA, edgeT = 0.1, glints = [], dust = [], lastT = 0;
     var lum, cols, rows, cw, ch, w, h, fs, mouse = null, glow = 0, born = 0, seen = false, visible = false, timer = 0;
 
     // box-average the high-res grid down to the size that fits this screen
     function build() {
       var cs = getComputedStyle(fig);
       w = fig.clientWidth - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0);
-      cols = Math.max(90, Math.min(300, Math.round(w / 3.7)));
+      cols = Math.max(90, Math.min(240, Math.round(w / 4.4)));
       cw = w / cols; fs = cw / GW; ch = fs * LH;
       rows = Math.max(1, Math.round(cols * (SR / SC) * 1.0));
       h = rows * ch;
@@ -58,6 +59,17 @@
           }
         }
       }
+      // relief from the image itself: gradients act as surface normals, edges become contour glyphs
+      gxA = new Float32Array(cols * rows); gyA = new Float32Array(cols * rows); edA = new Float32Array(cols * rows); hsA = new Uint16Array(cols * rows);
+      for (var y2 = 0; y2 < rows; y2++) for (var x2 = 0; x2 < cols; x2++) {
+        var i3 = y2 * cols + x2;
+        var xl = Math.max(0, x2 - 1), xr = Math.min(cols - 1, x2 + 1), yu = Math.max(0, y2 - 1), yd = Math.min(rows - 1, y2 + 1);
+        var gx = (lum[y2 * cols + xr] - lum[y2 * cols + xl]) * 0.5, gy = (lum[yd * cols + x2] - lum[yu * cols + x2]) * 0.5;
+        gxA[i3] = gx; gyA[i3] = gy; edA[i3] = Math.sqrt(gx * gx + gy * gy);
+        hsA[i3] = ((x2 * 73856093) ^ (y2 * 19349663)) & 0xffff;
+      }
+      var es = Array.prototype.slice.call(edA).sort(function (p, q) { return p - q; });
+      edgeT = es[Math.floor(es.length * 0.9)] || 0.1;
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
@@ -65,45 +77,83 @@
       draw(performance.now());
     }
 
-    // the characters are the stack itself: Python, Rust, Kubernetes, ALLaM ... read left to right
-    var WORDS = (function () {
-      var st = (window.SITE && window.SITE.stack) || {}, out = [];
-      Object.keys(st).forEach(function (k) { if (k !== 'spoken') st[k].forEach(function (w) { out.push(String(w).replace(/\s+/g, '')); }); });
-      return (out.length ? out : ['Python', 'Rust', 'Kubernetes', 'ALLaM', 'Qwen', 'DeepSeek', 'Milvus']).join('');
-    })();
+    // the rose's ink: letters and numbers in bands from sparse to dense
+    var GROUPS = [".'`", ",:;", "-~^", "=+<>", "ilr!1", "cvxz7", "tjfJ?", "nuoe23", "sa5S4Z", "kbdpq9X", "AGh6&%", "UOQ0#D", "$8B@MW"], NG = GROUPS.length;
+    var RAMP_D = [[0, 26, 28, 34], [0.3, 74, 80, 92], [0.6, 150, 158, 170], [0.85, 222, 227, 233], [1, 255, 255, 255]];
+    var RAMP_L = [[0, 236, 236, 236], [0.3, 170, 172, 176], [0.6, 96, 98, 104], [0.85, 40, 42, 46], [1, 8, 8, 10]];
+    var LEVELS = 24, styleCache = {};
+    function ramp(t, R) {
+      for (var i = 1; i < R.length; i++) if (t <= R[i][0]) { var a = R[i - 1], b = R[i], u = (t - a[0]) / (b[0] - a[0]); return [a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u, a[3] + (b[3] - a[3]) * u]; }
+      var l = R[R.length - 1]; return [l[1], l[2], l[3]];
+    }
+    function style(q, dk, accent) {
+      var key = q + (dk ? 'd' : 'l') + (accent ? 'a' : '');
+      if (styleCache[key]) return styleCache[key];
+      var c = ramp(q / (LEVELS - 1), dk ? RAMP_D : RAMP_L);
+      if (accent) c = dk ? [74 + (c[0] - 74) * 0.25, 222 + (c[1] - 222) * 0.25, 128 + (c[2] - 128) * 0.25] : [21, 128, 61];
+      return (styleCache[key] = 'rgb(' + Math.round(c[0]) + ',' + Math.round(c[1]) + ',' + Math.round(c[2]) + ')');
+    }
+    var buckets = [];
     function draw(now) {
-      var dk = dark(), t = seen ? (now - born) / 1000 : -1, wl = WORDS.length;
+      var dk = dark(), t = seen ? (now - born) / 1000 : -1, tt = now / 1000, dt = Math.min(0.1, Math.max(0, tt - (lastT || tt))); lastT = tt;
       ctx.clearRect(0, 0, w, h);
       ctx.font = '700 ' + fs.toFixed(2) + 'px ' + MONO;
       ctx.textBaseline = 'top';
-      var base = dk ? [236, 236, 236] : [10, 10, 10], beamC = dk ? [74, 222, 128] : [21, 128, 61];
-      // a soft reading beam sweeps across every few seconds
-      var period = 6.5, bp = reduce ? -1 : ((now / 1000) % period) / 2.2, beamX = bp <= 1 ? (bp * 1.3 - 0.15) * cols : -999, BW = cols * 0.06;
+      // the light circles slowly, as on the rose; the rim breathes
+      var la = reduce ? 0.9 : tt * 0.35, Lx = Math.cos(la) * 0.75, Ly = Math.sin(la) * 0.55, Lz = 0.62, Ln = Math.sqrt(Lx * Lx + Ly * Ly + Lz * Lz); Lx /= Ln; Ly /= Ln; Lz /= Ln;
+      var breathe = reduce ? 0.6 : 0.55 + 0.25 * Math.sin(tt * 0.8);
       var R = 10, mx = mouse ? mouse.x / cw : -99, my = mouse ? mouse.y / ch : -99;
+      for (var q = 0; q < LEVELS * 2; q++) buckets[q] = [];
       var k = 0;
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++, k++) {
-          var L = lum[y * cols + x];
-          var v = dk ? Math.pow(L, 1.3) : Math.pow(Math.max(0, Math.min(1, (0.72 - L) / 0.72)), 1.1);
-          var nx = (x / cols - 0.5) / 0.075, ny = y / rows;
-          if (nx > -1 && nx < 1 && ny > 0.62) v *= 1 - (1 - nx * nx) * Math.min(1, (ny - 0.62) / 0.3) * 0.55;
-          if (v < 0.035 && !dk) continue;
-          var a = dk ? 0.05 + 0.95 * Math.pow(v, 1.15) : 0.05 + 0.95 * v, col = base, mixB = 0;
-          // no black holes: every part of the image keeps a light, readable layer of characters
-          if (dk) a = Math.max(a, 0.15);
-          var db = Math.abs(x - beamX);
-          if (db < BW) mixB = (1 - db / BW) * 0.85;
-          if (glow > 0.01) {
-            var dx = x - mx, dy = (y - my) * 1.9, d = Math.sqrt(dx * dx + dy * dy);
-            if (d < R) a = Math.min(1, a + (1 - d / R) * glow * 0.5);
+          var L = lum[k];
+          // shading from the relief under the moving light
+          var nx = -gxA[k] * 9, ny = -gyA[k] * 9, nz = 1, nn = Math.sqrt(nx * nx + ny * ny + 1);
+          var dif = Math.max(0, (nx * Lx + ny * Ly + nz * Lz) / nn), spec = Math.pow(dif, 24);
+          var b = L * (0.62 + 0.5 * dif) + 0.22 * spec + 0.06 * breathe * L;
+          var nX = (x / cols - 0.5) / 0.075, nY = y / rows;
+          if (nX > -1 && nX < 1 && nY > 0.62) b *= 1 - (1 - nX * nX) * Math.min(1, (nY - 0.62) / 0.3) * 0.5;
+          var tone = dk ? Math.max(0.15, Math.min(1, Math.pow(b, 1.15))) : Math.min(1, Math.pow(Math.max(0, 1 - b), 1.25) * 1.15);
+          if (!dk && tone < 0.06) continue;
+          if (glow > 0.01) { var dx = x - mx, dy = (y - my) * 1.9, d = Math.sqrt(dx * dx + dy * dy); if (d < R) tone = Math.min(1, tone + (1 - d / R) * glow * 0.4); }
+          var reveal = (x / cols) * 1.0 + (y / rows) * 0.12, fade = 1;
+          if (!reduce && t < reveal) { if (t < reveal - 0.25) continue; fade = Math.max(0, 1 - (reveal - t) / 0.25); }
+          var g, isEdge = edA[k] > edgeT;
+          if (isEdge) {
+            // contours: the direction of the edge picks the glyph, like the rose's outlines
+            var ang = (Math.atan2(gxA[k], -gyA[k]) * 180 / Math.PI + 180) % 180;
+            g = (ang < 22.5 || ang >= 157.5) ? (gyA[k] > 0 ? '_' : '-') : ang < 67.5 ? '/' : ang < 112.5 ? '|' : '\\';
+            tone = Math.min(1, tone + 0.12);
+          } else {
+            var grp = GROUPS[Math.min(NG - 1, Math.floor(tone * NG))];
+            g = grp[hsA[k] % grp.length];
           }
-          var reveal = (x / cols) * 1.0 + (y / rows) * 0.12;
-          if (!reduce && t < reveal) { if (t < reveal - 0.25) continue; a *= Math.max(0, 1 - (reveal - t) / 0.25); }
-          if (mixB > 0) { a = Math.min(1, a + mixB * 0.35); col = [Math.round(col[0] + (beamC[0] - col[0]) * mixB), Math.round(col[1] + (beamC[1] - col[1]) * mixB), Math.round(col[2] + (beamC[2] - col[2]) * mixB)]; }
-          ctx.globalAlpha = a;
-          ctx.fillStyle = 'rgb(' + col[0] + ',' + col[1] + ',' + col[2] + ')';
-          ctx.fillText(WORDS[k % wl], x * cw, y * ch);
+          var lvl = Math.max(0, Math.min(LEVELS - 1, Math.round(tone * fade * (LEVELS - 1))));
+          buckets[lvl].push(g, x * cw, y * ch);
         }
+      }
+      for (var q2 = 0; q2 < LEVELS; q2++) {
+        var bk = buckets[q2]; if (!bk.length) continue;
+        ctx.fillStyle = style(q2, dk, false);
+        for (var j = 0; j < bk.length; j += 3) ctx.fillText(bk[j], bk[j + 1], bk[j + 2]);
+      }
+      if (reduce || t < 0) return;
+      // glitter twinkles on the bright skin; cross-shaped glints now and then
+      if (Math.random() < dt * 9) { var gi = (Math.random() * cols * rows) | 0; if (lum[gi] > 0.55) dust.push({ x: gi % cols, y: (gi / cols) | 0, life: 0, max: 0.35 + Math.random() * 0.5 }); }
+      if (Math.random() < dt * 0.9) glints.push({ x: Math.random() * cols, y: Math.random() * rows, life: 0, max: 0.9 + Math.random() * 0.7, arm: 2 + ((Math.random() * 3) | 0) });
+      ctx.fillStyle = style(LEVELS - 1, dk, true);
+      for (var i4 = dust.length - 1; i4 >= 0; i4--) {
+        var p4 = dust[i4]; p4.life += dt; if (p4.life > p4.max) { dust.splice(i4, 1); continue; }
+        var a4 = Math.sin(Math.PI * p4.life / p4.max); ctx.globalAlpha = a4;
+        ctx.fillText(a4 > 0.7 ? '*' : a4 > 0.35 ? '+' : '.', p4.x * cw, p4.y * ch);
+      }
+      for (var i5 = glints.length - 1; i5 >= 0; i5--) {
+        var gl = glints[i5]; gl.life += dt; if (gl.life > gl.max) { glints.splice(i5, 1); continue; }
+        var a5 = Math.sin(Math.PI * gl.life / gl.max), n5 = Math.max(1, Math.round(gl.arm * a5)), cx5 = gl.x * cw, cy5 = gl.y * ch;
+        ctx.globalAlpha = a5; ctx.fillText('+', cx5, cy5);
+        ctx.globalAlpha = a5 * 0.55;
+        for (var s5 = 1; s5 <= n5; s5++) { ctx.fillText('-', cx5 - s5 * cw, cy5); ctx.fillText('-', cx5 + s5 * cw, cy5); ctx.fillText('|', cx5, cy5 - s5 * ch); ctx.fillText('|', cx5, cy5 + s5 * ch); }
       }
       ctx.globalAlpha = 1;
     }
@@ -113,7 +163,7 @@
       var now = performance.now(), t = (now - born) / 1000;
       glow += ((mouse ? 1 : 0) - glow) * 0.25;
       draw(now);
-      if (!reduce && visible) timer = setTimeout(loop, (t < 1.5 || mouse || glow > 0.02) ? 40 : 60);
+      if (!reduce && visible) timer = setTimeout(loop, 42);
     }
     function kick() { if (!timer) loop(); }
 
