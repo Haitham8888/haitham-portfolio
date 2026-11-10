@@ -22,7 +22,7 @@
       Object.keys(C).filter(function (k) { return !C[k].hide; }).forEach(function (k) { print('<span class="k">' + pad(k, 12) + '</span><span class="m">' + C[k].d + '</span>'); });
     } },
     whoami: { d: 'who is this', f: function () {
-      print('<b>Haitham Hattan</b> — AI Engineer &amp; Full-Stack Software Engineer');
+      print('<b>Al-Haitham Hattan</b> · الهَيثم هتّان — AI Engineer &amp; Software Engineer');
       print('<span class="m">private on-prem AI · RAG · LLMs on H100/H200 · enterprise systems · Riyadh, SA</span>');
     } },
     latest: { d: 'newest wins', f: function () {

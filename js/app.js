@@ -13,6 +13,7 @@
   function render() {
     $$('[data-i]').forEach(function (el) { var v = u(el.getAttribute('data-i')); if (v) el.textContent = v; });
     document.title = u('__title');
+    var nm = $('#name'); if (nm && !nm._busy) nm.textContent = u('name');
     $('#theme').setAttribute('aria-label', doc.dataset.theme === 'light' ? u('theme.dark') : u('theme.light'));
     $$('.controls [data-lang]').forEach(function (b) { b.classList.toggle('on', b.dataset.lang === lang); b.setAttribute('aria-pressed', b.dataset.lang === lang); });
 
@@ -24,7 +25,7 @@
     }).join('');
 
     $('#work').innerHTML = S.work.map(function (w, i) {
-      return '<li class="row x' + (i === 0 ? ' open' : '') + '"' + (orgUrl(w.org) ? ' data-href="' + orgUrl(w.org) + '"' : '') + ' tabindex="0" role="button" aria-expanded="' + (i === 0) + '">' +
+      return '<li class="row x' + (i === 0 ? ' open' : '') + '"' + ((w.url || orgUrl(w.org)) ? ' data-href="' + (w.url || orgUrl(w.org)) + '"' : '') + ' tabindex="0" role="button" aria-expanded="' + (i === 0) + '">' +
         '<span class="glyph" data-k="work-' + i + '"></span>' +
         '<div class="row-main"><span class="t"><span class="tx">' + esc(t(w.role)) + '</span><span class="plus" aria-hidden="true">+</span></span><span class="d">' + esc(w.org) + '</span></div>' +
         '<span class="m">' + esc(t(w.period).replace(/ — /, '–')) + '</span>' +
@@ -67,8 +68,10 @@
       return '<dt>' + k.replace('_', ' / ') + '</dt><dd>' + S.stack[k].map(esc).join(', ') + '</dd>';
     }).join('');
 
-    $('#stack-tiles').innerHTML = TECH.map(function (k, i) {
-      return '<span class="tile" data-k="tech-' + i + '"><span class="tile-n">' + esc((window.ICONS[k] || {}).n || k) + '</span></span>';
+    $('#stack-tiles').innerHTML = TECH_GROUPS.map(function (g, gi) {
+      return '<div class="tg"><span class="tg-l">' + g[0] + '</span><div class="tiles sm">' + g[1].map(function (k) {
+        return '<span class="tile" data-k="tech-' + k + '"><span class="tile-n">' + esc((window.ICONS[k] || {}).n || k) + '</span></span>';
+      }).join('') + '</div></div>';
     }).join('');
 
     bindRows();
@@ -94,8 +97,18 @@
     if (/Monsha/.test(e)) return 'https://www.monshaat.gov.sa/';
     if (/Albilad/.test(e)) return 'https://www.bankalbilad.com/';
     if (/King Saud/.test(e)) return 'https://ksu.edu.sa/';
+    if (/Royal Commission/.test(e)) return 'https://www.rcjy.gov.sa/';
     return '';
   }
+  var TECH_GROUPS = [
+    ['ai', ['nvidia', 'pytorch', 'huggingface', 'openai', 'langchain', 'milvus', 'onnx', 'opencv']],
+    ['languages', ['python', 'rust', 'cplusplus', 'c', 'openjdk', 'kotlin', 'swift', 'dart', 'typescript', 'javascript', 'php', 'gnubash', 'html5', 'css3', 'sass']],
+    ['backend · data', ['fastapi', 'springboot', 'nodedotjs', 'bun', 'postgresql', 'mysql', 'mongodb', 'sqlite', 'firebase']],
+    ['enterprise · web', ['hcl', 'esri', 'flutter', 'solid', 'vite', 'figma']],
+    ['infra', ['linux', 'redhat', 'docker', 'podman', 'kubernetes', 'helm', 'git', 'github', 'githubcopilot', 'postman', 'cmake']],
+    ['security', ['kalilinux', 'wireshark', 'burpsuite', 'owasp', 'metasploit']]
+  ];
+  Object.assign(TECH_URL, { openai: 'https://openai.com/', langchain: 'https://www.langchain.com/', milvus: 'https://milvus.io/', onnx: 'https://onnx.ai/', opencv: 'https://opencv.org/', cplusplus: 'https://isocpp.org/', c: 'https://en.cppreference.com/w/c', openjdk: 'https://openjdk.org/', kotlin: 'https://kotlinlang.org/', swift: 'https://www.swift.org/', dart: 'https://dart.dev/', typescript: 'https://www.typescriptlang.org/', javascript: 'https://developer.mozilla.org/docs/Web/JavaScript', php: 'https://www.php.net/', gnubash: 'https://www.gnu.org/software/bash/', html5: 'https://developer.mozilla.org/docs/Web/HTML', css3: 'https://developer.mozilla.org/docs/Web/CSS', sass: 'https://sass-lang.com/', fastapi: 'https://fastapi.tiangolo.com/', springboot: 'https://spring.io/projects/spring-boot', nodedotjs: 'https://nodejs.org/', bun: 'https://bun.sh/', postgresql: 'https://www.postgresql.org/', mysql: 'https://www.mysql.com/', mongodb: 'https://www.mongodb.com/', sqlite: 'https://www.sqlite.org/', firebase: 'https://firebase.google.com/', hcl: 'https://www.hcl-software.com/dx', esri: 'https://www.esri.com/', flutter: 'https://flutter.dev/', solid: 'https://www.solidjs.com/', vite: 'https://vite.dev/', figma: 'https://www.figma.com/', podman: 'https://podman.io/', helm: 'https://helm.sh/', git: 'https://git-scm.com/', github: 'https://github.com/haitham8888', githubcopilot: 'https://github.com/features/copilot', postman: 'https://www.postman.com/', cmake: 'https://cmake.org/', kalilinux: 'https://www.kali.org/', wireshark: 'https://www.wireshark.org/', burpsuite: 'https://portswigger.net/burp', owasp: 'https://owasp.org/', metasploit: 'https://www.metasploit.com/' });
   var TECH = ['nvidia', 'redhat', 'linux', 'pytorch', 'huggingface', 'kubernetes', 'docker', 'python', 'rust'];
   function glyphs() {
     var G = window.GLYPH; if (!G) return;
@@ -108,12 +121,12 @@
     S.work.forEach(function (w, i) { var el = document.querySelector('[data-k="work-' + i + '"]'); if (el && w.logo) G.tile(el, Object.assign(orgLogo(w.logo), { size: 44, hover: el.closest('.row') })); });
     S.vol.forEach(function (v, i) { var el = document.querySelector('[data-k="vol-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(v.logo), { size: 40, hover: el.closest('.row') })); });
     S.orgs.forEach(function (o, i) { var el = document.querySelector('[data-k="org-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(o.k), { size: 46, throwable: true, bounds: '.block', href: o.url })); });
-    TECH.forEach(function (k, i) { var el = document.querySelector('[data-k="tech-' + i + '"]'); if (el && window.ICONS[k]) G.tile(el, { icon: window.ICONS[k], size: 46, throwable: true, bounds: '.block', href: TECH_URL[k] }); });
+    TECH_GROUPS.forEach(function (g) { g[1].forEach(function (k) { var el = document.querySelector('[data-k="tech-' + k + '"]'); if (el && window.ICONS[k]) G.tile(el, { icon: window.ICONS[k], size: 36, throwable: true, bounds: '.block', href: TECH_URL[k] }); }); });
   }
   // organisation marks — real colours, ASCII-rendered
   function orgLogo(k) {
-    var src = { mds: 'img/logos/mds-mark.webp', stc: 'img/logos/stc.webp', ehealth: 'img/logos/ehealth.webp', hrsd: 'img/logos/hrsd.webp', fadatech: 'img/logos/fadatech.webp', attaa: 'img/logos/attaa.webp', jazan: 'img/logos/jazan-university.png' }[k];
-    if (src) return { src: src };
+    var src = { misk: 'img/logos/misk.webp', rcjy: 'img/logos/rcjy.webp', mds: 'img/logos/mds-mark.webp', stc: 'img/logos/stc.webp', ehealth: 'img/logos/ehealth.webp', hrsd: 'img/logos/hrsd.webp', fadatech: 'img/logos/fadatech.webp', attaa: 'img/logos/attaa.webp', jazan: 'img/logos/jazan-university.png' }[k];
+    if (src) return { src: src, keepWhite: k === 'rcjy' };
     if (k === 'hackerrank') return { icon: window.ICONS.hackerrank };
     if (k === 'ms') return { draw: function (x, n) { var g = n * 0.06, q = (n - g * 3) / 2; [['#f25022', 0, 0], ['#7fba00', 1, 0], ['#00a4ef', 0, 1], ['#ffb900', 1, 1]].forEach(function (c) { x.fillStyle = c[0]; x.fillRect(g + c[1] * (q + g), g + c[2] * (q + g), q, q); }); } };
     if (k === 'gdsc') return { draw: function (x, n) {
@@ -235,8 +248,8 @@
   clock(); setInterval(clock, 1000);
   observe();
   var eyesCtl = A.eyes($('#eyes'));
-  A.scramble($('#name'), 'Haitham Hattan', 1000);
-  A.banner($('#sig'), 'HAITHAM HATTAN');
+  if (lang !== 'ar') { $('#name')._busy = true; A.scramble($('#name'), u('name'), 1000); setTimeout(function () { $('#name')._busy = false; }, 1100); }
+  A.banner($('#sig'), 'AL-HAITHAM HATTAN');
   $('#year').textContent = new Date().getFullYear();
 
   $$('.controls [data-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });

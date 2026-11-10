@@ -2,7 +2,8 @@
 window.SITE = {
   ui: {
     en: {
-      '__title': 'Haitham Hattan — AI & Software Engineer',
+      '__title': 'Al-Haitham Hattan — AI & Software Engineer',
+      'name': 'Al-Haitham Hattan', 'name.alt': 'الهَيثم هتّان',
       'skip': 'Skip to content',
       'role': 'AI Engineer & Full-Stack Software Engineer',
       'intro': 'I build private, on-premise AI — RAG pipelines and language models trained and served on H100/H200 GPUs — and enterprise systems that stay up. Riyadh, Saudi Arabia.',
@@ -19,7 +20,8 @@ window.SITE = {
       'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'l.orgs': 'Organizations I worked, trained and volunteered with', 'l.origin': 'Origin', 'o.uni': 'Jazan University — B.Sc. Information Technology', 'o.uni.d': 'Machine Learning track · GPA 4.56 / 5 · graduated 2025', 'o.jz': 'Jazan — where I come from', 'o.jz.d': 'Home of Khawlani coffee and the Al-Ful flower', 'o.ry': 'Riyadh — where I build', 'o.ry.d': 'AI engineering at MDS for Computer Systems', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
     },
     ar: {
-      '__title': 'هيثم هتان — مهندس ذكاء اصطناعي وبرمجيات',
+      '__title': 'الهَيثم هتّان — مهندس ذكاء اصطناعي وبرمجيات',
+      'name': 'الهَيثم هتّان', 'name.alt': 'Al-Haitham Hattan',
       'skip': 'تخطَّ إلى المحتوى',
       'role': 'مهندس ذكاء اصطناعي ومهندس برمجيات شامل',
       'intro': 'أبني ذكاءً اصطناعياً خاصاً يعمل محلياً — أنظمة RAG ونماذج لغوية أدرّبها وأشغّلها على معالجات H100/H200 — وأنظمة مؤسسية لا تتوقف. الرياض، السعودية.',
@@ -36,7 +38,8 @@ window.SITE = {
       'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'l.orgs': 'جهات عملت وتدربت وتطوعت معها', 'l.origin': 'الأصل', 'o.uni': 'جامعة جازان — بكالوريوس تقنية المعلومات', 'o.uni.d': 'مسار تعلّم الآلة · المعدل 4.56 من 5 · تخرجت 2025', 'o.jz': 'جازان — منها أنا', 'o.jz.d': 'موطن البن الخولاني وزهرة الفل', 'o.ry': 'الرياض — هنا أبني', 'o.ry.d': 'هندسة الذكاء الاصطناعي في MDS لأنظمة الحاسب', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
     },
     zh: {
-      '__title': 'Haitham Hattan — 人工智能与软件工程师',
+      '__title': 'Al-Haitham Hattan — 人工智能与软件工程师',
+      'name': 'Al-Haitham Hattan', 'name.alt': 'الهَيثم هتّان',
       'skip': '跳到内容',
       'role': '人工智能工程师 · 全栈软件工程师',
       'intro': '我构建私有化、本地部署的人工智能 — 在 H100/H200 GPU 上训练与部署的 RAG 系统和大语言模型 — 以及稳定可靠的企业级系统。常驻沙特利雅得。',
@@ -122,6 +125,17 @@ window.SITE = {
       }
     },
     {
+      hash: 'c4b2e19', logo: 'stc', url: 'https://axgbsoh392um.compat.objectstorage.me-jeddah-1.oraclecloud.com/filesStorageBucketProd/media/application/certificate/ar/3750/4404229_dcb1f2c2.pdf',
+      period: { en: 'Jan 2024', ar: 'يناير 2024', zh: '2024.01' },
+      role: { en: 'Cybersecurity Incident Response Analyst · virtual internship', ar: 'محلل استجابة للحوادث السيبرانية · تدريب افتراضي', zh: '网络安全事件响应分析师 · 虚拟实习' },
+      org: 'stc × Misk Foundation · Remote',
+      pts: {
+        en: ['Misk job simulation: real incident-response tasks as part of stc\'s security team.', 'Incident triage, investigation and reporting — certified, credential 4404229_dcb1f2c2.'],
+        ar: ['محاكاة عمل من مسك: مهام استجابة حقيقية للحوادث كأني ضمن فريق الأمن في stc.', 'فرز الحوادث والتحقيق فيها وكتابة التقارير — بشهادة معتمدة، الرقم 4404229_dcb1f2c2.'],
+        zh: ['Misk 岗位模拟：以 stc 安全团队成员身份完成真实的事件响应任务。', '事件分诊、调查与报告 — 已获认证，证书编号 4404229_dcb1f2c2。']
+      }
+    },
+    {
       hash: 'e1d09aa', logo: 'hackerrank',
       period: { en: 'Oct 2023 — Jan 2024', ar: 'أكتوبر 2023 — يناير 2024', zh: '2023.10 — 2024.01' },
       role: { en: 'Software Engineer Intern', ar: 'متدرب هندسة برمجيات', zh: '软件工程实习生' },
@@ -191,6 +205,7 @@ window.SITE = {
   awards: [
     { rank: '2×', cls: 'gold', ev: { en: 'Employee of the Year — MDS CS', ar: 'موظف العام — MDS CS', zh: '年度最佳员工 — MDS CS' }, y: '2025—26' },
     { rank: '3rd', cls: 'bronze', ev: { en: 'Mubtakaroon FinTech Hackathon — Bank AlJazira', ar: 'هاكاثون «مبتكرون» للتقنية المالية — بنك الجزيرة', zh: 'Mubtakaroon 金融科技黑客松 — AlJazira 银行' }, y: '2026' },
+    { rank: '★', cls: 'gold', ev: { en: 'Chinese language excellence (Level 1) — honored by the Royal Commission President', ar: 'إتقان اللغة الصينية (المستوى الأول) — تكريم من رئيس الهيئة الملكية', zh: '汉语优秀（一级）— 获皇家委员会主席表彰' }, y: '—' },
     { rank: '1st', cls: 'gold', ev: { en: 'Graduation Project — Jazan University', ar: 'مشروع التخرج — جامعة جازان', zh: '毕业设计 — 吉赞大学' }, y: '2025' },
     { rank: '1st', cls: 'gold', ev: { en: 'Jazan Al-Ful Hackathon', ar: 'هاكاثون جازان الفل', zh: 'Jazan Al-Ful 黑客松' }, y: '—' },
     { rank: '1st', cls: 'gold', ev: { en: 'Biban 24 — best project among Saudi universities', ar: 'بيبان 24 — أفضل مشروع بين الجامعات السعودية', zh: 'Biban 24 — 沙特高校最佳项目' }, y: '2024' },
@@ -202,20 +217,23 @@ window.SITE = {
   ],
 
   certs: [
+    { n: 'Cybersecurity Incident Response Analysis', by: 'stc × Misk' },
     { n: 'AI Foundations', by: 'SDAIA' }, { n: 'AWS Certified Cloud Practitioner', by: 'AWS' },
     { n: 'AI Foundations', by: 'IBM SkillsBuild' }, { n: 'Software Engineering Fundamentals', by: 'IBM' },
     { n: 'Google Data Analytics', by: 'Google' }, { n: 'Junior Cybersecurity Analyst', by: 'Cisco' }
   ],
 
   stack: {
-    ai: ['RAG', 'Local LLMs', 'Fine-tuning', 'LLM serving', 'LLMOps', 'AI agents', 'PyTorch', 'SGLang', 'Milvus', 'MCP'],
-    languages: ['Python', 'Rust', 'C++', 'Java', 'TypeScript', 'C#', 'Dart'],
-    backend: ['FastAPI', 'Spring Boot', 'Microservices', 'PostgreSQL', 'DB2', 'MongoDB', 'Vector DBs'],
-    infra: ['Docker', 'Kubernetes', 'Helm', 'CUDA', 'CI/CD', 'Linux', 'WebSphere'],
-    security: ['Playwright', 'Active Directory', 'Firewalls', 'IDS/IPS', 'Kali Linux'],
-    mobile_web: ['Flutter', 'SolidJS', 'Vite', 'Bun', 'Firebase'],
-    spoken: ['Arabic (native)', 'English (fluent)']
+    ai: ['RAG', 'Local LLMs', 'Fine-tuning', 'LLM serving', 'SGLang', 'PyTorch', 'Hugging Face Transformers', 'LangChain', 'OpenAI API', 'Milvus', 'Embeddings', 'ONNX Runtime', 'OpenCV', 'InsightFace', 'CUDA', 'MCP', 'AI agents', 'Arabic NLP (ALLaM, AraBERT)'],
+    languages: ['Python', 'Rust', 'C++', 'C', 'Java', 'Kotlin', 'Swift', 'Dart', 'TypeScript', 'JavaScript', 'C#', 'PHP', 'SQL', 'Bash', 'PowerShell', 'HTML', 'CSS / SCSS'],
+    backend: ['FastAPI', 'Spring Boot', 'Node.js', 'Bun', 'REST', 'SOAP / XML', 'Microservices', 'PostgreSQL', 'MySQL', 'DB2', 'MongoDB', 'SQLite', 'Firebase', 'Vector DBs'],
+    enterprise: ['IBM WebSphere', 'HCL Digital Experience', 'IBM FileNet', 'IBM Cognos', 'Esri GIS', 'Active Directory'],
+    infra: ['Docker', 'Podman', 'Kubernetes', 'Helm', 'k9s', 'Linux', 'Red Hat (RHEL)', 'Azure', 'CI/CD', 'Git', 'GitHub', 'Postman', 'CMake'],
+    security: ['Incident response', 'OWASP Top 10', 'Kali Linux', 'Nmap', 'Wireshark', 'Burp Suite', 'Metasploit', 'SIEM', 'IDS/IPS', 'Firewalls', 'F5 BIG-IP', 'Playwright'],
+    mobile_web: ['Flutter', 'SolidJS', 'Vite', 'Figma', 'PWA'],
+    spoken: ['Arabic (native)', 'English (fluent)', 'Chinese (HSK 1)']
   },
+
 
   videos: [
     { id: 'VCBuEUGvC3c', img: 'img/videos/video-01.jpg', t: { en: 'Telegram bot + ChatGPT API', ar: 'بوت تيليجرام مدموج بـ ChatGPT API', zh: '接入 ChatGPT API 的 Telegram 机器人' } },
@@ -244,6 +262,7 @@ window.SITE = {
     { h: 300, p: '2023–2024', logo: 'fadatech', n: { en: 'Fada Tech — lead coordinator', ar: 'فضاءتك — المنسق العام', zh: 'Fada Tech — 首席协调人' } },
     { h: 240, p: '2023–2024', logo: 'hrsd', n: { en: 'HRSD — founder', ar: 'HRSD — المؤسس', zh: 'HRSD — 创始人' } },
     { h: 120, p: '2022–2023', logo: 'gdsc', url: 'https://gdg.community.dev/', n: { en: 'Google Developer Student Club — Jazan University', ar: 'نادي مطوري جوجل — جامعة جازان', zh: '谷歌开发者学生俱乐部 — 吉赞大学' } },
+    { h: 0, p: 'Baish', logo: 'rcjy', url: 'https://www.rcjy.gov.sa/', n: { en: 'Royal Commission for Jubail & Yanbu — initiatives in Baish, Jazan', ar: 'الهيئة الملكية للجبيل وينبع — مبادرات في محافظة بيش بجازان', zh: '朱拜勒与延布皇家委员会 — 吉赞拜什倡议' } },
     { h: 0, p: '2023', logo: 'attaa', n: { en: 'Digital Attaa — event organizer, vehicle cybersecurity', ar: 'مبادرة العطاء الرقمي — تنظيم دورة أمن المركبات السيبراني', zh: 'Digital Attaa — 车辆网络安全课程组织者' } }
   ],
 
@@ -257,7 +276,9 @@ window.SITE = {
     { k: 'gdsc', n: 'GDSC', url: 'https://gdg.community.dev/' },
     { k: 'hrsd', n: 'HRSD' },
     { k: 'fadatech', n: 'Fada Tech' },
-    { k: 'attaa', n: 'Digital Attaa' }
+    { k: 'attaa', n: 'Digital Attaa' },
+    { k: 'misk', n: 'Misk Foundation', url: 'https://misk.org.sa/' },
+    { k: 'rcjy', n: 'Royal Commission', url: 'https://www.rcjy.gov.sa/' }
   ],
 
   gallery: [

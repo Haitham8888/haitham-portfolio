@@ -428,3 +428,22 @@ kbd { display: inline-block; padding: 1px 5px; border: 1px solid var(--line-2); 
 
 #vol .row { align-items: center; }
 .row.x > .glyph { margin-top: 2px; }
+
+/* name in two scripts */
+.name-alt { margin-top: 2px; font: 500 15px/1.4 "Cairo", var(--sans); color: var(--fg-3); }
+[lang="ar"] .name { font-family: "Cairo", var(--sans); font-weight: 700; direction: rtl; text-align: right; letter-spacing: 0; }
+[lang="ar"] .name-alt { font-family: var(--sans); direction: ltr; text-align: right; letter-spacing: -0.01em; }
+
+/* grouped stack tiles */
+.tile-groups { margin: 4px 0 26px; border-top: 1px solid var(--line); }
+.tg { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.tg-l { padding-top: 8px; font: 400 11.5px/1.4 var(--mono); color: var(--fg-3); direction: ltr; }
+[dir="rtl"] .tg-l { text-align: right; }
+.tiles.sm { margin: 0; gap: 8px; }
+.tiles.sm .tile { width: 78px; padding: 10px 4px 8px; gap: 6px; border-radius: 8px; }
+.tiles.sm .tile-n { font-size: 9.5px; }
+@media (max-width: 640px) {
+  .tg { grid-template-columns: 1fr; gap: 8px; }
+  .tg-l { padding-top: 0; }
+  .tiles.sm .tile { width: calc(25% - 6px); }
+}

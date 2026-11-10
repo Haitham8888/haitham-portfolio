@@ -17,8 +17,8 @@
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = fig.clientWidth;
     poleW = Math.max(10, Math.round(W * 0.03));
-    fw = W - poleW - 6;
-    cols = Math.max(150, Math.min(260, Math.round(fw / 2.5)));
+    fw = W - poleW - 6 - Math.round(W * 0.06);
+    cols = Math.max(170, Math.min(340, Math.round(fw / 2.1)));
     cw = fw / cols; var fs = cw / 0.6; ch = fs * 0.98;
     fh = fw * 2 / 3; rows = Math.round(fh / ch); fh = rows * ch;
     top = Math.round(fh * 0.06) + 6; H = Math.round(fh + top * 2 + 18);
@@ -35,9 +35,9 @@
       x.fillStyle = '#00502c'; x.fillRect(0, 0, fw, fh);
       x.font = '800 ' + fs.toFixed(2) + 'px ' + MONO; x.textBaseline = 'top';
       for (var yy = 0; yy < rows; yy++) for (var xx = 0; xx < cols; xx++) {
-        var p = (yy * cols + xx) * 4, white = (d[p] + d[p + 1] + d[p + 2]) / 3 > 140;
+        var p = (yy * cols + xx) * 4, white = (d[p] + d[p + 1] + d[p + 2]) / 3 > 128;
         var h = (xx * 73856093 ^ yy * 19349663 ^ v * 83492791) >>> 0;
-        if (white) { x.fillStyle = '#ffffff'; x.fillText(WHITE[h % WHITE.length], xx * cw, yy * ch); }
+        if (white) { x.fillStyle = '#ffffff'; x.strokeStyle = '#ffffff'; x.lineWidth = cw * 0.32; var gch = WHITE[h % WHITE.length]; x.strokeText(gch, xx * cw, yy * ch); x.fillText(gch, xx * cw, yy * ch); }
         else { x.fillStyle = (h & 3) ? '#1f9a5b' : '#2bb56d'; x.fillText((h >> 5) & 1 ? '1' : '0', xx * cw, yy * ch); }
       }
       return c;
@@ -69,11 +69,29 @@
     }
   }
 
+  // binary blown off the fly end as the flag flutters
+  var bits = [];
+  function drawBits(now, dt) {
+    var dk = document.documentElement.getAttribute('data-theme') !== 'light';
+    if (!reduce && bits.length < 40 && Math.random() < 0.35) {
+      var t = now / 1000, edge = poleW + 4 + fw, c = cols - 1, ph = c * 0.085 - t * 2.2, amp = fh * 0.045;
+      var dy = Math.sin(ph) * amp + Math.sin(c * 0.03 - t * 1.05) * amp * 0.4;
+      bits.push({ x: edge - 4, y: top + dy + Math.random() * fh, vx: 18 + Math.random() * 30, vy: -6 + Math.random() * 12, life: 0, max: 1.6 + Math.random() * 1.4, ch: Math.random() < 0.5 ? '0' : '1', g: Math.random() < 0.7 });
+    }
+    ctx.font = '700 10px ' + MONO;
+    for (var i = bits.length - 1; i >= 0; i--) {
+      var b = bits[i]; b.life += dt; b.x += b.vx * dt; b.y += b.vy * dt;
+      if (b.life > b.max || b.x > W) { bits.splice(i, 1); continue; }
+      var a = Math.sin(Math.PI * b.life / b.max) * 0.85;
+      ctx.fillStyle = b.g ? 'rgba(43,181,109,' + a.toFixed(2) + ')' : (dk ? 'rgba(255,255,255,' : 'rgba(30,30,30,') + (a * 0.8).toFixed(2) + ')';
+      ctx.fillText(b.ch, b.x, b.y);
+    }
+  }
   var last = 0, lastSwap = 0;
   function loop(now) {
     if (!visible) return;
     if (now - lastSwap > 900) { variant ^= 1; lastSwap = now; }
-    if (now - last > 40) { last = now; draw(now); }
+    if (now - last > 40) { var dt = Math.min(0.1, (now - last) / 1000); last = now; draw(now); drawBits(now, dt); }
     if (!reduce) requestAnimationFrame(loop);
   }
   if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
