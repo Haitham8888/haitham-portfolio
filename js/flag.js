@@ -53,7 +53,7 @@
       for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
         var h = hash(x, y, 1), v = white[y * cols + x] ? 0.7 : 0.72 + 0.28 * ((h >> 3) & 1);   // dim green under the emblem, so the cloth is whole before it appears
         x2.fillStyle = 'rgb(' + Math.round(g[0] * v) + ',' + Math.round(g[1] * v) + ',' + Math.round(g[2] * v) + ')';
-        x2.fillText(((h >> 7) % 100) < 30 + shade * 45 ? '0' : '1', x * cw, y * ch);
+        x2.fillText(((h >> 7) % 100) < 52 ? '0' : '1', x * cw, y * ch);
       }
       green.push(L[0]);
     }
@@ -102,7 +102,8 @@
     var swordReach = swordX0 + (swordX1 - swordX0 + 2) * pSword, nz = (now / 70 | 0) & 1;
     for (var c = 0; c < reach; c += step) {
       var wv = wave(c, t, ampK), nx = -wv.slope / 6, nn = Math.sqrt(nx * nx + 1);
-      var lit = Math.max(0, Math.min(1, 0.5 + 0.5 * ((nx * Lx + Lz) / nn - 0.35) * 1.6)), spec = Math.pow(lit, 14) * 0.3;
+      var band = Math.sin(c / cols * 4.2 - t * 0.55) * 0.5 + 0.5, breathe = 0.5 + 0.5 * Math.sin(t * 0.8);
+      var lit = Math.max(0, Math.min(1, 0.32 + 0.42 * ((nx * Lx + Lz) / nn - 0.35) * 1.8 + 0.3 * band + 0.08 * breathe)), spec = Math.pow(lit, 10) * 0.18;
       var f = lit * (NT - 1), i0 = Math.floor(f), i1 = Math.min(NT - 1, i0 + 1), a1 = f - i0;
       var x0 = ox + c * cw, w0 = cw * step + 0.5, y0 = top + wv.dy, sx0 = c * sw, sww = sw * step;
       ctx.globalAlpha = 1; ctx.drawImage(green[i0], sx0, 0, sww, green[i0].height, x0, y0, w0, fh);
@@ -177,7 +178,7 @@
     ctx.globalAlpha = 1;
   }
 
-  var last = 0, running = false;
+  var last = 0, running = false, hiddenAt = 0;
   function loop(now) {
     if (!visible) { running = false; return; }
     if (now - last > 33) { var dt = Math.min(0.1, (now - (last || now)) / 1000); last = now; draw(now); effects(now, dt); }
@@ -186,8 +187,9 @@
   function kick() { if (!running) { running = true; requestAnimationFrame(loop); } }
   function replay() { born = performance.now(); sparks = []; dust = []; glints = []; kick(); }
   if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
-    visible = es[0].isIntersecting;
-    if (visible && born < 0) born = performance.now();
+    var was = visible; visible = es[0].isIntersecting;
+    if (visible && (born < 0 || (!was && performance.now() - hiddenAt > 1500))) replay();
+    if (!visible && was) hiddenAt = performance.now();
     if (visible) kick();
   }, { threshold: 0.35 }).observe(fig);
   else { visible = true; born = performance.now(); }
