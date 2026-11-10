@@ -41,7 +41,7 @@
   var bubble = layer.querySelector('.sh-bubble'), btext = bubble.querySelector('.sh-t'), hit = layer.querySelector('.sh-hit');
 
   // sprite sheet: 8 x 9 frames of 96 x 104
-  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=74';
+  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=75';
   var FW = 96, FHH = 104;
   var AN = {
     idle: { r: 0, n: 6, fps: 5 }, runR: { r: 1, n: 8, fps: 9 }, runL: { r: 2, n: 8, fps: 9 }, wave: { r: 3, n: 4, fps: 7 },
@@ -390,11 +390,11 @@
       if (now > typed.until) { bubble.classList.remove('on'); typed.full = ''; }
     }
     var hw = 66 * u, hh = FH * 0.94;
-    hit.style.display = '';
+    hit.style.display = ''; bubble.style.visibility = '';
     hit.style.transform = 'translate(' + (S.x - hw / 2).toFixed(0) + 'px,' + (fy - hh).toFixed(0) + 'px)';
     hit.style.width = hw + 'px'; hit.style.height = hh.toFixed(0) + 'px';
   }
-  function hideUI() { hit.style.display = 'none'; }
+  function hideUI() { hit.style.display = 'none'; bubble.style.visibility = 'hidden'; }
 
   // ---------- input ----------
   window.addEventListener('pointermove', function (e) {

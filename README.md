@@ -1,6 +1,6 @@
 # haitham.sys — haithamhattan.sa
 
-Personal site of **Haitham Hattan** — AI Engineer & Full-Stack Software Engineer.
+Personal site of **Al-Haitham** — AI Engineer & Full-Stack Software Engineer.
 
 One column, pure black by default (light theme optional), Arabic · English · 中文.
 Hand-built, no frameworks, no build step — served as-is by GitHub Pages.
