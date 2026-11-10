@@ -9,7 +9,7 @@
    He starts in the hero and follows you down the page section by section (drops when his ledge scrolls
    away, leaps back up when you scroll up), walks, stops to investigate what is near him, waves when you
    come close, turns to your cursor and studies it through his magnifier (one eye, drawn from the eye
-   grid), follows it, hops when startled. Click him for a deduction, drag to carry him, fling him and he
+   grid), follows it, hops when startled. Click him for a fact about Al-Haitham, drag to carry him, fling him and he
    falls and lands on the nearest ledge (land too hard and he sits down, dramatically). */
 (function () {
   'use strict';
@@ -26,22 +26,22 @@
   function ease(cur, target, rate, dt) { return cur + (target - cur) * (1 - Math.exp(-rate * dt)); }
 
   var DEDUCE = {
-    en: ['Elementary. Two consecutive recognitions at MDS — consistency, not luck.', '16+ H100/H200 GPUs. This one trains and serves his own models.', 'Offline, private AI. He trusts nothing he cannot run himself.', 'Self-taught since 2014. Eleven years of evidence.', '38,000+ views on his tutorials. People learn from him.', 'Jazan to Riyadh. The coffee on his desk is Khawlani.', 'Bank AlJazira, 3rd place, 2026. The case speaks for itself.', 'ALLaM, Qwen, DeepSeek, GLM — he speaks fluent model.', '54 tools in the arsenal, and he ships with every one.', 'Unlimited-OCR, PaddleOCR, Milvus. Nothing on paper escapes him.'],
-    ar: ['بديهي. تكريمان متتاليان في MDS — ثبات لا صدفة.', 'أكثر من 16 معالج H100/H200. هذا يدرّب نماذجه ويشغّلها بنفسه.', 'ذكاء اصطناعي خاص ودون اتصال. لا يثق إلا بما يشغّله بيده.', 'تعلّم ذاتي منذ 2014. أحد عشر عاماً من الأدلة.', 'أكثر من 38 ألف مشاهدة لشروحاته. الناس تتعلم منه.', 'من جازان إلى الرياض. والقهوة على مكتبه خولانية.', 'بنك الجزيرة، المركز الثالث 2026. القضية واضحة.', 'علّام وQwen وDeepSeek وGLM — يتحدث لغة النماذج بطلاقة.', '54 أداة في جعبته، ويطلق بها منتجات حقيقية.', 'Unlimited-OCR وPaddleOCR وMilvus. لا يفلت منه سطر مكتوب.'],
-    zh: ['显而易见：MDS 连续两次表彰——靠的是稳定，不是运气。', '16+ 块 H100/H200 GPU。他亲手训练并部署自己的模型。', '离线、私有的 AI。他只信任自己能运行的东西。', '2014 年起自学。十一年的证据。', '教程观看量超过 38,000。人们在向他学习。', '从吉赞到利雅得。他桌上的咖啡是 Khawlani。', 'AlJazira 银行黑客松第三名，2026。案情一目了然。', 'ALLaM、Qwen、DeepSeek、GLM——他精通"模型语言"。', '54 件工具，每一件都用来交付真实产品。', 'Unlimited-OCR、PaddleOCR、Milvus。纸上的每个字都逃不过他。']
+    en: ['Two consecutive recognitions at MDS — Q4 2025 and Q1 2026.', 'Trains and serves his own models on 16+ H100/H200 GPUs.', 'Private AI that runs fully offline, inside the organisation.', 'Self-taught since 2014 — over eleven years of building.', '38,000+ views on his tutorials and bootcamp streams.', 'From Jazan to Riyadh, with Khawlani coffee on the desk.', '3rd place at the Bank AlJazira FinTech hackathon, 2026.', 'Works with ALLaM, Qwen, DeepSeek and GLM, all on-prem.', '54 tools in daily use, from Rust to Kubernetes.', 'Unlimited-OCR, PaddleOCR and Milvus for documents at scale.'],
+    ar: ['تكريمان متتاليان في MDS — الربع الرابع 2025 والربع الأول 2026.', 'يدرّب نماذجه ويشغّلها على أكثر من 16 معالج H100/H200.', 'ذكاء اصطناعي خاص يعمل دون اتصال، داخل الجهة نفسها.', 'تعلّم ذاتي منذ 2014 — أكثر من أحد عشر عاماً من البناء.', 'أكثر من 38 ألف مشاهدة لشروحاته وبثوث معسكراته.', 'من جازان إلى الرياض، والقهوة الخولانية على المكتب.', 'المركز الثالث في هاكاثون بنك الجزيرة للتقنية المالية 2026.', 'يعمل مع علّام وQwen وDeepSeek وGLM، محلياً بالكامل.', '54 أداة يستخدمها يومياً، من Rust إلى Kubernetes.', 'Unlimited-OCR وPaddleOCR وMilvus لمعالجة المستندات على نطاق واسع.'],
+    zh: ['MDS 连续两次表彰——2025 Q4 与 2026 Q1。', '在 16+ 块 H100/H200 GPU 上训练并部署自己的模型。', '完全离线、部署在机构内部的私有 AI。', '2014 年起自学——十一年多的持续构建。', '教程与训练营直播观看量超过 38,000。', '从吉赞到利雅得，桌上是 Khawlani 咖啡。', 'AlJazira 银行金融科技黑客松第三名，2026。', '使用 ALLaM、Qwen、DeepSeek 与 GLM，全部本地部署。', '日常使用 54 种工具，从 Rust 到 Kubernetes。', '用 Unlimited-OCR、PaddleOCR 与 Milvus 大规模处理文档。']
   };
 
   // ---------- layer ----------
   var layer = document.createElement('div');
   layer.className = 'sh-layer';
-  layer.innerHTML = '<canvas aria-hidden="true"></canvas><div class="sh-bubble" role="status" aria-live="polite"><span class="sh-t"></span><i class="sh-caret"></i></div><button class="sh-hit" type="button" aria-label="The detective — click for a deduction, drag to carry him"></button>';
+  layer.innerHTML = '<canvas aria-hidden="true"></canvas><div class="sh-bubble" role="status" aria-live="polite"><span class="sh-t"></span><i class="sh-caret"></i></div><button class="sh-hit" type="button" aria-label="Sherlock — click for a fact about Al-Haitham, drag to carry him"></button>';
   document.body.appendChild(layer);
   zone.innerHTML = '';
   var cv = layer.querySelector('canvas'), ctx = cv.getContext('2d');
   var bubble = layer.querySelector('.sh-bubble'), btext = bubble.querySelector('.sh-t'), hit = layer.querySelector('.sh-hit');
 
   // sprite sheet: 8 x 9 frames of 96 x 104
-  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=75';
+  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=76';
   var FW = 96, FHH = 104;
   var AN = {
     idle: { r: 0, n: 6, fps: 5 }, runR: { r: 1, n: 8, fps: 9 }, runL: { r: 2, n: 8, fps: 9 }, wave: { r: 3, n: 4, fps: 7 },
