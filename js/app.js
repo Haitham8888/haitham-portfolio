@@ -25,6 +25,7 @@
 
     $('#work').innerHTML = S.work.map(function (w, i) {
       return '<li class="row x' + (i === 0 ? ' open' : '') + '"' + (orgUrl(w.org) ? ' data-href="' + orgUrl(w.org) + '"' : '') + ' tabindex="0" role="button" aria-expanded="' + (i === 0) + '">' +
+        '<span class="glyph" data-k="work-' + i + '"></span>' +
         '<div class="row-main"><span class="t"><span class="tx">' + esc(t(w.role)) + '</span><span class="plus" aria-hidden="true">+</span></span><span class="d">' + esc(w.org) + '</span></div>' +
         '<span class="m">' + esc(t(w.period).replace(/ — /, '–')) + '</span>' +
         '<div class="more"><div><ul>' + t(w.pts).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></div></div></li>';
@@ -48,8 +49,11 @@
       return '<span class="it">' + esc(label) + '</span>';
     }).join(' <span class="c">/</span> ');
 
-    $('#vol').innerHTML = S.vol.map(function (v) {
-      return '<li class="row"><div class="row-main"><span class="t">' + esc(t(v.n)) + '</span></div><span class="m">' + v.h + 'h</span></li>';
+    $('#vol').innerHTML = S.vol.map(function (v, i) {
+      return '<li class="row"' + (v.url ? ' data-href="' + v.url + '"' : '') + '><span class="glyph" data-k="vol-' + i + '"></span><div class="row-main"><span class="t">' + esc(t(v.n)) + '</span></div><span class="m">' + (v.h ? v.h + 'h · ' : '') + v.p + '</span></li>';
+    }).join('');
+    $('#orgs').innerHTML = S.orgs.map(function (o, i) {
+      return '<span class="tile" data-k="org-' + i + '"><span class="tile-n">' + esc(o.n) + '</span></span>';
     }).join('');
     $('#videos').innerHTML = S.videos.map(function (v) {
       return '<a class="vid" href="https://youtu.be/' + v.id + '" target="_blank" rel="noopener"><img src="' + v.img + '" alt="" loading="lazy" width="320" height="180" /><span>' + esc(t(v.t)) + '</span></a>';
@@ -101,7 +105,23 @@
       var el = document.querySelector('[data-k="more-' + i + '"]'); if (!el) return;
       G.tile(el, MORE_LOGOS[m.name] ? { src: MORE_LOGOS[m.name], size: 46, throwable: true, bounds: '.block', href: m.url || undefined } : { text: m.name.charAt(0), color: '#a5b4fc', size: 46, throwable: true, bounds: '.block', href: m.url || undefined });
     });
+    S.work.forEach(function (w, i) { var el = document.querySelector('[data-k="work-' + i + '"]'); if (el && w.logo) G.tile(el, Object.assign(orgLogo(w.logo), { size: 44, hover: el.closest('.row') })); });
+    S.vol.forEach(function (v, i) { var el = document.querySelector('[data-k="vol-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(v.logo), { size: 40, hover: el.closest('.row') })); });
+    S.orgs.forEach(function (o, i) { var el = document.querySelector('[data-k="org-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(o.k), { size: 46, throwable: true, bounds: '.block', href: o.url })); });
     TECH.forEach(function (k, i) { var el = document.querySelector('[data-k="tech-' + i + '"]'); if (el && window.ICONS[k]) G.tile(el, { icon: window.ICONS[k], size: 46, throwable: true, bounds: '.block', href: TECH_URL[k] }); });
+  }
+  // organisation marks — real colours, ASCII-rendered
+  function orgLogo(k) {
+    var src = { mds: 'img/logos/mds-mark.webp', stc: 'img/logos/stc.webp', ehealth: 'img/logos/ehealth.webp', hrsd: 'img/logos/hrsd.webp', fadatech: 'img/logos/fadatech.webp', attaa: 'img/logos/attaa.webp', jazan: 'img/logos/jazan-university.png' }[k];
+    if (src) return { src: src };
+    if (k === 'hackerrank') return { icon: window.ICONS.hackerrank };
+    if (k === 'ms') return { draw: function (x, n) { var g = n * 0.06, q = (n - g * 3) / 2; [['#f25022', 0, 0], ['#7fba00', 1, 0], ['#00a4ef', 0, 1], ['#ffb900', 1, 1]].forEach(function (c) { x.fillStyle = c[0]; x.fillRect(g + c[1] * (q + g), g + c[2] * (q + g), q, q); }); } };
+    if (k === 'gdsc') return { draw: function (x, n) {
+      x.lineCap = 'round'; x.lineWidth = n * 0.16;
+      [['#ea4335', 0.42, 0.3, 0.16, 0.5], ['#4285f4', 0.16, 0.5, 0.42, 0.7], ['#34a853', 0.58, 0.3, 0.84, 0.5], ['#fbbc04', 0.84, 0.5, 0.58, 0.7]].forEach(function (s) {
+        x.strokeStyle = s[0]; x.beginPath(); x.moveTo(n * s[1], n * s[2]); x.lineTo(n * s[3], n * s[4]); x.stroke();
+      }); } };
+    return { text: 'F', color: '#e5e5e5' };
   }
   function originGlyphs() {
     var G = window.GLYPH; if (!G) return;

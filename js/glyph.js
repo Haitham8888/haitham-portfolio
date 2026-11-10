@@ -13,6 +13,7 @@
   function lift(r, g, b, toLight) {
     var L = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
     if (toLight && L < 0.45) { var k = (0.45 - L) * 1.4; r += (255 - r) * k; g += (255 - g) * k; b += (255 - b) * k; }
+    if (!toLight && L > 0.86 && Math.max(r, g, b) - Math.min(r, g, b) < 40) return 'rgb(34,34,34)'; // white parts of a logo -> ink on paper
     if (!toLight && L > 0.42) { var q = Math.min(0.55, (L - 0.42) * 1.25); r *= 1 - q; g *= 1 - q; b *= 1 - q; }
     return rgb(Math.round(Math.min(255, r)), Math.round(Math.min(255, g)), Math.round(Math.min(255, b)));
   }

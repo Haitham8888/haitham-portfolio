@@ -16,7 +16,7 @@ window.SITE = {
       'yt': 'YouTube channel', 'certs': 'Certified by',
       'contact': 'The fastest way to reach me is email — I reply within 24 hours.',
       'cv': 'Résumé', 'copy': 'copy', 'copied': 'copied ✓',
-      'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'l.origin': 'Origin', 'o.uni': 'Jazan University — B.Sc. Information Technology', 'o.uni.d': 'Machine Learning track · GPA 4.56 / 5 · graduated 2025', 'o.jz': 'Jazan — where I come from', 'o.jz.d': 'Home of Khawlani coffee and the Al-Ful flower', 'o.ry': 'Riyadh — where I build', 'o.ry.d': 'AI engineering at MDS for Computer Systems', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
+      'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'l.orgs': 'Organizations I worked, trained and volunteered with', 'l.origin': 'Origin', 'o.uni': 'Jazan University — B.Sc. Information Technology', 'o.uni.d': 'Machine Learning track · GPA 4.56 / 5 · graduated 2025', 'o.jz': 'Jazan — where I come from', 'o.jz.d': 'Home of Khawlani coffee and the Al-Ful flower', 'o.ry': 'Riyadh — where I build', 'o.ry.d': 'AI engineering at MDS for Computer Systems', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
     },
     ar: {
       '__title': 'هيثم هتان — مهندس ذكاء اصطناعي وبرمجيات',
@@ -33,7 +33,7 @@ window.SITE = {
       'yt': 'قناة يوتيوب', 'certs': 'شهادات من',
       'contact': 'أسرع طريقة للتواصل معي هي البريد — أرد خلال 24 ساعة.',
       'cv': 'السيرة الذاتية', 'copy': 'نسخ', 'copied': 'تم النسخ ✓',
-      'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'l.origin': 'الأصل', 'o.uni': 'جامعة جازان — بكالوريوس تقنية المعلومات', 'o.uni.d': 'مسار تعلّم الآلة · المعدل 4.56 من 5 · تخرجت 2025', 'o.jz': 'جازان — منها أنا', 'o.jz.d': 'موطن البن الخولاني وزهرة الفل', 'o.ry': 'الرياض — هنا أبني', 'o.ry.d': 'هندسة الذكاء الاصطناعي في MDS لأنظمة الحاسب', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
+      'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'l.orgs': 'جهات عملت وتدربت وتطوعت معها', 'l.origin': 'الأصل', 'o.uni': 'جامعة جازان — بكالوريوس تقنية المعلومات', 'o.uni.d': 'مسار تعلّم الآلة · المعدل 4.56 من 5 · تخرجت 2025', 'o.jz': 'جازان — منها أنا', 'o.jz.d': 'موطن البن الخولاني وزهرة الفل', 'o.ry': 'الرياض — هنا أبني', 'o.ry.d': 'هندسة الذكاء الاصطناعي في MDS لأنظمة الحاسب', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
     },
     zh: {
       '__title': 'Haitham Hattan — 人工智能与软件工程师',
@@ -50,7 +50,7 @@ window.SITE = {
       'yt': 'YouTube 频道', 'certs': '认证',
       'contact': '联系我最快的方式是邮件 — 24 小时内回复。',
       'cv': '简历', 'copy': '复制', 'copied': '已复制 ✓',
-      'space.grad': '吉赞大学 · 信息技术学士（机器学习）· 2025', 'l.origin': '出身', 'o.uni': '吉赞大学 — 信息技术学士', 'o.uni.d': '机器学习方向 · GPA 4.56 / 5 · 2025 年毕业', 'o.jz': '吉赞 — 我的家乡', 'o.jz.d': 'Khawlani 咖啡与 Al-Ful 茉莉花的故乡', 'o.ry': '利雅得 — 我工作的地方', 'o.ry.d': '就职于 MDS for Computer Systems，从事人工智能工程', 'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
+      'space.grad': '吉赞大学 · 信息技术学士（机器学习）· 2025', 'l.orgs': '合作与任职机构', 'l.origin': '出身', 'o.uni': '吉赞大学 — 信息技术学士', 'o.uni.d': '机器学习方向 · GPA 4.56 / 5 · 2025 年毕业', 'o.jz': '吉赞 — 我的家乡', 'o.jz.d': 'Khawlani 咖啡与 Al-Ful 茉莉花的故乡', 'o.ry': '利雅得 — 我工作的地方', 'o.ry.d': '就职于 MDS for Computer Systems，从事人工智能工程', 'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
     }
   },
 
@@ -89,7 +89,7 @@ window.SITE = {
 
   work: [
     {
-      hash: 'a91f3e2', now: true,
+      hash: 'a91f3e2', now: true, logo: 'mds',
       period: { en: 'Apr 2026 — now', ar: 'أبريل 2026 — الآن', zh: '2026.04 — 至今' },
       role: { en: 'AI Engineer', ar: 'مهندس ذكاء اصطناعي', zh: '人工智能工程师' },
       org: 'MDS for Computer Systems · Riyadh',
@@ -100,9 +100,9 @@ window.SITE = {
       }
     },
     {
-      hash: '7c2e04b',
+      hash: '7c2e04b', logo: 'mds',
       period: { en: 'Jul 2025 — Apr 2026', ar: 'يوليو 2025 — أبريل 2026', zh: '2025.07 — 2026.04' },
-      role: { en: 'Full-Stack Software Engineer', ar: 'مهندس برمجيات شامل', zh: '全栈软件工程师' },
+      role: { en: 'Software Engineer', ar: 'مهندس برمجيات', zh: '软件工程师' },
       org: 'MDS for Computer Systems · Riyadh',
       pts: {
         en: ['Java · Spring Boot · DB2 enterprise apps → +30% data-exchange efficiency.', 'IBM WebSphere at 99.9% availability, HCL DX portals, IBM FileNet.', 'Fully offline National Address GIS platform (Esri, Bun.js, TypeScript).'],
@@ -111,7 +111,7 @@ window.SITE = {
       }
     },
     {
-      hash: '3be5d71',
+      hash: '3be5d71', logo: 'freelance',
       period: { en: 'Dec 2014 — Jun 2025', ar: 'ديسمبر 2014 — يونيو 2025', zh: '2014.12 — 2025.06' },
       role: { en: 'Software Development Consultant', ar: 'مستشار تطوير برمجيات', zh: '软件开发顾问' },
       org: 'Freelance · Saudi Arabia',
@@ -122,10 +122,10 @@ window.SITE = {
       }
     },
     {
-      hash: 'e1d09aa',
+      hash: 'e1d09aa', logo: 'hackerrank',
       period: { en: 'Oct 2023 — Jan 2024', ar: 'أكتوبر 2023 — يناير 2024', zh: '2023.10 — 2024.01' },
-      role: { en: 'Software Engineer Trainee', ar: 'متدرب هندسة برمجيات', zh: '软件工程实习生' },
-      org: 'HackerRank · Remote',
+      role: { en: 'Software Engineer Intern', ar: 'متدرب هندسة برمجيات', zh: '软件工程实习生' },
+      org: 'HackerRank · Hybrid',
       pts: {
         en: ['100+ advanced algorithm challenges in Python & C++.'],
         ar: ['أكثر من 100 تحدٍ خوارزمي متقدم بـ Python وC++.'],
@@ -133,10 +133,10 @@ window.SITE = {
       }
     },
     {
-      hash: '5f8a1c0',
+      hash: '5f8a1c0', logo: 'ehealth',
       period: { en: 'Jun 2023 — Sep 2023', ar: 'يونيو 2023 — سبتمبر 2023', zh: '2023.06 — 2023.09' },
-      role: { en: 'Network Security Engineer', ar: 'مهندس أمن شبكات', zh: '网络安全工程师' },
-      org: 'eHealth SA · Bish General Hospital',
+      role: { en: 'Network Security Engineer · Intern', ar: 'مهندس أمن شبكات · تدريب تعاوني', zh: '网络安全工程师 · 实习' },
+      org: 'eHealth SA · Baish General Hospital, Jazan',
       pts: {
         en: ['80+ endpoints, firewalls, IDS/IPS, F5 BIG-IP, Active Directory — letter of appreciation.'],
         ar: ['أكثر من 80 جهازاً، جدران حماية وIDS/IPS وF5 BIG-IP وActive Directory — خطاب شكر.'],
@@ -144,7 +144,7 @@ window.SITE = {
       }
     },
     {
-      hash: '0a00001', edu: true,
+      hash: '0a00001', edu: true, logo: 'jazan',
       period: { en: '2021 — 2025', ar: '2021 — 2025', zh: '2021 — 2025' },
       role: { en: 'B.Sc. Information Technology — ML track', ar: 'بكالوريوس تقنية المعلومات — مسار تعلّم الآلة', zh: '信息技术学士 — 机器学习方向' },
       org: 'Jazan University · GPA 4.56 / 5',
@@ -240,10 +240,24 @@ window.SITE = {
   ],
 
   vol: [
-    { h: 300, n: { en: 'Fada Tech — head coordinator', ar: 'فضاء التقنية — المنسق العام', zh: 'Fada Tech — 总协调人' } },
-    { h: 240, n: { en: 'HRSD — founder & president', ar: 'HRSD — المؤسس والرئيس', zh: 'HRSD — 创始人兼主席' } },
-    { h: 200, n: { en: 'Microsoft Learn Student Ambassador', ar: 'سفير مايكروسوفت للطلاب', zh: '微软学生大使' } },
-    { h: 120, n: { en: 'GDSC — Jazan University', ar: 'GDSC — جامعة جازان', zh: 'GDSC — 吉赞大学' } }
+    { h: 200, p: '2024–2026', logo: 'ms', url: 'https://mvp.microsoft.com/en-US/studentambassadors', n: { en: 'Microsoft Learn Student Ambassador', ar: 'سفير مايكروسوفت للطلاب', zh: '微软学生大使' } },
+    { h: 300, p: '2023–2024', logo: 'fadatech', n: { en: 'Fada Tech — lead coordinator', ar: 'فضاءتك — المنسق العام', zh: 'Fada Tech — 首席协调人' } },
+    { h: 240, p: '2023–2024', logo: 'hrsd', n: { en: 'HRSD — founder', ar: 'HRSD — المؤسس', zh: 'HRSD — 创始人' } },
+    { h: 120, p: '2022–2023', logo: 'gdsc', url: 'https://gdg.community.dev/', n: { en: 'Google Developer Student Club — Jazan University', ar: 'نادي مطوري جوجل — جامعة جازان', zh: '谷歌开发者学生俱乐部 — 吉赞大学' } },
+    { h: 0, p: '2023', logo: 'attaa', n: { en: 'Digital Attaa — event organizer, vehicle cybersecurity', ar: 'مبادرة العطاء الرقمي — تنظيم دورة أمن المركبات السيبراني', zh: 'Digital Attaa — 车辆网络安全课程组织者' } }
+  ],
+
+  orgs: [
+    { k: 'mds', n: 'MDS CS', url: 'https://mdscs.sa/' },
+    { k: 'stc', n: 'stc', url: 'https://www.stc.com.sa/' },
+    { k: 'ehealth', n: 'eHealth SA', url: 'https://www.linkedin.com/company/ehealthsa/' },
+    { k: 'hackerrank', n: 'HackerRank', url: 'https://www.hackerrank.com/' },
+    { k: 'jazan', n: 'Jazan University', url: 'https://www.jazanu.edu.sa/' },
+    { k: 'ms', n: 'Microsoft', url: 'https://mvp.microsoft.com/en-US/studentambassadors' },
+    { k: 'gdsc', n: 'GDSC', url: 'https://gdg.community.dev/' },
+    { k: 'hrsd', n: 'HRSD' },
+    { k: 'fadatech', n: 'Fada Tech' },
+    { k: 'attaa', n: 'Digital Attaa' }
   ],
 
   gallery: [

@@ -425,3 +425,6 @@ kbd { display: inline-block; padding: 1px 5px; border: 1px solid var(--line-2); 
 [data-href] { -webkit-touch-callout: none; }
 .row[data-href].holding, .tile.holding { background: color-mix(in srgb, var(--pr) 7%, transparent); }
 .row[data-href].holding .t { color: var(--pr); }
+
+#vol .row { align-items: center; }
+.row.x > .glyph { margin-top: 2px; }
