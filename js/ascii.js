@@ -18,13 +18,16 @@
     var lum, cols, rows, cw, ch, w, h, mouse = null, born = 0, visible = true, timer = 0;
 
     // box-average the high-res grid down to the size that fits this screen
+    var padL = 0, padT = 0;
     function build() {
-      w = fig.clientWidth;
+      var cs = getComputedStyle(fig);
+      padL = parseFloat(cs.paddingLeft) || 0; padT = parseFloat(cs.paddingTop) || 0;
+      w = fig.clientWidth - padL - (parseFloat(cs.paddingRight) || 0);
       cols = Math.max(56, Math.min(E.c, Math.round(w / 5.8)));
       cw = w / cols; var fs = cw / GW; ch = fs * LH;
       rows = Math.max(1, Math.round(cols * (E.r / E.c)));
       h = rows * ch;
-      fig.style.height = h + 'px';
+      fig.style.height = (h + padT + (parseFloat(cs.paddingBottom) || 0)) + 'px';
       lum = new Float32Array(cols * rows);
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
@@ -45,9 +48,9 @@
     }
 
     function draw(now) {
-      var dk = dark(), n = RAMP.length - 1, t = (now - born) / 1000, tick = (now / 90) | 0;
+      var dk = true, n = RAMP.length - 1, t = (now - born) / 1000, tick = (now / 90) | 0;
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = dk ? '#ededed' : '#111';
+      ctx.fillStyle = '#e9e9e9';
       var R = 7, mx = mouse ? mouse.x / cw : -99, my = mouse ? mouse.y / ch : -99;
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
@@ -71,12 +74,26 @@
       ctx.globalAlpha = 1;
     }
 
+    var tc = document.getElementById('vf-tc'), bits = document.getElementById('vf-bits'), focus = document.getElementById('vf-focus');
+    function hud(now) {
+      var s = (now - born) / 1000, f = Math.floor((s % 1) * 24), sec = Math.floor(s);
+      function p2(v) { return (v < 10 ? '0' : '') + v; }
+      if (tc) tc.textContent = p2(Math.floor(sec / 3600)) + ':' + p2(Math.floor(sec / 60) % 60) + ':' + p2(sec % 60) + ':' + p2(f);
+      if (bits) { var b = (sec & 255).toString(2); bits.textContent = '00000000'.slice(b.length) + b + ' ' + ((f * 10) & 255).toString(2).padStart(8, '0'); }
+    }
+    function moveFocus() {
+      if (!focus) return;
+      var fx = mouse ? mouse.x : w * 0.5, fy = mouse ? mouse.y : h * 0.5;
+      focus.style.transform = 'translate(' + (fx + padL - 22).toFixed(0) + 'px,' + (fy + padT - 16).toFixed(0) + 'px)';
+      focus.classList.toggle('lock', !!mouse);
+    }
     function loop() {
+      hud(performance.now()); moveFocus();
       if (!visible || reduce) { timer = 0; return; }
       var t = (performance.now() - born) / 1000;
       draw(performance.now());
       // fast while decoding or hovering, otherwise a calm idle shimmer
-      timer = setTimeout(loop, t < 1.6 || mouse ? 45 : 600);
+      timer = setTimeout(loop, t < 1.6 || mouse ? 45 : 120);
     }
     function kick() { clearTimeout(timer); timer = 0; loop(); }
 

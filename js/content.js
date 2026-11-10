@@ -16,7 +16,7 @@ window.SITE = {
       'yt': 'YouTube channel', 'certs': 'Certified by',
       'contact': 'The fastest way to reach me is email — I reply within 24 hours.',
       'cv': 'Résumé', 'copy': 'copy', 'copied': 'copied ✓',
-      'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
+      'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
     },
     ar: {
       '__title': 'هيثم هتان — مهندس ذكاء اصطناعي وبرمجيات',
@@ -33,7 +33,7 @@ window.SITE = {
       'yt': 'قناة يوتيوب', 'certs': 'شهادات من',
       'contact': 'أسرع طريقة للتواصل معي هي البريد — أرد خلال 24 ساعة.',
       'cv': 'السيرة الذاتية', 'copy': 'نسخ', 'copied': 'تم النسخ ✓',
-      'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
+      'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
     },
     zh: {
       '__title': 'Haitham Hattan — 人工智能与软件工程师',
@@ -50,7 +50,7 @@ window.SITE = {
       'yt': 'YouTube 频道', 'certs': '认证',
       'contact': '联系我最快的方式是邮件 — 24 小时内回复。',
       'cv': '简历', 'copy': '复制', 'copied': '已复制 ✓',
-      'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
+      'space.grad': '吉赞大学 · 信息技术学士（机器学习）· 2025', 'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
     }
   },
 

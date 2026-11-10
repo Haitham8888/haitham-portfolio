@@ -39,7 +39,7 @@
 
   // keep the reading column calm: digits fade out behind the text
   function columnFade(x) {
-    var col = Math.min(668, W) / 2, c = W / 2, d = Math.abs(x - c);
+    var col = Math.min(1168, W) / 2, c = W / 2, d = Math.abs(x - c);
     if (d > col + 40) return 1;
     if (d < col - 20) return 0.28;
     return 0.28 + 0.72 * ((d - (col - 20)) / 60);
@@ -52,10 +52,10 @@
     last = now;
     var dk = dark();
     ctx.clearRect(0, 0, W, H);
-    var base = (dk ? 0.085 : 0.07) * boost, ink = dk ? '237,237,237' : '17,17,17', hot = dk ? '74,222,128' : '22,163,74';
+    var base = (dk ? 0.085 : 0.05) * boost, ink = dk ? '237,237,237' : '70,110,85', hot = dk ? '74,222,128' : '21,128,61';
     for (var i = 0; i < cols; i++) {
       var d = drops[i];
-      if (!d.on) { if (Math.random() < 0.002) d.on = true; continue; }
+      if (!d.on || (!dk && i % 2)) { if (Math.random() < 0.002) d.on = true; continue; }
       if (!reduce) d.y += d.v;
       var fade = columnFade(d.x);
       for (var k = 0; k < TRAIL; k++) {
