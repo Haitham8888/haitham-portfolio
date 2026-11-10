@@ -14,7 +14,7 @@
   function eyes(fig) {
     var E = window.EYES, canvas = fig.querySelector('canvas'), ctx = canvas.getContext('2d');
     // only the eyes and brows: crop away the nose and cheeks below, and the empty background at the sides
-    var CX0 = 30, CX1 = 132, CY0 = 4, CY1 = 21, SC = CX1 - CX0, SR = CY1 - CY0;
+    var CX0 = 40, CX1 = 122, CY0 = 4, CY1 = 21, SC = CX1 - CX0, SR = CY1 - CY0;
     var src = new Float32Array(SC * SR);
     for (var yy0 = 0; yy0 < SR; yy0++) for (var xx0 = 0; xx0 < SC; xx0++) src[yy0 * SC + xx0] = ALPHA.indexOf(E.d[(yy0 + CY0) * E.c + xx0 + CX0]) / 63;
     // stretch contrast inside the crop so brows, eyes and the glasses frames read clearly
