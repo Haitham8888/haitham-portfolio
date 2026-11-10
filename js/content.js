@@ -16,7 +16,7 @@ window.SITE = {
       'yt': 'YouTube channel', 'certs': 'Certified by',
       'contact': 'The fastest way to reach me is email — I reply within 24 hours.',
       'cv': 'Résumé', 'copy': 'copy', 'copied': 'copied ✓',
-      'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
+      'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'l.origin': 'Origin', 'o.uni': 'Jazan University — B.Sc. Information Technology', 'o.uni.d': 'Machine Learning track · GPA 4.56 / 5 · graduated 2025', 'o.jz': 'Jazan — where I come from', 'o.jz.d': 'Home of Khawlani coffee and the Al-Ful flower', 'o.ry': 'Riyadh — where I build', 'o.ry.d': 'AI engineering at MDS for Computer Systems', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
     },
     ar: {
       '__title': 'هيثم هتان — مهندس ذكاء اصطناعي وبرمجيات',
@@ -33,7 +33,7 @@ window.SITE = {
       'yt': 'قناة يوتيوب', 'certs': 'شهادات من',
       'contact': 'أسرع طريقة للتواصل معي هي البريد — أرد خلال 24 ساعة.',
       'cv': 'السيرة الذاتية', 'copy': 'نسخ', 'copied': 'تم النسخ ✓',
-      'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
+      'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'l.origin': 'الأصل', 'o.uni': 'جامعة جازان — بكالوريوس تقنية المعلومات', 'o.uni.d': 'مسار تعلّم الآلة · المعدل 4.56 من 5 · تخرجت 2025', 'o.jz': 'جازان — منها أنا', 'o.jz.d': 'موطن البن الخولاني وزهرة الفل', 'o.ry': 'الرياض — هنا أبني', 'o.ry.d': 'هندسة الذكاء الاصطناعي في MDS لأنظمة الحاسب', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
     },
     zh: {
       '__title': 'Haitham Hattan — 人工智能与软件工程师',
@@ -50,7 +50,7 @@ window.SITE = {
       'yt': 'YouTube 频道', 'certs': '认证',
       'contact': '联系我最快的方式是邮件 — 24 小时内回复。',
       'cv': '简历', 'copy': '复制', 'copied': '已复制 ✓',
-      'space.grad': '吉赞大学 · 信息技术学士（机器学习）· 2025', 'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
+      'space.grad': '吉赞大学 · 信息技术学士（机器学习）· 2025', 'l.origin': '出身', 'o.uni': '吉赞大学 — 信息技术学士', 'o.uni.d': '机器学习方向 · GPA 4.56 / 5 · 2025 年毕业', 'o.jz': '吉赞 — 我的家乡', 'o.jz.d': 'Khawlani 咖啡与 Al-Ful 茉莉花的故乡', 'o.ry': '利雅得 — 我工作的地方', 'o.ry.d': '就职于 MDS for Computer Systems，从事人工智能工程', 'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
     }
   },
 

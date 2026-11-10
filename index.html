@@ -69,7 +69,7 @@
     </script>
 
     <link rel="stylesheet" href="fonts/fonts.css" />
-    <link rel="stylesheet" href="css/site.css?v=42" />
+    <link rel="stylesheet" href="css/site.css?v=49" />
 </head>
 
 <body>
@@ -118,50 +118,65 @@
                         <a href="img/CV_HaithamHattan_ATS.pdf" download data-i="cv">Résumé</a>
                     </nav>
                 </div>
-                <div class="space" id="space" role="img" aria-label="An astronaut holding the Saudi flag, surrounded by the products and tools Haitham builds with"></div>
+                <div class="astro-zone" id="astro" role="img" aria-label="ASCII astronaut — drag and throw him"></div>
             </div>
         </header>
 
         <section class="block" aria-labelledby="l-latest">
             <h2 class="label" id="l-latest"><span class="n">01</span><span data-i="l.latest">Latest</span></h2>
             <ul class="rows">
-                <li class="row" data-preview="img/journey/journey-09.jpg">
+                <li class="row" data-href="https://www.bankaljazira.com/" data-preview="img/journey/journey-09.jpg">
                     <div class="row-main"><span class="t" data-i="hl1"></span><span class="d" data-i="hl1.sub"></span></div>
                     <span class="m">2026</span>
                 </li>
-                <li class="row">
+                <li class="row" data-href="https://mdscs.sa/">
                     <div class="row-main"><span class="t" data-i="hl2"></span><span class="d" data-i="hl2.sub"></span></div>
                     <span class="m">2×</span>
                 </li>
             </ul>
         </section>
 
+        <section class="block origin" aria-labelledby="l-origin">
+            <h2 class="label" id="l-origin"><span class="n">02</span><span data-i="l.origin">Origin</span></h2>
+            <div class="origin-grid">
+                <figure class="flag-ascii" id="flag" role="img" aria-label="Flag of Saudi Arabia, drawn in ASCII">
+                    <canvas aria-hidden="true"></canvas>
+                    <figcaption dir="ltr"><span>KINGDOM OF SAUDI ARABIA</span><span>24.71°N · 46.68°E</span></figcaption>
+                </figure>
+                <ul class="rows origin-rows">
+                    <li class="row" data-href="https://www.jazanu.edu.sa/"><span class="glyph" id="g-uni"></span><div class="row-main"><span class="t" data-i="o.uni"></span><span class="d" data-i="o.uni.d"></span></div><span class="m">2025</span></li>
+                    <li class="row"><span class="glyph" id="g-jz"></span><div class="row-main"><span class="t" data-i="o.jz"></span><span class="d" data-i="o.jz.d"></span></div><span class="m">16.89°N</span></li>
+                    <li class="row" data-href="https://mdscs.sa/"><span class="glyph" id="g-ry"></span><div class="row-main"><span class="t" data-i="o.ry"></span><span class="d" data-i="o.ry.d"></span></div><span class="m">24.71°N</span></li>
+                </ul>
+            </div>
+        </section>
+
         <section class="block" aria-labelledby="l-shipped">
-            <h2 class="label" id="l-shipped"><span class="n">02</span><span data-i="l.shipped">Shipped</span></h2>
+            <h2 class="label" id="l-shipped"><span class="n">03</span><span data-i="l.shipped">Shipped</span></h2>
             <ul class="rows" id="shipped"></ul>
         </section>
 
         <section class="block" aria-labelledby="l-work">
-            <h2 class="label" id="l-work"><span class="n">03</span><span data-i="l.work">Work</span></h2>
+            <h2 class="label" id="l-work"><span class="n">04</span><span data-i="l.work">Work</span></h2>
             <ul class="rows" id="work"></ul>
         </section>
 
         <section class="block" aria-labelledby="l-projects">
-            <h2 class="label" id="l-projects"><span class="n">04</span><span data-i="l.projects">Projects</span></h2>
+            <h2 class="label" id="l-projects"><span class="n">05</span><span data-i="l.projects">Projects</span></h2>
             <ul class="rows" id="projects"></ul>
             <h3 class="sublabel" data-i="l.more">Also built</h3>
-            <p class="inline-list" id="more"></p>
+            <div class="tiles" id="more"></div>
         </section>
 
         <section class="block" aria-labelledby="l-awards">
-            <h2 class="label" id="l-awards"><span class="n">05</span><span data-i="l.awards">Awards</span></h2>
+            <h2 class="label" id="l-awards"><span class="n">06</span><span data-i="l.awards">Awards</span></h2>
             <ul class="rows" id="awards"></ul>
             <h3 class="sublabel" data-i="certs">Certified by</h3>
             <p class="inline-list" id="certs"></p>
         </section>
 
         <section class="block" aria-labelledby="l-community">
-            <h2 class="label" id="l-community"><span class="n">06</span><span data-i="l.community">Community</span></h2>
+            <h2 class="label" id="l-community"><span class="n">07</span><span data-i="l.community">Community</span></h2>
             <p class="prose" data-i="community"></p>
             <ul class="rows" id="vol"></ul>
             <div class="videos" id="videos"></div>
@@ -169,17 +184,18 @@
         </section>
 
         <section class="block" aria-labelledby="l-moments">
-            <h2 class="label" id="l-moments"><span class="n">07</span><span data-i="l.moments">Moments</span></h2>
+            <h2 class="label" id="l-moments"><span class="n">08</span><span data-i="l.moments">Moments</span></h2>
             <div class="moments" id="moments"></div>
         </section>
 
         <section class="block" aria-labelledby="l-stack">
-            <h2 class="label" id="l-stack"><span class="n">08</span><span data-i="l.stack">Stack</span></h2>
+            <h2 class="label" id="l-stack"><span class="n">09</span><span data-i="l.stack">Stack</span></h2>
+            <div class="tiles" id="stack-tiles"></div>
             <dl class="stack" id="stack" dir="ltr"></dl>
         </section>
 
         <section class="block contact" aria-labelledby="l-contact">
-            <h2 class="label" id="l-contact"><span class="n">09</span><span data-i="l.contact">Contact</span></h2>
+            <h2 class="label" id="l-contact"><span class="n">10</span><span data-i="l.contact">Contact</span></h2>
             <p class="prose" data-i="contact"></p>
             <p class="mail-line"><a class="mail" href="mailto:info@haithamhattan.sa">info@haithamhattan.sa</a><button class="copy" id="copy" data-i="copy">copy</button></p>
             <p class="phone" dir="ltr"><a href="https://wa.me/966537430772" target="_blank" rel="noopener">+966 53 743 0772</a></p>
@@ -202,14 +218,17 @@
     </div>
     <div class="lightbox" id="lightbox" hidden><figure><img alt="" /><figcaption></figcaption></figure></div>
 
-    <script src="js/content.js?v=42"></script>
-    <script src="js/eyes-data.js?v=42"></script>
-    <script src="js/ascii.js?v=42"></script>
-    <script src="js/fx.js?v=42"></script>
-    <script src="js/space-icons.js?v=42"></script>
-    <script src="js/space.js?v=42"></script>
-    <script src="js/app.js?v=42"></script>
-    <script src="js/term.js?v=42"></script>
+    <script src="js/content.js?v=49"></script>
+    <script src="js/eyes-data.js?v=49"></script>
+    <script src="js/ascii.js?v=49"></script>
+    <script src="js/fx.js?v=49"></script>
+    <script src="js/space-icons.js?v=49"></script>
+    <script src="js/glyph.js?v=49"></script>
+    <script src="js/astro.js?v=49"></script>
+    <script src="js/flag.js?v=49"></script>
+    <script src="js/app.js?v=49"></script>
+    <script src="js/hold.js?v=49"></script>
+    <script src="js/term.js?v=49"></script>
 </body>
 
 </html>

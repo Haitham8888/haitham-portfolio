@@ -16,30 +16,32 @@
     $('#theme').setAttribute('aria-label', doc.dataset.theme === 'light' ? u('theme.dark') : u('theme.light'));
     $$('.controls [data-lang]').forEach(function (b) { b.classList.toggle('on', b.dataset.lang === lang); b.setAttribute('aria-pressed', b.dataset.lang === lang); });
 
-    $('#shipped').innerHTML = S.shipped.map(function (p) {
-      return '<li class="row link" data-preview="' + p.img + '"><a class="cover" href="' + p.url + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '"></a>' +
+    $('#shipped').innerHTML = S.shipped.map(function (p, i) {
+      return '<li class="row link" data-href="' + p.url + '" data-preview="' + p.img + '"><a class="cover" href="' + p.url + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '"></a>' +
+        '<span class="glyph" data-k="ship-' + i + '"></span>' +
         '<div class="row-main"><span class="t"><span class="tx">' + esc(p.name) + '</span><span class="ar">' + esc(p.native) + '</span>' + ARROW + '</span><span class="d">' + esc(t(p.line)) + '</span></div>' +
         '<span class="m">' + esc(p.host) + '</span></li>';
     }).join('');
 
     $('#work').innerHTML = S.work.map(function (w, i) {
-      return '<li class="row x' + (i === 0 ? ' open' : '') + '" tabindex="0" role="button" aria-expanded="' + (i === 0) + '">' +
+      return '<li class="row x' + (i === 0 ? ' open' : '') + '"' + (orgUrl(w.org) ? ' data-href="' + orgUrl(w.org) + '"' : '') + ' tabindex="0" role="button" aria-expanded="' + (i === 0) + '">' +
         '<div class="row-main"><span class="t"><span class="tx">' + esc(t(w.role)) + '</span><span class="plus" aria-hidden="true">+</span></span><span class="d">' + esc(w.org) + '</span></div>' +
         '<span class="m">' + esc(t(w.period).replace(/ — /, '–')) + '</span>' +
         '<div class="more"><div><ul>' + t(w.pts).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></div></div></li>';
     }).join('');
 
-    $('#projects').innerHTML = S.projects.map(function (p) {
-      return '<li class="row link"><a class="cover" href="' + p.url + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '"></a>' +
+    $('#projects').innerHTML = S.projects.map(function (p, i) {
+      return '<li class="row link" data-href="' + p.url + '"><a class="cover" href="' + p.url + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '"></a>' +
+        '<span class="glyph" data-k="proj-' + i + '"></span>' +
         '<div class="row-main"><span class="t"><span class="tx">' + esc(p.name) + '</span>' + ARROW + '</span><span class="d">' + esc(t(p.line)) + '</span></div>' +
         '<span class="m">' + esc(p.tags.slice(0, 2).join(' · ')) + '</span></li>';
     }).join('');
-    $('#more').innerHTML = S.more.map(function (m) {
-      return (m.url ? '<a href="' + m.url + '" target="_blank" rel="noopener" title="' + esc(t(m.line)) + '">' + esc(m.name) + '</a>' : '<span class="it" title="' + esc(t(m.line)) + '">' + esc(m.name) + '</span>');
-    }).join(' <span class="c">/</span> ');
+    $('#more').innerHTML = S.more.map(function (m, i) {
+      return '<span class="tile" data-k="more-' + i + '" title="' + esc(t(m.line)) + '"><span class="tile-n">' + esc(m.name) + '</span></span>';
+    }).join('');
 
     $('#awards').innerHTML = S.awards.map(function (a) {
-      return '<li class="row"><div class="row-main"><span class="t"><span class="rank' + (a.cls === 'gold' ? ' top' : '') + '">' + esc(a.rank) + '</span>' + esc(t(a.ev)) + '</span></div><span class="m">' + esc(a.y) + '</span></li>';
+      return '<li class="row"' + (awardUrl(a) ? ' data-href="' + awardUrl(a) + '"' : '') + '><div class="row-main"><span class="t"><span class="rank' + (a.cls === 'gold' ? ' top' : '') + '">' + esc(a.rank) + '</span>' + esc(t(a.ev)) + '</span></div><span class="m">' + esc(a.y) + '</span></li>';
     }).join('');
     $('#certs').innerHTML = S.certs.map(function (c) {
       var label = c.n.indexOf(c.by.split(' ')[0]) === 0 ? c.n : c.by + ' ' + c.n;
@@ -61,7 +63,64 @@
       return '<dt>' + k.replace('_', ' / ') + '</dt><dd>' + S.stack[k].map(esc).join(', ') + '</dd>';
     }).join('');
 
+    $('#stack-tiles').innerHTML = TECH.map(function (k, i) {
+      return '<span class="tile" data-k="tech-' + i + '"><span class="tile-n">' + esc((window.ICONS[k] || {}).n || k) + '</span></span>';
+    }).join('');
+
     bindRows();
+    glyphs();
+  }
+
+  // ---------- ASCII glyph tiles spread through the page (each in its own colour) ----------
+  var LOGOS = { Maysour: 'img/logos/maysour.webp', Hayyiz: 'img/logos/hayyiz.svg', 'G-Care': 'img/logos/gcare.svg' };
+  var MORE_LOGOS = { MNBET: 'img/MNBET.png', SANKA: 'img/Sanka.png', Waselani: 'img/Waselani.png', MNHAL: 'img/MNHAL.png' };
+  var PROJ_COLORS = ['#e5e5e5', '#4ade80', '#a5b4fc', '#fbbf24', '#f472b6', '#67e8f9'];
+  var TECH_URL = { nvidia: 'https://www.nvidia.com/', redhat: 'https://www.redhat.com/', linux: 'https://www.kernel.org/', pytorch: 'https://pytorch.org/', huggingface: 'https://huggingface.co/', kubernetes: 'https://kubernetes.io/', docker: 'https://www.docker.com/', python: 'https://www.python.org/', rust: 'https://www.rust-lang.org/' };
+  function orgUrl(org) {
+    if (/MDS/.test(org)) return 'https://mdscs.sa/';
+    if (/HackerRank/.test(org)) return 'https://www.hackerrank.com/';
+    if (/Jazan University/.test(org)) return 'https://www.jazanu.edu.sa/';
+    return '';
+  }
+  function awardUrl(a) {
+    var e = a.ev.en;
+    if (/MDS/.test(e)) return 'https://mdscs.sa/';
+    if (/AlJazira/.test(e)) return 'https://www.bankaljazira.com/';
+    if (/Jazan University/.test(e)) return 'https://www.jazanu.edu.sa/';
+    if (/Monsha/.test(e)) return 'https://www.monshaat.gov.sa/';
+    if (/Albilad/.test(e)) return 'https://www.bankalbilad.com/';
+    if (/King Saud/.test(e)) return 'https://ksu.edu.sa/';
+    return '';
+  }
+  var TECH = ['nvidia', 'redhat', 'linux', 'pytorch', 'huggingface', 'kubernetes', 'docker', 'python', 'rust'];
+  function glyphs() {
+    var G = window.GLYPH; if (!G) return;
+    S.shipped.forEach(function (p, i) { var el = document.querySelector('[data-k="ship-' + i + '"]'); if (el) G.tile(el, { src: LOGOS[p.name], size: 48, cols: 18, hover: el.closest('.row') }); });
+    S.projects.forEach(function (p, i) { var el = document.querySelector('[data-k="proj-' + i + '"]'); if (el) G.tile(el, { text: p.name.charAt(0), color: PROJ_COLORS[i % PROJ_COLORS.length], size: 40, cols: 14, hover: el.closest('.row') }); });
+    S.more.forEach(function (m, i) {
+      var el = document.querySelector('[data-k="more-' + i + '"]'); if (!el) return;
+      G.tile(el, MORE_LOGOS[m.name] ? { src: MORE_LOGOS[m.name], size: 46, throwable: true, bounds: '.block', href: m.url || undefined } : { text: m.name.charAt(0), color: '#a5b4fc', size: 46, throwable: true, bounds: '.block', href: m.url || undefined });
+    });
+    TECH.forEach(function (k, i) { var el = document.querySelector('[data-k="tech-' + i + '"]'); if (el && window.ICONS[k]) G.tile(el, { icon: window.ICONS[k], size: 46, throwable: true, bounds: '.block', href: TECH_URL[k] }); });
+  }
+  function originGlyphs() {
+    var G = window.GLYPH; if (!G) return;
+    G.tile($('#g-uni'), { src: 'img/logos/jazan-university.png', size: 48, cols: 20, hover: $('#g-uni').closest('.row') });
+    // Jazan: a Khawlani coffee bean
+    G.tile($('#g-jz'), { size: 48, cols: 18, hover: $('#g-jz').closest('.row'), draw: function (x, n) {
+      x.save(); x.translate(n / 2, n / 2); x.rotate(-0.5);
+      x.fillStyle = '#b5773f'; x.beginPath(); x.ellipse(0, 0, n * 0.3, n * 0.42, 0, 0, Math.PI * 2); x.fill();
+      x.strokeStyle = 'rgba(0,0,0,1)'; x.globalCompositeOperation = 'destination-out'; x.lineWidth = n * 0.09;
+      x.beginPath(); x.moveTo(0, -n * 0.4); x.bezierCurveTo(-n * 0.14, -n * 0.12, n * 0.14, n * 0.12, 0, n * 0.4); x.stroke(); x.restore();
+    } });
+    // Riyadh: the Kingdom Centre tower
+    G.tile($('#g-ry'), { size: 48, cols: 18, hover: $('#g-ry').closest('.row'), draw: function (x, n) {
+      x.fillStyle = '#9fd8b4';
+      x.beginPath(); x.moveTo(n * 0.3, n); x.lineTo(n * 0.36, n * 0.2); x.quadraticCurveTo(n * 0.5, n * 0.02, n * 0.64, n * 0.2); x.lineTo(n * 0.7, n); x.closePath(); x.fill();
+      x.globalCompositeOperation = 'destination-out';
+      x.beginPath(); x.moveTo(n * 0.42, n * 0.42); x.quadraticCurveTo(n * 0.5, n * 0.14, n * 0.58, n * 0.42); x.closePath(); x.fill();
+      x.fillRect(n * 0.47, n * 0.48, n * 0.06, n * 0.48);
+    } });
   }
 
   function bindRows() {
@@ -122,6 +181,8 @@
     try { localStorage.setItem('theme', th); } catch (e) {}
     $('#theme').setAttribute('aria-label', th === 'light' ? u('theme.dark') : u('theme.light'));
     if (eyesCtl) eyesCtl.redraw();
+    if (window.GLYPH) window.GLYPH.repaint();
+    if (window.FLAG) window.FLAG.redraw();
   }
 
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
@@ -150,6 +211,7 @@
 
   // boot
   render();
+  originGlyphs();
   clock(); setInterval(clock, 1000);
   observe();
   var eyesCtl = A.eyes($('#eyes'));
