@@ -1,760 +1,357 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>هيثم هتان | Haitham Hattan — AI &amp; Software Engineer</title>
-
-    <meta name="description" content="هيثم هتان مهندس ذكاء اصطناعي ومهندس برمجيات شامل في الرياض، السعودية. متخصص في RAG والنماذج اللغوية المحلية، والأنظمة المؤسسية بتوافر 99.9%، وأدوات أتمتة رفعت إنتاجية الفرق 40%." />
-    <meta name="keywords" content="هيثم هتان, Haitham Hattan, مهندس ذكاء اصطناعي, AI Engineer, مهندس برمجيات, Software Engineer, RAG, LLM, Local LLM, MLOps, Riyadh, الرياض, السعودية" />
-    <meta name="author" content="هيثم هتان | Haitham Hattan" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Haitham Hattan — AI &amp; Software Engineer</title>
+    <meta name="description" content="Haitham Hattan — AI Engineer and full-stack software engineer in Riyadh. On-premise RAG, local LLMs on H100/H200 GPUs, and enterprise systems at 99.9% availability." />
+    <meta name="keywords" content="هيثم هتان, Haitham Hattan, AI Engineer, مهندس ذكاء اصطناعي, Software Engineer, RAG, LLM, Local LLM, MLOps, Riyadh, Saudi Arabia" />
+    <meta name="author" content="Haitham Hattan" />
+    <meta name="theme-color" content="#0a0b0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)" />
     <link rel="canonical" href="https://haithamhattan.sa/" />
-
-    <!-- hreflang -->
     <link rel="alternate" hreflang="ar" href="https://haithamhattan.sa/?lang=ar" />
     <link rel="alternate" hreflang="en" href="https://haithamhattan.sa/?lang=en" />
     <link rel="alternate" hreflang="zh" href="https://haithamhattan.sa/?lang=zh" />
     <link rel="alternate" hreflang="x-default" href="https://haithamhattan.sa/" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://haithamhattan.sa/" />
-    <meta property="og:title" content="هيثم هتان | Haitham Hattan — AI &amp; Software Engineer" />
-    <meta property="og:description" content="مهندس ذكاء اصطناعي ومهندس برمجيات شامل. متخصص في RAG والنماذج اللغوية المحلية والأنظمة المؤسسية. الرياض، السعودية." />
+    <meta property="og:title" content="Haitham Hattan — AI &amp; Software Engineer" />
+    <meta property="og:description" content="AI Engineer & full-stack software engineer. On-premise RAG, local LLMs, enterprise systems. Riyadh, Saudi Arabia." />
     <meta property="og:image" content="https://haithamhattan.sa/img/haitham.jpg" />
-    <meta property="og:image:alt" content="هيثم هتان" />
-    <meta property="og:locale" content="ar_SA" />
-    <meta property="og:locale:alternate" content="en_US" />
-
-    <!-- Twitter Card -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_SA" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="هيثم هتان | Haitham Hattan — AI &amp; Software Engineer" />
-    <meta name="twitter:description" content="مهندس ذكاء اصطناعي ومهندس برمجيات شامل. متخصص في RAG والنماذج اللغوية المحلية والأنظمة المؤسسية." />
+    <meta name="twitter:title" content="Haitham Hattan — AI &amp; Software Engineer" />
+    <meta name="twitter:description" content="AI Engineer & full-stack software engineer. On-premise RAG, local LLMs, enterprise systems." />
     <meta name="twitter:image" content="https://haithamhattan.sa/img/haitham.jpg" />
 
-    <!-- Favicon (cyber) -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='4'%20fill='%2320231f'/%3E%3Ctext%20x='50'%20y='72'%20font-size='58'%20text-anchor='middle'%20fill='%232e7d5b'%20font-family='monospace'%20font-weight='700'%3EH%3C/text%3E%3C/svg%3E" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='10'%20fill='%230a0b0a'/%3E%3Ctext%20x='50'%20y='68'%20font-size='52'%20text-anchor='middle'%20fill='%236fd8a0'%20font-family='monospace'%20font-weight='700'%3E~%23%3C/text%3E%3C/svg%3E" />
 
-    <!-- Structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "هيثم هتان",
-      "alternateName": "Haitham Hattan",
+      "name": "Haitham Hattan",
+      "alternateName": "هيثم هتان",
       "url": "https://haithamhattan.sa/",
       "image": "https://haithamhattan.sa/img/haitham.jpg",
       "email": "mailto:info@haithamhattan.sa",
       "jobTitle": "AI Engineer & Software Engineer",
       "knowsLanguage": ["ar", "en"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Riyadh",
-        "addressCountry": "SA"
-      },
-      "worksFor": {
-        "@type": "Organization",
-        "name": "MDS for Computer Systems (MDS CS)"
-      },
+      "address": { "@type": "PostalAddress", "addressLocality": "Riyadh", "addressCountry": "SA" },
+      "worksFor": { "@type": "Organization", "name": "MDS for Computer Systems (MDS CS)" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Jazan University" },
+      "award": [
+        "Employee of the Year — MDS CS (Q4 2025, Q1 2026)",
+        "3rd Place — Mubtakaroon FinTech Hackathon, Bank AlJazira 2026",
+        "1st Place — Graduation Project, Jazan University 2025"
+      ],
       "sameAs": [
         "https://www.linkedin.com/in/haithamhattan/",
         "https://github.com/haitham8888",
         "https://x.com/HattanHaitham",
+        "https://www.youtube.com/@Hai3",
         "https://maysour.sa/"
       ]
     }
     </script>
 
-    <link rel="stylesheet" href="fonts/fonts.css" />
-    <link rel="stylesheet" href="styles.css?v=15" />
-
-    <!-- Apply language immediately (no flash) -->
+    <!-- theme + language before first paint (no flash). Dark is the default. -->
     <script>
         (function () {
+            var d = document.documentElement;
             try {
-                var params = new URLSearchParams(window.location.search);
-                var lang = params.get('lang') || localStorage.getItem('langPref') || 'en';
-                document.documentElement.setAttribute('lang', lang);
-                document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+                var t = localStorage.getItem('theme');
+                d.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+                var q = new URLSearchParams(location.search).get('lang');
+                var l = q || localStorage.getItem('langPref') || 'en';
+                if (['ar', 'en', 'zh'].indexOf(l) < 0) l = 'en';
+                d.setAttribute('lang', l);
+                d.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
             } catch (e) {}
         })();
     </script>
+
+    <link rel="preload" href="fonts/JetBrainsMono-400-Normal-6.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="css/site.css?v=23" />
 </head>
 
 <body>
+    <a class="skip" href="#main" data-i="skip">Skip to content</a>
+
+    <!-- boot sequence (first visit per session, skippable) -->
+    <div class="boot" id="boot" aria-hidden="true"><pre id="boot-log"></pre></div>
+
     <!-- NAV -->
-    <nav class="nav" aria-label="Main navigation">
-        <div class="container nav-inner">
-            <a class="nav-logo" href="#home" aria-label="Home">
-                <span class="logo-badge">~#</span>
-                <span id="nav-logo-text">Haitham Hattan</span>
+    <header class="nav" id="nav">
+        <div class="wrap nav-in">
+            <a class="brand" href="#top" aria-label="Haitham Hattan — home">
+                <span class="brand-mark">~#</span><span class="brand-name">haitham<span class="dim">.sys</span></span>
             </a>
-
-            <ul class="nav-links">
-                <li><a id="nav-about" href="#about">نبذة</a></li>
-                <li><a id="nav-exp" href="#experience">الخبرات</a></li>
-                <li><a id="nav-proj" href="#projects">المشاريع</a></li>
-                <li><a id="nav-partners" href="#partners">الشركاء</a></li>
-                <li><a id="nav-training" href="#training">التدريب</a></li>
-                <li><a id="nav-testimonials" href="#testimonials">الشهادات</a></li>
-                <li><a id="nav-gallery" href="#gallery">معرض</a></li>
-                <li><a id="nav-contact" href="#contact">تواصل</a></li>
-            </ul>
-
-            <div class="nav-right">
-                <div class="lang-wrap">
-                    <button class="icon-btn" id="lang-toggle" aria-label="Language" aria-haspopup="true" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </button>
-                    <div class="lang-menu" id="lang-menu">
-                        <button data-lang="ar" title="العربية" aria-label="العربية">AR</button>
-                        <button data-lang="en" title="English" aria-label="English">EN</button>
-                        <button data-lang="zh" title="中文" aria-label="中文">中</button>
-                    </div>
+            <nav class="links" aria-label="Main">
+                <a href="#shipped" data-i="nav.shipped">shipped</a>
+                <a href="#work" data-i="nav.work">work</a>
+                <a href="#projects" data-i="nav.projects">projects</a>
+                <a href="#awards" data-i="nav.awards">awards</a>
+                <a href="#talks" data-i="nav.talks">talks</a>
+                <a href="#gallery" data-i="nav.gallery">gallery</a>
+                <a href="#contact" data-i="nav.contact">contact</a>
+            </nav>
+            <div class="nav-tools">
+                <button class="tool kbd-btn" id="cmd-open" aria-label="Command menu" title="Ctrl / ⌘ + K"><span class="k">⌘K</span></button>
+                <div class="lang" role="group" aria-label="Language">
+                    <button data-lang="ar" aria-label="العربية">ع</button>
+                    <button data-lang="en" aria-label="English">EN</button>
+                    <button data-lang="zh" aria-label="中文">中</button>
                 </div>
-
-                <button class="icon-btn nav-burger" id="nav-burger" aria-label="Menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <button class="tool" id="theme-toggle" aria-label="Toggle light / dark theme">
+                    <span class="theme-ico" aria-hidden="true"></span>
+                </button>
+                <button class="tool burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+                    <span></span><span></span>
                 </button>
             </div>
         </div>
-    </nav>
-
-    <!-- MOBILE NAV -->
-    <div class="mobile-nav" id="mobile-nav">
-        <a id="mnav-about" href="#about">نبذة</a>
-        <a id="mnav-exp" href="#experience">الخبرات</a>
-        <a id="mnav-proj" href="#projects">المشاريع</a>
-        <a id="mnav-partners" href="#partners">الشركاء</a>
-        <a id="mnav-training" href="#training">التدريب</a>
-        <a id="mnav-testimonials" href="#testimonials">الشهادات</a>
-        <a id="mnav-gallery" href="#gallery">معرض</a>
-        <a id="mnav-contact" href="#contact">تواصل</a>
-    </div>
-
-    <!-- HERO (terminal) -->
-    <header class="hero" id="home">
-        <div class="container">
-            <div class="term hero-term reveal">
-                <div class="term-bar">
-                    <span class="term-title">haitham@hattan:~/portfolio</span>
-                    <span class="term-tag">bash</span>
-                </div>
-                <div class="term-body">
-                    <p class="term-line"><span class="prompt">$</span> whoami</p>
-                    <h1>Haitham Hattan</h1>
-                    <p class="term-line"><span class="prompt">&gt;</span> <span id="hero-role">مهندس ذكاء اصطناعي ومهندس برمجيات شامل</span></p>
-                    <p class="term-line"><span class="prompt">&gt;</span> <span id="hero-loc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> الرياض، السعودية</span></p>
-                    <p class="term-line"><span class="prompt">$</span> <span id="hero-status" class="ok">status: open_to_work</span></p>
-                    <p class="term-desc" id="hero-tagline">أبني أنظمة ذكاء اصطناعي تعمل محلياً وبخصوصية كاملة، وأصمّم حلولاً برمجية وأنظمة مؤسسية بموثوقية عالية تخدم منتجات حقيقية.</p>
-
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="img/CV_HaithamHattan_ATS.pdf" download>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            <span id="cta-cv">تحميل السيرة الذاتية</span>
-                        </a>
-                        <a class="btn btn-ghost" href="#contact">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <span id="cta-contact">تواصل معي</span>
-                        </a>
-                    </div>
-
-                    <div class="social-row">
-                        <a href="https://www.linkedin.com/in/haithamhattan/" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="https://github.com/haitham8888" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                        </a>
-                        <a href="https://x.com/HattanHaitham" aria-label="X (Twitter)">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                        <a href="https://wa.me/966537430772" aria-label="WhatsApp">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="term-binary" aria-hidden="true">
-                    <span>0110 1001 1010 0101 0110 1001 1010 0101 0110 1001 1010 0101</span>
-                    <span>1010 0101 0110 0111 1010 1001 0110 0101 1010 0101 0110 0111</span>
-                </div>
-            </div>
-        </div>
+        <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
     </header>
 
-    <!-- MARQUEE -->
-    <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-            <span>0101</span><span>RAG</span><span>SGLang</span><span>Milvus</span><span>MCP</span><span>Kubernetes</span><span>PyTorch</span><span>Rust</span><span>FastAPI</span><span>CUDA</span><span>Docker</span><span>Spring Boot</span><span>TypeScript</span><span>OpenCV</span><span>1010</span>
-            <span>0101</span><span>RAG</span><span>SGLang</span><span>Milvus</span><span>MCP</span><span>Kubernetes</span><span>PyTorch</span><span>Rust</span><span>FastAPI</span><span>CUDA</span><span>Docker</span><span>Spring Boot</span><span>TypeScript</span><span>OpenCV</span><span>1010</span>
-        </div>
+    <div class="drawer" id="drawer" hidden>
+        <a href="#shipped" data-i="nav.shipped">shipped</a>
+                <a href="#work" data-i="nav.work">work</a>
+        <a href="#projects" data-i="nav.projects">projects</a>
+        <a href="#awards" data-i="nav.awards">awards</a>
+        <a href="#talks" data-i="nav.talks">talks</a>
+        <a href="#gallery" data-i="nav.gallery">gallery</a>
+        <a href="#contact" data-i="nav.contact">contact</a>
     </div>
 
-    <!-- STATS -->
-    <section class="stats" aria-label="Key metrics">
-        <div class="container stats-grid">
-            <div class="kv reveal"><span class="k" id="stat-l1">توافر الأنظمة المؤسسية</span><span class="v" id="stat-1">99.9%</span><span class="bar"><i style="width:99.9%"></i></span></div>
-            <div class="kv reveal"><span class="k" id="stat-l2">تحسين إنتاجية المطورين</span><span class="v" id="stat-2">40%</span><span class="bar"><i style="width:40%"></i></span></div>
-            <div class="kv reveal"><span class="k" id="stat-l3">تحسين كفاءة تبادل البيانات</span><span class="v" id="stat-3">30%</span><span class="bar"><i style="width:30%"></i></span></div>
-            <div class="kv reveal"><span class="k" id="stat-l4">ساعة تطوع في تعليم الذكاء الاصطناعي</span><span class="v" id="stat-4">860+</span><span class="bar"><i style="width:86%"></i></span></div>
-            <div class="kv reveal"><span class="k" id="stat-l5">مشاهدة على قناة يوتيوب تقنية</span><span class="v" id="stat-5">156K+</span><span class="bar"><i style="width:70%"></i></span></div>
-            <div class="kv reveal"><span class="k" id="stat-l6">موظف العام على التوالي</span><span class="v" id="stat-6">2×</span><span class="bar"><i style="width:100%"></i></span></div>
-        </div>
-    </section>
-
-    <!-- ABOUT / 01 -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 01</span>
-                <span class="sec-tag">ABOUT</span>
-                <h2 id="about-h">نبذة عني</h2>
-            </div>
-
-            <div class="about-grid">
-                <div id="about-body">
-                    <p>مهندس <strong>ذكاء اصطناعي</strong> و<strong>مهندس برمجيات شامل</strong>، متخصص في بناء <strong>خطوط RAG</strong> وتدريب وخدمة <strong>النماذج اللغوية الكبيرة محلياً</strong> مع بنية تحتية تعمل دون اتصال وبخصوصية كاملة، بما يتماشى مع رؤية السعودية 2030.</p>
-                    <p>أعمل حالياً مهندس ذكاء اصطناعي في <strong>MDS لأنظمة الحاسوب (MDS CS)</strong>، حيث أشرف على تدريب النماذج على <strong>16+ وحدة NVIDIA H100/H200</strong> وأبني أدوات بحث متجهي وأتمتة LLM. سبق أن سلّمت أنظمة مؤسسية بتوافر <strong>99.9%</strong> وحسّنت كفاءة تبادل البيانات بنسبة <strong>30%</strong>.</p>
-                    <p>متعلّم ذاتي منذ 2014، بنيت <strong>10+ تطبيقات أندرويد</strong> و<strong>20+ منصة ويب</strong> لعملاء حقيقيين، وأدرّس الذكاء الاصطناعي للطلاب عبر أكثر من <strong>860 ساعة تطوعية</strong>، مع قناة تقنية تتجاوز مشاهداتها <strong>156 ألف مشاهدة</strong>.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE / 02 -->
-    <section class="section section-alt" id="experience">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 02</span>
-                <span class="sec-tag">EXPERIENCE</span>
-                <h2 id="exp-h">الخبرات المهنية</h2>
-            </div>
-            <p class="section-sub reveal" id="exp-sub">خبرة عملية في هندسة الذكاء الاصطناعي، الأنظمة المؤسسية، وتطوير البرمجيات مع نتائج قابلة للقياس.</p>
-
-            <div class="timeline" id="exp-list">
-                <div class="tl-item">
-                    <span class="tl-dot"></span>
-                    <div class="tl-card">
-                        <div class="tl-top"><h3>مهندس ذكاء اصطناعي</h3><span class="tl-period">أبريل 2026 — الآن</span></div>
-                        <div class="tl-org">MDS لأنظمة الحاسوب (MDS CS) · الرياض</div>
-                        <ul>
-                            <li>بناء حلول <strong>RAG</strong> مع Python وFastAPI ونماذج لغوية محلية لتشغيل إنتاجي دون اتصال وبخصوصية كاملة.</li>
-                            <li>تدريب وضبط وخدمة نماذج لغوية كبيرة على <strong>16+ وحدة NVIDIA H100/H200</strong> مع SGLang، مع تحسين الإنتاجية والكمون والتكلفة.</li>
-                            <li>بناء مكونات أمنية حرجة بلغتي <strong>C++ وRust</strong> وتسليم أغلب الأنظمة بـ Python.</li>
-                            <li>تطوير أدوات بحث متجهي <strong>Milvus</strong> وأتمتة LLM رفعت إنتاجية المطورين <strong>40%</strong>، وإدارة مجموعات Milvus عبر Kubernetes (k8s/k9s) وHelm.</li>
-                            <li>بناء خوادم <strong>MCP</strong> تمنح وكلاء الذكاء الاصطناعي تحكماً بالأجهزة وأتمتة متصفح Playwright لاكتشاف الثغرات.</li>
-                        </ul>
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <canvas class="field" id="field" aria-hidden="true"></canvas>
+            <div class="wrap hero-in">
+                <div class="hero-copy">
+                    <p class="cmd"><span class="pr">$</span> whoami</p>
+                    <h1 class="name" id="hero-name" data-scramble aria-label="Haitham Hattan">Haitham Hattan</h1>
+                    <p class="role" data-i="hero.role">AI Engineer · Full-Stack Software Engineer</p>
+                    <p class="meta"><span data-i="hero.loc">Riyadh, Saudi Arabia</span><span class="sep">//</span><span class="ok">status: open_to_work</span><span class="caret" aria-hidden="true"></span></p>
+                    <div class="cta">
+                        <a class="btn primary" href="img/CV_HaithamHattan_ATS.pdf" download><span class="br">[</span><span data-i="cta.cv">download_cv</span><span class="br">]</span></a>
+                        <a class="btn" href="#contact"><span class="br">[</span><span data-i="cta.contact">contact</span><span class="br">]</span></a>
                     </div>
+                    <ul class="socials" aria-label="Social links">
+                        <li><a href="https://github.com/haitham8888" target="_blank" rel="noopener">github</a></li>
+                        <li><a href="https://www.linkedin.com/in/haithamhattan/" target="_blank" rel="noopener">linkedin</a></li>
+                        <li><a href="https://x.com/HattanHaitham" target="_blank" rel="noopener">x</a></li>
+                        <li><a href="https://www.youtube.com/@Hai3" target="_blank" rel="noopener">youtube</a></li>
+                    </ul>
                 </div>
-                <div class="tl-item">
-                    <span class="tl-dot"></span>
-                    <div class="tl-card">
-                        <div class="tl-top"><h3>مهندس برمجيات شامل</h3><span class="tl-period">يوليو 2025 — أبريل 2026</span></div>
-                        <div class="tl-org">MDS لأنظمة الحاسوب (MDS CS) · الرياض</div>
-                        <ul>
-                            <li>تطوير تطبيقات مؤسسية بـ <strong>Java وSpring Boot وDB2</strong> وتكامل واجهات REST رفع كفاءة تبادل البيانات <strong>30%</strong>.</li>
-                            <li>نشر الأنظمة على <strong>IBM WebSphere (WAS)</strong> بتوافر <strong>99.9%</strong>، وبوابات HCL DX وسير عمل مستندات IBM FileNet.</li>
-                            <li>تسليم <strong>منصة العنوان الوطني GIS</strong> تعمل دون اتصال بالكامل بـ <strong>Esri GIS وBun.js وTypeScript</strong>.</li>
-                            <li>دمج <strong>Active Directory</strong> مع واجهات تسجيل الدخول عبر Java وPython وC++ وRust.</li>
-                        </ul>
+
+                <figure class="portrait frame" id="portrait-frame">
+                    <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
+                    <figcaption class="bar"><span>~/portrait.ascii</span><span class="live">● live</span></figcaption>
+                    <div class="portrait-stage">
+                        <canvas id="portrait" data-src="img/haitham.jpg" role="img" aria-label="ASCII portrait of Haitham Hattan"></canvas>
                     </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-dot"></span>
-                    <div class="tl-card">
-                        <div class="tl-top"><h3>مستشار تطوير برمجيات</h3><span class="tl-period">ديسمبر 2014 — يونيو 2025</span></div>
-                        <div class="tl-org">عمل مستقل · عن بُعد · السعودية</div>
-                        <ul>
-                            <li>تعلّم ذاتي منذ 2014؛ بنيت أول تطبيق أندرويد (محوّل Word إلى PDF) بلغة Java ثم <strong>10+ تطبيقات أندرويد</strong> للعملاء.</li>
-                            <li>تسليم <strong>20+ منصة ويب</strong> وصلت إلى <strong>5,000+ مستخدم</strong>، منها منتج G-Care الطبي (SolidJS, Vite) من التصميم إلى النشر.</li>
-                            <li>بناء <strong>بوابة Edugate</strong> لجامعة جازان (خدمات الطلاب: تسجيل، درجات، جداول) بـ PHP وMySQL، وإعادة تصميم موقع الجامعة مع دخول Nafath.</li>
-                            <li>بناء منصات وخدمات وبوتات واتساب وأنظمة رؤية حاسوبية (Node.js, Python, OpenCV) وتسليم أعمال عبر Fiverr وKhamsat وMostaqel.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-dot"></span>
-                    <div class="tl-card">
-                        <div class="tl-top"><h3>مهندس برمجيات متدرب</h3><span class="tl-period">أكتوبر 2023 — يناير 2024</span></div>
-                        <div class="tl-org">HackerRank · عن بُعد · السعودية</div>
-                        <ul>
-                            <li>حل <strong>100+ تحدي خوارزمي متقدم</strong> بـ Python وC++ بتطبيق هياكل البيانات والخوارزميات.</li>
-                            <li>تطبيق تحليل التعقيد لتصميم حلول فعالة ومحسّنة مع روتين حل يومي وإنهاء البرنامج بشهادة إتمام.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-dot"></span>
-                    <div class="tl-card">
-                        <div class="tl-top"><h3>مهندس أمن شبكات</h3><span class="tl-period">يونيو 2023 — سبتمبر 2023</span></div>
-                        <div class="tl-org">eHealth SA · مستشفى بيش العام</div>
-                        <ul>
-                            <li>نشر <strong>80+ جهاز كمبيوتر وطابعة</strong> وتكوين هواتف Cisco مع بناء أدوات دعم فني — شهادة تقدير.</li>
-                            <li>تحصين الأنظمة بـ جدران الحماية وIDS/IPS وF5 BigIP وKali Linux وأتمتات Python.</li>
-                            <li>إدارة <strong>Active Directory</strong> والملفات المشتركة وتركيب الخوادم عبر أقسام المستشفى.</li>
-                        </ul>
-                    </div>
-                </div>
+                    <div class="bar foot"><span>76×62 · 0-9 a-z</span><span data-i="hero.lens">hover → binary lens</span></div>
+                </figure>
             </div>
-        </div>
-    </section>
 
-    <!-- PROJECTS / 03 -->
-    <section class="section" id="projects">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 03</span>
-                <span class="sec-tag">PROJECTS</span>
-                <h2 id="proj-h">مشاريع مختارة</h2>
+            <div class="wrap">
+                <dl class="stats" id="stats"></dl>
             </div>
-            <p class="section-sub reveal" id="proj-sub">مشاريع حقيقية بمشاكل واضحة وقرارات تقنية ونتائج قابلة للقياس — أكوادها مفتوحة المصدر.</p>
+            <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+        </section>
 
-            <div class="proj-grid" id="proj-grid">
-                <div class="proj-card featured">
-                    <div class="proj-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                    <h3>Matcher</h3>
-                    <span class="proj-metric">بحث بسرعة ميلي ثانية على ملايين السجلات</span>
-                    <p class="proj-desc">محرك مطابقة متعدد الكيانات مع RAG وقاعدة بيانات متجهية (Milvus) وأربعة نماذج عميقة: يطابق الوجوه والصور والنصوص والأسماء، ويعمل محلياً بالكامل دون اتصال.</p>
-                    <div class="proj-tags"><span class="tag">Rust</span><span class="tag">Python</span><span class="tag">C++</span><span class="tag">Milvus</span><span class="tag">RAG</span></div>
-                    <a class="proj-link" href="https://github.com/Haitham8888/Matcher" target="_blank" rel="noopener">GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
+        <!-- 01 LATEST -->
+        <section class="sec" id="latest">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">01</span><h2 data-i="sec.latest" data-scramble>latest</h2><span class="rule"></span></header>
+                <div class="latest">
+                    <article class="card hl frame">
+                        <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
+                        <div class="bar"><span>~/awards/2026-aljazira.log</span><span class="tag-new">new</span></div>
+                        <div class="photo-ascii" data-src="img/journey/journey-09.jpg" data-focus="0.5,0.6" tabindex="0" role="button" data-i-aria="hl1.aria" aria-label="Show photo">
+                            <canvas aria-hidden="true"></canvas>
+                            <img src="img/journey/journey-09.jpg" alt="Team holding the 3rd place cheque — Mubtakaroon FinTech Hackathon, Bank AlJazira 2026" loading="lazy" />
+                            <span class="hint" data-i="hl.hint">hover · tap → photo</span>
+                        </div>
+                        <div class="hl-body">
+                            <span class="badge bronze" data-i="hl1.badge">3rd place · 2026</span>
+                            <h3 data-i="hl1.title">Mubtakaroon FinTech Hackathon</h3>
+                            <p class="org" data-i="hl1.org">Bank AlJazira Innovation Program · 11th edition</p>
+                            <p class="chips"><span>FinTech</span><span>SAR 30,000</span><span data-i="hl1.team">team</span></p>
+                        </div>
+                    </article>
 
-                <div class="proj-card">
-                    <div class="proj-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
-                    <h3>MortakizAi</h3>
-                    <span class="proj-metric">تشغيل Claude Code محلياً بدون إنترنت</span>
-                    <p class="proj-desc">محرك ذكاء اصطناعي محلي لمساعدات برمجية آمنة داخل Cline/Continue، بتشغيل كامل دون إنترنت أو تسجيل دخول ودون مغادرة البيانات للجهاز — مبني على Qwen2.5-Coder وSGLang مع أوضاع GPU تكيّفية.</p>
-                    <div class="proj-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SGLang</span><span class="tag">CUDA 13</span><span class="tag">4×H100</span></div>
-                    <a class="proj-link" href="https://github.com/Haitham8888/MortakizAi" target="_blank" rel="noopener">GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-
-                <div class="proj-card">
-                    <div class="proj-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                    <h3>SumAi</h3>
-                    <span class="proj-metric">تلخيص عربي دقيق دون اتصال</span>
-                    <p class="proj-desc">واجهة برمجية لتلخيص المستندات العربية تعمل محلياً بالكامل مع دعم الدفعات، مبنية على ALLaM-7B مع تعرّف الكيانات باستخدام AraBert NER.</p>
-                    <div class="proj-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">ALLaM-7B</span><span class="tag">AraBert</span></div>
-                    <a class="proj-link" href="https://github.com/Haitham8888/SumAi" target="_blank" rel="noopener">GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-
-                <div class="proj-card">
-                    <div class="proj-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <h3>Maysour (Yusr)</h3>
-                    <span class="proj-metric">المركز الأول — مشروع التخرج 2025</span>
-                    <p class="proj-desc">منصة FinTech لرقمنة سجلات الديون وتتبع المدفوعات للمتاجر الصغيرة، بُنيت بـ Flutter وFirebase وNode.js.</p>
-                    <div class="proj-tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Node.js</span></div>
-                    <a class="proj-link" href="https://github.com/Haitham8888/Yusr" target="_blank" rel="noopener">GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-
-                <div class="proj-card">
-                    <div class="proj-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h3>hse-digital (FERAS)</h3>
-                    <span class="proj-metric">منصة سلامة رقمية لمشروع حقيقي</span>
-                    <p class="proj-desc">منصة إدارة السلامة والصحة المهنية للإنشاءات: تصاريح عمل PTW ومحرك اعتماد وأرشفة Google Drive لمصنع قهوة حقيقي في جازان.</p>
-                    <div class="proj-tags"><span class="tag">Apps Script</span><span class="tag">Google Drive</span></div>
-                    <a class="proj-link" href="https://github.com/Haitham8888/hse-digital" target="_blank" rel="noopener">GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-
-                <div class="proj-card">
-                    <div class="proj-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-                    <h3>manahi</h3>
-                    <span class="proj-metric">مخطط مسارات بالذكاء الاصطناعي للرياض</span>
-                    <p class="proj-desc">تطبيق ويب (PWA) لتخطيط الطرق في الرياض مدعوم بالذكاء الاصطناعي، يجمع OSRM مع نمذجة مرور بايزي وبيانات TomTom.</p>
-                    <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">OSRM</span><span class="tag">TomTom</span><span class="tag">PWA</span></div>
-                    <a class="proj-link" href="https://github.com/Haitham8888/manahi" target="_blank" rel="noopener">GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    <article class="card hl frame">
+                        <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
+                        <div class="bar"><span>~/honors/employee-of-the-year</span><span class="tag-new">2×</span></div>
+                        <div class="honor-art">
+                            <pre class="bin" data-text="2x" data-px="3" aria-hidden="true"></pre>
+                            <div class="qline" aria-label="Q4 2025 → Q1 2026">
+                                <span class="q">✓ Q4·2025</span><span class="rail" aria-hidden="true"></span><span class="q">✓ Q1·2026</span>
+                            </div>
+                        </div>
+                        <div class="hl-body">
+                            <span class="badge" data-i="hl2.badge">twice in a row · 2025—2026</span>
+                            <h3 data-i="hl2.title">Employee of the Year</h3>
+                            <p class="org">MDS for Computer Systems (MDS CS)</p>
+                            <p class="chips"><span>Q4 2025</span><span>Q1 2026</span></p>
+                        </div>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <div class="more-projects">
-                <h4 id="more-proj-h">مشاريع إضافية</h4>
-                <ul id="more-proj-list">
-                    <li><a href="https://github.com/Haitham8888/MNBET" target="_blank" rel="noopener">MNBET</a> — كشف أمراض وآفات البن بالذكاء الاصطناعي عبر تحليل الصور</li>
-                    <li><a href="https://github.com/Haitham8888/SANKA_Ai" target="_blank" rel="noopener">SANKA</a> — بوت آلي لتبسيط العمليات التجارية</li>
-                    <li><a href="https://github.com/Haitham8888/Waselani" target="_blank" rel="noopener">Waselani</a> — تطبيق توصيل يخدم جازان والمناطق الريفية</li>
-                    <li><a href="https://github.com/Haitham8888/WABot-Physio" target="_blank" rel="noopener">WABot-Physio</a> — بوت واتساب لأتمتة مواعيد مركز أرس ARC للعلاج الطبيعي</li>
-                    <li><a href="https://github.com/Haitham8888/gcare" target="_blank" rel="noopener">G-Care</a> — منتج طبي (SolidJS, Vite) من التصميم إلى النشر</li>
-                    <li>Edugate — بوابة خدمات الطلاب لجامعة جازان (PHP, MySQL, Nafath)</li>
-                    <li><a href="https://github.com/Haitham8888/Mn7al" target="_blank" rel="noopener">MNHAL</a> — نظام مراقبة خلايا النحل الذكي (IoT) — المركز الثالث بجدةثون</li>
-                </ul>
+        <!-- 02 SHIPPED -->
+        <section class="sec" id="shipped">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">02</span><h2 data-i="sec.shipped" data-scramble>shipped</h2><span class="rule"></span></header>
+                <p class="cmd sub"><span class="pr">$</span> curl -I --live ./products</p>
+                <div class="shipped" id="shipped-grid"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PARTNERS / 04 -->
-    <section class="section" id="partners">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 04</span>
-                <span class="sec-tag">PARTNERS</span>
-                <h2 id="partners-h">الشركاء والعملاء</h2>
+        <!-- 03 WORK -->
+        <section class="sec" id="work">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">03</span><h2 data-i="sec.work" data-scramble>work</h2><span class="rule"></span></header>
+                <p class="cmd sub"><span class="pr">$</span> git log --career --graph</p>
+                <ol class="gitlog" id="gitlog"></ol>
             </div>
-            <p class="section-sub reveal" id="partners-sub">جهات تعاملت معها في مشاريع حقيقية — وظائف، منتجات، وخدمات رقمية.</p>
+        </section>
 
-            <div class="partner-grid" id="partners-grid">
-                <div class="partner"><h4>MDS لأنظمة الحاسوب (MDS CS)</h4><p>مهندس ذكاء اصطناعي وبرمجيات شامل — وظيفة حالية</p></div>
-                <div class="partner"><h4>G-Care</h4><p>منتج طبي من التصميم إلى النشر (SolidJS, Vite)</p></div>
-                <div class="partner"><h4>مركز أرس ARC للعلاج الطبيعي</h4><p>بوت واتساب لأتمتة المواعيد والحجوزات</p></div>
-                <div class="partner"><h4>جامعة جازان</h4><p>بوابة Edugate + إعادة تصميم موقع الجامعة مع دخول Nafath</p></div>
-                <div class="partner"><h4>جادة 30</h4><p>حلول رقمية وتجربة مستخدم</p></div>
-                <div class="partner"><h4>السعودية للقهوة</h4><p>تطبيق متجر (Flutter) + موقع تجاري</p></div>
-                <div class="partner"><h4>eHealth SA</h4><p>مهندس أمن شبكات — مستشفى بيش العام</p></div>
-                <div class="partner"><h4>HackerRank</h4><p>مهندس برمجيات متدرب + مؤسس نادي HRSD</p></div>
+        <!-- 04 PROJECTS -->
+        <section class="sec" id="projects">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">04</span><h2 data-i="sec.projects" data-scramble>projects</h2><span class="rule"></span></header>
+                <div class="projects" id="projects-grid"></div>
+                <p class="cmd sub"><span class="pr">$</span> ls ./more</p>
+                <ul class="ls" id="more-list"></ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- AWARDS / 06 -->
-    <section class="section section-alt" id="awards">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 08</span>
-                <span class="sec-tag">AWARDS</span>
-                <h2 id="award-h">الجوائز والتكريمات</h2>
-            </div>
-            <p class="section-sub reveal" id="award-sub">إنجازات موثقة على المستويين الوطني والمؤسسي.</p>
-
-            <ul class="award-list" id="award-list">
-                <li><span class="place">موظف</span><div><h4>موظف العام — MDS CS</h4><p>الربع الرابع 2025 والربع الأول 2026 (على التوالي)</p></div></li>
-                <li><span class="place">الأول</span><div><h4>المركز الأول — مشروع التخرج</h4><p>جامعة جازان 2025</p></div></li>
-                <li><span class="place">الأول</span><div><h4>المركز الأول — هاكاثون جازان الفل</h4><p>هاكاثون يحمل اسم زهرة الفل الشهيرة في جازان</p></div></li>
-                <li><span class="place">الأول</span><div><h4>المركز الأول — بيبان 24 (الرياض)</h4><p>أفضل مشروع بين الجامعات السعودية</p></div></li>
-                <li><span class="place">الأول</span><div><h4>المركز الأول — هاكاثون منشآت 2024 وفكراثون جدةثون 2023</h4><p>حلول ذكاء اصطناعي تدعم رواد الأعمال والعمليات التجارية</p></div></li>
-                <li><span class="place">الثاني</span><div><h4>المركز الثاني — هاكاثون بنك البلاد 2024</h4><p>حل FinTech يعزز الثقافة المالية وإدارة الديون الذكية</p></div></li>
-                <li><span class="place">الثالث</span><div><h4>المركز الثالث — مبدعون وهاكاثون بنك الجزيرة المالي 2026</h4><p>إلى جانب المركز الثالث في هاكاثون المحاسبة بجامعة الملك سعود 2024</p></div></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- CERTIFICATIONS / 07 -->
-    <section class="section" id="certifications">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 09</span>
-                <span class="sec-tag">CERTIFICATIONS</span>
-                <h2 id="cert-h">الشهادات</h2>
-            </div>
-            <p class="section-sub reveal" id="cert-sub">شهادات معتمدة في الذكاء الاصطناعي، الحوسبة السحابية، تحليل البيانات، والأمن السيبراني.</p>
-
-            <div class="cert-grid" id="cert-grid">
-                <div class="cert-card"><span class="cert-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div><h4>أساسيات الذكاء الاصطناعي (AI)</h4><p>SDAIA — سدايا</p></div></div>
-                <div class="cert-card"><span class="cert-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span><div><h4>AWS Certified Cloud Practitioner</h4><p>Amazon Web Services</p></div></div>
-                <div class="cert-card"><span class="cert-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V18h8v-3.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></span><div><h4>أساسيات الذكاء الاصطناعي</h4><p>IBM SkillsBuild</p></div></div>
-                <div class="cert-card"><span class="cert-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><div><h4>أساسيات هندسة البرمجيات</h4><p>IBM</p></div></div>
-                <div class="cert-card"><span class="cert-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span><div><h4>شهادة Google المهنية في تحليل البيانات</h4><p>Google</p></div></div>
-                <div class="cert-card"><span class="cert-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><h4>المسار الوظيفي لمحلل أمن سيبراني مبتدئ</h4><p>Cisco</p></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS / 08 -->
-    <section class="section section-alt" id="skills">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 10</span>
-                <span class="sec-tag">SKILLS</span>
-                <h2 id="skill-h">المهارات</h2>
-            </div>
-            <p class="section-sub reveal" id="skill-sub">أدوات وتقنيات أعمل بها فعلياً وأستطيع مناقشتها بعمق في المقابلات.</p>
-
-            <div class="skill-grid" id="skill-grid">
-                <div class="skill-group"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span id="skill-ai-h">الذكاء الاصطناعي والتعلم الآلي</span></h4><div class="tags"><span class="tag">RAG</span><span class="tag">Local LLMs</span><span class="tag">LLM Fine-Tuning</span><span class="tag">LLM Serving</span><span class="tag">MLOps / LLMOps</span><span class="tag">Prompt Engineering</span><span class="tag">AI Agents</span><span class="tag">PyTorch</span><span class="tag">SGLang</span><span class="tag">Milvus</span><span class="tag">MCP</span></div></div>
-                <div class="skill-group"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span id="skill-code-h">البرمجة</span></h4><div class="tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">C#</span><span class="tag">Rust</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Flutter</span></div></div>
-                <div class="skill-group"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span id="skill-back-h">الواجهات الخلفية والبيانات</span></h4><div class="tags"><span class="tag">Spring Boot</span><span class="tag">FastAPI</span><span class="tag">REST &amp; SOAP</span><span class="tag">Microservices</span><span class="tag">Vector DBs</span><span class="tag">PostgreSQL</span><span class="tag">DB2</span><span class="tag">MySQL</span><span class="tag">MongoDB</span></div></div>
-                <div class="skill-group"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span id="skill-dev-h">DevOps والأمن</span></h4><div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">CI/CD</span><span class="tag">Azure DevOps</span><span class="tag">Linux</span><span class="tag">CUDA</span><span class="tag">Playwright</span><span class="tag">WebSphere</span><span class="tag">Active Directory</span><span class="tag">Firewalls</span><span class="tag">IDS/IPS</span><span class="tag">Kali Linux</span></div></div>
-                <div class="skill-group"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span id="skill-soft-h">المهارات الشخصية</span></h4><div class="tags"><span class="tag">Team Leadership</span><span class="tag">Mentoring</span><span class="tag">Training Coordination</span><span class="tag">Public Speaking</span><span class="tag">Agile</span><span class="tag">Communication</span><span class="tag">Analytical Thinking</span></div></div>
-                <div class="skill-group"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="skill-lang-h">اللغات</span></h4><div class="tags"><span class="tag">العربية — اللغة الأم</span><span class="tag">English — Fluent</span></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRAINING / 05 -->
-    <section class="section section-alt" id="training">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 05</span>
-                <span class="sec-tag">TRAINING</span>
-                <h2 id="train-h">دورات تدريبية قدمتها</h2>
-            </div>
-            <p class="section-sub reveal" id="train-sub">دورات حضورية وعن بُعد في الذكاء الاصطناعي والبرمجة — من دورة أدوات وتقنيات الذكاء الاصطناعي إلى معسكرات GitHub Copilot.</p>
-
-            <div class="video-block reveal">
-                <h3 class="video-h" id="videos-h">شروحات ومقاطع يوتيوب</h3>
-                <p class="video-sub" id="videos-sub">محاضرات مسجلة وشروحات من دوراتي وبثوث المعسكرات على قناتي.</p>
-
-                <div class="video-grid" id="video-list">
-                    <a class="video-card" href="https://youtu.be/VCBuEUGvC3c" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-01.jpg" alt="بوت تيليجرام مدموج بالChatGPT API" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">بوت تيليجرام مدموج بالChatGPT API</span><span class="video-meta">الذكاء الاصطناعي · شرح</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/AfUzCvr1Wt4" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-02.jpg" alt="Class Diagram &amp; Object Diagram — UML" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">Class Diagram &amp; Object Diagram — UML</span><span class="video-meta">هندسة البرمجيات · شرح</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/UV9Ow0GuSio" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-03.jpg" alt="معسكر الذكاء الاصطناعي — اليوم الأول" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">معسكر الذكاء الاصطناعي — اليوم الأول</span><span class="video-meta">بث مباشر · معسكر 6 أيام</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/l3V5hcPdFTw" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-04.jpg" alt="معسكر الذكاء الاصطناعي — اليوم الثاني" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">معسكر الذكاء الاصطناعي — اليوم الثاني</span><span class="video-meta">بث مباشر · معسكر 6 أيام</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/AHlqUf1HWVE" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-05.jpg" alt="معسكر الذكاء الاصطناعي — اليوم الثالث" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">معسكر الذكاء الاصطناعي — اليوم الثالث</span><span class="video-meta">بث مباشر · معسكر 6 أيام</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/iXhTWKtM0FI" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-06.jpg" alt="معسكر الذكاء الاصطناعي — اليوم الرابع" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">معسكر الذكاء الاصطناعي — اليوم الرابع</span><span class="video-meta">بث مباشر · معسكر 6 أيام</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/33y9wZNfAX0" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-07.jpg" alt="معسكر الذكاء الاصطناعي — اليوم الخامس" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">معسكر الذكاء الاصطناعي — اليوم الخامس</span><span class="video-meta">بث مباشر · معسكر 6 أيام</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/LhLmvwOVOzc" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-08.jpg" alt="معسكر الذكاء الاصطناعي — اليوم السادس" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">معسكر الذكاء الاصطناعي — اليوم السادس</span><span class="video-meta">بث مباشر · معسكر 6 أيام</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/C3exiDkEQNw" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-09.jpg" alt="دورة أساسيات البايثون" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">دورة أساسيات البايثون</span><span class="video-meta">دورة أدوات وتقنيات الذكاء الاصطناعي · شرح</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/rGFlrdYslLs" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-10.jpg" alt="دورة Analyze Data with Python" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">دورة Analyze Data with Python</span><span class="video-meta">دورة أدوات وتقنيات الذكاء الاصطناعي · شرح</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/mQb1EIy4Cgw" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-11.jpg" alt="أساسيات برمجة المواقع (الويب)" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">أساسيات برمجة المواقع (الويب)</span><span class="video-meta">دورة أدوات وتقنيات الذكاء الاصطناعي · شرح</span></span>
-                    </a>
-                    <a class="video-card" href="https://youtu.be/VbpdtyRBFXk" target="_blank" rel="noopener">
-                        <span class="video-thumb"><img src="img/videos/video-12.jpg" alt="ملخص دورة Website programming using GitHub Codespace" loading="lazy" /><span class="video-play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></span>
-                        <span class="video-body"><span class="video-title">ملخص دورة Website programming using GitHub Codespace</span><span class="video-meta">دورة أدوات وتقنيات الذكاء الاصطناعي · شرح</span></span>
-                    </a>
+        <!-- 05 AWARDS -->
+        <section class="sec" id="awards">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">05</span><h2 data-i="sec.awards" data-scramble>awards</h2><span class="rule"></span></header>
+                <div class="table-wrap frame">
+                    <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
+                    <table class="atable">
+                        <thead><tr><th data-i="aw.rank">rank</th><th data-i="aw.event">event</th><th data-i="aw.year">year</th></tr></thead>
+                        <tbody id="awards-body"></tbody>
+                    </table>
                 </div>
-
-                <a class="yt-channel" href="https://www.youtube.com/@Hai3/videos" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    <span id="youtube-channel">اشترك في قناتي على يوتيوب — Hai3</span>
-                    <svg class="yt-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
+                <p class="cmd sub"><span class="pr">$</span> cat certs.txt</p>
+                <ul class="certs" id="certs"></ul>
             </div>
+        </section>
 
-            <div class="train-gallery reveal" id="train-gallery">
-                <figure class="train-photo"><img src="img/courses/course-01.jpg" alt="دورة أدوات وتقنيات الذكاء الاصطناعي" loading="lazy" /></figure>
-                <figure class="train-photo"><img src="img/courses/course-02.jpg" alt="دورة أدوات وتقنيات الذكاء الاصطناعي" loading="lazy" /></figure>
-                <figure class="train-photo"><img src="img/courses/course-03.jpg" alt="دورة أدوات وتقنيات الذكاء الاصطناعي" loading="lazy" /></figure>
-                <figure class="train-photo"><img src="img/courses/course-04.jpg" alt="دورة أدوات وتقنيات الذكاء الاصطناعي" loading="lazy" /></figure>
-                <figure class="train-photo"><img src="img/courses/course-05.jpg" alt="دورة أدوات وتقنيات الذكاء الاصطناعي" loading="lazy" /></figure>
-                <figure class="train-photo"><img src="img/courses/course-06.jpg" alt="دورة أدوات وتقنيات الذكاء الاصطناعي" loading="lazy" /></figure>
-                <figure class="train-photo"><img src="img/courses/course-07.jpg" alt="دورة أدوات وتقنيات الذكاء الاصطناعي" loading="lazy" /></figure>
+        <!-- 06 STACK -->
+        <section class="sec" id="stack">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">06</span><h2 data-i="sec.stack" data-scramble>stack</h2><span class="rule"></span></header>
+                <div class="code frame">
+                    <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
+                    <div class="bar"><span>~/stack.json</span><span>utf-8 · json</span></div>
+                    <pre id="stack-json" dir="ltr"></pre>
+                </div>
             </div>
+        </section>
 
-            <div class="train-grid" id="train-list">
-                <div class="train-card">
-                    <span class="train-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+        <!-- 07 TALKS & COMMUNITY -->
+        <section class="sec" id="talks">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">07</span><h2 data-i="sec.talks" data-scramble>talks &amp; community</h2><span class="rule"></span></header>
+                <div class="talks-top">
+                    <div class="kpi"><b>860+</b><span data-i="talks.hours">volunteer hours</span></div>
+                    <div class="kpi"><b>3,000+</b><span data-i="talks.students">students trained / year</span></div>
+                    <div class="kpi"><b>156K+</b><span data-i="talks.views">YouTube views</span></div>
+                </div>
+                <div class="rail-head">
+                    <p class="cmd sub"><span class="pr">$</span> youtube --channel @Hai3</p>
+                    <a class="link" href="https://www.youtube.com/@Hai3" target="_blank" rel="noopener" data-i="talks.channel">open channel →</a>
+                </div>
+                <div class="videos" id="videos" tabindex="0" aria-label="Videos"></div>
+
+                <div class="two">
                     <div>
-                        <h4>دورة أدوات وتقنيات الذكاء الاصطناعي</h4>
-                        <p>دورة حضورية في أساسيات البايثون وتحليل البيانات وبرمجة الويب — مع محاضرات كاملة مسجلة.</p>
+                        <p class="cmd sub"><span class="pr">$</span> ls ./courses</p>
+                        <ul class="ls" id="courses"></ul>
                     </div>
-                    <a class="train-link" href="https://www.youtube.com/playlist?list=PLSZLBXZCGThUE6U-nPO1byqTUFSz-DG1e" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-                <div class="train-card">
-                    <span class="train-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
                     <div>
-                        <h4>دورة اختبار الاختراق باستخدام Metasploit</h4>
-                        <p>دورة أمن سيبراني عملية ضمن فضاءتك — اختبار الاختراق بسيناريوهات تطبيقية.</p>
-                    </div>
-                    <a class="train-link" href="https://x.com/Fada_Tech0/status/1816596162171843005" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-                <div class="train-card">
-                    <span class="train-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
-                    <div>
-                        <h4>معسكر Build Apps with GitHub Copilot</h4>
-                        <p>معسكر تدريبي مكثف عن بُعد لتطوير التطبيقات بالذكاء الاصطناعي — مع مَـسـافـة وMLSA.</p>
-                    </div>
-                    <a class="train-link" href="https://x.com/SpaceSA0/status/1895892009426305088" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-                <div class="train-card">
-                    <span class="train-ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
-                    <div>
-                        <h4>دورة برمجة المواقع باستخدام GitHub Codespace</h4>
-                        <p>دورة برمجة مواقع حضرية بنادي HRSD وطلبة مايكروسوفت — أساسيات الويب عبر Codespace.</p>
-                    </div>
-                    <a class="train-link" href="https://x.com/SpaceSA0/status/1766780024772768025" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS / 06 -->
-    <section class="section" id="testimonials">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 06</span>
-                <span class="sec-tag">TESTIMONIALS</span>
-                <h2 id="testimonials-h">كلام الناس عن دوراتي</h2>
-            </div>
-            <p class="section-sub reveal" id="testimonials-sub">كلمات حقيقية من متدربين في دوراتي ومعسكراتي.</p>
-
-                        <div class="testi-marquee reveal">
-                <div class="testi-track" id="testimonials-list">
-                    <div class="testi-card">
-                        <svg class="testi-qmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p>أتممت بنجاح دورة بناء التطبيقات باستخدام GitHub Copilot، تجربة ثرية استكشفت فيها قوة الذكاء الاصطناعي في البرمجة وتعلمت تطوير التطبيقات Flutter وتصميم الويب وتحليل البيانات بالذكاء الاصطناعي.</p>
-                        <div class="testi-meta"><span class="testi-name">Haifa Alshalawi</span><span class="testi-role">دورة Build Apps with GitHub Copilot · مَـسـافـة</span></div>
-                    </div>
-                    <div class="testi-card">
-                        <svg class="testi-qmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p>فخور بحصولي على شهادة إتمام معسكر Build Apps with GitHub Copilot ضمن برنامج Microsoft Learn Student Ambassador، تجربة مميزة تعلمت فيها كيف أطور التطبيقات باستخدام الذكاء الاصطناعي.</p>
-                        <div class="testi-meta"><span class="testi-name">Tarek bin Ali</span><span class="testi-role">معسكر Build Apps with GitHub Copilot · MLSA</span></div>
-                    </div>
-                    <div class="testi-card">
-                        <svg class="testi-qmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p>الحمدلله أتممنا المعسكر، كان من أفضل المعسكرات بالنسبة لي، حرفيًا أشياء جديدة تعلمتها ومعلومات كثيرة ومكثفة، وانبهرت بقوة أداء GitHub Copilot.</p>
-                        <div class="testi-meta"><span class="testi-name">Majed</span><span class="testi-role">معسكر Build Apps with GitHub Copilot · مَـسـافـة</span></div>
-                    </div>
-                    <div class="testi-card">
-                        <svg class="testi-qmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p>انتهى معسكر الذكاء الاصطناعي المقدم من نادي HRSDAI، تعلمت أشياء كثيرة وصنعت أول بوت لي يتعرف على الوجوه، صراحة شدني المجال جدًا وأتمنى أتعمق فيه مستقبلًا.</p>
-                        <div class="testi-meta"><span class="testi-name">Shahad</span><span class="testi-role">معسكر الذكاء الاصطناعي · HRSD</span></div>
-                    </div>
-                    <div class="testi-card">
-                        <svg class="testi-qmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p>اليوم الثاني من معسكر Build Apps with GitHub Copilot! تعلمت كيف أستخدم GitHub Copilot في تطوير تطبيقات Flutter، والنتيجة كود أسرع وبرمجة أسهل وإبداع بلا حدود.</p>
-                        <div class="testi-meta"><span class="testi-name">Ruba Doghan</span><span class="testi-role">معسكر Build Apps with GitHub Copilot · مَـسـافـة</span></div>
-                    </div>
-                    <div class="testi-card">
-                        <svg class="testi-qmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p>مقتطفات من دورة الأمس، أول مرة أحضر دورة حضوريًا وكانت جدًا ممتعة وجميلة. شكرًا لنادي HRSDJU على الدورة الرهيبة وكل التوفيق لكم في المستقبل.</p>
-                        <div class="testi-meta"><span class="testi-name">ArreChan</span><span class="testi-role">دورة برمجة المواقع · HRSD</span></div>
+                        <p class="cmd sub"><span class="pr">$</span> du -h ./volunteering</p>
+                        <ul class="vol" id="vol"></ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- GALLERY / 07 -->
-    <section class="section section-alt" id="gallery">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 07</span>
-                <span class="sec-tag">GALLERY</span>
-                <h2 id="gallery-h">مسيرتي بالصور</h2>
+                <p class="cmd sub"><span class="pr">$</span> tail -f feedback.log</p>
             </div>
-            <p class="section-sub reveal" id="gallery-sub">لحظات موثقة من رحلتي الجامعية والمهنية والمسابقات التقنية.</p>
+            <div class="quotes" aria-label="Testimonials"><div class="quotes-track" id="quotes"></div></div>
+        </section>
 
-            <div class="gallery-grid reveal" id="gallery-grid">
-                <figure class="gallery-photo"><img src="img/journey/journey-01.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-01"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-02.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-02"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-03.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-03"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-04.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-04"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-05.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-05"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-06.jpg" alt="تكريمي من معالي رئيس الهيئة الملكية للجبيل وينبع م. خالد السالم - إتقان اللغة الصينية المستوى الأول" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-06"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-07.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-07"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-08.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-08"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-09.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-09"></figcaption></figure>
-                <figure class="gallery-photo"><img src="img/journey/journey-10.jpg" alt="لقطة من مسيرتي الجامعية والمهنية والمسابقات التقنية" loading="lazy" /><figcaption class="gallery-caption" data-key="journey-10"></figcaption></figure>
+        <!-- 08 GALLERY -->
+        <section class="sec" id="gallery">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">08</span><h2 data-i="sec.gallery" data-scramble>gallery</h2><span class="rule"></span></header>
+                <div class="gallery" id="gallery-grid"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- EDUCATION / 12 -->
-    <section class="section" id="education">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 11</span>
-                <span class="sec-tag">EDUCATION</span>
-                <h2 id="edu-h">التعليم</h2>
-            </div>
-
-            <div class="edu-card reveal" id="edu-card">
-                <h3 id="edu-degree">بكالوريوس تقنية المعلومات — مسار تعلم الآلة</h3>
-                <div class="edu-meta" id="edu-uni">جامعة جازان · 2021 — 2025</div>
-                <div class="edu-gpa" id="edu-gpa">GPA: 4.56 / 5</div>
-                <p id="edu-desc">دراسة التعلم العميق ومعالجة اللغات الطبيعية مع تجارب عملية لبناء نماذج عربية للهجات السعودية.</p>
-                <div class="edu-course" id="edu-course">
-                    <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span><span class="tag">NLP</span><span class="tag">Data Structures &amp; Algorithms</span><span class="tag">Databases</span><span class="tag">Software Engineering</span>
+        <!-- 09 CONTACT -->
+        <section class="sec contact" id="contact">
+            <div class="wrap">
+                <header class="sec-h"><span class="num">09</span><h2 data-i="sec.contact" data-scramble>contact</h2><span class="rule"></span></header>
+                <p class="cmd sub"><span class="pr">$</span> mail -s "hello" </p>
+                <a class="mail" href="mailto:info@haithamhattan.sa" id="mail" data-scramble-hover>info@haithamhattan.sa</a>
+                <p class="contact-note" data-i="contact.note">Open to AI engineering roles, consulting and collaboration. I reply within 24h.</p>
+                <div class="cta">
+                    <button class="btn primary" id="copy-mail"><span class="br">[</span><span data-i="contact.copy">copy_email</span><span class="br">]</span></button>
+                    <a class="btn" href="https://wa.me/966537430772" target="_blank" rel="noopener"><span class="br">[</span>whatsapp<span class="br">]</span></a>
+                    <a class="btn" href="https://www.linkedin.com/in/haithamhattan/" target="_blank" rel="noopener"><span class="br">[</span>linkedin<span class="br">]</span></a>
+                    <a class="btn" href="img/CV_HaithamHattan_ATS.pdf" download><span class="br">[</span><span data-i="cta.cv">download_cv</span><span class="br">]</span></a>
                 </div>
+                <p class="meta center"><span>+966 53 743 0772</span><span class="sep">//</span><span data-i="hero.loc">Riyadh, Saudi Arabia</span></p>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- VOLUNTEERING / 13 -->
-    <section class="section section-alt" id="volunteering">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-num">// 12</span>
-                <span class="sec-tag">VOLUNTEERING</span>
-                <h2 id="vol-h">التطوع والقيادة</h2>
-            </div>
-            <p class="section-sub reveal" id="vol-sub">أكثر من 860 ساعة تطوع في تعليم التقنية والذكاء الاصطناعي وبناء المجتمعات الطلابية.</p>
-
-            <div class="vol-grid" id="vol-grid">
-                <div class="vol-card"><h4>منسق رئيسي — مجتمع العلوم والتقنية</h4><div class="vol-org">Fada Tech · السعودية</div><p>تنظيم الفعاليات والدعم التقني ونشر المحتوى، والمشاركة في تنظيم دورة أمن المركبات السيبرانية مع مبادرة العطاء الرقمي.</p><div class="vol-hours"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>300 ساعة</div></div>
-                <div class="vol-card"><h4>المؤسس والرئيس — HRSD</h4><div class="vol-org">HackerRank Student Developers · جازان</div><p>تأسيس وإدارة النادي وتنظيم معسكرات ذكاء اصطناعي لمدة ستة أيام في Python والرؤية الحاسوبية وكشف الأجسام، ودورات تطوير ويب.</p><div class="vol-hours"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>240 ساعة</div></div>
-                <div class="vol-card"><h4>سفير طلبة مايكروسوفت</h4><div class="vol-org">Microsoft · السعودية</div><p>تدريب أكثر من 3,000 طالب سنوياً على التطوير المدعوم بالذكاء الاصطناعي (GitHub Copilot)، وتقديم دورة اختبار الاختراق Metasploit.</p><div class="vol-hours"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>200 ساعة</div></div>
-                <div class="vol-card"><h4>مطور طلابي — GDSC</h4><div class="vol-org">Google Developer Student Club · جامعة جازان</div><p>تقديم دورات Flutter والذكاء الاصطناعي وتنظيم جلسات تدريبية وورش عمل للطلاب.</p><div class="vol-hours"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>120 ساعة</div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT / 13 -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="term contact-term reveal">
-                <div class="term-bar">
-                    <span class="term-title">contact</span>
-                    <span class="term-tag">bash</span>
-                </div>
-                <div class="term-body">
-                    <p class="term-line"><span class="prompt">$</span> mail -s "hello" info@haithamhattan.sa</p>
-                    <h2 id="contact-h">متاح لفرص العمل والتعاون</h2>
-                    <p id="contact-p">أبحث عن فرص في هندسة الذكاء الاصطناعي وتطوير البرمجيات، ومستعد للتعاون في مشاريع استشارية ومبادرات تقنية. تواصل معي مباشرة — سأرد خلال 24 ساعة.</p>
-                    <div class="contact-actions">
-                        <a class="btn btn-primary" href="img/CV_HaithamHattan_ATS.pdf" download>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            <span id="cta-cv2">تحميل السيرة الذاتية</span>
-                        </a>
-                        <a class="btn btn-ghost" href="https://wa.me/966537430772" target="_blank" rel="noopener">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                            <span id="cta-wa">تواصل عبر واتساب</span>
-                        </a>
-                    </div>
-                    <div class="contact-row" id="contact-row">
-                        <a href="mailto:info@haithamhattan.sa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@haithamhattan.sa</a>
-                        <a href="https://wa.me/966537430772" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+966 53 743 0772</a>
-                        <a href="https://www.linkedin.com/in/haithamhattan/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-                        <a href="https://github.com/haitham8888" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a>
-                        <a href="https://x.com/HattanHaitham" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
-                        <a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="contact-loc">الرياض، السعودية</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <p class="footer-big" id="footer-name">Haitham Hattan</p>
-            <p id="footer-text">© <span id="year"></span> Haitham Hattan — مهندس ذكاء اصطناعي ومهندس برمجيات شامل.</p>
-            <p class="footer-bin" aria-hidden="true">0110 1001 · 1010 0101 · 0110 0111</p>
-            <div class="social-row">
-                <a href="https://www.linkedin.com/in/haithamhattan/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                <a href="https://github.com/haitham8888" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-                <a href="https://x.com/HattanHaitham" aria-label="X (Twitter)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-            </div>
+    <footer class="foot">
+        <div class="wrap">
+            <pre class="bin sig" data-text="HAITHAM HATTAN" data-px="2" aria-hidden="true"></pre>
+            <p>© <span id="year">2026</span> Haitham Hattan <span class="sep">//</span> <span data-i="foot.made">hand-built · no frameworks</span></p>
         </div>
     </footer>
 
-    <button class="to-top" id="to-top" aria-label="Back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-    </button>
+    <!-- command palette -->
+    <div class="cmdk" id="cmdk" hidden>
+        <div class="cmdk-box frame" role="dialog" aria-modal="true" aria-label="Command menu">
+            <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
+            <label class="cmdk-in"><span class="pr">&gt;</span><input id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="type a command…" data-i-ph="cmd.ph" /></label>
+            <ul id="cmdk-list" role="listbox"></ul>
+            <p class="cmdk-help"><span>↑↓</span> <span data-i="cmd.nav">navigate</span> <span>↵</span> <span data-i="cmd.run">run</span> <span>esc</span> <span data-i="cmd.close">close</span></p>
+        </div>
+    </div>
 
-    <script src="script.js?v=15"></script>
+    <!-- lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+        <button class="tool lb-close" id="lb-close" aria-label="Close">×</button>
+        <figure><img id="lb-img" alt="" /><figcaption id="lb-cap"></figcaption></figure>
+    </div>
+
+    <button class="to-top tool" id="to-top" aria-label="Back to top">↑</button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <noscript><style>.boot{display:none}</style><p class="wrap">Haitham Hattan — AI Engineer &amp; Full-Stack Software Engineer · info@haithamhattan.sa</p></noscript>
+
+    <script src="js/content.js?v=23"></script>
+    <script src="js/ascii.js?v=23"></script>
+    <script src="js/app.js?v=23"></script>
 </body>
 
 </html>
