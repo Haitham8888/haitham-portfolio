@@ -63,8 +63,8 @@
       x3.fillStyle = x3.strokeStyle = '#ffffff'; x3.lineWidth = cw * 0.14;
       for (var y3 = rowFrom; y3 < rowTo; y3++) for (var x3i = 0; x3i < cols; x3i++) {
         var k = y3 * cols + x3i, h3 = hash(x3i, y3, seed);
-        if (!white[k]) { if (!scramble || (h3 % 100) > 7) continue; }
-        var gch = scramble ? '01#%@$&?!<>/\\'[h3 % 14] : ((h3 >> 5) % 100 < 78 ? '0' : '1');
+        if (!white[k]) continue;
+        var gch = scramble ? ((h3 >> 4) & 1 ? '1' : '0') : ((h3 >> 5) % 100 < 78 ? '0' : '1');
         x3.strokeText(gch, x3i * cw, y3 * ch); x3.fillText(gch, x3i * cw, y3 * ch);
       }
       return L[0];
@@ -99,7 +99,7 @@
     // the cloth, unfurled up to `reach` columns
     var la = reduce ? 0.8 : t * 0.35, Lx = Math.cos(la) * 0.8, Lz = 0.6 + 0.15 * Math.sin(la * 0.7);
     var ox = poleW + 4, sw = cw * dpr, step = 2, reach = pCloth * cols;
-    var swordReach = swordX0 + (swordX1 - swordX0 + 2) * pSword, nz = (now / 70 | 0) & 1;
+    var swordReach = swordX0 + (swordX1 - swordX0 + 2) * pSword, nz = (now / 160 | 0) & 1;
     for (var c = 0; c < reach; c += step) {
       var wv = wave(c, t, ampK), nx = -wv.slope / 6, nn = Math.sqrt(nx * nx + 1);
       var band = Math.sin(c / cols * 4.2 - t * 0.55) * 0.5 + 0.5, breathe = 0.5 + 0.5 * Math.sin(t * 0.8);
@@ -110,12 +110,11 @@
       if (a1 > 0.02) { ctx.globalAlpha = a1; ctx.drawImage(green[i1], sx0, 0, sww, green[i1].height, x0, y0, w0, fh); }
       // Shahada: scrambled glyphs first, settling into the calligraphy
       if (pShah > 0) {
-        if (pShah < 1) { ctx.globalAlpha = (1 - pShah) * 0.9; ctx.drawImage(noise[nz], sx0, 0, sww, noise[nz].height, x0, y0, w0, fh); }
+        if (pShah < 1) { ctx.globalAlpha = (1 - pShah) * 0.6; ctx.drawImage(noise[nz], sx0, 0, sww, noise[nz].height, x0, y0, w0, fh); }
         ctx.globalAlpha = pShah; ctx.drawImage(shahada, sx0, 0, sww, shahada.height, x0, y0, w0, fh);
       }
       // sword: drawn left to right
       if (pSword > 0 && c <= swordReach) { ctx.globalAlpha = 1; ctx.drawImage(sword, sx0, 0, sww, sword.height, x0, y0, w0, fh); }
-      if (spec > 0.01) { ctx.globalAlpha = 1; ctx.fillStyle = 'rgba(255,255,255,' + spec.toFixed(3) + ')'; ctx.fillRect(x0, y0, w0, fh); }
     }
     ctx.globalAlpha = 1;
     // live binary flickering at the unfurling edge
@@ -124,7 +123,7 @@
       for (var e = 0; e < 3; e++) {
         var ce = Math.floor(reach) - e; if (ce < 0) continue;
         var we = wave(ce, t, ampK);
-        for (var r = 0; r < rows; r++) { ctx.globalAlpha = (1 - e / 3) * 0.9; ctx.fillStyle = Math.random() < 0.3 ? '#ffffff' : '#4ade80'; ctx.fillText(Math.random() < 0.5 ? '0' : '1', ox + ce * cw, top + we.dy + r * ch); }
+        for (var r = 0; r < rows; r++) { ctx.globalAlpha = (1 - e / 3) * 0.7; ctx.fillStyle = Math.random() < 0.06 ? '#d9f99d' : '#4ade80'; ctx.fillText(Math.random() < 0.5 ? '0' : '1', ox + ce * cw, top + we.dy + r * ch); }
       }
       ctx.globalAlpha = 1;
     }
