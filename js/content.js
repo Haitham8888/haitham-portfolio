@@ -17,7 +17,7 @@ window.SITE = {
       'yt': 'YouTube channel', 'certs': 'Certified by',
       'contact': 'The fastest way to reach me is email — I reply within 24 hours.',
       'cv': 'Résumé', 'copy': 'copy', 'copied': 'copied ✓',
-      'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'l.orgs': 'Organizations I worked, trained and volunteered with', 'l.lab': 'Model Lab', 'lab.sub': 'Models, pipelines and agents I have run, served and configured — on-prem, offline, in production.', 'l.voices': 'What attendees say', 'views': 'views', 'l.origin': 'Origin', 'o.uni': 'Jazan University — B.Sc. Information Technology', 'o.uni.d': 'Machine Learning track · graduated 2025', 'o.jz': 'Jazan — where I come from', 'o.jz.d': 'Home of Khawlani coffee and the Al-Ful flower', 'o.ry': 'Riyadh — where I build', 'o.ry.d': 'AI engineering at MDS for Computer Systems', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
+      'space.grad': 'Jazan University · B.Sc. IT (ML) · 2025', 'l.orgs': 'Organizations I worked, trained and volunteered with', 'l.lab': 'Model Lab', 'eyes.cap': 'My eyes, written in my stack — every character is a tool I use.', 'lab.sub': 'Models, pipelines and agents I have run, served and configured — on-prem, offline, in production.', 'l.voices': 'What attendees say', 'views': 'views', 'l.origin': 'Origin', 'o.uni': 'Jazan University — B.Sc. Information Technology', 'o.uni.d': 'Machine Learning track · graduated 2025', 'o.jz': 'Jazan — where I come from', 'o.jz.d': 'Home of Khawlani coffee and the Al-Ful flower', 'o.ry': 'Riyadh — where I build', 'o.ry.d': 'AI engineering at MDS for Computer Systems', 'now': 'now', 'theme.dark': 'Dark mode', 'theme.light': 'Light mode'
     },
     ar: {
       '__title': 'الهَيثم — مهندس ذكاء اصطناعي وبرمجيات',
@@ -35,7 +35,7 @@ window.SITE = {
       'yt': 'قناة يوتيوب', 'certs': 'شهادات من',
       'contact': 'أسرع طريقة للتواصل معي هي البريد — أرد خلال 24 ساعة.',
       'cv': 'السيرة الذاتية', 'copy': 'نسخ', 'copied': 'تم النسخ ✓',
-      'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'l.orgs': 'جهات عملت وتدربت وتطوعت معها', 'l.lab': 'مختبر النماذج', 'lab.sub': 'نماذج وخطوط معالجة ووكلاء شغّلتها وضبطتها — محلياً ودون اتصال وفي بيئة الإنتاج.', 'l.voices': 'ماذا قال الحضور', 'views': 'مشاهدة', 'l.origin': 'الأصل', 'o.uni': 'جامعة جازان — بكالوريوس تقنية المعلومات', 'o.uni.d': 'مسار تعلّم الآلة · تخرجت 2025', 'o.jz': 'جازان — منها أنا', 'o.jz.d': 'موطن البن الخولاني وزهرة الفل', 'o.ry': 'الرياض — هنا أبني', 'o.ry.d': 'هندسة الذكاء الاصطناعي في MDS لأنظمة الحاسب', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
+      'space.grad': 'خريج جامعة جازان · تقنية المعلومات (تعلم الآلة) · 2025', 'l.orgs': 'جهات عملت وتدربت وتطوعت معها', 'l.lab': 'مختبر النماذج', 'eyes.cap': 'عيوني مكتوبة بأدواتي — كل حرف هنا من تقنية أستخدمها.', 'lab.sub': 'نماذج وخطوط معالجة ووكلاء شغّلتها وضبطتها — محلياً ودون اتصال وفي بيئة الإنتاج.', 'l.voices': 'ماذا قال الحضور', 'views': 'مشاهدة', 'l.origin': 'الأصل', 'o.uni': 'جامعة جازان — بكالوريوس تقنية المعلومات', 'o.uni.d': 'مسار تعلّم الآلة · تخرجت 2025', 'o.jz': 'جازان — منها أنا', 'o.jz.d': 'موطن البن الخولاني وزهرة الفل', 'o.ry': 'الرياض — هنا أبني', 'o.ry.d': 'هندسة الذكاء الاصطناعي في MDS لأنظمة الحاسب', 'now': 'الآن', 'theme.dark': 'الوضع الداكن', 'theme.light': 'الوضع الفاتح'
     },
     zh: {
       '__title': 'Al-Haitham — 人工智能与软件工程师',
@@ -53,7 +53,7 @@ window.SITE = {
       'yt': 'YouTube 频道', 'certs': '认证',
       'contact': '联系我最快的方式是邮件 — 24 小时内回复。',
       'cv': '简历', 'copy': '复制', 'copied': '已复制 ✓',
-      'space.grad': '吉赞大学 · 信息技术学士（机器学习）· 2025', 'l.orgs': '合作与任职机构', 'l.lab': '模型实验室', 'lab.sub': '我运行、部署与配置过的模型、流水线与智能体——本地、离线、生产环境。', 'l.voices': '学员评价', 'views': '次观看', 'l.origin': '出身', 'o.uni': '吉赞大学 — 信息技术学士', 'o.uni.d': '机器学习方向 · 2025 年毕业', 'o.jz': '吉赞 — 我的家乡', 'o.jz.d': 'Khawlani 咖啡与 Al-Ful 茉莉花的故乡', 'o.ry': '利雅得 — 我工作的地方', 'o.ry.d': '就职于 MDS for Computer Systems，从事人工智能工程', 'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
+      'space.grad': '吉赞大学 · 信息技术学士（机器学习）· 2025', 'l.orgs': '合作与任职机构', 'l.lab': '模型实验室', 'eyes.cap': '用我的技术栈写成的眼睛——每个字符都来自我使用的工具。', 'lab.sub': '我运行、部署与配置过的模型、流水线与智能体——本地、离线、生产环境。', 'l.voices': '学员评价', 'views': '次观看', 'l.origin': '出身', 'o.uni': '吉赞大学 — 信息技术学士', 'o.uni.d': '机器学习方向 · 2025 年毕业', 'o.jz': '吉赞 — 我的家乡', 'o.jz.d': 'Khawlani 咖啡与 Al-Ful 茉莉花的故乡', 'o.ry': '利雅得 — 我工作的地方', 'o.ry.d': '就职于 MDS for Computer Systems，从事人工智能工程', 'now': '至今', 'theme.dark': '深色模式', 'theme.light': '浅色模式'
     }
   },
 

@@ -36,7 +36,7 @@
     function build() {
       var cs = getComputedStyle(fig);
       w = fig.clientWidth - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0);
-      cols = Math.max(70, Math.min(240, Math.round(w / 4.3)));
+      cols = Math.max(90, Math.min(300, Math.round(w / 3.7)));
       cw = w / cols; fs = cw / GW; ch = fs * LH;
       rows = Math.max(1, Math.round(cols * (SR / SC) * 1.0));
       h = rows * ch;
@@ -65,35 +65,42 @@
       draw(performance.now());
     }
 
+    // the characters are the stack itself: Python, Rust, Kubernetes, ALLaM ... read left to right
+    var WORDS = (function () {
+      var st = (window.SITE && window.SITE.stack) || {}, out = [];
+      Object.keys(st).forEach(function (k) { if (k !== 'spoken') st[k].forEach(function (w) { out.push(String(w).replace(/\s+/g, '')); }); });
+      return (out.length ? out : ['Python', 'Rust', 'Kubernetes', 'ALLaM', 'Qwen', 'DeepSeek', 'Milvus']).join('');
+    })();
     function draw(now) {
-      var dk = true, n = RAMP.length - 1, t = seen ? (now - born) / 1000 : -1;
+      var dk = dark(), t = seen ? (now - born) / 1000 : -1, wl = WORDS.length;
       ctx.clearRect(0, 0, w, h);
-      ctx.font = '500 ' + fs.toFixed(2) + 'px ' + MONO;
+      ctx.font = '700 ' + fs.toFixed(2) + 'px ' + MONO;
       ctx.textBaseline = 'top';
-      ctx.fillStyle = '#e9e9e9';
-      var R = 9, mx = mouse ? mouse.x / cw : -99, my = mouse ? mouse.y / ch : -99;
+      var base = dk ? [236, 236, 236] : [10, 10, 10], beamC = dk ? [74, 222, 128] : [21, 128, 61];
+      // a soft reading beam sweeps across every few seconds
+      var period = 6.5, bp = reduce ? -1 : ((now / 1000) % period) / 2.2, beamX = bp <= 1 ? (bp * 1.3 - 0.15) * cols : -999, BW = cols * 0.06;
+      var R = 10, mx = mouse ? mouse.x / cw : -99, my = mouse ? mouse.y / ch : -99;
+      var k = 0;
       for (var y = 0; y < rows; y++) {
-        for (var x = 0; x < cols; x++) {
+        for (var x = 0; x < cols; x++, k++) {
           var L = lum[y * cols + x];
-          // positive in both themes: light glyphs for light skin on black, dark ink for dark features on white
-          // the original look: the whole image in glyphs (light on black, ink on white)
-          var v = dk ? Math.pow(L, 1.5) : Math.pow(1 - L, 1.15);
-          var a = dk ? 0.16 + 0.84 * v : 0.12 + 0.88 * v;
-          // keep the bridge of the nose quiet so the eyes lead
+          var v = dk ? Math.pow(L, 1.5) : Math.pow(1 - L, 0.8);
           var nx = (x / cols - 0.5) / 0.075, ny = y / rows;
-          if (nx > -1 && nx < 1 && ny > 0.62) { var q3 = 1 - (1 - nx * nx) * Math.min(1, (ny - 0.62) / 0.3) * 0.55; v *= q3; a *= q3; }
-          // a soft spotlight follows the cursor
+          if (nx > -1 && nx < 1 && ny > 0.62) v *= 1 - (1 - nx * nx) * Math.min(1, (ny - 0.62) / 0.3) * 0.55;
+          if (v < 0.035) continue;
+          var a = dk ? 0.05 + 0.95 * Math.pow(v, 1.15) : 0.1 + 0.9 * v, col = base, mixB = 0;
+          var db = Math.abs(x - beamX);
+          if (db < BW) mixB = (1 - db / BW) * 0.85;
           if (glow > 0.01) {
             var dx = x - mx, dy = (y - my) * 1.9, d = Math.sqrt(dx * dx + dy * dy);
-            if (d < R) { var k = (1 - d / R) * glow; v = Math.min(1, v + k * 0.35); a = Math.min(1, a + k * 0.45); }
+            if (d < R) a = Math.min(1, a + (1 - d / R) * glow * 0.5);
           }
-          var idx = Math.round(v * n);
-          if (idx < 1) continue;
-          // reveal once, left to right, the first time it scrolls into view
           var reveal = (x / cols) * 1.0 + (y / rows) * 0.12;
-          if (!reduce && t < reveal) { if (t < reveal - 0.22) continue; a *= Math.max(0, 1 - (reveal - t) / 0.22); }
+          if (!reduce && t < reveal) { if (t < reveal - 0.25) continue; a *= Math.max(0, 1 - (reveal - t) / 0.25); }
+          if (mixB > 0) { a = Math.min(1, a + mixB * 0.35); col = [Math.round(base[0] + (beamC[0] - base[0]) * mixB), Math.round(base[1] + (beamC[1] - base[1]) * mixB), Math.round(base[2] + (beamC[2] - base[2]) * mixB)]; }
           ctx.globalAlpha = a;
-          ctx.fillText(RAMP[idx], x * cw, y * ch);
+          ctx.fillStyle = 'rgb(' + col[0] + ',' + col[1] + ',' + col[2] + ')';
+          ctx.fillText(WORDS[k % wl], x * cw, y * ch);
         }
       }
       ctx.globalAlpha = 1;
@@ -104,7 +111,7 @@
       var now = performance.now(), t = (now - born) / 1000;
       glow += ((mouse ? 1 : 0) - glow) * 0.25;
       draw(now);
-      if (!reduce && visible && (t < 1.5 || mouse || glow > 0.02)) timer = setTimeout(loop, 40);
+      if (!reduce && visible) timer = setTimeout(loop, (t < 1.5 || mouse || glow > 0.02) ? 40 : 60);
     }
     function kick() { if (!timer) loop(); }
 
