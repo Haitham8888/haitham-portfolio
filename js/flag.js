@@ -1,7 +1,7 @@
 /* The flag of Saudi Arabia, fully ASCII, waving, lit like the Yurei rose.
    Every cell is a character in the flag's own colours. The green field uses the rose's glyph bands
    (sparse to dense letters and numbers); the Shahada and the sword stay in bold dense white glyphs,
-   with contour glyphs ( / \ | _ - ) along their edges so they read clearly.
+   drawn solid so the calligraphy reads clearly.
    A light circles slowly over the cloth: every fold of the wave catches it, and the glyph density and
    green shade follow (pre-rendered shade levels, blended per column, so it stays fast).
    Glitter twinkles and cross-shaped glints come and go. Never mirrored, never upside down. */
@@ -14,9 +14,9 @@
   var canvas = fig.querySelector('canvas'), ctx = canvas.getContext('2d');
   var src = new Image(); src.src = 'img/logos/saudi-flag.svg';
   var GROUPS = [".'`", ",:;", "-~^", "=+<>", "ilr!1", "cvxz7", "tjfJ?", "nuoe23", "sa5S4Z", "kbdpq9X", "AGh6&%", "UOQ0#D", "$8B@MW"];
-  var NG = GROUPS.length, WHITE = '$8B@MW#%&', NT = 4;
+  var NG = GROUPS.length, WHITE = '$8B@MW#', NT = 4;
   // green ramp per shade level: deep shadow -> lit cloth
-  var GREENS = [[0, 52, 28], [6, 92, 50], [22, 140, 78], [56, 196, 118]];
+  var GREENS = [[10, 96, 52], [18, 128, 70], [34, 168, 96], [74, 214, 136]];
   var tex = [], cols = 0, rows = 0, cw = 0, ch = 0, fw = 0, fh = 0, W = 0, H = 0, poleW = 0, top = 0, dpr = 1, visible = true;
   var glints = [], dust = [], bits = [];
 
@@ -25,7 +25,7 @@
     W = fig.clientWidth;
     poleW = Math.max(10, Math.round(W * 0.03));
     fw = W - poleW - 6 - Math.round(W * 0.06);
-    cols = Math.max(170, Math.min(340, Math.round(fw / 2.1)));
+    cols = Math.max(110, Math.min(220, Math.round(fw / 2.9)));
     cw = fw / cols; var fs = cw / 0.6; ch = fs * 0.98;
     fh = fw * 2 / 3; rows = Math.round(fh / ch); fh = rows * ch;
     top = Math.round(fh * 0.06) + 6; H = Math.round(fh + top * 2 + 18);
@@ -54,7 +54,6 @@
       var c = document.createElement('canvas'); c.width = Math.ceil(fw * dpr); c.height = Math.ceil(fh * dpr);
       var x2 = c.getContext('2d'); x2.setTransform(dpr, 0, 0, dpr, 0, 0);
       var g = GREENS[lv];
-      x2.fillStyle = 'rgb(' + Math.round(g[0] * 0.55) + ',' + Math.round(g[1] * 0.55) + ',' + Math.round(g[2] * 0.55) + ')'; x2.fillRect(0, 0, fw, fh);
       x2.font = '800 ' + fs.toFixed(2) + 'px ' + MONO; x2.textBaseline = 'top';
       var shade = lv / (NT - 1);
       for (var yy = 0; yy < rows; yy++) for (var xx = 0; xx < cols; xx++) {
@@ -62,12 +61,12 @@
         if (white[kk]) {
           var wv = Math.round(214 + 41 * shade);
           x2.fillStyle = x2.strokeStyle = 'rgb(' + wv + ',' + wv + ',' + wv + ')';
-          x2.lineWidth = cw * 0.3;
-          var gch = edge[kk] >= 0 ? EG[edge[kk]] : WHITE[h % WHITE.length];
+          x2.lineWidth = cw * 0.14;
+          var gch = WHITE[h % WHITE.length];
           x2.strokeText(gch, xx * cw, yy * ch); x2.fillText(gch, xx * cw, yy * ch);
         } else {
           // green field: the rose's bands, denser where the cloth faces the light
-          var t = Math.min(0.999, 0.18 + 0.62 * shade + ((h >> 7) & 7) * 0.012);
+          var t = Math.min(0.999, 0.3 + 0.6 * shade + ((h >> 7) & 7) * 0.012);
           var grp = GROUPS[Math.floor(t * NG)], v = 0.75 + 0.25 * ((h >> 3) & 1);
           x2.fillStyle = 'rgb(' + Math.round(g[0] * v) + ',' + Math.round(g[1] * v) + ',' + Math.round(g[2] * v) + ')';
           x2.fillText(grp[h % grp.length], xx * cw, yy * ch);
