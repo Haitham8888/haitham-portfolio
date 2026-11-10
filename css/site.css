@@ -481,3 +481,9 @@ kbd { display: inline-block; padding: 1px 5px; border: 1px solid var(--line-2); 
 @media (max-width: 900px) { .voice-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } .voice-stats > div:nth-child(3) { border-inline-end: 0; } .voice-stats > div:nth-child(n+4) { border-top: 1px dashed var(--line); } }
 @media (max-width: 640px) { .voice-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .voice-stats > div { border-inline-end: 0 !important; } .quotes { grid-template-columns: 1fr; } .row .t .by { display: block; margin: 2px 0 0; } }
 @media (max-width: 640px) { .lab .m { display: none; } }
+/* detective layer: roams the whole page */
+.sh-layer { position: fixed; inset: 0; z-index: 30; pointer-events: none; }
+.sh-layer canvas { position: absolute; left: 0; top: 0; }
+.sh-layer .sh-hit { position: absolute; left: 0; top: 0; pointer-events: auto; cursor: grab; touch-action: none; background: none; border: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+.sh-layer .sh-hit.grab { cursor: grabbing; }
+.sh-layer .sh-bubble { position: absolute; max-width: min(300px, calc(100vw - 32px)); }
