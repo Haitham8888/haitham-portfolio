@@ -14,13 +14,22 @@
   function eyes(fig) {
     var E = window.EYES, canvas = fig.querySelector('canvas'), ctx = canvas.getContext('2d');
     // only the eyes and brows: crop away the nose and cheeks below, and the empty background at the sides
-    var CX0 = 30, CX1 = 136, CY0 = 1, CY1 = 17, SC = CX1 - CX0, SR = CY1 - CY0;
+    var CX0 = 30, CX1 = 132, CY0 = 4, CY1 = 21, SC = CX1 - CX0, SR = CY1 - CY0;
     var src = new Float32Array(SC * SR);
     for (var yy0 = 0; yy0 < SR; yy0++) for (var xx0 = 0; xx0 < SC; xx0++) src[yy0 * SC + xx0] = ALPHA.indexOf(E.d[(yy0 + CY0) * E.c + xx0 + CX0]) / 63;
     // stretch contrast inside the crop so brows, eyes and the glasses frames read clearly
-    var srt = Array.prototype.slice.call(src).sort(function (p, q) { return p - q; });
-    var lo0 = srt[Math.floor(srt.length * 0.02)], hi0 = srt[Math.floor(srt.length * 0.98)];
-    for (var q0 = 0; q0 < src.length; q0++) src[q0] = Math.max(0, Math.min(1, (src[q0] - lo0) / (hi0 - lo0 || 1)));
+    // balance the two eyes: each half of the face gets its own levels, so uneven light never hides one eye
+    function lv(c0, c1) {
+      var v = [];
+      for (var yy1 = 0; yy1 < SR; yy1++) for (var xx1 = c0; xx1 < c1; xx1++) v.push(src[yy1 * SC + xx1]);
+      v.sort(function (p, q) { return p - q; });
+      return [v[Math.floor(v.length * 0.03)], v[Math.floor(v.length * 0.985)]];
+    }
+    var mid0 = Math.floor(SC / 2), LA = lv(0, mid0), LB = lv(mid0, SC);
+    for (var yy2 = 0; yy2 < SR; yy2++) for (var xx2 = 0; xx2 < SC; xx2++) {
+      var k2 = Math.max(0, Math.min(1, (xx2 - mid0 + 8) / 16)), lo2 = LA[0] * (1 - k2) + LB[0] * k2, hi2 = LA[1] * (1 - k2) + LB[1] * k2, i2 = yy2 * SC + xx2;
+      src[i2] = Math.max(0, Math.min(1, (src[i2] - lo2) / (hi2 - lo2 || 1)));
+    }
     var lum, cols, rows, cw, ch, w, h, fs, mouse = null, glow = 0, born = 0, seen = false, visible = false, timer = 0;
 
     // box-average the high-res grid down to the size that fits this screen
@@ -70,6 +79,9 @@
           // the original look: the whole image in glyphs (light on black, ink on white)
           var v = dk ? Math.pow(L, 1.5) : Math.pow(1 - L, 1.15);
           var a = dk ? 0.16 + 0.84 * v : 0.12 + 0.88 * v;
+          // keep the bridge of the nose quiet so the eyes lead
+          var nx = (x / cols - 0.5) / 0.075, ny = y / rows;
+          if (nx > -1 && nx < 1 && ny > 0.62) { var q3 = 1 - (1 - nx * nx) * Math.min(1, (ny - 0.62) / 0.3) * 0.55; v *= q3; a *= q3; }
           // a soft spotlight follows the cursor
           if (glow > 0.01) {
             var dx = x - mx, dy = (y - my) * 1.9, d = Math.sqrt(dx * dx + dy * dy);
