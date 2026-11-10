@@ -69,7 +69,7 @@
     </script>
 
     <link rel="stylesheet" href="fonts/fonts.css" />
-    <link rel="stylesheet" href="css/site.css?v=33" />
+    <link rel="stylesheet" href="css/site.css?v=35" />
 </head>
 
 <body>
@@ -80,6 +80,7 @@
         <button data-lang="en" aria-label="English">EN</button>
         <button data-lang="zh" lang="zh" aria-label="中文">中</button>
         <span class="sep" aria-hidden="true">/</span>
+        <button id="term-open" class="term-btn" aria-label="Open terminal" title="Terminal ( ` )">&gt;_</button>
         <button id="theme" aria-label="Light mode"><span class="ico" aria-hidden="true"></span></button>
     </div>
 
@@ -91,6 +92,7 @@
                 <canvas aria-hidden="true"></canvas>
             </figure>
 
+            <p class="prompt" dir="ltr"><span class="pr">$</span> whoami<span class="caret" aria-hidden="true"></span></p>
             <h1 class="name" id="name">Haitham Hattan</h1>
             <p class="role" data-i="role">AI Engineer &amp; Full-Stack Software Engineer</p>
             <p class="lead" data-i="intro"></p>
@@ -170,17 +172,27 @@
 
         <footer class="foot">
             <pre class="sig" aria-hidden="true" id="sig"></pre>
+            <p class="sys" dir="ltr"><span>riyadh <b id="clock">--:--:--</b></span><span>uptime <b id="uptime">—</b></span><button class="hint" id="term-hint"><span class="k-desk">press <kbd>`</kbd> for </span>terminal <button class="hint" id="term-hint">press <kbd>`</kbd> for terminal</button>gt;_</button></p>
             <p><span>© <span id="year">2026</span> Haitham Hattan</span><span>haithamhattan.sa</span></p>
         </footer>
     </main>
 
     <div class="preview" id="preview" aria-hidden="true"><img alt="" /></div>
+    <div class="term" id="term" hidden>
+        <div class="term-win" role="dialog" aria-modal="true" aria-label="Terminal" dir="ltr">
+            <div class="term-bar"><span>haitham@riyadh: ~</span><span class="m">esc to close</span></div>
+            <div class="term-out" id="term-out" aria-live="polite"></div>
+            <label class="term-in"><span class="pr">haitham@riyadh:~$</span><input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command" /></label>
+        </div>
+    </div>
     <div class="lightbox" id="lightbox" hidden><figure><img alt="" /><figcaption></figcaption></figure></div>
 
-    <script src="js/content.js?v=33"></script>
-    <script src="js/eyes-data.js?v=33"></script>
-    <script src="js/ascii.js?v=33"></script>
-    <script src="js/app.js?v=33"></script>
+    <script src="js/content.js?v=35"></script>
+    <script src="js/eyes-data.js?v=35"></script>
+    <script src="js/ascii.js?v=35"></script>
+    <script src="js/fx.js?v=35"></script>
+    <script src="js/app.js?v=35"></script>
+    <script src="js/term.js?v=35"></script>
 </body>
 
 </html>

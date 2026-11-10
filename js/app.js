@@ -18,20 +18,20 @@
 
     $('#shipped').innerHTML = S.shipped.map(function (p) {
       return '<li class="row link" data-preview="' + p.img + '"><a class="cover" href="' + p.url + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '"></a>' +
-        '<div class="row-main"><span class="t">' + esc(p.name) + '<span class="ar">' + esc(p.native) + '</span>' + ARROW + '</span><span class="d">' + esc(t(p.line)) + '</span></div>' +
+        '<div class="row-main"><span class="t"><span class="tx">' + esc(p.name) + '</span><span class="ar">' + esc(p.native) + '</span>' + ARROW + '</span><span class="d">' + esc(t(p.line)) + '</span></div>' +
         '<span class="m">' + esc(p.host) + '</span></li>';
     }).join('');
 
     $('#work').innerHTML = S.work.map(function (w, i) {
       return '<li class="row x' + (i === 0 ? ' open' : '') + '" tabindex="0" role="button" aria-expanded="' + (i === 0) + '">' +
-        '<div class="row-main"><span class="t">' + esc(t(w.role)) + '<span class="plus" aria-hidden="true">+</span></span><span class="d">' + esc(w.org) + '</span></div>' +
+        '<div class="row-main"><span class="t"><span class="tx">' + esc(t(w.role)) + '</span><span class="plus" aria-hidden="true">+</span></span><span class="d">' + esc(w.org) + '</span></div>' +
         '<span class="m">' + esc(t(w.period).replace(/ — /, '–')) + '</span>' +
         '<div class="more"><div><ul>' + t(w.pts).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></div></div></li>';
     }).join('');
 
     $('#projects').innerHTML = S.projects.map(function (p) {
       return '<li class="row link"><a class="cover" href="' + p.url + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '"></a>' +
-        '<div class="row-main"><span class="t">' + esc(p.name) + ARROW + '</span><span class="d">' + esc(t(p.line)) + '</span></div>' +
+        '<div class="row-main"><span class="t"><span class="tx">' + esc(p.name) + '</span>' + ARROW + '</span><span class="d">' + esc(t(p.line)) + '</span></div>' +
         '<span class="m">' + esc(p.tags.slice(0, 2).join(' · ')) + '</span></li>';
     }).join('');
     $('#more').innerHTML = S.more.map(function (m) {
@@ -78,6 +78,14 @@
       });
     });
     bindPreview();
+    $$('.row').forEach(function (r) {
+      r.addEventListener('mouseenter', function () {
+        var el = r.querySelector('.tx');
+        if (!el) { el = r.querySelector('.t'); if (!el || el.children.length) return; }
+        var txt = el.dataset.orig || (el.dataset.orig = el.textContent);
+        if (/^[\x20-\x7E\u00B7\u2013\u2014\u2019]+$/.test(txt)) A.scramble(el, txt, 380);
+      });
+    });
   }
 
   // floating screenshot that follows the cursor over product rows
@@ -120,9 +128,29 @@
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -8% 0px' }) : null;
   function observe() { $$('.block, .foot').forEach(function (el) { if (!el.classList.contains('rv')) el.classList.add('rv'); if (io) io.observe(el); else el.classList.add('in'); }); }
+  // section labels decode once as they scroll in
+  var lio = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; lio.unobserve(e.target);
+      var sp = e.target.querySelector('[data-i]'), txt = sp && sp.textContent;
+      if (txt && /^[\x20-\x7E]+$/.test(txt)) A.scramble(sp, txt, 600);
+    });
+  }, { threshold: 1 }) : null;
+  if (lio) $$('.label').forEach(function (l) { lio.observe(l); });
+
+  window.APP = { setLang: function (l) { setLang(l); }, setTheme: function (th) { setTheme(th); } };
+
+  // live footer: Riyadh clock + uptime since Dec 2014
+  function clock() {
+    var c = $('#clock'); if (!c) return;
+    c.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Riyadh', hour12: false });
+    var now = new Date(), m = (now.getFullYear() - 2014) * 12 + now.getMonth() - 11;
+    $('#uptime').textContent = Math.floor(m / 12) + 'y ' + (m % 12) + 'm';
+  }
 
   // boot
   render();
+  clock(); setInterval(clock, 1000);
   observe();
   var eyesCtl = A.eyes($('#eyes'));
   A.scramble($('#name'), 'Haitham Hattan', 1000);
@@ -138,5 +166,6 @@
     }, function () { location.href = 'mailto:info@haithamhattan.sa'; });
   });
   $('#lightbox').addEventListener('click', function () { this.hidden = true; });
+  $('#term-hint').addEventListener('click', function () { window.TERM && window.TERM.open(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') $('#lightbox').hidden = true; });
 })();
