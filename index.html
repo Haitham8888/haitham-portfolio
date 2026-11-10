@@ -5,11 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Haitham Hattan — AI &amp; Software Engineer</title>
-    <meta name="description" content="Haitham Hattan — AI Engineer and full-stack software engineer in Riyadh. On-premise RAG, local LLMs on H100/H200 GPUs, and enterprise systems at 99.9% availability." />
-    <meta name="keywords" content="هيثم هتان, Haitham Hattan, AI Engineer, مهندس ذكاء اصطناعي, Software Engineer, RAG, LLM, Local LLM, MLOps, Riyadh, Saudi Arabia" />
+    <meta name="description" content="Haitham Hattan — AI Engineer and full-stack software engineer in Riyadh. Private on-premise AI, RAG and LLMs on H100/H200 GPUs, and enterprise systems at 99.9% availability." />
     <meta name="author" content="Haitham Hattan" />
-    <meta name="theme-color" content="#0a0b0a" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" />
     <link rel="canonical" href="https://haithamhattan.sa/" />
     <link rel="alternate" hreflang="ar" href="https://haithamhattan.sa/?lang=ar" />
     <link rel="alternate" hreflang="en" href="https://haithamhattan.sa/?lang=en" />
@@ -19,16 +17,13 @@
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://haithamhattan.sa/" />
     <meta property="og:title" content="Haitham Hattan — AI &amp; Software Engineer" />
-    <meta property="og:description" content="AI Engineer & full-stack software engineer. On-premise RAG, local LLMs, enterprise systems. Riyadh, Saudi Arabia." />
-    <meta property="og:image" content="https://haithamhattan.sa/img/haitham.jpg" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ar_SA" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:description" content="Private on-premise AI, RAG and LLMs, and enterprise systems that stay up. Riyadh, Saudi Arabia." />
+    <meta property="og:image" content="https://haithamhattan.sa/img/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Haitham Hattan — AI &amp; Software Engineer" />
-    <meta name="twitter:description" content="AI Engineer & full-stack software engineer. On-premise RAG, local LLMs, enterprise systems." />
-    <meta name="twitter:image" content="https://haithamhattan.sa/img/haitham.jpg" />
+    <meta name="twitter:image" content="https://haithamhattan.sa/img/og.png" />
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='10'%20fill='%230a0b0a'/%3E%3Ctext%20x='50'%20y='68'%20font-size='52'%20text-anchor='middle'%20fill='%236fd8a0'%20font-family='monospace'%20font-weight='700'%3E~%23%3C/text%3E%3C/svg%3E" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='18'%20fill='%23000'/%3E%3Ctext%20x='50'%20y='67'%20font-size='50'%20text-anchor='middle'%20fill='%23fff'%20font-family='monospace'%20font-weight='700'%3EH%3C/text%3E%3C/svg%3E" />
 
     <script type="application/ld+json">
     {
@@ -37,10 +32,9 @@
       "name": "Haitham Hattan",
       "alternateName": "هيثم هتان",
       "url": "https://haithamhattan.sa/",
-      "image": "https://haithamhattan.sa/img/haitham.jpg",
+      "image": "https://haithamhattan.sa/img/og.png",
       "email": "mailto:info@haithamhattan.sa",
       "jobTitle": "AI Engineer & Software Engineer",
-      "knowsLanguage": ["ar", "en"],
       "address": { "@type": "PostalAddress", "addressLocality": "Riyadh", "addressCountry": "SA" },
       "worksFor": { "@type": "Organization", "name": "MDS for Computer Systems (MDS CS)" },
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Jazan University" },
@@ -54,20 +48,19 @@
         "https://github.com/haitham8888",
         "https://x.com/HattanHaitham",
         "https://www.youtube.com/@Hai3",
-        "https://maysour.sa/"
+        "https://maysour.com.sa/",
+        "https://hayyizapp.com/",
+        "https://gcare.sa/"
       ]
     }
     </script>
 
-    <!-- theme + language before first paint (no flash). Dark is the default. -->
     <script>
         (function () {
             var d = document.documentElement;
             try {
-                var t = localStorage.getItem('theme');
-                d.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
-                var q = new URLSearchParams(location.search).get('lang');
-                var l = q || localStorage.getItem('langPref') || 'en';
+                d.setAttribute('data-theme', localStorage.getItem('theme') === 'light' ? 'light' : 'dark');
+                var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('langPref') || 'en';
                 if (['ar', 'en', 'zh'].indexOf(l) < 0) l = 'en';
                 d.setAttribute('lang', l);
                 d.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
@@ -75,283 +68,119 @@
         })();
     </script>
 
-    <link rel="preload" href="fonts/JetBrainsMono-400-Normal-6.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="fonts/fonts.css" />
-    <link rel="stylesheet" href="css/site.css?v=23" />
+    <link rel="stylesheet" href="css/site.css?v=33" />
 </head>
 
 <body>
     <a class="skip" href="#main" data-i="skip">Skip to content</a>
 
-    <!-- boot sequence (first visit per session, skippable) -->
-    <div class="boot" id="boot" aria-hidden="true"><pre id="boot-log"></pre></div>
-
-    <!-- NAV -->
-    <header class="nav" id="nav">
-        <div class="wrap nav-in">
-            <a class="brand" href="#top" aria-label="Haitham Hattan — home">
-                <span class="brand-mark">~#</span><span class="brand-name">haitham<span class="dim">.sys</span></span>
-            </a>
-            <nav class="links" aria-label="Main">
-                <a href="#shipped" data-i="nav.shipped">shipped</a>
-                <a href="#work" data-i="nav.work">work</a>
-                <a href="#projects" data-i="nav.projects">projects</a>
-                <a href="#awards" data-i="nav.awards">awards</a>
-                <a href="#talks" data-i="nav.talks">talks</a>
-                <a href="#gallery" data-i="nav.gallery">gallery</a>
-                <a href="#contact" data-i="nav.contact">contact</a>
-            </nav>
-            <div class="nav-tools">
-                <button class="tool kbd-btn" id="cmd-open" aria-label="Command menu" title="Ctrl / ⌘ + K"><span class="k">⌘K</span></button>
-                <div class="lang" role="group" aria-label="Language">
-                    <button data-lang="ar" aria-label="العربية">ع</button>
-                    <button data-lang="en" aria-label="English">EN</button>
-                    <button data-lang="zh" aria-label="中文">中</button>
-                </div>
-                <button class="tool" id="theme-toggle" aria-label="Toggle light / dark theme">
-                    <span class="theme-ico" aria-hidden="true"></span>
-                </button>
-                <button class="tool burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
-                    <span></span><span></span>
-                </button>
-            </div>
-        </div>
-        <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
-    </header>
-
-    <div class="drawer" id="drawer" hidden>
-        <a href="#shipped" data-i="nav.shipped">shipped</a>
-                <a href="#work" data-i="nav.work">work</a>
-        <a href="#projects" data-i="nav.projects">projects</a>
-        <a href="#awards" data-i="nav.awards">awards</a>
-        <a href="#talks" data-i="nav.talks">talks</a>
-        <a href="#gallery" data-i="nav.gallery">gallery</a>
-        <a href="#contact" data-i="nav.contact">contact</a>
+    <div class="controls" role="group" aria-label="Language and theme">
+        <button data-lang="ar" lang="ar" aria-label="العربية">ع</button>
+        <button data-lang="en" aria-label="English">EN</button>
+        <button data-lang="zh" lang="zh" aria-label="中文">中</button>
+        <span class="sep" aria-hidden="true">/</span>
+        <button id="theme" aria-label="Light mode"><span class="ico" aria-hidden="true"></span></button>
     </div>
 
-    <main id="main">
-        <!-- HERO -->
-        <section class="hero" id="top">
-            <canvas class="field" id="field" aria-hidden="true"></canvas>
-            <div class="wrap hero-in">
-                <div class="hero-copy">
-                    <p class="cmd"><span class="pr">$</span> whoami</p>
-                    <h1 class="name" id="hero-name" data-scramble aria-label="Haitham Hattan">Haitham Hattan</h1>
-                    <p class="role" data-i="hero.role">AI Engineer · Full-Stack Software Engineer</p>
-                    <p class="meta"><span data-i="hero.loc">Riyadh, Saudi Arabia</span><span class="sep">//</span><span class="ok">status: open_to_work</span><span class="caret" aria-hidden="true"></span></p>
-                    <div class="cta">
-                        <a class="btn primary" href="img/CV_HaithamHattan_ATS.pdf" download><span class="br">[</span><span data-i="cta.cv">download_cv</span><span class="br">]</span></a>
-                        <a class="btn" href="#contact"><span class="br">[</span><span data-i="cta.contact">contact</span><span class="br">]</span></a>
-                    </div>
-                    <ul class="socials" aria-label="Social links">
-                        <li><a href="https://github.com/haitham8888" target="_blank" rel="noopener">github</a></li>
-                        <li><a href="https://www.linkedin.com/in/haithamhattan/" target="_blank" rel="noopener">linkedin</a></li>
-                        <li><a href="https://x.com/HattanHaitham" target="_blank" rel="noopener">x</a></li>
-                        <li><a href="https://www.youtube.com/@Hai3" target="_blank" rel="noopener">youtube</a></li>
-                    </ul>
-                </div>
+    <main id="main" class="page">
 
-                <figure class="portrait frame" id="portrait-frame">
-                    <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
-                    <figcaption class="bar"><span>~/portrait.ascii</span><span class="live">● live</span></figcaption>
-                    <div class="portrait-stage">
-                        <canvas id="portrait" data-src="img/haitham.jpg" role="img" aria-label="ASCII portrait of Haitham Hattan"></canvas>
-                    </div>
-                    <div class="bar foot"><span>76×62 · 0-9 a-z</span><span data-i="hero.lens">hover → binary lens</span></div>
-                </figure>
-            </div>
+        <!-- intro -->
+        <header class="intro">
+            <figure class="eyes" id="eyes" role="img" aria-label="Haitham Hattan — eyes drawn in ASCII">
+                <canvas aria-hidden="true"></canvas>
+            </figure>
 
-            <div class="wrap">
-                <dl class="stats" id="stats"></dl>
-            </div>
-            <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+            <h1 class="name" id="name">Haitham Hattan</h1>
+            <p class="role" data-i="role">AI Engineer &amp; Full-Stack Software Engineer</p>
+            <p class="lead" data-i="intro"></p>
+            <p class="status"><i aria-hidden="true"></i><span data-i="status">Open to AI engineering roles</span></p>
+
+            <nav class="links" aria-label="Links">
+                <a href="mailto:info@haithamhattan.sa">Email</a>
+                <a href="https://github.com/haitham8888" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/haithamhattan/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://x.com/HattanHaitham" target="_blank" rel="noopener">X</a>
+                <a href="img/CV_HaithamHattan_ATS.pdf" download data-i="cv">Résumé</a>
+            </nav>
+        </header>
+
+        <section class="block" aria-labelledby="l-latest">
+            <h2 class="label" id="l-latest"><span class="n">01</span><span data-i="l.latest">Latest</span></h2>
+            <ul class="rows">
+                <li class="row" data-preview="img/journey/journey-09.jpg">
+                    <div class="row-main"><span class="t" data-i="hl1"></span><span class="d" data-i="hl1.sub"></span></div>
+                    <span class="m">2026</span>
+                </li>
+                <li class="row">
+                    <div class="row-main"><span class="t" data-i="hl2"></span><span class="d" data-i="hl2.sub"></span></div>
+                    <span class="m">2×</span>
+                </li>
+            </ul>
         </section>
 
-        <!-- 01 LATEST -->
-        <section class="sec" id="latest">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">01</span><h2 data-i="sec.latest" data-scramble>latest</h2><span class="rule"></span></header>
-                <div class="latest">
-                    <article class="card hl frame">
-                        <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
-                        <div class="bar"><span>~/awards/2026-aljazira.log</span><span class="tag-new">new</span></div>
-                        <div class="photo-ascii" data-src="img/journey/journey-09.jpg" data-focus="0.5,0.6" tabindex="0" role="button" data-i-aria="hl1.aria" aria-label="Show photo">
-                            <canvas aria-hidden="true"></canvas>
-                            <img src="img/journey/journey-09.jpg" alt="Team holding the 3rd place cheque — Mubtakaroon FinTech Hackathon, Bank AlJazira 2026" loading="lazy" />
-                            <span class="hint" data-i="hl.hint">hover · tap → photo</span>
-                        </div>
-                        <div class="hl-body">
-                            <span class="badge bronze" data-i="hl1.badge">3rd place · 2026</span>
-                            <h3 data-i="hl1.title">Mubtakaroon FinTech Hackathon</h3>
-                            <p class="org" data-i="hl1.org">Bank AlJazira Innovation Program · 11th edition</p>
-                            <p class="chips"><span>FinTech</span><span>SAR 30,000</span><span data-i="hl1.team">team</span></p>
-                        </div>
-                    </article>
-
-                    <article class="card hl frame">
-                        <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
-                        <div class="bar"><span>~/honors/employee-of-the-year</span><span class="tag-new">2×</span></div>
-                        <div class="honor-art">
-                            <pre class="bin" data-text="2x" data-px="3" aria-hidden="true"></pre>
-                            <div class="qline" aria-label="Q4 2025 → Q1 2026">
-                                <span class="q">✓ Q4·2025</span><span class="rail" aria-hidden="true"></span><span class="q">✓ Q1·2026</span>
-                            </div>
-                        </div>
-                        <div class="hl-body">
-                            <span class="badge" data-i="hl2.badge">twice in a row · 2025—2026</span>
-                            <h3 data-i="hl2.title">Employee of the Year</h3>
-                            <p class="org">MDS for Computer Systems (MDS CS)</p>
-                            <p class="chips"><span>Q4 2025</span><span>Q1 2026</span></p>
-                        </div>
-                    </article>
-                </div>
-            </div>
+        <section class="block" aria-labelledby="l-shipped">
+            <h2 class="label" id="l-shipped"><span class="n">02</span><span data-i="l.shipped">Shipped</span></h2>
+            <ul class="rows" id="shipped"></ul>
         </section>
 
-        <!-- 02 SHIPPED -->
-        <section class="sec" id="shipped">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">02</span><h2 data-i="sec.shipped" data-scramble>shipped</h2><span class="rule"></span></header>
-                <p class="cmd sub"><span class="pr">$</span> curl -I --live ./products</p>
-                <div class="shipped" id="shipped-grid"></div>
-            </div>
+        <section class="block" aria-labelledby="l-work">
+            <h2 class="label" id="l-work"><span class="n">03</span><span data-i="l.work">Work</span></h2>
+            <ul class="rows" id="work"></ul>
         </section>
 
-        <!-- 03 WORK -->
-        <section class="sec" id="work">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">03</span><h2 data-i="sec.work" data-scramble>work</h2><span class="rule"></span></header>
-                <p class="cmd sub"><span class="pr">$</span> git log --career --graph</p>
-                <ol class="gitlog" id="gitlog"></ol>
-            </div>
+        <section class="block" aria-labelledby="l-projects">
+            <h2 class="label" id="l-projects"><span class="n">04</span><span data-i="l.projects">Projects</span></h2>
+            <ul class="rows" id="projects"></ul>
+            <h3 class="sublabel" data-i="l.more">Also built</h3>
+            <p class="inline-list" id="more"></p>
         </section>
 
-        <!-- 04 PROJECTS -->
-        <section class="sec" id="projects">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">04</span><h2 data-i="sec.projects" data-scramble>projects</h2><span class="rule"></span></header>
-                <div class="projects" id="projects-grid"></div>
-                <p class="cmd sub"><span class="pr">$</span> ls ./more</p>
-                <ul class="ls" id="more-list"></ul>
-            </div>
+        <section class="block" aria-labelledby="l-awards">
+            <h2 class="label" id="l-awards"><span class="n">05</span><span data-i="l.awards">Awards</span></h2>
+            <ul class="rows" id="awards"></ul>
+            <h3 class="sublabel" data-i="certs">Certified by</h3>
+            <p class="inline-list" id="certs"></p>
         </section>
 
-        <!-- 05 AWARDS -->
-        <section class="sec" id="awards">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">05</span><h2 data-i="sec.awards" data-scramble>awards</h2><span class="rule"></span></header>
-                <div class="table-wrap frame">
-                    <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
-                    <table class="atable">
-                        <thead><tr><th data-i="aw.rank">rank</th><th data-i="aw.event">event</th><th data-i="aw.year">year</th></tr></thead>
-                        <tbody id="awards-body"></tbody>
-                    </table>
-                </div>
-                <p class="cmd sub"><span class="pr">$</span> cat certs.txt</p>
-                <ul class="certs" id="certs"></ul>
-            </div>
+        <section class="block" aria-labelledby="l-community">
+            <h2 class="label" id="l-community"><span class="n">06</span><span data-i="l.community">Community</span></h2>
+            <p class="prose" data-i="community"></p>
+            <ul class="rows" id="vol"></ul>
+            <div class="videos" id="videos"></div>
+            <a class="more-link" href="https://www.youtube.com/@Hai3" target="_blank" rel="noopener"><span data-i="yt">YouTube channel</span> ↗</a>
         </section>
 
-        <!-- 06 STACK -->
-        <section class="sec" id="stack">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">06</span><h2 data-i="sec.stack" data-scramble>stack</h2><span class="rule"></span></header>
-                <div class="code frame">
-                    <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
-                    <div class="bar"><span>~/stack.json</span><span>utf-8 · json</span></div>
-                    <pre id="stack-json" dir="ltr"></pre>
-                </div>
-            </div>
+        <section class="block" aria-labelledby="l-moments">
+            <h2 class="label" id="l-moments"><span class="n">07</span><span data-i="l.moments">Moments</span></h2>
+            <div class="moments" id="moments"></div>
         </section>
 
-        <!-- 07 TALKS & COMMUNITY -->
-        <section class="sec" id="talks">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">07</span><h2 data-i="sec.talks" data-scramble>talks &amp; community</h2><span class="rule"></span></header>
-                <div class="talks-top">
-                    <div class="kpi"><b>860+</b><span data-i="talks.hours">volunteer hours</span></div>
-                    <div class="kpi"><b>3,000+</b><span data-i="talks.students">students trained / year</span></div>
-                    <div class="kpi"><b>156K+</b><span data-i="talks.views">YouTube views</span></div>
-                </div>
-                <div class="rail-head">
-                    <p class="cmd sub"><span class="pr">$</span> youtube --channel @Hai3</p>
-                    <a class="link" href="https://www.youtube.com/@Hai3" target="_blank" rel="noopener" data-i="talks.channel">open channel →</a>
-                </div>
-                <div class="videos" id="videos" tabindex="0" aria-label="Videos"></div>
-
-                <div class="two">
-                    <div>
-                        <p class="cmd sub"><span class="pr">$</span> ls ./courses</p>
-                        <ul class="ls" id="courses"></ul>
-                    </div>
-                    <div>
-                        <p class="cmd sub"><span class="pr">$</span> du -h ./volunteering</p>
-                        <ul class="vol" id="vol"></ul>
-                    </div>
-                </div>
-
-                <p class="cmd sub"><span class="pr">$</span> tail -f feedback.log</p>
-            </div>
-            <div class="quotes" aria-label="Testimonials"><div class="quotes-track" id="quotes"></div></div>
+        <section class="block" aria-labelledby="l-stack">
+            <h2 class="label" id="l-stack"><span class="n">08</span><span data-i="l.stack">Stack</span></h2>
+            <dl class="stack" id="stack" dir="ltr"></dl>
         </section>
 
-        <!-- 08 GALLERY -->
-        <section class="sec" id="gallery">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">08</span><h2 data-i="sec.gallery" data-scramble>gallery</h2><span class="rule"></span></header>
-                <div class="gallery" id="gallery-grid"></div>
-            </div>
+        <section class="block contact" aria-labelledby="l-contact">
+            <h2 class="label" id="l-contact"><span class="n">09</span><span data-i="l.contact">Contact</span></h2>
+            <p class="prose" data-i="contact"></p>
+            <p class="mail-line"><a class="mail" href="mailto:info@haithamhattan.sa">info@haithamhattan.sa</a><button class="copy" id="copy" data-i="copy">copy</button></p>
+            <p class="phone" dir="ltr"><a href="https://wa.me/966537430772" target="_blank" rel="noopener">+966 53 743 0772</a></p>
         </section>
 
-        <!-- 09 CONTACT -->
-        <section class="sec contact" id="contact">
-            <div class="wrap">
-                <header class="sec-h"><span class="num">09</span><h2 data-i="sec.contact" data-scramble>contact</h2><span class="rule"></span></header>
-                <p class="cmd sub"><span class="pr">$</span> mail -s "hello" </p>
-                <a class="mail" href="mailto:info@haithamhattan.sa" id="mail" data-scramble-hover>info@haithamhattan.sa</a>
-                <p class="contact-note" data-i="contact.note">Open to AI engineering roles, consulting and collaboration. I reply within 24h.</p>
-                <div class="cta">
-                    <button class="btn primary" id="copy-mail"><span class="br">[</span><span data-i="contact.copy">copy_email</span><span class="br">]</span></button>
-                    <a class="btn" href="https://wa.me/966537430772" target="_blank" rel="noopener"><span class="br">[</span>whatsapp<span class="br">]</span></a>
-                    <a class="btn" href="https://www.linkedin.com/in/haithamhattan/" target="_blank" rel="noopener"><span class="br">[</span>linkedin<span class="br">]</span></a>
-                    <a class="btn" href="img/CV_HaithamHattan_ATS.pdf" download><span class="br">[</span><span data-i="cta.cv">download_cv</span><span class="br">]</span></a>
-                </div>
-                <p class="meta center"><span>+966 53 743 0772</span><span class="sep">//</span><span data-i="hero.loc">Riyadh, Saudi Arabia</span></p>
-            </div>
-        </section>
+        <footer class="foot">
+            <pre class="sig" aria-hidden="true" id="sig"></pre>
+            <p><span>© <span id="year">2026</span> Haitham Hattan</span><span>haithamhattan.sa</span></p>
+        </footer>
     </main>
 
-    <footer class="foot">
-        <div class="wrap">
-            <pre class="bin sig" data-text="HAITHAM HATTAN" data-px="2" aria-hidden="true"></pre>
-            <p>© <span id="year">2026</span> Haitham Hattan <span class="sep">//</span> <span data-i="foot.made">hand-built · no frameworks</span></p>
-        </div>
-    </footer>
+    <div class="preview" id="preview" aria-hidden="true"><img alt="" /></div>
+    <div class="lightbox" id="lightbox" hidden><figure><img alt="" /><figcaption></figcaption></figure></div>
 
-    <!-- command palette -->
-    <div class="cmdk" id="cmdk" hidden>
-        <div class="cmdk-box frame" role="dialog" aria-modal="true" aria-label="Command menu">
-            <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
-            <label class="cmdk-in"><span class="pr">&gt;</span><input id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="type a command…" data-i-ph="cmd.ph" /></label>
-            <ul id="cmdk-list" role="listbox"></ul>
-            <p class="cmdk-help"><span>↑↓</span> <span data-i="cmd.nav">navigate</span> <span>↵</span> <span data-i="cmd.run">run</span> <span>esc</span> <span data-i="cmd.close">close</span></p>
-        </div>
-    </div>
-
-    <!-- lightbox -->
-    <div class="lightbox" id="lightbox" hidden>
-        <button class="tool lb-close" id="lb-close" aria-label="Close">×</button>
-        <figure><img id="lb-img" alt="" /><figcaption id="lb-cap"></figcaption></figure>
-    </div>
-
-    <button class="to-top tool" id="to-top" aria-label="Back to top">↑</button>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-    <noscript><style>.boot{display:none}</style><p class="wrap">Haitham Hattan — AI Engineer &amp; Full-Stack Software Engineer · info@haithamhattan.sa</p></noscript>
-
-    <script src="js/content.js?v=23"></script>
-    <script src="js/ascii.js?v=23"></script>
-    <script src="js/app.js?v=23"></script>
+    <script src="js/content.js?v=33"></script>
+    <script src="js/eyes-data.js?v=33"></script>
+    <script src="js/ascii.js?v=33"></script>
+    <script src="js/app.js?v=33"></script>
 </body>
 
 </html>
