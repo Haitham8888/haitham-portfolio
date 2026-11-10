@@ -84,14 +84,13 @@
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++, k++) {
           var L = lum[y * cols + x];
-          var v = dk ? Math.pow(L, 1.5) : Math.pow(Math.max(0, Math.min(1, (0.72 - L) / 0.72)), 1.1);
+          var v = dk ? Math.pow(L, 1.3) : Math.pow(Math.max(0, Math.min(1, (0.72 - L) / 0.72)), 1.1);
           var nx = (x / cols - 0.5) / 0.075, ny = y / rows;
           if (nx > -1 && nx < 1 && ny > 0.62) v *= 1 - (1 - nx * nx) * Math.min(1, (ny - 0.62) / 0.3) * 0.55;
-          if (v < 0.035 && !(dk && L > 0.08 && L < 0.4)) continue;
+          if (v < 0.035 && !dk) continue;
           var a = dk ? 0.05 + 0.95 * Math.pow(v, 1.15) : 0.05 + 0.95 * v, col = base, mixB = 0;
-          // brows and lashes: their own dim grey texture on black (pupils stay dark so the eyes keep depth)
-          var hair = dk && L > 0.08 && L < 0.4;
-          if (hair) { var th = (0.4 - L) / 0.32; a = Math.max(a, 0.1 + 0.16 * Math.min(1, th)); col = [150, 156, 166]; }
+          // no black holes: every part of the image keeps a light, readable layer of characters
+          if (dk) a = Math.max(a, 0.15);
           var db = Math.abs(x - beamX);
           if (db < BW) mixB = (1 - db / BW) * 0.85;
           if (glow > 0.01) {
