@@ -33,9 +33,24 @@
     return cells;
   }
 
+  // bounding box of the visible part of a logo (ignores transparent / white padding)
+  function inkBox(img, skipWhite) {
+    var W = img.naturalWidth || 200, H = img.naturalHeight || 200, k = 320 / Math.max(W, H);
+    var w = Math.max(1, Math.round(W * k)), h = Math.max(1, Math.round(H * k));
+    var c = document.createElement('canvas'); c.width = w; c.height = h;
+    var x = c.getContext('2d', { willReadFrequently: true }); x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, w, h);
+    var d = x.getImageData(0, 0, w, h).data, x0 = w, y0 = h, x1 = -1, y1 = -1;
+    for (var yy = 0; yy < h; yy++) for (var xx = 0; xx < w; xx++) {
+      var p = (yy * w + xx) * 4; if (d[p + 3] < 60) continue;
+      if (skipWhite && d[p] > 235 && d[p + 1] > 235 && d[p + 2] > 235) continue;
+      if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (yy < y0) y0 = yy; if (yy > y1) y1 = yy;
+    }
+    if (x1 < 0) return { c: c, x: 0, y: 0, w: w, h: h };
+    return { c: c, x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 }; // drawn from the raster (SVG source-rect crops are unreliable)
+  }
   function Tile(el, opts) {
     var self = this;
-    this.el = el; this.o = opts; this.size = opts.size || 44; this.n = Math.max(opts.cols || 14, Math.round(this.size / 2.3));
+    this.el = el; this.o = opts; this.size = opts.size || 44; this.n = Math.max(opts.cols || 14, Math.round(this.size / (opts.src ? 2 : 2.3)));
     if (opts.href) el.setAttribute('data-href', opts.href);
     this.hot = false; this.scr = 0; this.dx = 0; this.dy = 0; this.vx = 0; this.vy = 0; this.mode = 'rest';
     var cv = document.createElement('canvas'); cv.className = 'glyph-cv';
@@ -58,9 +73,11 @@
     } else if (opts.src) {
       var img = new Image();
       img.onload = function () {
+        var bb = inkBox(img, !self.o.keepWhite);
         self.cells = sample(function (x, n) {
-          var r = Math.min(n / img.naturalWidth, n / img.naturalHeight), iw = img.naturalWidth * r, ih = img.naturalHeight * r;
-          x.drawImage(img, (n - iw) / 2, (n - ih) / 2, iw, ih);
+          var m = n * 0.04, box = n - m * 2, r = Math.min(box / bb.w, box / bb.h), iw = bb.w * r, ih = bb.h * r;
+          x.imageSmoothingQuality = 'high';
+          x.drawImage(bb.c, bb.x, bb.y, bb.w, bb.h, (n - iw) / 2, (n - ih) / 2, iw, ih);
         }, self.n, { skipWhite: !self.o.keepWhite });
         self.paint(performance.now());
       };

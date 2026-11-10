@@ -27,7 +27,7 @@
     $('#work').innerHTML = S.work.map(function (w, i) {
       return '<li class="row x' + (i === 0 ? ' open' : '') + '"' + ((w.url || orgUrl(w.org)) ? ' data-href="' + (w.url || orgUrl(w.org)) + '"' : '') + ' tabindex="0" role="button" aria-expanded="' + (i === 0) + '">' +
         '<span class="glyph" data-k="work-' + i + '"></span>' +
-        '<div class="row-main"><span class="t"><span class="tx">' + esc(t(w.role)) + '</span><span class="plus" aria-hidden="true">+</span></span><span class="d">' + esc(w.org) + '</span></div>' +
+        '<div class="row-main"><span class="t"><span class="tx">' + esc(t(w.role)) + '</span><span class="plus" aria-hidden="true">+</span></span><span class="d">' + esc(w.org) + '</span>' + (w.path ? '<span class="path" dir="auto">' + esc(t(w.path)) + '</span>' : '') + '</div>' +
         '<span class="m">' + esc(t(w.period).replace(/ — /, '–')) + '</span>' +
         '<div class="more"><div><ul>' + t(w.pts).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></div></div></li>';
     }).join('');
@@ -57,7 +57,15 @@
       return '<span class="tile" data-k="org-' + i + '"><span class="tile-n">' + esc(o.n) + '</span></span>';
     }).join('');
     $('#videos').innerHTML = S.videos.map(function (v) {
-      return '<a class="vid" href="https://youtu.be/' + v.id + '" target="_blank" rel="noopener"><img src="' + v.img + '" alt="" loading="lazy" width="320" height="180" /><span>' + esc(t(v.t)) + '</span></a>';
+      return '<a class="vid" href="https://youtu.be/' + v.id + '" target="_blank" rel="noopener"><span class="vid-th"><img src="' + v.img + '" alt="" loading="lazy" width="320" height="180" />' + (v.views ? '<b class="vid-v">' + fmtViews(v.views) + ' ' + esc(u('views')) + '</b>' : '') + '</span><span>' + esc(t(v.t)) + '</span></a>';
+    }).join('');
+    $('#voice-stats').innerHTML = S.voices.map(function (v) { return '<div><dt>' + esc(v.v) + '</dt><dd>' + esc(t(v.l)) + '</dd></div>'; }).join('');
+    $('#quotes').innerHTML = S.quotes.map(function (q) {
+      return '<figure class="quote"><span class="q-mark" aria-hidden="true">&gt;_</span><blockquote>' + esc(t(q.q)) + '</blockquote><figcaption><b>' + esc(q.who) + '</b><span>' + esc(t(q.at)) + '</span></figcaption></figure>';
+    }).join('');
+    $('#lab').innerHTML = S.lab.map(function (m, i) {
+      return '<li class="row link" data-href="' + m.url + '"><a class="cover" href="' + m.url + '" target="_blank" rel="noopener" aria-label="' + esc(m.n) + '"></a><span class="glyph" data-k="lab-' + i + '"></span>' +
+        '<div class="row-main"><span class="t"><span class="tx">' + esc(m.n) + '</span><span class="by">' + esc(m.by) + '</span>' + ARROW + '</span><span class="d">' + esc(t(m.d)) + '</span></div><span class="m">' + esc(m.tag) + '</span></li>';
     }).join('');
 
     $('#moments').innerHTML = S.gallery.slice(0, 9).map(function (g, i) {
@@ -110,17 +118,51 @@
   ];
   Object.assign(TECH_URL, { openai: 'https://openai.com/', langchain: 'https://www.langchain.com/', milvus: 'https://milvus.io/', onnx: 'https://onnx.ai/', opencv: 'https://opencv.org/', cplusplus: 'https://isocpp.org/', c: 'https://en.cppreference.com/w/c', openjdk: 'https://openjdk.org/', kotlin: 'https://kotlinlang.org/', swift: 'https://www.swift.org/', dart: 'https://dart.dev/', typescript: 'https://www.typescriptlang.org/', javascript: 'https://developer.mozilla.org/docs/Web/JavaScript', php: 'https://www.php.net/', gnubash: 'https://www.gnu.org/software/bash/', html5: 'https://developer.mozilla.org/docs/Web/HTML', css3: 'https://developer.mozilla.org/docs/Web/CSS', sass: 'https://sass-lang.com/', fastapi: 'https://fastapi.tiangolo.com/', springboot: 'https://spring.io/projects/spring-boot', nodedotjs: 'https://nodejs.org/', bun: 'https://bun.sh/', postgresql: 'https://www.postgresql.org/', mysql: 'https://www.mysql.com/', mongodb: 'https://www.mongodb.com/', sqlite: 'https://www.sqlite.org/', firebase: 'https://firebase.google.com/', hcl: 'https://www.hcl-software.com/dx', esri: 'https://www.esri.com/', flutter: 'https://flutter.dev/', solid: 'https://www.solidjs.com/', vite: 'https://vite.dev/', figma: 'https://www.figma.com/', podman: 'https://podman.io/', helm: 'https://helm.sh/', git: 'https://git-scm.com/', github: 'https://github.com/haitham8888', githubcopilot: 'https://github.com/features/copilot', postman: 'https://www.postman.com/', cmake: 'https://cmake.org/', kalilinux: 'https://www.kali.org/', wireshark: 'https://www.wireshark.org/', burpsuite: 'https://portswigger.net/burp', owasp: 'https://owasp.org/', metasploit: 'https://www.metasploit.com/' });
   var TECH = ['nvidia', 'redhat', 'linux', 'pytorch', 'huggingface', 'kubernetes', 'docker', 'python', 'rust'];
+  function fmtViews(n) { return n >= 1000 ? (Math.round(n / 100) / 10) + 'K' : String(n); }
+  var LAB = {
+    allam: { src: 'img/logos/allam.webp' }, deepseek: { src: 'img/logos/deepseek.webp' }, qwen: { src: 'img/logos/qwen.webp' }, glm: { src: 'img/logos/glm.webp', keepWhite: true },
+    paddle: { src: 'img/logos/paddle-mark.webp' }, baidu: { src: 'img/logos/baidu.webp' }, face: { text: '\u25c9', color: '#67e8f9' }, rag: { icon: 'milvus' }, sql: { text: 'SQL', color: '#7dd3fc' },
+    pi: { text: '\u03c0', color: '#f5f5f5' }, opencode: { text: '{ }', color: '#a3e635' }, mcp: { text: 'MCP', color: '#4ade80' }, claude: { text: '>_', color: '#e8a17a' }
+  };
+  var ROW = 52;
+  // Maysour mark redrawn as vectors: four leaves fanning up-left, light to deep green, with clean gaps
+  function drawMaysour(x, n) {
+    var L = [
+      { lx: 0.46, ty: 0.02, c: '#4f7a22' }, { lx: 0.30, ty: 0.15, c: '#64922b' },
+      { lx: 0.14, ty: 0.36, c: '#7aab33' }, { lx: 0.02, ty: 0.62, c: '#9cc93f' }
+    ];
+    x.save(); x.scale(n, n);
+    L.forEach(function (l) {
+      x.beginPath();
+      x.moveTo(l.lx, l.ty + 0.36 * (1 - l.ty) );
+      x.quadraticCurveTo(l.lx - 0.01, l.ty + 0.02, l.lx + 0.06, l.ty);
+      x.quadraticCurveTo(l.lx + 0.42, l.ty + 0.10, 0.98, 0.80);
+      x.quadraticCurveTo(1.0, 0.95, 0.88, 0.98);
+      x.lineTo(l.lx + 0.10, 0.98 - (1 - l.ty) * 0.02);
+      x.quadraticCurveTo(l.lx, 0.98, l.lx, l.ty + 0.36 * (1 - l.ty));
+      x.closePath();
+      x.globalCompositeOperation = 'destination-out'; x.lineWidth = 0.06; x.stroke();
+      x.globalCompositeOperation = 'source-over'; x.fillStyle = l.c; x.fill();
+    });
+    x.restore();
+  }
   function glyphs() {
     var G = window.GLYPH; if (!G) return;
-    S.shipped.forEach(function (p, i) { var el = document.querySelector('[data-k="ship-' + i + '"]'); if (el) G.tile(el, { src: LOGOS[p.name], size: 48, cols: 18, hover: el.closest('.row') }); });
-    S.projects.forEach(function (p, i) { var el = document.querySelector('[data-k="proj-' + i + '"]'); if (el) G.tile(el, { text: p.name.charAt(0), color: PROJ_COLORS[i % PROJ_COLORS.length], size: 40, cols: 14, hover: el.closest('.row') }); });
+    S.shipped.forEach(function (p, i) { var el = document.querySelector('[data-k="ship-' + i + '"]'); if (el) G.tile(el, p.name === 'Maysour' ? { draw: drawMaysour, size: ROW, hover: el.closest('.row') } : { src: LOGOS[p.name], size: ROW, hover: el.closest('.row') }); });
+    S.projects.forEach(function (p, i) { var el = document.querySelector('[data-k="proj-' + i + '"]'); if (el) G.tile(el, { text: p.name.charAt(0), color: PROJ_COLORS[i % PROJ_COLORS.length], size: ROW, hover: el.closest('.row') }); });
     S.more.forEach(function (m, i) {
       var el = document.querySelector('[data-k="more-' + i + '"]'); if (!el) return;
-      G.tile(el, MORE_LOGOS[m.name] ? { src: MORE_LOGOS[m.name], size: 46, throwable: true, bounds: '.block', href: m.url || undefined } : { text: m.name.charAt(0), color: '#a5b4fc', size: 46, throwable: true, bounds: '.block', href: m.url || undefined });
+      G.tile(el, MORE_LOGOS[m.name] ? { src: MORE_LOGOS[m.name], size: 50, throwable: true, bounds: '.block', href: m.url || undefined } : { text: m.name.charAt(0), color: '#a5b4fc', size: 50, throwable: true, bounds: '.block', href: m.url || undefined });
     });
-    S.work.forEach(function (w, i) { var el = document.querySelector('[data-k="work-' + i + '"]'); if (el && w.logo) G.tile(el, Object.assign(orgLogo(w.logo), { size: 44, hover: el.closest('.row') })); });
-    S.vol.forEach(function (v, i) { var el = document.querySelector('[data-k="vol-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(v.logo), { size: 40, hover: el.closest('.row') })); });
-    S.orgs.forEach(function (o, i) { var el = document.querySelector('[data-k="org-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(o.k), { size: 46, throwable: true, bounds: '.block', href: o.url })); });
+    S.lab.forEach(function (m, i) {
+      var el = document.querySelector('[data-k="lab-' + i + '"]'); if (!el) return;
+      var o = Object.assign({}, LAB[m.k] || { text: m.n.charAt(0) });
+      if (o.icon) o.icon = window.ICONS[o.icon];
+      G.tile(el, Object.assign(o, { size: ROW, hover: el.closest('.row') }));
+    });
+    S.work.forEach(function (w, i) { var el = document.querySelector('[data-k="work-' + i + '"]'); if (el && w.logo) G.tile(el, Object.assign(orgLogo(w.logo), { size: ROW, hover: el.closest('.row') })); });
+    S.vol.forEach(function (v, i) { var el = document.querySelector('[data-k="vol-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(v.logo), { size: ROW, hover: el.closest('.row') })); });
+    S.orgs.forEach(function (o, i) { var el = document.querySelector('[data-k="org-' + i + '"]'); if (el) G.tile(el, Object.assign(orgLogo(o.k), { size: 50, throwable: true, bounds: '.block', href: o.url })); });
     TECH_GROUPS.forEach(function (g) { g[1].forEach(function (k) { var el = document.querySelector('[data-k="tech-' + k + '"]'); if (el && window.ICONS[k]) G.tile(el, { icon: window.ICONS[k], size: 36, throwable: true, bounds: '.block', href: TECH_URL[k] }); }); });
   }
   // organisation marks — real colours, ASCII-rendered
@@ -249,7 +291,7 @@
   observe();
   var eyesCtl = A.eyes($('#eyes'));
   if (lang !== 'ar') { $('#name')._busy = true; A.scramble($('#name'), u('name'), 1000); setTimeout(function () { $('#name')._busy = false; }, 1100); }
-  A.banner($('#sig'), 'AL-HAITHAM HATTAN');
+  A.banner($('#sig'), 'AL-HAITHAM');
   $('#year').textContent = new Date().getFullYear();
 
   $$('.controls [data-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
