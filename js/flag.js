@@ -17,7 +17,7 @@
   var NT = 4, GREENS = [[10, 96, 52], [18, 128, 70], [34, 168, 96], [74, 214, 136]];
   var green = [], shahada = null, noise = [], sword = null, swordX0 = 0, swordX1 = 1;
   var cols = 0, rows = 0, cw = 0, ch = 0, fw = 0, fh = 0, fs = 10, W = 0, H = 0, poleW = 0, top = 0, dpr = 1, visible = false;
-  var born = -1, glints = [], dust = [], bits = [], sparks = [];
+  var born = -1, glints = [], dust = [], bits = [], sparks = [], notes = [];
 
   function layer() {
     var c = document.createElement('canvas'); c.width = Math.ceil(fw * dpr); c.height = Math.ceil(fh * dpr);
@@ -168,6 +168,14 @@
       ctx.globalAlpha = a2; ctx.fillText('+', gx, gy); ctx.globalAlpha = a2 * 0.55;
       for (var k = 1; k <= nn; k++) { ctx.fillText('-', gx - k * sx, gy); ctx.fillText('-', gx + k * sx, gy); ctx.fillText('|', gx, gy - k * sy); ctx.fillText('|', gx, gy + k * sy); }
     }
+    if (playing && Math.random() < dt * 3) notes.push({ x: ox + Math.random() * fw, y: top + fh * (0.2 + Math.random() * 0.6), vx: (Math.random() - 0.5) * 10, vy: -18 - Math.random() * 16, life: 0, max: 2.2 + Math.random(), ch: Math.random() < 0.5 ? '♪' : '♫' });
+    ctx.font = '700 ' + Math.max(12, fs * 2.2).toFixed(1) + 'px ' + MONO;
+    for (var nI = notes.length - 1; nI >= 0; nI--) {
+      var no = notes[nI]; no.life += dt; no.x += no.vx * dt; no.y += no.vy * dt;
+      if (no.life > no.max) { notes.splice(nI, 1); continue; }
+      ctx.globalAlpha = Math.sin(Math.PI * no.life / no.max) * 0.9; ctx.fillStyle = dk ? '#ffffff' : '#14532d';
+      ctx.fillText(no.ch, no.x, no.y);
+    }
     ctx.font = '700 10px ' + MONO;
     for (var b = bits.length - 1; b >= 0; b--) {
       var q = bits[b]; q.life += dt; q.x += q.vx * dt; q.y += q.vy * dt;
@@ -193,7 +201,21 @@
     if (visible) kick();
   }, { threshold: 0.35 }).observe(fig);
   else { visible = true; born = performance.now(); }
-  fig.addEventListener('click', replay);
+  // click: the national anthem (US Navy Band recording, public domain) plays while the flag is born again; click again to stop
+  var anthem = null, playing = false;
+  function toggleAnthem() {
+    if (!anthem) {
+      anthem = new Audio('audio/saudi-anthem.mp3'); anthem.preload = 'auto';
+      anthem.addEventListener('ended', function () { playing = false; fig.classList.remove('playing'); });
+    }
+    if (anthem.paused) {
+      anthem.currentTime = 0;
+      var pr = anthem.play(); if (pr && pr.catch) pr.catch(function () { playing = false; fig.classList.remove('playing'); });
+      playing = true; fig.classList.add('playing'); replay();
+    } else { anthem.pause(); playing = false; fig.classList.remove('playing'); }
+  }
+  fig.addEventListener('click', toggleAnthem);
+  fig.setAttribute('title', 'Click to play the national anthem');
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(build, 150); });
   function start() { build(); kick(); }
   if (src.complete && src.naturalWidth) start(); else src.onload = start;
