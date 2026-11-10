@@ -41,7 +41,7 @@
   var bubble = layer.querySelector('.sh-bubble'), btext = bubble.querySelector('.sh-t'), hit = layer.querySelector('.sh-hit');
 
   // sprite sheet: 8 x 9 frames of 96 x 104
-  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=71';
+  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=73';
   var FW = 96, FHH = 104;
   var AN = {
     idle: { r: 0, n: 6, fps: 5 }, runR: { r: 1, n: 8, fps: 9 }, runL: { r: 2, n: 8, fps: 9 }, wave: { r: 3, n: 4, fps: 7 },
@@ -340,7 +340,7 @@
       var gi = Math.round(dens * (RAMP.length - 1)) - (((x * 7 + y * 13) % 3) === 0 ? 1 : 0);
       ctx.globalAlpha = Math.min(1, (al / 255) * 1.15);
       // his gold glasses keep their own bright metal colour and a solid glyph
-      if (r > 150 && g > 110 && b < g * 0.72 && r - b > 80) { ctx.fillStyle = dk ? GOLD_D : GOLD_L; ctx.globalAlpha = 1; ctx.fillText(((x + y) & 1) ? '#' : '@', ox + x * cp, oy + y * cp); continue; }
+      if (r > 140 && g > 100 && b < g * 0.64 && r - b > 80) { ctx.fillStyle = dk ? GOLD_D : GOLD_L; ctx.globalAlpha = 1; ctx.fillText(((x + y) & 1) ? '#' : '@', ox + x * cp, oy + y * cp); continue; }
       ctx.fillStyle = colour(r, g, b, dk);
       var gch = RAMP[clamp(gi, 2, RAMP.length - 1)];
       ctx.fillText(gch, ox + x * cp, oy + y * cp);
