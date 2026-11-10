@@ -13,96 +13,99 @@
 
   function eyes(fig) {
     var E = window.EYES, canvas = fig.querySelector('canvas'), ctx = canvas.getContext('2d');
-    var src = new Float32Array(E.c * E.r);
-    for (var s = 0; s < src.length; s++) src[s] = ALPHA.indexOf(E.d[s]) / 63;
-    var lum, cols, rows, cw, ch, w, h, mouse = null, born = 0, visible = true, timer = 0;
+    // only the eyes and brows: crop away the nose and cheeks below, and the empty background at the sides
+    var CX0 = 30, CX1 = 136, CY0 = 1, CY1 = 17, SC = CX1 - CX0, SR = CY1 - CY0;
+    var src = new Float32Array(SC * SR);
+    for (var yy0 = 0; yy0 < SR; yy0++) for (var xx0 = 0; xx0 < SC; xx0++) src[yy0 * SC + xx0] = ALPHA.indexOf(E.d[(yy0 + CY0) * E.c + xx0 + CX0]) / 63;
+    // stretch contrast inside the crop so brows, eyes and the glasses frames read clearly
+    var srt = Array.prototype.slice.call(src).sort(function (p, q) { return p - q; });
+    var lo0 = srt[Math.floor(srt.length * 0.02)], hi0 = srt[Math.floor(srt.length * 0.98)];
+    for (var q0 = 0; q0 < src.length; q0++) src[q0] = Math.max(0, Math.min(1, (src[q0] - lo0) / (hi0 - lo0 || 1)));
+    var lum, cols, rows, cw, ch, w, h, fs, mouse = null, glow = 0, born = 0, seen = false, visible = false, timer = 0;
 
     // box-average the high-res grid down to the size that fits this screen
-    var padL = 0, padT = 0;
     function build() {
       var cs = getComputedStyle(fig);
-      padL = parseFloat(cs.paddingLeft) || 0; padT = parseFloat(cs.paddingTop) || 0;
-      w = fig.clientWidth - padL - (parseFloat(cs.paddingRight) || 0);
-      cols = Math.max(56, Math.min(E.c, Math.round(w / 5.8)));
-      cw = w / cols; var fs = cw / GW; ch = fs * LH;
-      rows = Math.max(1, Math.round(cols * (E.r / E.c)));
+      w = fig.clientWidth - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0);
+      cols = Math.max(70, Math.min(240, Math.round(w / 4.3)));
+      cw = w / cols; fs = cw / GW; ch = fs * LH;
+      rows = Math.max(1, Math.round(cols * (SR / SC) * 1.0));
       h = rows * ch;
-      fig.style.height = (h + padT + (parseFloat(cs.paddingBottom) || 0)) + 'px';
       lum = new Float32Array(cols * rows);
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
-          var x0 = Math.floor(x * E.c / cols), x1 = Math.max(x0 + 1, Math.floor((x + 1) * E.c / cols));
-          var y0 = Math.floor(y * E.r / rows), y1 = Math.max(y0 + 1, Math.floor((y + 1) * E.r / rows));
-          var sum = 0, n = 0;
-          for (var yy = y0; yy < y1; yy++) for (var xx = x0; xx < x1; xx++) { sum += src[yy * E.c + xx]; n++; }
-          lum[y * cols + x] = sum / n;
+          var x0 = Math.floor(x * SC / cols), x1 = Math.max(x0 + 1, Math.floor((x + 1) * SC / cols));
+          var y0 = Math.floor(y * SR / rows), y1 = Math.max(y0 + 1, Math.floor((y + 1) * SR / rows));
+          if (cols <= SC) {
+            var sum = 0, n = 0;
+            for (var yy = y0; yy < y1; yy++) for (var xx = x0; xx < x1; xx++) { sum += src[yy * SC + xx]; n++; }
+            lum[y * cols + x] = sum / n;
+          } else {
+            // finer than the source: smooth bilinear sampling
+            var fx = Math.max(0, Math.min(SC - 1.001, (x + 0.5) * SC / cols - 0.5)), fy = Math.max(0, Math.min(SR - 1.001, (y + 0.5) * SR / rows - 0.5));
+            var ix = Math.floor(fx), iy = Math.floor(fy), tx = fx - ix, ty = fy - iy;
+            var p00 = src[iy * SC + ix], p10 = src[iy * SC + ix + 1], p01 = src[(iy + 1) * SC + ix], p11 = src[(iy + 1) * SC + ix + 1];
+            lum[y * cols + x] = (p00 * (1 - tx) + p10 * tx) * (1 - ty) + (p01 * (1 - tx) + p11 * tx) * ty;
+          }
         }
       }
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.font = '500 ' + fs.toFixed(2) + 'px ' + MONO;
-      ctx.textBaseline = 'top';
       draw(performance.now());
     }
 
     function draw(now) {
-      var dk = true, n = RAMP.length - 1, t = (now - born) / 1000, tick = (now / 90) | 0;
+      var dk = true, n = RAMP.length - 1, t = seen ? (now - born) / 1000 : -1;
       ctx.clearRect(0, 0, w, h);
+      ctx.font = '500 ' + fs.toFixed(2) + 'px ' + MONO;
+      ctx.textBaseline = 'top';
       ctx.fillStyle = '#e9e9e9';
-      var R = 7, mx = mouse ? mouse.x / cw : -99, my = mouse ? mouse.y / ch : -99;
+      var R = 9, mx = mouse ? mouse.x / cw : -99, my = mouse ? mouse.y / ch : -99;
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
           var L = lum[y * cols + x];
-          var v = dk ? Math.pow(L, 1.5) : Math.pow(1 - L, 1.1);
-          var idx = Math.round(v * n);
-          var g = RAMP[idx], a = 0.16 + 0.84 * v;
-          // decode-in from the left on first paint
-          var reveal = (x / cols) * 1.1 + (y / rows) * 0.15;
-          if (!reduce && t < reveal) { if (t < reveal - 0.25) continue; g = (x + y + tick) & 1 ? '1' : '0'; a = 0.5; }
-          // binary lens under the pointer
-          if (mouse) {
-            var dx = x - mx, dy = (y - my) * 1.8, d = Math.sqrt(dx * dx + dy * dy);
-            if (d < R) { g = ((x * 7 + y * 3 + tick) % 3) ? '1' : '0'; a = Math.max(a, 0.35 + 0.65 * (1 - d / R)); }
+          // positive in both themes: light glyphs for light skin on black, dark ink for dark features on white
+          // the original look: the whole image in glyphs (light on black, ink on white)
+          var v = dk ? Math.pow(L, 1.5) : Math.pow(1 - L, 1.15);
+          var a = dk ? 0.16 + 0.84 * v : 0.12 + 0.88 * v;
+          // a soft spotlight follows the cursor
+          if (glow > 0.01) {
+            var dx = x - mx, dy = (y - my) * 1.9, d = Math.sqrt(dx * dx + dy * dy);
+            if (d < R) { var k = (1 - d / R) * glow; v = Math.min(1, v + k * 0.35); a = Math.min(1, a + k * 0.45); }
           }
-          if (idx < 1 && g === RAMP[idx]) continue;
+          var idx = Math.round(v * n);
+          if (idx < 1) continue;
+          // reveal once, left to right, the first time it scrolls into view
+          var reveal = (x / cols) * 1.0 + (y / rows) * 0.12;
+          if (!reduce && t < reveal) { if (t < reveal - 0.22) continue; a *= Math.max(0, 1 - (reveal - t) / 0.22); }
           ctx.globalAlpha = a;
-          ctx.fillText(g, x * cw, y * ch);
+          ctx.fillText(RAMP[idx], x * cw, y * ch);
         }
       }
       ctx.globalAlpha = 1;
     }
 
-    var tc = document.getElementById('vf-tc'), bits = document.getElementById('vf-bits'), focus = document.getElementById('vf-focus');
-    function hud(now) {
-      var s = (now - born) / 1000, f = Math.floor((s % 1) * 24), sec = Math.floor(s);
-      function p2(v) { return (v < 10 ? '0' : '') + v; }
-      if (tc) tc.textContent = p2(Math.floor(sec / 3600)) + ':' + p2(Math.floor(sec / 60) % 60) + ':' + p2(sec % 60) + ':' + p2(f);
-      if (bits) { var b = (sec & 255).toString(2); bits.textContent = '00000000'.slice(b.length) + b + ' ' + ((f * 10) & 255).toString(2).padStart(8, '0'); }
-    }
-    function moveFocus() {
-      if (!focus) return;
-      var fx = mouse ? mouse.x : w * 0.5, fy = mouse ? mouse.y : h * 0.5;
-      focus.style.transform = 'translate(' + (fx + padL - 22).toFixed(0) + 'px,' + (fy + padT - 16).toFixed(0) + 'px)';
-      focus.classList.toggle('lock', !!mouse);
-    }
     function loop() {
-      hud(performance.now()); moveFocus();
-      if (!visible || reduce) { timer = 0; return; }
-      var t = (performance.now() - born) / 1000;
-      draw(performance.now());
-      // fast while decoding or hovering, otherwise a calm idle shimmer
-      timer = setTimeout(loop, t < 1.6 || mouse ? 45 : 120);
+      timer = 0;
+      var now = performance.now(), t = (now - born) / 1000;
+      glow += ((mouse ? 1 : 0) - glow) * 0.25;
+      draw(now);
+      if (!reduce && visible && (t < 1.5 || mouse || glow > 0.02)) timer = setTimeout(loop, 40);
     }
-    function kick() { clearTimeout(timer); timer = 0; loop(); }
+    function kick() { if (!timer) loop(); }
 
     fig.addEventListener('pointermove', function (e) { var r = canvas.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; kick(); });
     fig.addEventListener('pointerleave', function () { mouse = null; kick(); });
-    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) kick(); }).observe(fig);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
+      visible = es[0].isIntersecting;
+      if (visible && !seen) { seen = true; born = performance.now(); }
+      if (visible) kick();
+    }, { threshold: 0.25 }).observe(fig);
+    else { seen = true; visible = true; born = performance.now(); }
 
-    born = performance.now();
-    build(); kick();
+    build();
     var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(build, 150); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
     return { redraw: function () { draw(performance.now()); } };
