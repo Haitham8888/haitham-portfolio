@@ -451,7 +451,4 @@ kbd { display: inline-block; padding: 1px 5px; border: 1px solid var(--line-2); 
 .eyes-show canvas { display: block; width: 100%;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%), linear-gradient(180deg, transparent 0, #000 10%, #000 88%, transparent 100%);
   -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%), linear-gradient(180deg, transparent 0, #000 10%, #000 88%, transparent 100%); mask-composite: intersect; }
-.eyes-cap { margin-top: 14px; font: 400 12px/1.6 var(--mono); color: var(--fg-3); text-align: center; }
-.eyes-cap .pr { color: var(--pr); }
-[lang="ar"] .eyes-cap { font-family: "Cairo", var(--sans); font-size: 13px; }
-@media (max-width: 640px) { .eyes-show { margin-top: 48px; } .eyes-cap { font-size: 11px; } }
+@media (max-width: 640px) { .eyes-show { margin-top: 48px; } }
