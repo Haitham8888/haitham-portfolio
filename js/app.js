@@ -233,6 +233,7 @@
   function bindPreview() {
     $$('[data-preview]').forEach(function (r) {
       r.addEventListener('mouseenter', function (e) {
+        pvImg.style.objectPosition = r.dataset.focus || '';   // a per-photo focal point (faces, not the backdrop)
         pvImg.src = r.dataset.preview; pvOn = true; pv.classList.add('on');
         tx = e.clientX + 24; ty = e.clientY - 90; px = tx; py = ty;
         if (!pvRaf) pvLoop();
