@@ -216,5 +216,50 @@
     el.textContent = rows.join('\n');
   }
 
-  window.ASCII = { eyes: eyes, scramble: scramble, banner: banner };
+  /* photos and video thumbnails in the site's own language: each one is drawn as ASCII (the rose's glyph bands,
+     a whisper of the photo's own colour); hover or focus lifts the veil and shows the real picture. */
+  var PH_GROUPS = [".'`", ",:;", "-~^", "=+<>", "ilr!1", "cvxz7", "tjfJ?", "nuoe23", "sa5S4Z", "kbdpq9X", "AGh6&%", "UOQ0#D", "$8B@MW"], PH = [];
+  function paintPhoto(p) {
+    var img = p.img, cv = p.cv, w = img.clientWidth, h = img.clientHeight;
+    if (!w || !h || !img.naturalWidth) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), cols = Math.max(28, Math.round(w / 4.6)), cw = w / cols, fs = cw / GW, ch = fs * 1.0, rows = Math.max(1, Math.round(h / ch));
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    var x = cv.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // sample the picture exactly as it is shown (object-fit: cover)
+    var t = document.createElement('canvas'); t.width = cols; t.height = rows;
+    var tx = t.getContext('2d', { willReadFrequently: true }), ir = img.naturalWidth / img.naturalHeight, br = w / h, sw, sh, sx, sy;
+    if (ir > br) { sh = img.naturalHeight; sw = sh * br; sx = (img.naturalWidth - sw) / 2; sy = 0; } else { sw = img.naturalWidth; sh = sw / br; sx = 0; sy = (img.naturalHeight - sh) / 2; }
+    try { tx.drawImage(img, sx, sy, sw, sh, 0, 0, cols, rows); var d = tx.getImageData(0, 0, cols, rows).data; } catch (e) { cv.style.display = 'none'; return; }
+    var dk = dark();
+    x.fillStyle = dk ? '#050505' : '#fafafa'; x.fillRect(0, 0, w, h);
+    x.font = '700 ' + fs.toFixed(2) + 'px ' + MONO; x.textBaseline = 'top';
+    var NG = PH_GROUPS.length;
+    for (var y = 0; y < rows; y++) for (var c = 0; c < cols; c++) {
+      var q = (y * cols + c) * 4, r = d[q], g = d[q + 1], b = d[q + 2], L = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      var tone = dk ? Math.pow(L, 1.35) : Math.pow(1 - L, 1.2);
+      if (tone < 0.05) continue;
+      var grp = PH_GROUPS[Math.min(NG - 1, Math.floor(tone * NG))], hh = ((c * 73856093) ^ (y * 19349663)) >>> 0;
+      // mostly the site's ink, with a quarter of the photo's own colour
+      var base = dk ? 215 : 30, k = 0.3, rr = base + (r - base) * k, gg = base + (g - base) * k, bb = base + (b - base) * k;
+      x.globalAlpha = 0.16 + 0.62 * tone;
+      x.fillStyle = 'rgb(' + (rr | 0) + ',' + (gg | 0) + ',' + (bb | 0) + ')';
+      x.fillText(grp[hh % grp.length], c * cw, y * ch);
+    }
+    x.globalAlpha = 1;
+  }
+  function photos(root) {
+    [].forEach.call((root || document).querySelectorAll('.vid-th img, .moments button img'), function (img) {
+      if (img._ascii) return; img._ascii = true;
+      var cv = document.createElement('canvas'); cv.className = 'ph-ascii'; cv.setAttribute('aria-hidden', 'true');
+      img.parentElement.classList.add('ph'); img.parentElement.appendChild(cv);
+      var p = { img: img, cv: cv }; PH.push(p);
+      if (img.complete && img.naturalWidth) paintPhoto(p); else img.addEventListener('load', function () { paintPhoto(p); });
+    });
+    PH = PH.filter(function (p) { return p.img.isConnected; });
+  }
+  function repaintPhotos() { PH.forEach(paintPhoto); }
+  var phT; window.addEventListener('resize', function () { clearTimeout(phT); phT = setTimeout(repaintPhotos, 200); });
+  new MutationObserver(repaintPhotos).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  window.ASCII = { eyes: eyes, scramble: scramble, banner: banner, photos: photos };
 })();

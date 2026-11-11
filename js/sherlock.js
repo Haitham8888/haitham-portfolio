@@ -41,7 +41,7 @@
   var bubble = layer.querySelector('.sh-bubble'), btext = bubble.querySelector('.sh-t'), hit = layer.querySelector('.sh-hit');
 
   // sprite sheet: 8 x 9 frames of 96 x 104
-  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=118';
+  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=125';
   var FW = 96, FHH = 104;
   var AN = {
     idle: { r: 0, n: 6, fps: 5 }, runR: { r: 1, n: 8, fps: 9 }, runL: { r: 2, n: 8, fps: 9 }, wave: { r: 3, n: 4, fps: 7 },
@@ -51,6 +51,7 @@
   var ROWS = 66, COLS = Math.round(ROWS * FW / FHH);
   var off = document.createElement('canvas'); off.width = COLS; off.height = ROWS;
   var o = off.getContext('2d', { willReadFrequently: true });
+  var sil = document.createElement('canvas'); sil.width = COLS; sil.height = ROWS; var sctx = sil.getContext('2d');
 
   var VW = 0, VH = 0, dpr = 1, u = 1, FH = 150, G = 2600;
   function size() {
@@ -323,7 +324,7 @@
     if (posed) { i0 = Math.round(f) % an.n; i1 = i0; ft = 0; }
     // blend only around the middle of each frame: smooth motion, no doubled glasses or limbs
     ft = clamp((ft - 0.38) / 0.24, 0, 1); ft = ft * ft * (3 - 2 * ft);
-    var run = S.anim === 'runR' || S.anim === 'runL', turn = Math.max(0.14, Math.abs(S.sx));
+    var run = S.anim === 'runR' || S.anim === 'runL', turn = Math.max(run ? 0.86 : 0.62, Math.abs(S.sx));   // a soft squeeze on the turn, never a thin line
     var mx = run ? turn : (S.sx < 0 ? -turn : turn) * IDLE_FACING;
     var calm = S.anim === 'idle' || S.anim === 'review' || S.anim === 'think' || S.anim === 'wait';
     var breath = calm ? Math.sin(S.t * 2.2) * 0.008 : 0;
@@ -339,6 +340,12 @@
     }
     var d = o.getImageData(0, 0, COLS, ROWS).data;
     var cp = FH / ROWS, ox = S.x - (COLS / 2) * cp, oy = fy - ROWS * FOOT * cp;
+    // a backing in the shape of his body, so he stays readable over text, photos and other ASCII
+    sctx.globalCompositeOperation = 'source-over'; sctx.clearRect(0, 0, COLS, ROWS); sctx.drawImage(off, 0, 0);
+    sctx.globalCompositeOperation = 'source-in'; sctx.fillStyle = dk ? '#000000' : '#ffffff'; sctx.fillRect(0, 0, COLS, ROWS);
+    ctx.imageSmoothingEnabled = true; ctx.globalAlpha = 0.9;
+    ctx.drawImage(sil, ox - cp * 0.6, oy - cp * 0.6, COLS * cp + cp * 1.2, ROWS * cp + cp * 1.2);
+    ctx.globalAlpha = 1;
     ctx.font = '700 ' + (cp * 1.22).toFixed(2) + 'px ' + MONO;
     for (var y = 0; y < ROWS; y++) for (var x = 0; x < COLS; x++) {
       var q = (y * COLS + x) * 4, al = d[q + 3]; if (al < 34) continue;

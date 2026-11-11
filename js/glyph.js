@@ -65,7 +65,7 @@
       this.cells = sample(function (x, n) { x.scale(n / 24, n / 24); x.fillStyle = '#fff'; x.fill(path); }, this.n, { ink: true, tint: hex(opts.icon.hex) });
       this.paint(performance.now());
     } else if (opts.text) {
-      this.cells = sample(function (x, n) { x.fillStyle = '#fff'; x.font = '800 ' + Math.round(n * 0.92) + 'px ' + MONO; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(opts.text, n / 2, n * 0.56); }, this.n, { ink: true, tint: hex(opts.color || '#4ade80') });
+      this.cells = sample(function (x, n) { x.fillStyle = '#fff'; var tfs = n * 0.92; x.font = '800 ' + tfs + 'px ' + MONO; var tw0 = x.measureText(opts.text).width; if (tw0 > n * 0.94) { tfs *= n * 0.94 / tw0; x.font = '800 ' + tfs + 'px ' + MONO; } x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(opts.text, n / 2, n * 0.54); }, this.n, { ink: true, tint: hex(opts.color || '#4ade80') });
       this.paint(performance.now());
     } else if (opts.draw) {
       this.cells = sample(opts.draw, this.n, {});

@@ -84,6 +84,7 @@
 
     bindRows();
     glyphs();
+    if (A.photos) A.photos();
   }
 
   // ---------- ASCII glyph tiles spread through the page (each in its own colour) ----------
@@ -168,7 +169,7 @@
   // organisation marks — real colours, ASCII-rendered
   function orgLogo(k) {
     var src = { misk: 'img/logos/misk.webp', rcjy: 'img/logos/rcjy.webp', mds: 'img/logos/mds-mark.webp', stc: 'img/logos/stc.webp', ehealth: 'img/logos/ehealth.webp', hrsd: 'img/logos/hrsd.webp', fadatech: 'img/logos/fadatech.webp', attaa: 'img/logos/attaa.webp', jazan: 'img/logos/jazan-university.png' }[k];
-    if (src) return { src: src, keepWhite: k === 'rcjy' };
+    if (src) return { src: src, keepWhite: k === 'rcjy' || k === 'hrsd' };
     if (k === 'hackerrank') return { icon: window.ICONS.hackerrank };
     if (k === 'ms') return { draw: function (x, n) { var g = n * 0.06, q = (n - g * 3) / 2; [['#f25022', 0, 0], ['#7fba00', 1, 0], ['#00a4ef', 0, 1], ['#ffb900', 1, 1]].forEach(function (c) { x.fillStyle = c[0]; x.fillRect(g + c[1] * (q + g), g + c[2] * (q + g), q, q); }); } };
     if (k === 'gdsc') return { draw: function (x, n) {

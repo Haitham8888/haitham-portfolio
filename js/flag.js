@@ -58,14 +58,20 @@
       green.push(L[0]);
     }
     // the Shahada (final) and two scrambled versions for the decode
+    // the emblem is written at twice the grid resolution, so the calligraphy of the Shahada stays crisp
+    var FX = 2, c2 = cols * FX, r2 = rows * FX, m2 = document.createElement('canvas'); m2.width = c2; m2.height = r2;
+    var m2x = m2.getContext('2d', { willReadFrequently: true }); m2x.imageSmoothingQuality = 'high'; m2x.drawImage(src, 0, 0, c2, r2);
+    var d2 = m2x.getImageData(0, 0, c2, r2).data, cwF = cw / FX, chF = ch / FX;
     function whites(rowFrom, rowTo, seed, scramble) {
       var L = layer(), x3 = L[1];
-      x3.fillStyle = x3.strokeStyle = '#ffffff'; x3.lineWidth = cw * 0.14;
-      for (var y3 = rowFrom; y3 < rowTo; y3++) for (var x3i = 0; x3i < cols; x3i++) {
-        var k = y3 * cols + x3i, h3 = hash(x3i, y3, seed);
-        if (!white[k]) continue;
-        var gch = scramble ? ((h3 >> 4) & 1 ? '1' : '0') : ((h3 >> 5) % 100 < 78 ? '0' : '1');
-        x3.strokeText(gch, x3i * cw, y3 * ch); x3.fillText(gch, x3i * cw, y3 * ch);
+      x3.font = '800 ' + (fs / FX).toFixed(2) + 'px ' + MONO;
+      x3.fillStyle = x3.strokeStyle = '#ffffff'; x3.lineWidth = cwF * 0.2;
+      for (var y3 = rowFrom * FX; y3 < rowTo * FX; y3++) for (var x3i = 0; x3i < c2; x3i++) {
+        var p4 = (y3 * c2 + x3i) * 4;
+        if ((d2[p4] + d2[p4 + 1] + d2[p4 + 2]) / 765 <= 0.5) continue;
+        var h3 = hash(x3i, y3, seed);
+        var gch = scramble ? ((h3 >> 4) & 1 ? '1' : '0') : ((h3 >> 5) % 100 < 72 ? '0' : '1');
+        x3.strokeText(gch, x3i * cwF, y3 * chF); x3.fillText(gch, x3i * cwF, y3 * chF);
       }
       return L[0];
     }

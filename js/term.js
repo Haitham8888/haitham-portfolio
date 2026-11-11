@@ -56,6 +56,10 @@
       if (['ar', 'en', 'zh'].indexOf(a[0]) < 0) return print('usage: lang ar | en | zh', 'err');
       window.APP.setLang(a[0]); print('language → <span class="k">' + a[0] + '</span>');
     } },
+    map: { d: 'grow the map of Saudi Arabia', f: function () { var m = document.getElementById('ksa'); if (m) { close(); m.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(function () { window.KSAMAP && window.KSAMAP.replay(); }, 500); } print('13 regions, growing from <span class="k">Jazan</span>…'); } },
+    flag: { d: 'raise the flag again', f: function () { var f = document.getElementById('flag'); if (f) { close(); f.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(function () { window.FLAG && window.FLAG.replay(); }, 500); } print('raising the flag…'); } },
+    anthem: { d: 'play / stop the national anthem', f: function () { var f = document.getElementById('flag'); if (f) { f.click(); print('♪ <span class="k">national anthem</span> — type anthem again to stop'); } } },
+    sherlock: { d: 'ask the detective for a fact', f: function () { if (window.SHERLOCK) { window.SHERLOCK.say(); print('he has something to say — look at the page.'); } } },
     matrix: { d: 'turn the rain up', f: function () { var on = window.FX && window.FX.matrix(); print(on ? 'wake up, neo… <span class="m">(type matrix again to calm it)</span>' : 'rain back to calm.'); } },
     uptime: { d: 'coding since 2014', f: function () { print('up <span class="k">' + uptime() + '</span> — self-taught since Dec 2014'); } },
     date: { d: 'Riyadh time', f: function () { print(new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', dateStyle: 'full', timeStyle: 'medium' }) + ' <span class="m">AST</span>'); } },
