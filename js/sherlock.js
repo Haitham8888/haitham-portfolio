@@ -26,9 +26,9 @@
   function ease(cur, target, rate, dt) { return cur + (target - cur) * (1 - Math.exp(-rate * dt)); }
 
   var DEDUCE = {
-    en: ['Two consecutive recognitions at MDS — Q4 2025 and Q1 2026.', 'Trains and serves his own models on 16+ H100/H200 GPUs.', 'Private AI that runs fully offline, inside the organisation.', 'Self-taught since 2014 — over eleven years of building.', '38,000+ views on his tutorials and bootcamp streams.', 'From Jazan to Riyadh, with Khawlani coffee on the desk.', '3rd place at the Bank AlJazira FinTech hackathon, 2026.', 'Works with ALLaM, Qwen, DeepSeek and GLM, all on-prem.', '54 tools in daily use, from Rust to Kubernetes.', 'Unlimited-OCR, PaddleOCR and Milvus for documents at scale.'],
-    ar: ['تكريمان متتاليان في MDS — الربع الرابع 2025 والربع الأول 2026.', 'يدرّب نماذجه ويشغّلها على أكثر من 16 معالج H100/H200.', 'ذكاء اصطناعي خاص يعمل دون اتصال، داخل الجهة نفسها.', 'تعلّم ذاتي منذ 2014 — أكثر من أحد عشر عاماً من البناء.', 'أكثر من 38 ألف مشاهدة لشروحاته وبثوث معسكراته.', 'من جازان إلى الرياض، والقهوة الخولانية على المكتب.', 'المركز الثالث في هاكاثون بنك الجزيرة للتقنية المالية 2026.', 'يعمل مع علّام وQwen وDeepSeek وGLM، محلياً بالكامل.', '54 أداة يستخدمها يومياً، من Rust إلى Kubernetes.', 'Unlimited-OCR وPaddleOCR وMilvus لمعالجة المستندات على نطاق واسع.'],
-    zh: ['MDS 连续两次表彰——2025 Q4 与 2026 Q1。', '在 16+ 块 H100/H200 GPU 上训练并部署自己的模型。', '完全离线、部署在机构内部的私有 AI。', '2014 年起自学——十一年多的持续构建。', '教程与训练营直播观看量超过 38,000。', '从吉赞到利雅得，桌上是 Khawlani 咖啡。', 'AlJazira 银行金融科技黑客松第三名，2026。', '使用 ALLaM、Qwen、DeepSeek 与 GLM，全部本地部署。', '日常使用 54 种工具，从 Rust 到 Kubernetes。', '用 Unlimited-OCR、PaddleOCR 与 Milvus 大规模处理文档。']
+    en: ['Employee of the Year, twice in a row.', 'Trains and serves his own models on 16+ H100/H200 GPUs.', 'Private AI that runs fully offline, inside the organisation.', 'Self-taught since 2014 — over eleven years of building.', '160,000+ views on his tutorials and bootcamp streams.', 'From Jazan to Riyadh, with Khawlani coffee on the desk.', '3rd place at the Bank AlJazira FinTech hackathon, 2026.', 'Works with ALLaM, Qwen, DeepSeek and GLM, all on-prem.', '54 tools in daily use, from Rust to Kubernetes.', 'Unlimited-OCR, PaddleOCR and Milvus for documents at scale.'],
+    ar: ['موظف العام، مرتين على التوالي.', 'يدرّب نماذجه ويشغّلها على أكثر من 16 معالج H100/H200.', 'ذكاء اصطناعي خاص يعمل دون اتصال، داخل الجهة نفسها.', 'تعلّم ذاتي منذ 2014 — أكثر من أحد عشر عاماً من البناء.', 'أكثر من 160 ألف مشاهدة لشروحاته وبثوث معسكراته.', 'من جازان إلى الرياض، والقهوة الخولانية على المكتب.', 'المركز الثالث في هاكاثون بنك الجزيرة للتقنية المالية 2026.', 'يعمل مع علّام وQwen وDeepSeek وGLM، محلياً بالكامل.', '54 أداة يستخدمها يومياً، من Rust إلى Kubernetes.', 'Unlimited-OCR وPaddleOCR وMilvus لمعالجة المستندات على نطاق واسع.'],
+    zh: ['连续两次获评年度员工。', '在 16+ 块 H100/H200 GPU 上训练并部署自己的模型。', '完全离线、部署在机构内部的私有 AI。', '2014 年起自学——十一年多的持续构建。', '教程与训练营直播观看量超过 160,000。', '从吉赞到利雅得，桌上是 Khawlani 咖啡。', 'AlJazira 银行金融科技黑客松第三名，2026。', '使用 ALLaM、Qwen、DeepSeek 与 GLM，全部本地部署。', '日常使用 54 种工具，从 Rust 到 Kubernetes。', '用 Unlimited-OCR、PaddleOCR 与 Milvus 大规模处理文档。']
   };
 
   // ---------- layer ----------
@@ -41,7 +41,7 @@
   var bubble = layer.querySelector('.sh-bubble'), btext = bubble.querySelector('.sh-t'), hit = layer.querySelector('.sh-hit');
 
   // sprite sheet: 8 x 9 frames of 96 x 104
-  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=128';
+  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=129';
   var FW = 96, FHH = 104;
   var AN = {
     idle: { r: 0, n: 6, fps: 5 }, runR: { r: 1, n: 8, fps: 9 }, runL: { r: 2, n: 8, fps: 9 }, wave: { r: 3, n: 4, fps: 7 },
