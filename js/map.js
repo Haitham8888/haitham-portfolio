@@ -31,9 +31,9 @@
     'SA-14': { n: { en: 'Asir', ar: 'عسير', zh: '阿西尔' }, cap: { en: 'Abha', ar: 'أبها', zh: '艾卜哈' }, cc: [42.50, 18.22] }
   };
   var UI = {
-    en: { cap: 'capital', hint: 'Hover or tap a region · click to pin · click the sea to grow it again', all: 'Kingdom of Saudi Arabia — 13 regions', route: 'Jazan → Riyadh' },
-    ar: { cap: 'العاصمة الإدارية', hint: 'مرّر أو اضغط على منطقة · اضغط للتثبيت · اضغط على البحر لتنمو الخريطة من جديد', all: 'المملكة العربية السعودية — 13 منطقة', route: 'جازان ← الرياض' },
-    zh: { cap: '首府', hint: '悬停或点击某个地区 · 点击可固定 · 点击海面让地图重新生长', all: '沙特阿拉伯王国 — 13 个地区', route: '吉赞 → 利雅得' }
+    en: { son: '♪ sound on', soff: '♪ sound off', isl: 'islands', cap: 'capital', hint: 'Hover or tap a region · click to pin · click the sea to grow it again', all: 'Kingdom of Saudi Arabia — 13 regions', route: 'Jazan → Riyadh' },
+    ar: { son: '♪ الصوت يعمل', soff: '♪ الصوت متوقف', isl: 'جزيرة', cap: 'العاصمة الإدارية', hint: 'مرّر أو اضغط على منطقة · اضغط للتثبيت · اضغط على البحر لتنمو الخريطة من جديد', all: 'المملكة العربية السعودية — 13 منطقة', route: 'جازان ← الرياض' },
+    zh: { son: '♪ 声音开', soff: '♪ 声音关', isl: '座岛屿', cap: '首府', hint: '悬停或点击某个地区 · 点击可固定 · 点击海面让地图重新生长', all: '沙特阿拉伯王国 — 13 个地区', route: '吉赞 → 利雅得' }
   };
   // label nudges (degrees) for small or coastal regions, so every name stays readable
   var NUDGE = { 'SA-09': [-1.9, -0.55], 'SA-11': [-1.75, -0.35], 'SA-10': [0.5, -0.1], 'SA-14': [0.55, 0.25], 'SA-05': [0.15, 0.1], 'SA-02': [-0.55, 0.45], 'SA-04': [0.2, 0.9], 'SA-08': [0.6, 0.15] };
@@ -43,14 +43,14 @@
   fig.innerHTML = '<canvas role="img" aria-label="ASCII map of Saudi Arabia with its 13 regions"></canvas>' +
     '<div class="ksa-panel" aria-live="polite"><b class="ksa-name"></b><span class="ksa-alt"></span><span class="ksa-cap"></span><span class="ksa-note"></span></div>' +
     '<ul class="ksa-chips" role="list"></ul>' +
-    '<figcaption><span class="ksa-hint"></span><span class="ksa-src" dir="ltr">boundaries © OpenStreetMap contributors</span></figcaption>';
+    '<figcaption><span class="ksa-hint"></span><button type="button" class="ksa-sound" aria-pressed="true"></button><span class="ksa-src" dir="ltr">boundaries © OpenStreetMap contributors</span></figcaption>';
   var canvas = fig.querySelector('canvas'), ctx = canvas.getContext('2d');
   var panel = fig.querySelector('.ksa-panel'), chips = fig.querySelector('.ksa-chips');
   var base = document.createElement('canvas'), bctx = base.getContext('2d');
 
   var LON0 = 34.2, LON1 = 56.0, LAT0 = 16.0, LAT1 = 32.5, KX = Math.cos(24.3 * Math.PI / 180);
   var W = 0, H = 0, cols = 0, rows = 0, cw = 0, ch = 0, fs = 10, dpr = 1;
-  var reg, edge, delay, hsh, maxDelay = 1;
+  var reg, edge, delay, hsh, isle, islands = 0, maxDelay = 1;
   var hover = -1, pin = -1, born = -1, visible = false, baseKey = '', ripples = [], twinkle = [];
 
   function lonX(lon) { return (lon - LON0) / (LON1 - LON0) * W; }
@@ -84,7 +84,18 @@
       }
       reg[k] = hit; hsh[k] = ((x * 73856093) ^ (y * 19349663)) & 0xffff;
     }
-    // borders: 1 = vertical stroke, 2 = horizontal stroke, 3 = corner; +4 when it is the coast / outer border
+    // islands: any island smaller than a cell still gets its own cell, so none is missing from the map
+    isle = new Uint8Array(cols * rows); islands = 0;
+    for (var ri = 0; ri < R.length; ri++) for (var qi = 1; qi < R[ri].p.length; qi++) {
+      var ring = R[ri].p[qi], sx = 0, sy = 0;
+      for (var pi = 0; pi < ring.length; pi++) { sx += ring[pi][0]; sy += ring[pi][1]; }
+      var ix = Math.floor((sx / ring.length - LON0) / (LON1 - LON0) * cols), iy = Math.floor((LAT1 - sy / ring.length) / (LAT1 - LAT0) * rows);
+      if (ix < 0 || iy < 0 || ix >= cols || iy >= rows) continue;
+      islands++;
+      var ik = iy * cols + ix;
+      if (reg[ik] < 0) { reg[ik] = ri; isle[ik] = 1; }
+    }
+    // borders: 1 = vertical stroke, 2 = horizontal stroke, 3 = corner; +4 when it is the coast / outer border; 8 = a small island
     var hc = R[HOME].info.cc, hx = (hc[0] - LON0) / (LON1 - LON0) * cols, hy = (LAT1 - hc[1]) / (LAT1 - LAT0) * rows; maxDelay = 1;
     for (var y2 = 0; y2 < rows; y2++) for (var x2 = 0; x2 < cols; x2++) {
       var k2 = y2 * cols + x2, me = reg[k2]; if (me < 0) continue;
@@ -92,7 +103,7 @@
       var dh = (r !== me) || (l !== me && l < 0), dv = (d !== me) || (u !== me && u < 0);
       var e = dh && dv ? 3 : dh ? 1 : dv ? 2 : 0;
       if (e && (l < 0 || r < 0 || u < 0 || d < 0)) e += 4;
-      edge[k2] = e;
+      edge[k2] = isle[k2] ? 8 : e;
       var dd = Math.hypot(x2 - hx, (y2 - hy) * 1.7); delay[k2] = dd; if (dd > maxDelay) maxDelay = dd;
     }
     baseKey = ''; frame(performance.now());
@@ -107,8 +118,8 @@
       var e = edge[k], lit = me === hi || me === pn, mine = me === HOME || me === WORK;
       var g, col;
       if (e) {
-        g = EG[e & 3];
-        col = lit ? (dk ? '#ffffff' : '#052e16') : (e & 4) ? (dk ? 'rgba(235,235,235,0.9)' : 'rgba(20,20,20,0.9)') : (dk ? 'rgba(200,205,210,0.55)' : 'rgba(40,40,40,0.55)');
+        g = e === 8 ? 'o' : EG[e & 3];
+        col = lit ? (dk ? '#ffffff' : '#052e16') : (e & 12) ? (dk ? 'rgba(235,235,235,0.9)' : 'rgba(20,20,20,0.9)') : (dk ? 'rgba(200,205,210,0.55)' : 'rgba(40,40,40,0.55)');
       } else {
         g = (hsh[k] & 1) ? '1' : '0';
         var v = ((hsh[k] >> 3) & 3) / 3;
@@ -157,7 +168,7 @@
         var front = grow - dl < 2.2, e = edge[k];
         if (front) { ctx.fillStyle = dk ? '#4ade80' : '#15803d'; ctx.globalAlpha = 0.95; ctx.fillText(Math.random() < 0.5 ? '0' : '1', x * cw, y * ch); continue; }
         ctx.globalAlpha = 1;
-        if (e) { ctx.fillStyle = (e & 4) ? (dk ? 'rgba(235,235,235,0.9)' : 'rgba(20,20,20,0.9)') : (dk ? 'rgba(200,205,210,0.55)' : 'rgba(40,40,40,0.55)'); ctx.fillText(EG[e & 3], x * cw, y * ch); }
+        if (e) { ctx.fillStyle = (e & 12) ? (dk ? 'rgba(235,235,235,0.9)' : 'rgba(20,20,20,0.9)') : (dk ? 'rgba(200,205,210,0.55)' : 'rgba(40,40,40,0.55)'); ctx.fillText(e === 8 ? 'o' : EG[e & 3], x * cw, y * ch); }
         else { var mine = me === HOME || me === WORK; ctx.fillStyle = mine ? (dk ? 'rgba(74,222,128,0.42)' : 'rgba(21,128,61,0.5)') : (dk ? 'rgba(170,176,184,0.24)' : 'rgba(40,44,50,0.28)'); ctx.fillText((hsh[k] & 1) ? '1' : '0', x * cw, y * ch); }
       }
       ctx.globalAlpha = 1;
@@ -220,14 +231,38 @@
     }
   }
 
+  // ---------- sound: soft plucked notes made with Web Audio (no files); each region has its own pitch ----------
+  var AC = null, master = null, soundOn = true;
+  try { soundOn = localStorage.getItem('ksa-sound') !== 'off'; } catch (_) {}
+  var SCALE = [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26, 28];      // major pentatonic, one step per region (south -> north)
+  var ORDER = R.map(function (r, i) { return i; }).sort(function (a, b) { return R[a].c[1] - R[b].c[1]; });
+  function audio() {
+    if (!soundOn) return null;
+    if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (!C) return null; AC = new C(); master = AC.createGain(); master.gain.value = 0.16; master.connect(AC.destination); }
+    if (AC.state === 'suspended') AC.resume();
+    return AC;
+  }
+  function note(semi, when, dur, vol, type) {
+    var a = audio(); if (!a) return;
+    var t0 = a.currentTime + (when || 0), f = 220 * Math.pow(2, semi / 12), o = a.createOscillator(), o2 = a.createOscillator(), g = a.createGain();
+    o.type = type || 'triangle'; o.frequency.value = f; o2.type = 'sine'; o2.frequency.value = f * 2.005;
+    g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(vol || 0.6, t0 + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t0 + (dur || 0.5));
+    var g2 = a.createGain(); g2.gain.value = 0.22; o2.connect(g2); g2.connect(g); o.connect(g); g.connect(master);
+    o.start(t0); o2.start(t0); o.stop(t0 + (dur || 0.5) + 0.05); o2.stop(t0 + (dur || 0.5) + 0.05);
+  }
+  function sndRegion(i, on) { var st = SCALE[ORDER.indexOf(i)] || 0; if (on) { note(st, 0, 0.55, 0.6); note(st + 7, 0.09, 0.7, 0.42); } else note(st - 5, 0, 0.35, 0.4, 'sine'); }
+  function sndHover(i) { if (AC && soundOn) note((SCALE[ORDER.indexOf(i)] || 0) + 12, 0, 0.12, 0.12, 'sine'); }   // only once sound is unlocked by a click
+  function sndGrow() { [0, 4, 7, 12, 16, 19, 24].forEach(function (st, k) { note(st, k * 0.085, 0.5, 0.42); }); }
+
   // ---------- panel + chips ----------
   function fill() {
     var L = lang(), u = UI[L], i = hover >= 0 ? hover : pin;
     fig.querySelector('.ksa-hint').textContent = u.hint;
+    var sb = fig.querySelector('.ksa-sound'); sb.textContent = soundOn ? u.son : u.soff; sb.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
     if (i < 0) {
       panel.querySelector('.ksa-name').textContent = u.all;
       panel.querySelector('.ksa-alt').textContent = '';
-      panel.querySelector('.ksa-cap').textContent = u.route;
+      panel.querySelector('.ksa-cap').textContent = u.route + ' · ' + islands + ' ' + u.isl;
       panel.querySelector('.ksa-note').textContent = '';
     } else {
       var inf = R[i].info, others = ['ar', 'en', 'zh'].filter(function (x) { return x !== L; }).map(function (x) { return inf.n[x]; }).join(' · ');
@@ -241,22 +276,26 @@
   R.forEach(function (r, i) {
     var li = document.createElement('li'), b = document.createElement('button');
     b.type = 'button'; b.className = 'ksa-chip'; li.appendChild(b); chips.appendChild(li);
-    b.addEventListener('mouseenter', function () { hover = i; fill(); kick(); });
+    b.addEventListener('mouseenter', function () { hover = i; sndHover(i); fill(); kick(); });
     b.addEventListener('mouseleave', function () { hover = -1; fill(); kick(); });
     b.addEventListener('focus', function () { hover = i; fill(); kick(); });
     b.addEventListener('blur', function () { hover = -1; fill(); kick(); });
-    b.addEventListener('click', function () { pin = pin === i ? -1 : i; ripple(lonX(r.c[0]) / cw, latY(r.c[1]) / ch); fill(); kick(); });
+    b.addEventListener('click', function () { pin = pin === i ? -1 : i; sndRegion(i, pin === i); ripple(lonX(r.c[0]) / cw, latY(r.c[1]) / ch); fill(); kick(); });
   });
 
+  fig.querySelector('.ksa-sound').addEventListener('click', function () {
+    soundOn = !soundOn; try { localStorage.setItem('ksa-sound', soundOn ? 'on' : 'off'); } catch (_) {}
+    fill(); if (soundOn) note(12, 0, 0.3, 0.5);
+  });
   function cellAt(e) { var r = canvas.getBoundingClientRect(); return { x: Math.floor((e.clientX - r.left) / cw), y: Math.floor((e.clientY - r.top) / ch) }; }
   function regAt(c) { return c.x < 0 || c.y < 0 || c.x >= cols || c.y >= rows ? -1 : reg[c.y * cols + c.x]; }
   function ripple(x, y) { if (!reduce) ripples.push({ x: x, y: y, t: performance.now() / 1000 }); }
-  canvas.addEventListener('pointermove', function (e) { var h = regAt(cellAt(e)); if (h !== hover) { hover = h; canvas.style.cursor = h >= 0 ? 'pointer' : 'default'; fill(); kick(); } });
+  canvas.addEventListener('pointermove', function (e) { var h = regAt(cellAt(e)); if (h !== hover) { hover = h; if (h >= 0) sndHover(h); canvas.style.cursor = h >= 0 ? 'pointer' : 'default'; fill(); kick(); } });
   canvas.addEventListener('pointerleave', function () { if (hover !== -1) { hover = -1; fill(); kick(); } });
   canvas.addEventListener('click', function (e) {
     var c = cellAt(e), h = regAt(c);
-    if (h < 0) { pin = -1; born = performance.now(); ripples = []; }     // the sea: grow it again
-    else { pin = pin === h ? -1 : h; ripple(c.x, c.y); }
+    if (h < 0) { pin = -1; born = performance.now(); ripples = []; sndGrow(); }     // the sea: grow it again
+    else { pin = pin === h ? -1 : h; sndRegion(h, pin === h); ripple(c.x, c.y); }
     fill(); kick();
   });
 
@@ -278,5 +317,5 @@
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(build, 150); });
   build(); fill();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { build(); });
-  window.KSAMAP = { replay: function () { born = performance.now(); kick(); }, state: function () { return { hover: hover, pin: pin, cols: cols, rows: rows }; } };
+  window.KSAMAP = { replay: function () { born = performance.now(); kick(); }, state: function () { var ic = 0; for (var q = 0; q < isle.length; q++) ic += isle[q]; return { hover: hover, pin: pin, cols: cols, rows: rows, islands: islands, islandCells: ic, sound: soundOn, audio: AC ? AC.state : 'none' }; } };
 })();

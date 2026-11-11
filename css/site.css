@@ -488,3 +488,6 @@ kbd { display: inline-block; padding: 1px 5px; border: 1px solid var(--line-2); 
 body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 .mail, .phone, .phone a, .term, .term *, input, textarea { -webkit-user-select: text; user-select: text; }
 img, canvas { -webkit-user-drag: none; }
+.ksa-sound { padding: 3px 9px; border: 1px solid var(--line-2); border-radius: 999px; background: none; color: var(--fg-3); font: 400 10.5px/1.4 var(--mono); cursor: pointer; transition: color 0.15s, border-color 0.15s; }
+.ksa-sound[aria-pressed="true"] { color: var(--pr); border-color: var(--pr); }
+[lang="ar"] .ksa-sound { font-family: "Cairo", var(--sans); font-size: 12px; }
