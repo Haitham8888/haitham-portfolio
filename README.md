@@ -2,6 +2,8 @@
 
 Personal site of **Al-Haitham** — AI Engineer & Full-Stack Software Engineer.
 
+**All rights reserved.** The design, code and ASCII artwork are original work and may not be copied or reused. See [LICENSE](LICENSE).
+
 One column, pure black by default (light theme optional), Arabic · English · 中文.
 Hand-built, no frameworks, no build step — served as-is by GitHub Pages.
 

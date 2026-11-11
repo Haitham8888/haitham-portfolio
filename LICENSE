@@ -1,0 +1,16 @@
+Copyright (c) 2026 Al-Haitham (haithamhattan.sa). All rights reserved.
+
+This repository is published only so that the website can be served.
+The design, layout, source code, texts, ASCII artwork and animations (including the
+ASCII detective, the eye portrait, the flag and the map renderers) are original work.
+
+No permission is granted to copy, reproduce, adapt, redistribute, re-host or reuse any
+part of this work, in whole or in part, for any purpose, without prior written permission.
+
+Contact: info@haithamhattan.sa
+
+Third-party material keeps its own terms:
+- Region boundaries in js/ksa-data.js: (c) OpenStreetMap contributors, via geoBoundaries (ODbL 1.0).
+- Brand icons in js/space-icons.js: Simple Icons (CC0); the marks belong to their owners.
+- audio/saudi-anthem.mp3: United States Navy Band recording (public domain).
+- Organisation and product logos belong to their respective owners.
