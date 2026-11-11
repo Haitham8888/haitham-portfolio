@@ -41,7 +41,7 @@
   var bubble = layer.querySelector('.sh-bubble'), btext = bubble.querySelector('.sh-t'), hit = layer.querySelector('.sh-hit');
 
   // sprite sheet: 8 x 9 frames of 96 x 104
-  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=114';
+  var sheet = new Image(); sheet.src = 'img/sherlock.webp?v=118';
   var FW = 96, FHH = 104;
   var AN = {
     idle: { r: 0, n: 6, fps: 5 }, runR: { r: 1, n: 8, fps: 9 }, runL: { r: 2, n: 8, fps: 9 }, wave: { r: 3, n: 4, fps: 7 },
@@ -59,7 +59,7 @@
     cv.width = Math.round(VW * dpr); cv.height = Math.round(VH * dpr);
     cv.style.width = VW + 'px'; cv.style.height = VH + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    u = VW < 700 ? 0.7 : clamp(VW / 1440, 0.85, 1.05);
+    u = VW < 700 ? 0.56 : clamp(VW / 1440, 0.85, 1.05);
     FH = 196 * u;
   }
 
@@ -76,11 +76,17 @@
   function ledges() {
     var sy = window.scrollY, list = [], zr = zone.getBoundingClientRect();
     if (zr.height > 60) list.push({ id: 'zone', y: zr.bottom + sy - zr.height * 0.05, x0: zr.left, x1: zr.right });
-    for (var i = 0; i < ledgeEls.length; i++) {
+    // bottom of the screen: on wide screens he keeps to the empty margin beside the content, never on top of it
+    var pg = document.querySelector('.page'), pr = pg ? pg.getBoundingClientRect() : null, gut = pr ? VW - pr.right + 24 : 0;
+    layer.classList.toggle('sh-margin', gut >= 120);
+    // section lines are ledges only where there is no margin to stand in (phones, tablets)
+    if (gut < 120) for (var i = 0; i < ledgeEls.length; i++) {
       var r = ledgeEls[i].getBoundingClientRect();
       if (r.width > 100) list.push({ id: 'b' + i, y: r.top + sy, x0: r.left, x1: r.right });
     }
-    list.push({ id: 'vb', vb: true, y: sy + VH - 3, x0: Math.max(VW * 0.6, VW - 280), x1: VW - 10 });
+
+    if (gut >= 120) list.push({ id: 'vb', vb: true, margin: true, y: sy + VH - 3, x0: VW - gut + 34, x1: VW - 22 });
+    else list.push({ id: 'vb', vb: true, y: sy + VH - 3, x0: Math.max(VW * 0.6, VW - 280), x1: VW - 10 });
     return list;
   }
   function usable(f) { if (f.vb) return true; var s = f.y - window.scrollY; return s >= FH * 0.8 && s <= VH - 3; }
@@ -149,12 +155,13 @@
           if (S.x < f.x0 || S.x > f.x1 || !usable(f)) continue;
           if (py <= f.y && S.y >= f.y && (!hitF || f.y < hitF.y)) hitF = f;
         }
-        if (!hitF && S.y >= map.vb.y) hitF = map.vb;
+        if (!hitF && S.y >= map.vb.y) { hitF = map.vb; if (map.vb.margin) S.x = clamp(S.x, map.vb.x0 + 20 * u, map.vb.x1 - 20 * u); }
         if (hitF) land(hitF);
       }
       S.walking = false;
     } else {
       var fl = map[S.floor] || map.vb; S.floor = fl.id; S.y = fl.y;
+      if (fl.vb && fl.margin) S.x = clamp(S.x, fl.x0 + 20 * u, fl.x1 - 20 * u);
       var scr = fl.y - sy;
       if (!reduce && !fl.vb && scr < FH * 0.8) { S.vx = S.dir * 60; S.vy = -260; S.mode = 'air'; S.floor = null; return; }
       if (!reduce && !fl.vb && scr > VH - 2) {
@@ -183,8 +190,9 @@
           S.timer -= dt;
           if (S.mode === 'walk') {
             S.walking = true;
-            if (S.x < fl.x0 + 46 * u) S.dir = 1;
-            if (S.x > fl.x1 - 46 * u) S.dir = -1;
+            var padW = fl.margin ? 34 * u : 46 * u;
+            if (S.x < fl.x0 + padW) S.dir = 1;
+            if (S.x > fl.x1 - padW) S.dir = -1;
             if (S.timer <= 0) {
               S.mode = 'idle'; S.timer = 3 + Math.random() * 2.5; S.walking = false; S.idleAnim = ['idle', 'wait', 'think', 'idle'][(Math.random() * 4) | 0];
               S.inspect = inspectTarget();
@@ -209,7 +217,7 @@
         if (engaged && !S.engaged && now - (S.lastGreet || -1e9) > 14000) { S.greet = true; S.lastGreet = now; }
         S.engaged = engaged;
         S.aimA = ease(S.aimA, engaged ? 1 : 0, 5, dt);
-        if (S.walking) S.x = clamp(S.x + S.dir * 50 * u * S.w * dt, fl.x0 + 30 * u, fl.x1 - 30 * u);
+        if (S.walking) S.x = clamp(S.x + S.dir * 50 * u * S.w * dt, fl.x0 + (fl.margin ? 26 : 30) * u, fl.x1 - (fl.margin ? 26 : 30) * u);
       }
     }
     if (S.mode !== 'idle' && S.mode !== 'walk' && S.mode !== 'land') S.aimA = ease(S.aimA, 0, 5, dt);
